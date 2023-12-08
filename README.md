@@ -1,2 +1,2 @@
 # docs
-Docs for LNbits software and related projects.
+Community docs for LNbits software and related projects.
