@@ -1,0 +1,195 @@
+/**
+ * LNbits Documentation Theme
+ *
+ * Light mode: Black & white
+ * Dark mode: Purple palette
+ */
+
+/* ── Light Mode (B&W) ── */
+:root {
+  /* Brand — black in light mode */
+  --vp-c-brand-1: #111111;
+  --vp-c-brand-2: #333333;
+  --vp-c-brand-3: #000000;
+  --vp-c-brand-soft: rgba(0, 0, 0, 0.08);
+
+  /* Tips */
+  --vp-c-tip-1: #333333;
+  --vp-c-tip-2: rgba(0, 0, 0, 0.1);
+  --vp-c-tip-3: rgba(0, 0, 0, 0.2);
+  --vp-c-tip-soft: rgba(0, 0, 0, 0.06);
+
+  /* Backgrounds — pure white */
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #f7f7f7;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f2f2f2;
+
+  /* Home hero — B&W gradient */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: linear-gradient(135deg, #111, #444, #000);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.06));
+  --vp-home-hero-image-filter: blur(56px);
+}
+
+/* ── Dark Mode (Purple) ── */
+.dark {
+  --vp-c-brand-1: #9575cd;
+  --vp-c-brand-2: #b39ddb;
+  --vp-c-brand-3: #ce93d8;
+  --vp-c-brand-soft: rgba(149, 117, 205, 0.16);
+
+  --vp-c-tip-1: #9575cd;
+  --vp-c-tip-2: rgba(149, 117, 205, 0.16);
+  --vp-c-tip-3: rgba(149, 117, 205, 0.32);
+  --vp-c-tip-soft: rgba(149, 117, 205, 0.14);
+
+  --vp-c-bg: #1a1b2e;
+  --vp-c-bg-alt: #1f2234;
+  --vp-c-bg-elv: #252840;
+  --vp-c-bg-soft: #2a2d45;
+
+  --vp-c-text-1: rgba(255, 255, 255, 0.92);
+  --vp-c-text-2: rgba(255, 255, 255, 0.64);
+  --vp-c-text-3: rgba(255, 255, 255, 0.38);
+
+  --vp-c-divider: rgba(255, 255, 255, 0.08);
+  --vp-c-gutter: #1a1b2e;
+
+  --vp-home-hero-name-background: linear-gradient(135deg, #9575cd, #ce93d8, #f48fb1);
+  --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(149, 117, 205, 0.4), rgba(206, 147, 216, 0.25));
+}
+
+/* ── Button Overrides (Light = B&W) ── */
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #ffffff;
+  --vp-button-brand-bg: #111111;
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #ffffff;
+  --vp-button-brand-hover-bg: #333333;
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #ffffff;
+  --vp-button-brand-active-bg: #000000;
+
+  --vp-button-alt-border: rgba(0, 0, 0, 0.15);
+  --vp-button-alt-text: #111111;
+  --vp-button-alt-bg: rgba(0, 0, 0, 0.04);
+  --vp-button-alt-hover-border: rgba(0, 0, 0, 0.25);
+  --vp-button-alt-hover-text: #000000;
+  --vp-button-alt-hover-bg: rgba(0, 0, 0, 0.08);
+}
+
+/* ── Button Overrides (Dark = Purple) ── */
+.dark {
+  --vp-button-brand-bg: #7c4dcc;
+  --vp-button-brand-hover-bg: #9575cd;
+  --vp-button-brand-active-bg: #673ab7;
+
+  --vp-button-alt-border: rgba(149, 117, 205, 0.25);
+  --vp-button-alt-text: #b39ddb;
+  --vp-button-alt-bg: rgba(149, 117, 205, 0.1);
+  --vp-button-alt-hover-border: rgba(149, 117, 205, 0.4);
+  --vp-button-alt-hover-text: #ce93d8;
+  --vp-button-alt-hover-bg: rgba(149, 117, 205, 0.18);
+}
+
+/* ── Sidebar active ── */
+.VPSidebarItem.is-active > .item > .indicator {
+  background-color: #111;
+}
+
+.dark .VPSidebarItem.is-active > .item > .indicator {
+  background-color: #9575cd;
+}
+
+/* ── Nav bar ── */
+.dark .VPNavBar {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+/* ── Custom container tips ── */
+.custom-block.tip {
+  border-color: var(--vp-c-brand-1);
+}
+
+.custom-block.warning {
+  border-color: #f9a825;
+}
+
+.custom-block.danger {
+  border-color: #ef5350;
+}
+
+/* ── Code blocks in dark mode ── */
+.dark .vp-code-group .tabs label {
+  color: rgba(255, 255, 255, 0.64);
+}
+
+.dark .vp-code-group .tabs label.active {
+  color: #b39ddb;
+}
+
+/* ── Feature cards on home page ── */
+.VPFeature {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.VPFeature:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark .VPFeature:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ── Home page: remove default VitePress page padding ── */
+[class*="route-\/index"] .VPContent .container,
+[class*="route-\/"] .VPContent .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+[class*="route-\/index"] .VPPage,
+[class*="route-\/"] .VPPage {
+  padding-top: 0;
+}
+
+[class*="route-\/index"] .VPContent,
+[class*="route-\/"] .VPContent {
+  padding-top: 0;
+}
+
+/* ── Scrollbar (dark mode) ── */
+.dark ::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #1a1b2e;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #333646;
+  border-radius: 3px;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #4a4d66;
+}
+
+/* ── GitHub link badge next to H1 ── */
+h1 .header-github-link {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin-left: 12px;
+  text-decoration: none;
+}
+
+h1 .header-github-link img {
+  display: inline-block;
+  vertical-align: middle;
+  height: 20px;
+}

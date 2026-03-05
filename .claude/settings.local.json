@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gh api:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:docs-telegramshop.netlify.app)",
+      "Bash(wc:*)",
+      "Bash(sed:*)",
+      "Bash(comm:*)",
+      "WebFetch(domain:docs.btcpayserver.org)",
+      "WebFetch(domain:docs.strike.me)",
+      "WebFetch(domain:guides.getalby.com)",
+      "WebSearch"
+    ]
+  }
+}
