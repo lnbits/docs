@@ -6,36 +6,30 @@
   repo="lnbits/chat"
 />
 
-## Overview
-
-Chat is a live support extension for LNbits. Create chat categories, share public chat links, and manage incoming conversations from an admin dashboard. Guests can optionally pay per character to send messages — making spam expensive while keeping genuine conversations flowing.
-
 ## Features
 
-- **Category-based public chats** — organize conversations by topic with shareable links
-- **Admin dashboard** — list or grid view with unread/resolved indicators and inline replies
-- **Paid guest messages** — per-character pricing with Lightning invoices
-- **Optional tips** — guests can tip from the chat interface
-- **Notifications** — get alerted via Telegram, Nostr, or email when new chats arrive
-- **Embeddable widget** — add a chat launcher to any website via iframe
+- Category-based public chats with shareable links and multi-participant sessions.
+- Admin dashboard with list or grid view, unread/resolved indicators, and inline replies.
+- Paid guest messages with per-character pricing and Lightning invoices.
+- Optional tips from the public chat interface.
+- Notifications for new chats (Telegram, Nostr, Email) including the first message and link.
+- Embeddable widget/iframe with minimized launcher.
 
-## Use Cases
+## Screenshots
 
-- **Customer support** — embed on your website for Lightning-native support
-- **Paid consultations** — charge per message for expert advice
-- **Community engagement** — public topic-based chat rooms
-- **Anti-spam messaging** — cost per character discourages spam
+![Chat logo](https://raw.githubusercontent.com/lnbits/chat/main/static/image/chat.png)
 
-## Setup
+![Public chat page](https://raw.githubusercontent.com/lnbits/chat/main/static/image/1.png)
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Create a chat category with a name and optional per-character price
-3. Share the public chat link or embed the widget on your site
-4. Manage conversations from the admin dashboard
+![Notification example](https://raw.githubusercontent.com/lnbits/chat/main/static/image/2.png)
 
-### Embedding the Widget
+![Admin dashboard](https://raw.githubusercontent.com/lnbits/chat/main/static/image/3.png)
 
-Add the chat widget to any website as an iframe. The minimized launcher expands into a full chat interface when clicked.
+![Embed minimized](https://raw.githubusercontent.com/lnbits/chat/main/static/image/4.png)
+
+![Payment request](https://raw.githubusercontent.com/lnbits/chat/main/static/image/5.png)
+
+![Embed expanded](https://raw.githubusercontent.com/lnbits/chat/main/static/image/6.png)
 
 ## API Reference
 
@@ -44,5 +38,4 @@ See the [Chat API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Chat API Reference](./api): API endpoints for this extension
-- [TipJar](/extensions/tipjar/): Accept tips with Lightning
 - [All Extensions](/extensions/): Browse all LNbits extensions

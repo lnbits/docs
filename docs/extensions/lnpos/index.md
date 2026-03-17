@@ -6,41 +6,38 @@
   repo="lnbits/lnpos"
 />
 
-## Overview
+## Free and open-source bitcoin offline LN pos, onchain pos, offline (meatbag) atm
+Join us <a href="https://t.me/lnbits">t.me/lnbits</a>, <a href="https://t.me/makerbits">t.me/makerbits</a>
+> To be used with extensions <a href="https://github.com/lnbits/lnpos_extension">LNPoS</a>, <a href="https://github.com/lnbits/fossa_extension">FOSSA</a>
 
-LNPoS is the hardware point-of-sale extension for LNbits. It powers dedicated PoS hardware devices (ESP32-based) that can accept Lightning payments offline — the device communicates with LNbits to generate invoices and verify payments.
+### Installation:
+Old tutorial that needs updating -> https://www.youtube.com/watch?v=IhwCEDwGg2E
 
-LNPoS was originally part of the LNURLdevice extension and is now a standalone extension focused on hardware PoS terminals.
+1. Web-installer.
+Easy setup using browser https://lnpos.lnbits.com.
 
-## How It Works
+2. Terminal
+Build the project `sh build.sh`, find the USB device `sh debug.sh `, push the firmware `sh debug.sh /dev/ttyACM0 (<-whatever your device is called)`
 
-1. A merchant enters the payment amount on the hardware device
-2. The device communicates with LNbits to generate a Lightning invoice
-3. The customer scans the QR code displayed on the device
-4. Payment is verified and the device shows confirmation
+### Hardware:
 
-## Features
+- Lilygo <a href="https://www.aliexpress.com/item/33048962331.html">TTGO/Tdisplay</a> 
+- The <a href="https://www.aliexpress.com/item/1005003589706292.html">Lilygo Keyboard</a> specifically made for LNPoS 
+=> or get yourself the <a href="https://www.aliexpress.com/item/1005003589706292.html">LNPoS Kit</a>, dimensions 40x52x11mm e.g. in the [LNbits shop](https://shop.lnbits.com/product-category/hardware/point-of-sale-devices)
+- 3.7V lithium iron flat battery with 1.25mm JST with < 1000 mAh to fit inside the standard LNPoS Kit
+- LNbits LNURLdevice extension
 
-- **Dedicated hardware PoS** — purpose-built for physical retail
-- **Offline-capable** — device only needs internet for invoice generation and verification
-- **Simple interface** — numeric keypad for entering amounts
-- **Compact** — runs on ESP32-based hardware
+### LNPoS – Offline Lightning Network payments
 
-## Hardware
+A random pin generated on the device is encrypted and passed trough the payee. When the payment has been made the unencrypted pin is sent as a receipt. This function makes use of LNURL-pay protocol. Uses LNbits LNURLDevice extension.
 
-LNPoS runs on ESP32 devices with a display. See the [LNPoS hardware guide](https://lnbits.github.io/lnpos) for:
+### Onchain – Generate fresh addresses using an xPub
 
-- Bill of materials
-- Assembly instructions
-- Firmware flashing guide
+Use an xPub to generate a fresh address for every payment. Useful for large purchases. Includes a mempool.space QR so the payment can be verified.
 
-## Setup
+### LNATM – Meatbag ATM, give refunds, accept cash for sats.
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Create a new PoS device and configure the funding wallet
-3. Flash the LNPoS firmware to your ESP32 device
-4. Connect the device to your LNbits instance
-5. Test with a small payment
+Create withdraw/faucet links. Uses more-or-less. This function makes use of LNURL-withdraw protocol. Uses LNbits LNURLDevice extension.
 
 ## API Reference
 
@@ -49,7 +46,4 @@ See the [LNPoS API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LNPoS API Reference](./api): API endpoints for this extension
-- [TPoS](/extensions/tpos/): Software point-of-sale (runs on any device with a browser)
-- [Bitcoin Switch](/extensions/bitcoinswitch/): Trigger devices with payments
-- [FOSSA](/extensions/fossa/): Bitcoin ATM extension
 - [All Extensions](/extensions/): Browse all LNbits extensions

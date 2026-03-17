@@ -8,30 +8,51 @@
 
 ## Overview
 
-Inventory provides a shared product catalog for LNbits. Create items with prices, descriptions, images, and stock levels — then reuse that catalog across multiple extensions like Telegram Shopping, WebShop, or TPoS. Instead of each extension maintaining its own product list, Inventory acts as a single source of truth.
+Inventory offers a centralized way to manage products inside LNbits while keeping
+the data reusable across multiple extensions.
 
-## Features
+Instead of each extension maintaining its own product list, Inventory can act as
+a single source of truth for item data and stock levels.
 
-- **Product management** — create, edit, and organize items with names, descriptions, and images
-- **Stock tracking** — track quantities with inline updates
-- **Tags and categories** — organize and filter products
-- **Shared catalog** — other extensions read from the same inventory
-- **Discount and tax** — configure per-item discounts and tax rates
-- **Import/export** — bulk manage item data
-- **Audit log** — all inventory changes are logged
+## Highlights
 
-## Setup
+- Create, edit, and manage inventory items
+- Track stock quantities with quick inline updates
+- Store item metadata such as names, descriptions, and tags
+- Tag items for easier filtering and organization
+- Share inventory data across multiple LNbits extensions
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Add products with names, descriptions, prices, and stock quantities
-3. Tag items for organization
-4. Other extensions (Telegram Shopping, WebShop) will use this catalog
+## Typical Use Cases
 
-## Use Cases
+- Managing products for point-of-sale or checkout extensions
+- Reusing item data across multiple LNbits extensions
+- Tracking availability and stock changes over time
+- Keeping product information centralized and consistent
 
-- **Shared product catalog** — one inventory for multiple sales channels
-- **Stock management** — track availability across your shop
-- **Merchant operations** — centralized product data for PoS and online sales
+## Standalone and Integrations
+
+The Inventory extension can be used on its own as a lightweight inventory manager.
+
+When used alongside other LNbits extensions, it can provide:
+
+- Shared access to item definitions
+- Centralized stock tracking
+- Consistent product metadata across different workflows
+
+This makes it especially useful for PoS-style setups and other extensions that
+depend on structured product data.
+
+## Screenshots
+
+![Inventory manager overview](https://raw.githubusercontent.com/lnbits/inventory/main/static/1.png)
+![Inventory item details](https://raw.githubusercontent.com/lnbits/inventory/main/static/2.png)
+![Inventory manager table](https://raw.githubusercontent.com/lnbits/inventory/main/static/3.png)
+
+## Notes
+
+- Inventory focuses on item management and availability, not payments.
+- Extensions that integrate with Inventory remain responsible for their own
+  payment logic and workflows.
 
 ## API Reference
 
@@ -40,6 +61,4 @@ See the [Inventory API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Inventory API Reference](./api): API endpoints for this extension
-- [Telegram Shopping](/extensions/telegramshop/): Telegram storefront using Inventory
-- [WebShop](/extensions/webshop/): Web shop with Lightning checkout
 - [All Extensions](/extensions/): Browse all LNbits extensions

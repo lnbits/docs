@@ -6,58 +6,83 @@
   repo="lnbits/boltcards"
 />
 
-## Overview
+## Setting the card - Boltcard NFC Card Creator (easy way)
 
-The Bolt Cards extension lets you link NFC cards (NXP NTAG424 DNA) to your LNbits wallet for tap-to-pay. Unlike static LNURL-withdraw links, each tap generates a new unique link using the card's Secure Unique NFC (SUN) feature — providing better privacy and security.
+- Add new card in the extension.
+  - Set a max sats per transaction. Any transaction greater than this amount will be rejected. This is usually set higher than the funds in the wallet are to prevent accidential withdraws.
+  - Set a max sats per day. After the card spends this amount of sats in a day, additional transactions will be rejected.
+  - Set a card name. This is just for your reference inside LNbits.
+  - Set the card UID. This is the unique identifier of your NFC card and is 7 bytes.
+    - If on an Android device with a newish version of Chrome, you can click the icon next to the input and tap your card to autofill this field.
+    - Otherwise read it with the Bolt-Card app (Read NFC) and paste it to the field.
+  - Advanced Options
+    - Card Keys (k0, k1, k2) will be automatically generated if not explicitly set.
+      - Set to 16 bytes of 0s (00000000000000000000000000000000) to leave the keys in default (empty) state (this is unsecure).
+      - GENERATE KEY button fill the keys randomly.
+  - Click CREATE CARD button
+- Click the QR code button next to a card to view its details. Backup the keys now! They'll be comfortable in your password manager.
+  - Now you can scan the QR code with the Boltcard app (Create Bolt Card -> SCAN QR CODE).
+  - Or the "KEYS / AUTH LINK" button to copy the auth URL to the clipboard. Then paste it into the Android app (Create Bolt Card -> PASTE AUTH URL).
+- Click WRITE CARD NOW and approach the NFC card to set it up. DO NOT REMOVE THE CARD PREMATURELY!
 
-## How It Works
+## Erasing the card - Boltcard NFC Card Creator
 
-Each card stores encrypted credentials. When tapped against an NFC reader:
+Updated for v0.1.9
 
-1. The card generates a unique encrypted payload
-2. LNbits verifies the card's identity and counter
-3. A one-time LNURL-withdraw link is created
-4. The payment is processed from the linked wallet
+Since v0.1.2 of Boltcard NFC Card Creator it is possible not only to reset the keys but also to disable the SUN function and do the complete erase so the card can be used again as a static tag (or set as a new Bolt Card, ofc).
 
-## Features
+- In the Boltcard extension click the QR code button next to a card to view its details and select WIPE
+- OR click the red cross icon on the right side to reach the same
+- In the Boltcard app (Reset Keys)
+  - Click SCAN QR CODE to scan the QR
+  - Or click WIPE DATA in LNbits to copy and paste in to the app (PASTE KEY JSON)
+- Click RESET CARD NOW and approach the NFC card to erase it. DO NOT REMOVE THE CARD PREMATURELY!
+- Now if all is successful the card can be safely deleted from LNbits (but keep the keys backuped anyway; batter safe than brick).
 
-- **One-time links per tap** — no reuse, better security than static LNURLw
-- **Per-card limits** — set max sats per transaction and per day
-- **Card UID verification** — each card is uniquely identified
-- **Key management** — three encryption keys (K0, K1, K2) for authentication and encryption
-- **Wipe and reset** — safely erase cards for reuse
+If you somehow find yourself in some non-standard state (for instance only k3 and k4 remains filled after previous unsuccessful reset), then you need to edit the key fields manually (for instance leave k0-k2 to zeroes and provide the right k3 and k4).
 
-## Requirements
+## Setting the card (advanced)
 
-- LNbits instance accessible over **clearnet** (HTTPS)
-- [Bolt Card NFC Card Creator App](https://github.com/boltcard/bolt-nfc-android-app) (available on [Apple Store](https://apps.apple.com/us/app/boltcard-nfc-programmer/id6450968873) and [Play Store](https://play.google.com/store/search?q=bolt+card+nfc+card+creator&c=apps))
-- NXP NTAG424 DNA NFC cards
+A technology called [Secure Unique NFC](https://web.archive.org/web/20220706134959/https://mishka-scan.com/blog/secure-unique-nfc) is utilized in this workflow.
 
-## Setup
+### About the keys
 
-### Creating a card
+Up to five 16-byte keys can be stored on the card, numbered from 00 to 04. In the empty state they all should be set to zeros (00000000000000000000000000000000). For this extension only two keys need to be set, but for the security reasons all five keys should be changed from default (empty) state. The keys directly needed by this extension are:
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **Add new card** and configure:
-   - **Max sats per transaction** — rejects payments above this amount
-   - **Max sats per day** — daily spending limit
-   - **Card name** — for your reference
-   - **Card UID** — 7-byte unique identifier (tap to autofill on Android Chrome, or read with the Bolt Card app)
-   - **Keys** — auto-generated, or set manually
-3. Click **Create Card**
-4. Click the QR code button to view card details — **back up the keys now**
-5. Scan the QR with the Bolt Card NFC Card Creator app
-6. Tap **Write Card Now** and hold the card steady until complete
+- One for encrypting the card UID and the counter (p parameter), let's called it meta key, key #01 or K1.
 
-### Erasing a card
+- One for calculating CMAC (c parameter), let's called it file key, key #02 or K2.
 
-1. Click the QR code button next to the card and select **Wipe**
-2. In the Bolt Card app, scan the wipe QR or paste the key JSON
-3. Tap **Reset Card Now** and hold the card steady
+The key #00, K0 (also know as auth key) is used as authentification key. It is not directly needed by this extension, but should be filled in order to write the keys in cooperation with Boltcard NFC Card Creator. In this case also K3 is set to same value as K1 and K4 as K2, so all keys are changed from default values. Keep that in your mind in case you ever need to reset the keys manually.
 
-::: warning
-Always back up your card keys. Without them, you may not be able to modify the card in the future.
-:::
+### The writing process
+
+There's also a more [advanced guide](https://www.whitewolftech.com/articles/payment-card/) to set cards up manually with a card reader connected to your computer.
+Writing can also be done (without setting the keys) via the [TagWriter app by NXP](https://play.google.com/store/apps/details?id=com.nxp.nfc.tagwriter) on Android.
+
+The URI should be `lnurlw://YOUR_LNBITS_DOMAIN/boltcards/api/v1/scan/{YOUR_card_external_id}?p=00000000000000000000000000000000&c=0000000000000000`
+
+Then fill up the card parameters in the extension. Card Auth key (K0) can be filled in the extension just for the record. Initical counter can be 0.
+
+- If you don't know the card ID, use NXP TagInfo app to read it first.
+- Tap Write tags > New Data Set > Link
+- Set URI type to Custom URL
+- URL should look like `lnurlw://YOUR_LNBITS_DOMAIN/boltcards/api/v1/scan/{YOUR_card_external_id}?p=00000000000000000000000000000000&c=0000000000000000`
+- click Configure mirroring options
+- Select Card Type NTAG 424 DNA
+- Check Enable SDM Mirroring
+- Select SDM Meta Read Access Right to 01
+- Check Enable UID Mirroring
+- Check Enable Counter Mirroring
+- Set SDM Counter Retrieval Key to 0E
+- Set PICC Data Offset to immediately after e=
+- Set Derivation Key for CMAC Calculation to 00
+- Set SDM MAC Input Offset to immediately after c=
+- Set SDM MAC Offset to immediately after c=
+- Save & Write
+- Scan with compatible Wallet
+
+This app afaik cannot change the keys. If you cannot change them any other way, leave them empty in the extension dialog and remember you're not secured. Card Auth key (K0) can be omitted anyway. Initical counter can be 0.
 
 ## API Reference
 
@@ -66,6 +91,4 @@ See the [Bolt Cards API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Bolt Cards API Reference](./api): API endpoints for this extension
-- [Withdraw](/extensions/withdraw/): LNURL-withdraw links and vouchers
-- [Hardware & Merchants FAQ](/guide/faq/hardware): NFC and merchant setup questions
 - [All Extensions](/extensions/): Browse all LNbits extensions

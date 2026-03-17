@@ -1,0 +1,167 @@
+{
+  "lnurlp": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/lnurlp/main/static/image/lnurl-pay.png"
+  },
+  "tpos": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/tpos/main/static/image/tpos.png"
+  },
+  "satspay": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/satspay/main/static/image/satspay.png"
+  },
+  "paywall": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/paywall/main/static/image/paywall.png"
+  },
+  "sellcoins": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/sellcoins/main/static/image/sellcoins.png"
+  },
+  "invoices": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/invoices/main/static/image/invoices.png"
+  },
+  "market": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/market/main/static/images/bitcoin-shop.png"
+  },
+  "offlineshop": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/offlineshop/main/static/image/offlineshop.png"
+  },
+  "webshop": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/webshop/main/static/image/webshop.png"
+  },
+  "watchonly": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/watchonly/main/static/bitcoin-wallet.png"
+  },
+  "splitpayments": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/splitpayments/main/static/image/split-payments.png"
+  },
+  "scrub": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/scrub/main/static/image/scrub.png"
+  },
+  "nwcprovider": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/nwcprovider/main/static/image/nwcprovider.png"
+  },
+  "lndhub": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/lndhub/main/static/image/lndhub.png"
+  },
+  "cashu": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/cashu/main/static/image/cashu.png"
+  },
+  "withdraw": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/withdraw/main/static/image/lnurl-withdraw.png"
+  },
+  "tipjar": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/tipjar/main/static/image/tipjar.png"
+  },
+  "streamalerts": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/streamalerts/main/static/image/streamalerts.png"
+  },
+  "raisenow": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/raisenow/main/static/image/raisenow.png"
+  },
+  "boltcards": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/boltcards/main/static/image/boltcard.png"
+  },
+  "bitcoinswitch": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/bitcoinswitch_extension/main/static/image/icon.png"
+  },
+  "lnurldevice": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/lnurldevice/main/static/image/lnurldevice.png"
+  },
+  "boltz": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/boltz/main/static/image/boltz.png"
+  },
+  "deezy": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/deezy/main/static/deezy.png"
+  },
+  "nostrclient": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/nostrclient/main/static/images/nostr-bitcoin.png"
+  },
+  "nostrmarket": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/nostrmarket/main/static/images/bitcoin-shop.png"
+  },
+  "nostrnip5": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/nostrnip5/main/static/image/nostrnip5.png"
+  },
+  "nostrrelay": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/nostrrelay/main/static/image/nostrrelay.png"
+  },
+  "chat": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/chat/main/static/image/chat.png"
+  },
+  "paidreviews": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/paidreviews/main/static/image/paidreviews.png"
+  },
+  "pay2review": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/pay2review/main/static/image/p2r.png"
+  },
+  "coinflip": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/coinflip/main/static/image/coinflip.gif"
+  },
+  "satsdice": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/satsdice/main/static/image/satsdice.png"
+  },
+  "satspot": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/satspot/main/static/image/satspot.png"
+  },
+  "blackjack": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/blackjack/master/static/image/blackjack.png"
+  },
+  "numberlottery": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/numberlottery/main/static/image/numbers.png"
+  },
+  "eightball": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/eightball/main/static/image/eightball.png"
+  },
+  "lnticket": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/lnticket/main/static/image/lntickets.png"
+  },
+  "events": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/events/main/static/image/events.png"
+  },
+  "lncalendar": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/lncalendar/main/static/image/lncalendar.png"
+  },
+  "livestream": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/livestream/main/static/image/livestream.png"
+  },
+  "jukebox": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/jukebox/main/static/image/jukebox.png"
+  },
+  "copilot": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/copilot/main/static/bitcoin-streaming.png"
+  },
+  "inventory": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/inventory/main/static/inventory.png"
+  },
+  "bleskomat": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/bleskomat/main/static/image/bleskomat.png"
+  },
+  "smtp": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/smtp/main/static/smtp-bitcoin-email.png"
+  },
+  "shipping": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/shipping/main/static/image/shipping.png"
+  },
+  "webpages": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/webpages/main/static/image/webpages.png"
+  },
+  "tunnel_me_out": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/tunnel_me_out/main/static/image/tunnel.png"
+  },
+  "where39": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/where39/main/static/image/where39.png"
+  },
+  "chaospad": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/chaospad/main/static/image/chaospad.png"
+  },
+  "gerty": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/gerty/main/static/gerty.png"
+  },
+  "scrum": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/scrum/main/static/image/scrum.png"
+  },
+  "orders": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/orders/main/static/image/orders.png"
+  },
+  "paidtasks": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/paidtasks/main/static/image/paidtasks.svg"
+  }
+}

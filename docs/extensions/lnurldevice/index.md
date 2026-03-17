@@ -6,17 +6,13 @@
   repo="lnbits/lnurldevice"
 />
 
-::: warning Deprecated
-LNURLdevice has been split into three dedicated extensions. Use the replacement that matches your use case:
+## is replaced by [LNPoS](https://github.com/lnbits/lnpos_extension), [FOSSA](https://github.com/lnbits/fossa_extension), [Bitcoin Switch](https://github.com/lnbits/bitcoinswitch_extension)
 
-- **[Bitcoin Switch](/extensions/bitcoinswitch/)** — trigger IoT devices with Lightning payments
-- **[FOSSA](/extensions/fossa/)** — Bitcoin ATM functionality
-- **[LNPoS](/extensions/lnpos/)** — hardware point-of-sale terminals
-:::
+<small>For more about LNBits extension check [this tutorial](https://github.com/lnbits/lnbits/wiki/LNbits-Extensions)</small>
 
-## Overview
+For offline LNURL devices
 
-LNURL Device was the original all-in-one extension for LNURL-based hardware integration — covering ATMs, point-of-sale terminals, vending machines, and IoT device activation. It has been split into focused extensions for better maintainability.
+`Author: Ben Arc` `Author: DNI`
 
 ## API Reference
 
@@ -24,7 +20,5 @@ See the [LNURL Device API documentation](./api) for endpoint details.
 
 ## Related Pages
 
-- [Bitcoin Switch](/extensions/bitcoinswitch/): Trigger devices with Lightning payments
-- [FOSSA](/extensions/fossa/): Bitcoin ATM extension
-- [LNPoS](/extensions/lnpos/): Hardware point-of-sale
+- [LNURL Device API Reference](./api): API endpoints for this extension
 - [All Extensions](/extensions/): Browse all LNbits extensions

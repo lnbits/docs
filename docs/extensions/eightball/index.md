@@ -6,44 +6,55 @@
   repo="lnbits/eightball"
 />
 
-## Overview
+## What it does
 
-Magic 8ball creates payment QR codes that reveal a random response from a list you define. Pay a few sats, get a surprise message — perfect for fortune telling, random quotes, creative prompts, or fun community interactions.
+Eightball lets you:
 
-## How It Works
+- Generate **shareable payment QR codes**
+- Configure **custom word lists** (quotes, fortunes, prompts, jokes, anything)
+- Return a **random response** after a successful payment
+- Build interactive “pay-to-reveal” experiences for your audience
 
-1. Define a list of possible responses (words, phrases, quotes, jokes)
-2. The extension generates a shareable payment QR code
-3. When someone pays, they receive one random response from your list
+## Use cases
 
-## Use Cases
+- **Magic 8 Ball style fortune teller**  
+  “Will it rain tomorrow?” Pay and get a random answer.
 
-- **Fortune teller** — "Will it rain tomorrow?" Pay and get a random answer
-- **Quote dispenser** — offer Satoshi quotes or wisdom drops for sats
-- **Community rewards** — random compliments, memes, or behind-the-scenes notes
-- **Creative prompts** — random prompts for writers, artists, or workshops
-- **Stream interaction** — fun paid interactions for your audience
+- **Paid Satoshi quote dispenser**  
+  Offer short quotes, messages, or wisdom drops for sats.
 
-## Configuration Ideas
+- **Surprise message drops for audiences**  
+  Fun rewards for supporters: random compliments, memes, behind-the-scenes notes.
 
-You can build response lists like:
+- **Custom prompt generator**  
+  Great for writers, artists, or workshops: pay to get a random prompt.
 
-- `Yes / No / Maybe / Ask again later` (classic 8-ball)
-- Short inspirational quotes
+## Key features
+
+- Customizable word/phrase lists
+- Randomized response selection
+- QR codes designed for easy sharing
+- Lightweight and simple to run and extend
+
+## How it works (concept)
+
+1. You define a list of possible responses (words or phrases).
+2. Eightball generates a payment QR code.
+3. After payment, the user receives one random response from your list.
+
+## Configuration ideas
+
+You can build lists like:
+
+- “Yes / No / Maybe / Ask again later”
+- Short quotes
 - Inside jokes for your community
+- Stream rewards or mini “loot drops”
 - Random prompts for creative challenges
-- Rewards or "loot drops" for supporters
 
-## Setup
+Based on the predictor of predictors in Thhhheeeee Bitcoin group https://www.youtube.com/c/Worldcryptonetwork
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Create a new 8ball with your response list
-3. Set the payment amount
-4. Share the QR code or link
-
-## Resources
-
-- [Video Tutorial — 1hr Extension Build](https://www.youtube.com/watch?v=zHXLvvjClHI)
+As seen in the "1hr extension build tutorial" https://www.youtube.com/watch?v=zHXLvvjClHI
 
 ## API Reference
 

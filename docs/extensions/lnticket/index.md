@@ -6,35 +6,33 @@
   repo="lnbits/lnticket"
 />
 
-## Overview
+## Get paid sats to answer questions
 
-LN Ticket (Support Tickets) creates paid contact forms where people pay a per-word fee to send you a message. The payment barrier filters spam while ensuring only genuine messages get through. Create multiple forms with different rates for different purposes.
+Charge a per word amount for people to contact you.
 
-## Features
+Possible applications include, paid support ticketing, PAYG language services, contact spam protection.
 
-- **Per-word pricing** — charge a configurable amount per word
-- **Multiple forms** — create different forms with different rates
-- **Webhook support** — get notified when a form receives payment
-- **Contact info** — senders can include their name and email for replies
-- **Ticket management** — view all received messages in the Tickets section
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Form**:
-   - Select the wallet
-   - Give the form a name and description
-   - Set the per-word charge amount
-   - Optionally add a webhook URL
-3. Share the form link with your audience
-4. View incoming messages in the **Tickets** section
-
-## Use Cases
-
-- **Paid support** — charge for support questions to filter noise
-- **Contact spam protection** — require payment to reach your inbox
-- **Language services** — charge per word for translation or writing
-- **Consulting** — paid initial contact for consulting inquiries
+1. Click "NEW FORM" to create a new contact form\
+   ![new contact form](https://i.imgur.com/kZqWGPe.png)
+2. Fill out the contact form
+   - set the wallet to use
+   - give your form a name
+   - set an optional webhook that will get called when the form receives a payment
+   - give it a small description
+   - set the amount you want to charge, per **word**, for people to contact you\
+     ![form settings](https://i.imgur.com/AsXeVet.png)
+3. Your new contact form will appear on the _Forms_ section. Note that you can create various forms with different rates per word, for different purposes\
+   ![forms section](https://i.imgur.com/gg71HhM.png)
+4. When a user wants to reach out to you, they will get to the contact form. They can fill out some information:
+   - a name
+   - an optional email if they want you to reply
+   - and the actual message
+   - at the bottom, a value in satoshis, will display how much it will cost them to send this message\
+     ![user view of form](https://i.imgur.com/DWGJWQz.png)
+   - after submiting the Lightning Network invoice will pop up and after payment the message will be sent to you\
+     ![contact form payment](https://i.imgur.com/7heGsiO.png)
+5. Back in "Support ticket" extension you'll get the messages your fans, users, haters, etc, sent you on the _Tickets_ section\
+   ![tickets](https://i.imgur.com/dGhJ6Ok.png)
 
 ## API Reference
 
@@ -43,5 +41,4 @@ See the [LN Ticket API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LN Ticket API Reference](./api): API endpoints for this extension
-- [Chat](/extensions/chat/): Live support chat
 - [All Extensions](/extensions/): Browse all LNbits extensions

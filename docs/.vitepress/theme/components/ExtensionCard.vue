@@ -1,16 +1,24 @@
 <script setup>
+import extensionMeta from '../../data/extensions-meta.json'
+
 const props = defineProps({
+  id: { type: String, default: '' },
   name: { type: String, required: true },
   description: { type: String, default: '' },
   category: { type: String, default: '' },
   icon: { type: String, default: '🔌' },
   link: { type: String, default: '' },
 })
+
+const tileUrl = props.id && extensionMeta[props.id]?.tileUrl || null
 </script>
 
 <template>
   <a :href="link" class="ext-card">
-    <div class="ext-card-icon">{{ icon }}</div>
+    <div class="ext-card-icon">
+      <img v-if="tileUrl" :src="tileUrl" :alt="name" class="ext-card-tile" />
+      <span v-else>{{ icon }}</span>
+    </div>
     <div class="ext-card-body">
       <h3 class="ext-card-title">{{ name }}</h3>
       <span v-if="category" class="ext-card-category">{{ category }}</span>
@@ -45,7 +53,18 @@ const props = defineProps({
   font-size: 28px;
   flex-shrink: 0;
   width: 40px;
+  height: 40px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ext-card-tile {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .ext-card-body {

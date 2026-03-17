@@ -6,30 +6,50 @@
   repo="lnbits/paidtasks"
 />
 
-## Overview
+## Key Files
 
-PaidTasks lets you create lists of tasks that people can pay to complete. Share a public page for each list — when someone pays the Lightning invoice for a task, it's marked as paid automatically. Built as a WASM extension.
+- `config.json`: permissions, public handlers, public KV keys, and payment tags
+- `wasm/`: `module.wat` or `module.wasm`
+- `static/` and `templates/`: UI and public pages
 
-## How It Works
+## Permissions (Current)
 
-1. Create a task list and add tasks with prices in sats
-2. Share the public page link
-3. When someone pays a task's invoice, the task is marked as paid
-4. The public page updates in real-time via WebSocket
+- `ext.db.read_write`
+- `api.POST:/api/v1/payments` (policy: create-only, `payments_out: false`)
+- `ext.payments.watch`
 
-## Use Cases
+## Payment Tags
 
-- **Bounties** — offer sats for completing specific tasks
-- **Crowdfunding tasks** — let supporters fund specific project items
-- **Freelance work** — list services with prices for clients to pay
-- **Community contributions** — paid task boards for open-source projects
+This extension uses the tag `paidtasks`. Users must grant it in the permissions dialog.
 
-## Setup
+## Agent Guidance
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Grant the required permissions (database access, invoice creation, payment watching)
-3. Create a list and add tasks with prices
-4. Share the public page URL
+Use `lnbits/extensions/wasm/docs/agents_wasm_extensions.md` for AI/agent instructions.
+
+### AI Prompt (Copy-Paste)
+
+```
+You are building a LNbits WASM extension. First read:
+extensions/wasm/docs/agents_wasm_extensions.md
+
+Rules:
+- Only edit files under lnbits/extensions/<ext_id>/.
+- Use extensions/paidtasks as a base template.
+- Any internal endpoint access must be declared in config.json permissions.
+- For POST /api/v1/payments you must set "out" explicitly and declare policy.payments_out.
+- Use <lnbits server>/openapi.json as the API reference.
+
+Goal: <describe extension behavior>.
+```
+
+## Test Checklist
+
+1. Enable extension and grant permissions + `paidtasks` tag.
+2. Create a list and tasks.
+3. Open the public page and create an invoice.
+4. Pay the invoice and verify:
+   - Task is marked paid.
+   - Public page updates via websocket.
 
 ## API Reference
 

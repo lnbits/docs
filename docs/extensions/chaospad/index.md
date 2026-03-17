@@ -6,27 +6,20 @@
   repo="lnbits/chaospad"
 />
 
-## Overview
+## How it works
 
-ChaosPad lets you create shared text documents that multiple people can edit together in real-time — inspired by [pads.ccc.de](https://pads.ccc.de). No accounts needed for collaborators, just share the link.
+Create a pad and share the link. Anyone with the link can view and edit the document. Changes sync across all connected users.
 
 ## Features
 
-- **Real-time collaborative editing** — changes sync across all connected users
-- **Simple text formatting** — lightweight editor for quick notes
-- **Shareable pad links** — anyone with the link can view and edit
-- **No account required** — collaborators just need the URL
+- Real-time collaborative editing
+- Simple text formatting
+- Shareable pad links
+- No account required for collaborators
 
-## Use Cases
+## Usage
 
-- Meeting notes during Bitcoin meetups
-- Collaborative brainstorming sessions
-- Shared event planning documents
-- Quick, disposable note-taking
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
+1. Enable the extension in LNbits
 2. Create a new pad
 3. Share the pad link with collaborators
 4. Edit together in real-time
