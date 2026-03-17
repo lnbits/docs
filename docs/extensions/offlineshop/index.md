@@ -6,47 +6,38 @@
   repo="lnbits/offlineshop"
 />
 
-## Overview
+## Create QR codes for each product and display them on your store for receiving payments Offline
 
-Offline Shop lets merchants accept Bitcoin payments without being online or even having an electronic device present. Create products, print QR codes, and display them at your shop. When customers scan a QR code, they see the product description and price, pay with Lightning, and receive a confirmation code that proves payment.
+LNbits Offline Shop allows for merchants to receive Bitcoin payments while offline and without any electronic device.
 
-## How It Works
+Merchant will create items and associate a QR code ([a LNURLp](https://github.com/lnbits/lnbits/blob/master/lnbits/extensions/lnurlp/README.md)) with a price. He can then print the QR codes and display them on their shop. When a customer chooses an item, scans the QR code, gets the description and price. After payment, the customer gets a confirmation code that the merchant can validate to be sure the payment was successful.
 
-1. Create products with names, descriptions, and prices
-2. Print the generated QR codes (one per product)
-3. Display them at your shop, market stall, or menu
-4. Customer scans a QR, sees the price, and pays with a Lightning wallet
-5. Customer receives a confirmation word/code to show the merchant
+Customers must use an LNURL pay capable wallet.
 
-## Features
+[**Wallets supporting LNURL**](https://github.com/fiatjaf/awesome-lnurl#wallets)
 
-- **Fully offline merchant** — no phone, tablet, or internet needed at the point of sale
-- **LNURL-pay QR codes** — one QR per product with embedded price and description
-- **Product images** — optional product photos shown in the customer's wallet
-- **Fiat pricing** — set prices in fiat currency; conversion happens at scan time
-- **Printable QR sheets** — generate a print-ready page of all product QR codes
-- **Payment confirmation** — three verification methods:
-  - **Wordlist** — customer receives the next word from a sequential list (e.g., A-Z animals)
-  - **TOTP** — time-based one-time password (compatible with Google Authenticator)
-  - **None** — disable confirmation codes entirely
+## Usage
 
-## Setup
+1. Entering the Offline shop extension you'll see an Items list, the Shop wallet and a Wordslist\
+   ![offline shop back office](https://i.imgur.com/Ei7cxj9.png)
+2. Begin by creating an item, click "ADD NEW ITEM"
+   - set the item name and a small description
+   - you can set an optional, preferably square image, that will show up on the customer wallet - _depending on wallet_
+   - set the item price, if you choose a fiat currency the bitcoin conversion will happen at the time customer scans to pay\
+     ![add new item](https://i.imgur.com/pkZqRgj.png)
+3. After creating some products, click on "PRINT QR CODES"\
+   ![print qr codes](https://i.imgur.com/2GAiSTe.png)
+4. You'll see a QR code for each product in your LNbits Offline Shop with a title and price ready for printing\
+   ![qr codes sheet](https://i.imgur.com/faEqOcd.png)
+5. Place the printed QR codes on your shop, or at the fair stall, or have them as a menu style laminated sheet
+6. Choose what type of confirmation do you want customers to report to merchant after a successful payment\
+   ![wordlist](https://i.imgur.com/9aM6NUL.png)
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Add products with names, descriptions, prices, and optional images
-3. Click **Print QR Codes** to generate a printable sheet
-4. Choose a confirmation method (wordlist, TOTP, or none)
-5. Display the printed QR codes at your shop
-
-### Confirmation Methods
-
-- **Wordlist** (default): customers receive sequential words. The merchant tracks which word is current.
-- **TOTP**: scan the QR with Google Authenticator. After payment, the customer shows the current code.
-- **None**: no confirmation required — useful for honor-system setups.
-
-## Resources
-
-- [Video Tutorial](https://youtu.be/_XAvM_LNsoo)
+   - Wordlist is the default option: after a successful payment the customer will receive a word from this list, **sequentially**. Starting in _albatross_ as customers pay for the items they will get the next word in the list until _zebra_, then it starts at the top again. The list can be changed, for example if you think A-Z is a big list to track, you can use _apple_, _banana_, _coconut_\
+     ![totp authenticator](https://i.imgur.com/MrJXFxz.png)
+   - TOTP (time-based one time password) can be used instead. If you use Google Authenticator just scan the presented QR with the app and after a successful payment the user will get the password that you can check with GA\
+     ![disable confirmations](https://i.imgur.com/2OFs4yi.png)
+   - Nothing, disables the need for confirmation of payment, click the "DISABLE CONFIRMATION CODES"
 
 ## API Reference
 
@@ -55,7 +46,4 @@ See the [Offline Shop API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Offline Shop API Reference](./api): API endpoints for this extension
-- [TPoS](/extensions/tpos/): Software point-of-sale terminal
-- [LNURLp](/extensions/lnurlp/): Static LNURL-pay links
-- [Hardware & Merchants FAQ](/guide/faq/hardware): Merchant setup questions
 - [All Extensions](/extensions/): Browse all LNbits extensions

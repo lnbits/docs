@@ -6,28 +6,20 @@
   repo="lnbits/deezy"
 />
 
-## Overview
+<small>For more about LNBits extension check [this tutorial](https://github.com/lnbits/lnbits/wiki/LNbits-Extensions)</small>
 
-Deezy integrates the [Deezy.io](https://deezy.io) swap service into LNbits. Swap Lightning bitcoin for on-chain bitcoin to get inbound liquidity, or generate an on-chain deposit address for your Lightning Address. All swaps go through the Deezy service.
+`Author:` <a href="https://github.com/dannydeezy">`dannydeezy`</a>
+<br/>
+Swap lightning bitcoin for on-chain bitcoin to get inbound liquidity. Or get an on-chain deposit address for your lightning address.
+* [Website](https://deezy.io)
+* [Lightning Node](https://amboss.space/node/024bfaf0cabe7f874fd33ebf7c6f4e5385971fc504ef3f492432e9e3ec77e1b5cf)
+* [Documentation](https://docs.deezy.io)
+* [Discord](https://discord.gg/nEBbrUAvPy)
 
-## Features
-
-- **Lightning → on-chain** — swap Lightning sats for on-chain BTC
-- **On-chain → Lightning** — generate an on-chain deposit address for your Lightning wallet
-- **Inbound liquidity** — get inbound capacity by swapping out
-- **Simple interface** — straightforward swap UI in LNbits
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Select your wallet and choose the swap direction
-3. Follow the on-screen instructions to complete the swap
-
-## Use Cases
-
-- **Inbound liquidity** — swap out to get inbound Lightning capacity
-- **On-chain deposits** — accept on-chain payments into your Lightning wallet
-- **Cold storage** — move Lightning funds to on-chain cold storage
+# Usage
+This extension lets you swap lightning btc for on-chain btc and vice versa.
+* Swap Lightning -> BTC to get inbound liquidity
+* Swap BTC -> Lightning to generate an on-chain deposit address for your lightning address
 
 ## API Reference
 
@@ -36,5 +28,4 @@ See the [Deezy API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Deezy API Reference](./api): API endpoints for this extension
-- [Boltz](/extensions/boltz/): Alternative swap service with Liquid support
 - [All Extensions](/extensions/): Browse all LNbits extensions

@@ -6,35 +6,18 @@
   repo="lnbits/tipjar"
 />
 
-## Overview
+The TipJar extension allows you to integrate Bitcoin Lightning (and on-chain) tips into your website or social media!
 
-Tip Jar lets you accept Lightning (and optionally on-chain) tips through a shareable page. Supporters can attach short messages to their tips, making it great for creators, streamers, and anyone who wants to receive Bitcoin donations with personal notes.
+![image](https://user-images.githubusercontent.com/28876473/134997129-c2f3f13c-a65d-42ed-a9c4-8a1da569d74f.png)
 
-## Features
+<h2>How to set it up</h2>
 
-- **Shareable tip page** — custom URL for receiving tips
-- **Messages with tips** — supporters can attach a note to their payment
-- **Lightning payments** — instant tip receipt
-- **On-chain support** — optionally accept on-chain Bitcoin tips
-- **Webhook notifications** — get notified when tips arrive
+1. Simply create a new Tip Jar with the desired details (onchain and webhook optional):  
+   ![image](https://user-images.githubusercontent.com/28876473/134996842-ec2f2783-2eef-4671-8eaf-023713865512.png)
+1. Share the URL you get from this little button:  
+   ![image](https://user-images.githubusercontent.com/28876473/134996973-f8ed4632-ea2f-4b62-83f1-1e4c6b6c91fa.png)
 
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Create a new Tip Jar with your desired details:
-   - Select a wallet for receiving tips
-   - Set a name and description
-   - Optionally enable on-chain tips
-   - Optionally configure a webhook URL
-3. Share the generated URL or QR code
-
-## Use Cases
-
-- **Content creators** — accept tips on your website or social media
-- **Streamers** — receive Lightning tips during streams (see also [Stream Alerts](/extensions/streamalerts/))
-- **Musicians** — tip jar at gigs or on your website
-- **Open-source developers** — accept donations for your projects
-- **Restaurants and cafes** — digital tip jar at the counter
+<h3>And that's it already! Let the sats flow!</h3>
 
 ## API Reference
 
@@ -43,6 +26,4 @@ See the [Tip Jar API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Tip Jar API Reference](./api): API endpoints for this extension
-- [Stream Alerts](/extensions/streamalerts/): Lightning donations in stream overlays
-- [LNURLp](/extensions/lnurlp/): Static LNURL-pay links
 - [All Extensions](/extensions/): Browse all LNbits extensions

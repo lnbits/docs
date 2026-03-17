@@ -6,44 +6,52 @@
   repo="lnbits/withdraw"
 />
 
-## Overview
+## Create a static QR code people can use to withdraw funds from a Lightning Network wallet
 
-LNURLw (LNURL-withdraw) lets you create static QR codes that give people permission to pull funds from your Lightning wallet. It's one of the most powerful LNURL tools — you can mint vouchers, build faucets, or create pre-paid "cards" that work like offline Lightning wallets.
+LNURL is a range of lightning-network standards that allow us to use lightning-network differently. An LNURL withdraw is the permission for someone to pull a certain amount of funds from a lightning wallet.
 
-LNURL-withdraw gives someone the right to spend a specific amount, once or multiple times. This functionality has not existed in money before.
+The most common use case for an LNURL withdraw is a faucet, although it is a very powerful technology, with much further reaching implications. For example, an LNURL withdraw could be minted to pay for a subscription service. Or you can have a LNURLw as an offline Lightning wallet (a pre paid "card"), you use to pay for something without having to even reach your smartphone.
 
-## Features
+LNURL withdraw is a **very powerful tool** and should not have his use limited to just faucet applications. With LNURL withdraw, you have the ability to give someone the right to spend a range, once or multiple times. **This functionality has not existed in money before**.
 
-- **Quick Vouchers** — batch-create LNURL-withdraw QR codes for printing and distribution
-- **Configurable amounts** — set fixed or range-based withdrawal amounts
-- **Single or multi-use** — one-time vouchers or reusable faucets
-- **Printable QR codes** — generate print-ready voucher sheets
-- **Webhook support** — get notified when a withdrawal is claimed
-- **Advanced options** — custom link IDs, time limits, and usage limits
+[**Wallets supporting LNURL**](https://github.com/fiatjaf/awesome-lnurl#wallets)
 
-## Setup
+## Usage
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Withdraw Link** to create a link:
-   - Select the source wallet
-   - Set the withdrawal amount (fixed or min/max range)
-   - Set the number of uses
-   - Optionally configure a webhook URL
-3. Share the QR code, link, or print vouchers
+#### Quick Vouchers
 
-### Quick Vouchers
+LNbits Quick Vouchers allows you to easily create a batch of LNURLw's QR codes that you can print and distribute as rewards, onboarding people into Lightning Network, gifts, etc...
 
-1. Click **Quick Vouchers** to batch-create withdraw links
-2. Select a wallet, set the amount per voucher, and the number of vouchers
-3. Print, share, or display the generated QR codes
+1. Create Quick Vouchers\
+   ![quick vouchers](https://i.imgur.com/IUfwdQz.jpg)
+   - select wallet
+   - set the amount each voucher will allow someone to withdraw
+   - set the amount of vouchers you want to create - _have in mind you need to have a balance on the wallet that supports the amount \* number of vouchers_
+2. You can now print, share, display your LNURLw links or QR codes\
+   ![lnurlw created](https://i.imgur.com/X00twiX.jpg)
+   - on details you can print the vouchers\
+     ![printable vouchers](https://i.imgur.com/2xLHbob.jpg)
+   - every printed LNURLw QR code is unique, it can only be used once
+3. Bonus: you can use an LNbits themed voucher, or use a custom one. There's a _template.svg_ file in `static/images` folder if you want to create your own.\
+   ![voucher](https://i.imgur.com/qyQoHi3.jpg)
 
-## Use Cases
+#### Advanced
 
-- **Onboarding** — hand out vouchers to introduce people to Lightning
-- **Gifts** — create Bitcoin gift cards for events or holidays
-- **Faucets** — let people claim small amounts from a faucet
-- **Rewards** — distribute sats as rewards or incentives
-- **Pre-paid cards** — use NFC cards with LNURL-withdraw for tap-to-claim
+1. Create the Advanced LNURLw\
+   ![create advanced lnurlw](https://i.imgur.com/OR0f885.jpg)
+   - set the wallet
+   - set a title for the LNURLw (it will show up in users wallet)
+   - define the minimum and maximum a user can withdraw, if you want a fixed amount set them both to an equal value
+   - set how many times can the LNURLw be scanned, if it's a one time use or it can be scanned 100 times
+   - LNbits has the "_Time between withdraws_" setting, you can define how long the LNURLw will be unavailable between scans
+   - you can set the time in _seconds, minutes or hours_
+   - the "_Use unique withdraw QR..._" reduces the chance of your LNURL withdraw being exploited and depleted by one person, by generating a new QR code every time it's scanned
+2. Print, share or display your LNURLw link or it's QR code\
+   ![lnurlw created](https://i.imgur.com/X00twiX.jpg)
+
+**LNbits bonus:** If a user doesn't have a Lightning Network wallet and scans the LNURLw QR code with their smartphone camera, or a QR scanner app, they can follow the link provided to claim their satoshis and get an instant LNbits wallet!
+
+![](https://i.imgur.com/2zZ7mi8.jpg)
 
 ## API Reference
 
@@ -52,6 +60,4 @@ See the [Withdraw API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Withdraw API Reference](./api): API endpoints for this extension
-- [Bolt Cards](/extensions/boltcards/): NFC cards with LNURL-withdraw
-- [LNURLp](/extensions/lnurlp/): Static LNURL-pay links (the receive counterpart)
 - [All Extensions](/extensions/): Browse all LNbits extensions

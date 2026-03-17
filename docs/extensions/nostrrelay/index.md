@@ -6,41 +6,111 @@
   repo="lnbits/nostrrelay"
 />
 
-## Overview
-
-Nostr Relay lets you spin up your own Nostr relay in two clicks. Configure it as free (with storage limits) or paid (pay-to-join and pay-for-storage). Includes account allow/block lists, rate limiting, event filtering, and NIP-42 authentication support.
-
 ## Supported NIPs
 
-- **NIP-01** — Basic protocol (regular, replaceable, ephemeral, addressable events)
-- **NIP-02** — Contact list and petnames
-- **NIP-04** — Encrypted direct messages (with optional auth)
-- **NIP-09** — Event deletion
-- **NIP-11** — Relay information document
-- **NIP-15** — End of stored events notice
-- **NIP-16** — Event treatment
-- **NIP-20** — Command results
-- **NIP-22** — Event `created_at` limits
-- **NIP-28** — Public chat
-- **NIP-33** — Addressable events
-- **NIP-42** — Client authentication
+- [x] **NIP-01**: Basic protocol flow
+  - [x] Regular Events
+  - [x] Replaceable Events (kinds 10000-19999)
+  - [x] Ephemeral Events (kinds 20000-29999)
+  - [x] Addressable Events (kinds 30000-39999)
+- [x] **NIP-02**: Contact List and Petnames
+  - `kind: 3`: delete past contact lists as soon as the relay receives a new one
+- [x] **NIP-04**: Encrypted Direct Message
+  - if `AUTH` enabled: send only to the intended target
+- [x] **NIP-09**: Event Deletion
+- [x] **NIP-11**: Relay Information Document
+  - > **Note**: the endpoint is NOT on the root level of the domain. It also includes a path (eg https://lnbits.link/nostrrelay/)
+- [ ] **NIP-12**: Generic Tag Queries
+  - todo
+- [x] **NIP-15**: End of Stored Events Notice
+- [x] **NIP-16**: Event Treatment
+  - [x] Regular Events
+  - [x] Replaceable Events
+  - [x] Ephemeral Events
+- [x] **NIP-20**: Command Results
+  - todo: use correct prefixes
+- [x] **NIP-22**: Event created_at Limits
+- [ ] **NIP-26**: Delegated Event Signing
+  - not planned
+- [x] **NIP-28** Public Chat
+  - `kind: 41`: handled similar to `kind 0` metadata events
+- [x] **NIP-33**: Addressable Events (moved to NIP-01)
+  - ✅ Implemented as part of NIP-01 addressable events
+- [ ] **NIP-40**: Expiration Timestamp
+  - todo
+- [x] **NIP-42**: Authentication of clients to relays
+  - todo: use correct prefix
+- [ ] **NIP-50**: Search Capability
+  - todo
 
-## Features
+## Create Relay
 
-- **Free or paid access** — configurable entry fees and storage fees
-- **Storage limits** — set limits with optional paid upgrades
-- **Rate limiting** — control event submission rates
-- **Account management** — allow/block specific npubs
-- **Optional authentication** — require NIP-42 auth for events and filters
-- **Public relay page** — where users can pay entry and storage fees
+Creating a new relay is straightforward. Just click `New Relay` then enter the Relay Info.
 
-## Setup
+> **Note**: admin users can select a relay id. Regular users will be assigned a generated relay id.
+> The relay can be activated/deactivated.
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Relay** and enter relay info
-3. Configure payment options (free or paid), storage limits, and rate limits
-4. Optionally enable NIP-42 authentication
-5. Share the relay URL with users
+- **New Relay Dialog**
+  - ![image](https://user-images.githubusercontent.com/2951406/219601417-9292d5b9-d96c-4ff6-a6fd-6c8b37b9872d.png)
+
+## Configure Relay
+
+Find your Relay in the list and click the expand button (`+`) to configure it.
+
+### Relay Info
+
+This tab contains data according to `NIP-11` (Relay Information Document).
+
+> **Note**: the `domain` is added automatically and shoud be corrected manually if needed. This value is used for `NIP-42` (Authentication of clients to relays)
+
+- **Relay Info Tab**
+  - ![image](https://user-images.githubusercontent.com/2951406/219601945-f3987de0-ed0c-48d5-b31e-44d8356cfa9a.png)
+
+### Payment
+
+By default the relay is free to access, but it can be configured to ask for payments.
+It is encourage to also activate the `Require Auth` option for paid relays.
+
+> **Note**: check the info button (`I`) tooltip for a description of each field.
+
+- **Payment Config Tab**
+  - ![image](https://user-images.githubusercontent.com/2951406/219609779-1513ad00-e816-4b4f-8e1e-459e5e1c586f.png)
+
+Click on the Relay ID (or visit `https://{your_domain}/nostrrelay/${relay_id}`) for the Relay public page.
+Here the entry and storage fees can be paid.
+
+- **Relay Public Page**
+  - ![image](https://user-images.githubusercontent.com/2951406/219610594-ec2984ca-2c09-4187-91c3-96a25e8b5722.png)
+
+### Config
+
+Configure `NIP-22` (_Event `created_at` Limits_), `NIP-42` (_Authentication of clients to relays_) and other Relay parameters.
+
+Some configurations are not standard (`NIPs`) but they help control what clients are allowed to do, thus blocking (some) attack vectors.
+
+> **Note**: check the info button (`I`) tooltip for a description of each field.
+
+- **Config Tab**
+  - ![image](https://user-images.githubusercontent.com/2951406/219611794-57066899-5bc3-4439-ad98-af6fd4130ee9.png)
+
+### Accounts
+
+Allows the Relay operator to `Block` or `Allow` certain accounts.
+
+If an account is `allowed` then it is not required to `pay to join`.
+
+When an account is `blocked` it does not matter if it `paid to join` or if it is `allowed`.
+
+- **Accounts Tab**
+  - ![image](https://user-images.githubusercontent.com/2951406/219615500-8ca98580-dc3d-4163-b321-ae9279d47a98.png)
+
+## Development
+
+Create Symbolic Link:
+
+```
+ln -s /Users/my-user/git-repos/nostr-relay-extension/ /Users/my-user/git-repos/lnbits/lnbits/extensions/nostrrelay
+```
 
 ## API Reference
 
@@ -49,6 +119,4 @@ See the [Nostr Relay API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr Relay API Reference](./api): API endpoints for this extension
-- [Nostr Client](/extensions/nostrclient/): Relay multiplexer
-- [Nostr NIP-5](/extensions/nostrnip5/): NIP-05 verification
 - [All Extensions](/extensions/): Browse all LNbits extensions

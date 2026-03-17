@@ -6,37 +6,58 @@
   repo="lnbits/boltz"
 />
 
-## Overview
+## Swap In (Onchain -> Lightning)
 
-The Boltz extension lets you perform submarine swaps (on-chain to Lightning) and reverse submarine swaps (Lightning to on-chain) directly from LNbits. Supported chains are Bitcoin mainnet and Liquid. All swaps are non-custodial — your funds are protected by on-chain contracts.
+1. Click on the "Swap (IN)" button to open the following dialog, select a wallet, choose an amount within the min-max range and choose an onchain address for your refund in case the swap fails after you already sent onchain bitcoin.
 
-## Features
+---
 
-- **Swap In** (on-chain → Lightning) — convert on-chain Bitcoin to Lightning sats
-- **Swap Out** (Lightning → on-chain) — convert Lightning to on-chain Bitcoin
-- **Liquid support** — swap between Lightning and Liquid
-- **Auto cash out** — automatically convert Lightning to on-chain when your balance reaches a set amount
-- **Automatic refunds** — failed swaps are refunded automatically (checked every 15 minutes)
-- **Instant settlement** — optionally claim funds from the mempool before confirmation
-- **Refund file export** — download refund files for manual recovery via boltz.exchange
+## ![Create Swap](https://imgur.com/OyOh3Nm.png)
 
-## Setup
+2. After you confirmed, the following dialog with a QR code for the onchain transaction, onchain- address and amount, will pop up.
 
-1. Enable the extension from the LNbits **Extensions** page
-2. To swap in (on-chain → Lightning):
-   - Click **Swap (IN)**, select a wallet, set amount, enter a refund address
-   - Send the exact amount of on-chain Bitcoin to the displayed address
-   - Boltz pays your Lightning invoice automatically
-3. To swap out (Lightning → on-chain):
-   - Click **Swap (OUT)**, select a wallet, set amount, enter a receive address
-   - The extension pays the Lightning invoice and sends on-chain Bitcoin
+---
 
-## Use Cases
+## ![Pay Onchain TX](https://imgur.com/r2UhwCY.png)
 
-- **Inbound liquidity** — swap on-chain BTC for Lightning to open inbound channels
-- **Cold storage** — move Lightning earnings to on-chain cold storage
-- **Exchange deposits** — send to exchanges that only accept on-chain
-- **Liquid bridge** — move funds between Lightning and Liquid
+3. After you sent the exact amount of onchain bitcoin to this address, Boltz will pay your lightning invoice and the sats will appear in your wallet.
+
+### Refund of Swap In (Onchain -> Lightning)
+
+If a Swap In fails, you can refund your bitcoin after the timeout blockheight was reached. A swap can fail because Boltz, for instance, can't find a route to your lightning node or wallet. In case that happens, there is an info icon in the Swap (In) list which opens following dialog:
+
+---
+
+## ![Refund](https://imgur.com/pN81ltf.png)
+
+When the timeout blockheight was reached you can either press refund and lnbits will do the refunding to the address you specified when creating the swap OR you can download the refund file so you can manually refund your onchain bitcoin to a different address via the [boltz.exchange website](https://boltz.exchange/refund). If you need help or have questions you can contact us in the [LNbits Telegram](https://t.me/lnbits) or the Boltz Team on [Discord](https://discord.gg/d6EK85KK). In a recent update we added an _automated check_; lnbits now checks every 15 minutes if it can refund your failed swap.
+
+## Swap Out (Lightning -> Onchain)
+
+1. Click on the "Swap (OUT)" button to open the following dialog, select a wallet, choose an amount within the min-max range and choose an onchain address to receive your funds on. Instant settlement: means that LNbits will create the onchain claim transaction if it sees Boltz's lockup transaction in the mempool, but it is not confirmed yet. For urgent swaps we advise to leave this enabled.
+
+---
+
+## ![Reverse Swap](https://imgur.com/UEAPpbs.png)
+
+If a Swap Out fails, no further action is required, the lightning payment just "bounces back".
+
+# Development
+
+## manual testcases for boltz startup checks
+
+A. normal swaps
+
+1. test: create -> kill -> start -> startup invoice listeners -> pay onchain funds -> should complete
+2. test: create -> kill -> pay onchain funds -> mine block -> start -> startup check -> should complete
+3. test: create -> kill -> mine blocks and hit timeout -> start -> should go timeout/failed
+4. test: create -> kill -> pay to less onchain funds -> mine blocks hit timeout -> start lnbits -> should be refunded
+
+B. reverse swaps
+
+1. test: create instant -> kill -> boltz does lockup -> not confirmed -> start lnbits -> should claim/complete
+2. test: create -> kill -> boltz does lockup -> not confirmed -> start lnbits -> mine blocks -> should claim/complete
+3. test: create -> kill -> boltz does lockup -> confirmed -> start lnbits -> should claim/complete
 
 ## API Reference
 
@@ -45,6 +66,4 @@ See the [Boltz API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Boltz API Reference](./api): API endpoints for this extension
-- [Deezy](/extensions/deezy/): Alternative swap service
-- [Watch Only](/extensions/watchonly/): Monitor on-chain wallets
 - [All Extensions](/extensions/): Browse all LNbits extensions

@@ -6,35 +6,32 @@
   repo="lnbits/paywall"
 />
 
-## Overview
+## Hide content behind a paywall, a user has to pay some amount to access your hidden content
 
-Paywall lets you restrict access to content, URLs, or files behind a Lightning payment. Users pay a minimum amount (or more) and get redirected to the hidden content. Supports remembering paying users so they don't have to pay again for the same content.
+A Paywall is a way of restricting to content via a purchase or paid subscription. For example to read a determined blog post, or to continue reading further, to access a downloads area, etc...
 
-## Features
+## Usage
 
-- **URL paywall** — hide any link behind a Lightning payment
-- **File paywall** — protect downloadable files behind payment
-- **Minimum amount** — set a floor price, users can overpay
-- **Remember payments** — returning users bypass the paywall
-- **Custom branding** — add a title and description to the paywall page
+1. Create a paywall by clicking "NEW PAYWALL"\
+   ![create new paywall](https://i.imgur.com/q0ZIekC.png)
+2. Fill the options for your PAYWALL
+   - select the wallet
+   - set the link that will be unlocked after a successful payment
+   - give your paywall a _Title_
+   - an optional small description
+   - and set an amount a user must pay to access the hidden content. Note this is the minimum amount, a user can over pay if they wish
+   - if _Remember payments_ is checked, a returning paying user won't have to pay again for the same content.\
+     ![paywall config](https://i.imgur.com/CBW48F6.png)
+3. You can then use your paywall link to secure your awesome content\
+   ![paywall link](https://i.imgur.com/hDQmCDf.png)
+4. When a user wants to access your hidden content, he can use the minimum amount or increase and click the "_Check icon_" to generate an invoice, user will then be redirected to the content page\
+   ![user paywall view](https://i.imgur.com/3pLywkZ.png)
 
-## Setup
+### File Paywall
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Paywall**:
-   - Select the wallet to receive payments
-   - Set the URL or file to protect
-   - Give it a title and optional description
-   - Set the minimum payment amount
-   - Optionally enable "Remember payments"
-3. Share the paywall link
+It is possible to also protect a file behind a paywall.
 
-## Use Cases
-
-- **Premium content** — charge for blog posts, articles, or tutorials
-- **Digital downloads** — sell files, music, or software
-- **API access** — gate access to premium API endpoints
-- **Exclusive content** — offer paid-only areas of your website
+https://github.com/lnbits/paywall/assets/2951406/527c176c-38ff-4198-a4c1-6d07807e7443
 
 ## API Reference
 
@@ -43,5 +40,4 @@ See the [Paywall API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Paywall API Reference](./api): API endpoints for this extension
-- [LNURLp](/extensions/lnurlp/): Static payment links
 - [All Extensions](/extensions/): Browse all LNbits extensions

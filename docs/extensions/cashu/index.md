@@ -6,20 +6,9 @@
   repo="lnbits/cashu"
 />
 
-## Overview
+This extension repo is no longer maintained and there are several known bugs in this version that can break your current mint if you update.
 
-Cashu is an LNbits extension in the **Wallet Tools** category.
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Click on Cashu in the sidebar to open it
-3. Follow the extension-specific setup if required
-
-## Use Cases
-
-- Explore common workflows in the extension UI
-- Integrate via the [API](./api)
+From now on, the Cashu extension will developed here: https://github.com/cashubtc/lnbits-cashu/
 
 ## API Reference
 

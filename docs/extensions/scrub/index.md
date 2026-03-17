@@ -6,36 +6,34 @@
   repo="lnbits/scrub"
 />
 
-## Overview
+## Automatically forward funds (Scrub) that get paid to the wallet to an LNURLpay or Lightning Address
 
-Scrub automatically forwards every payment received by an LNbits wallet to an external wallet via LNURL-pay or Lightning Address. This lets you use all of LNbits' features (extensions, APIs, payment pages) while keeping your funds in your own self-custodial wallet.
+SCRUB is a small but handy extension that allows a user to take advantage of all the functionalities inside **LNbits** and upon a payment received to your LNbits wallet, automatically forward it to your desired wallet via LNURL or LNAddress!
 
-## Features
+<small>Only whole values, integers, are Scrubbed, amounts will be rounded down (example: 6.3 will be 6)! The decimals, if existing, will be kept in your wallet!</small>
 
-- **Auto-forwarding** — every incoming payment is immediately forwarded
-- **LNURL-pay support** — forward to any LNURL-pay endpoint
-- **Lightning Address** — forward to any Lightning Address
-- **Per-wallet configuration** — one scrub link per wallet
-- **Editable** — change or remove the scrub target at any time
+[**Wallets supporting LNURL**](https://github.com/fiatjaf/awesome-lnurl#wallets)
 
-::: tip
-Only whole sats are forwarded. Fractional amounts (e.g., 6.3 sats becomes 6 sats) are kept in your LNbits wallet.
-:::
+## Usage
 
-## Setup
+1. Create an scrub (New Scrub link)\
+   ![create scrub](https://i.imgur.com/LUeNkzM.jpg)
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Scrub Link**:
-   - Select the wallet to scrub
-   - Add a description
-   - Enter the LNURL-pay or Lightning Address destination
-3. All future payments to that wallet will be auto-forwarded
+   - select the wallet to be _scrubbed_
+   - make a small description
+   - enter either an LNURL pay or a lightning address
 
-## Use Cases
+   Make sure your LNURL or LNaddress is correct!
 
-- **Self-custody** — use LNbits features but keep funds in your own wallet
-- **Hot-to-cold** — automatically move received sats to a more secure wallet
-- **Forwarding** — route payments from a public-facing wallet to a private one
+2. A new scrub will show on the _Scrub links_ section\
+   ![scrub](https://i.imgur.com/LNoFkeu.jpg)
+
+   - only one scrub can be created for each wallet!
+   - You can _edit_ or _delete_ the Scrub at any time\
+     ![edit scrub](https://i.imgur.com/Qu65lGG.jpg)
+
+3. On your wallet, you'll see a transaction of a payment received and another right after it as apayment sent, marked with **#scrubed**\
+   ![wallet view](https://i.imgur.com/S6EWWCP.jpg)
 
 ## API Reference
 
@@ -44,5 +42,4 @@ See the [Scrub API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Scrub API Reference](./api): API endpoints for this extension
-- [Split Payments](/extensions/splitpayments/): Forward a percentage instead of 100%
 - [All Extensions](/extensions/): Browse all LNbits extensions

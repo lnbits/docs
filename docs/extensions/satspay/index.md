@@ -6,36 +6,31 @@
   repo="lnbits/satspay"
 />
 
-## Overview
+## Create onchain and LN charges. Includes webhooks!
 
-SatsPay Server creates BTCPay-style payment pages that support both Lightning Network and on-chain Bitcoin payments. Set an amount, expiry time, and optional webhook — customers choose how they want to pay. Works with the Watch Only extension for on-chain address generation.
+Easily create invoices that support Lightning Network and on-chain BTC payment.
 
-## Features
-
-- **Dual payment** — accept both Lightning and on-chain Bitcoin on one page
-- **Expiry timer** — invoices expire after a configurable time window
-- **Webhook notifications** — receive transaction details on successful payment
-- **Redirect after payment** — send customers to a custom URL after paying
-- **Custom button text** — configurable call-to-action after payment
-- **Payment state tracking** — monitor charge status from the admin panel
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Charge** to create a payment page:
-   - Set a description and amount in sats
-   - Set the expiry time (in minutes)
-   - Optionally add a webhook URL and redirect URL
-   - Choose Lightning, on-chain, or both
-   - Select the corresponding wallets
-3. Share the charge link with your customer
-
-## Use Cases
-
-- **Invoicing** — send payment links to customers
-- **E-commerce** — payment pages for online stores
-- **Donations** — accept Bitcoin donations with both payment methods
-- **Service payments** — charge for freelance work or subscriptions
+1. Create a "NEW CHARGE"\
+   ![new charge](https://i.imgur.com/fUl6p74.png)
+2. Fill out the invoice fields
+   - set a description for the payment
+   - the amount in sats
+   - the time, in minutes, the invoice is valid for, after this period the invoice can't be paid
+   - set a webhook that will get the transaction details after a successful payment
+   - set to where the user should redirect after payment
+   - set the text for the button that will show after payment (not setting this, will display "NONE" in the button)
+   - select if you want on-chain payment, LN payment or both
+   - depending on what you select you'll have to choose the respective wallets where to receive your payment\
+     ![charge form](https://i.imgur.com/F10yRiW.png)
+3. The charge will appear on the _Charges_ section\
+   ![charges](https://i.imgur.com/zqHpVxc.png)
+4. Your customer/payee will get the payment page
+   - they can choose to pay on LN\
+     ![offchain payment](https://i.imgur.com/4191SMV.png)
+   - or pay on-chain\
+     ![onchain payment](https://i.imgur.com/wzLRR5N.png)
+5. You can check the state of your charges in LNbits\
+   ![invoice state](https://i.imgur.com/JnBd22p.png)
 
 ## API Reference
 
@@ -44,6 +39,4 @@ See the [SatsPay API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [SatsPay API Reference](./api): API endpoints for this extension
-- [Watch Only](/extensions/watchonly/): On-chain wallet for address generation
-- [Invoices](/extensions/invoices/): Fiat-denominated line-item invoices
 - [All Extensions](/extensions/): Browse all LNbits extensions

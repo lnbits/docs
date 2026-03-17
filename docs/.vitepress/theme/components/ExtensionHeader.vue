@@ -1,4 +1,6 @@
 <script setup>
+import extensionMeta from '../../data/extensions-meta.json'
+
 const props = defineProps({
   name: { type: String, required: true },
   description: { type: String, default: '' },
@@ -13,12 +15,19 @@ const repoUrl = props.repo ? `https://github.com/${props.repo}` : ''
 const starsImg = props.repo
   ? `https://img.shields.io/github/stars/${props.repo}?style=flat&color=8b5cf6&labelColor=1f2234`
   : ''
+
+// Extract extension id from repo (e.g. "lnbits/tpos" → "tpos")
+const extId = props.repo ? props.repo.split('/').pop().replace('_extension', '') : ''
+const tileUrl = extId && extensionMeta[extId]?.tileUrl || null
 </script>
 
 <template>
   <div class="ext-header">
     <div class="ext-header-top">
-      <div class="ext-header-icon">{{ icon }}</div>
+      <div class="ext-header-icon">
+        <img v-if="tileUrl" :src="tileUrl" :alt="name" class="ext-header-tile" />
+        <span v-else>{{ icon }}</span>
+      </div>
       <div class="ext-header-info">
         <div class="ext-header-title-row">
           <h1 class="ext-header-name">{{ name }}</h1>
@@ -77,6 +86,16 @@ const starsImg = props.repo
   font-size: 48px;
   line-height: 1;
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ext-header-tile {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 12px;
 }
 
 .ext-header-info {
@@ -232,6 +251,11 @@ const starsImg = props.repo
 
   .ext-header-icon {
     font-size: 40px;
+  }
+
+  .ext-header-tile {
+    width: 44px;
+    height: 44px;
   }
 
   .ext-header-name {

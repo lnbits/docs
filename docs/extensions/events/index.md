@@ -6,37 +6,37 @@
   repo="lnbits/events"
 />
 
-## Overview
+## Sell tickets for events and use the built-in scanner for registering attendees
 
-Events lets you create ticketed events with Lightning payments. After paying, attendees receive a unique QR code ticket. At the venue, use the built-in ticket scanner to verify and check in attendees. Includes registration deadlines, event date ranges, and a shareable event page.
+Events allows you to create tickets for an event. Each ticket is in the form of a unique QR code. After registering and paying, the user gets a QR code to present at registration/entrance.
 
-## Features
+Events includes a shareable ticket scanner, which can be used to register attendees.
 
-- **Event creation** — set name, description, dates, and ticket price
-- **Lightning ticketing** — attendees pay via Lightning to get a ticket
-- **QR code tickets** — unique QR code generated per ticket after payment
-- **Built-in scanner** — shareable ticket scanner for check-in at the door
-- **Registration deadline** — close registration before the event starts
-- **Attendee tracking** — see who has registered and checked in
+## Usage
 
-## Setup
+1. Create an event\
+   ![create event](https://i.imgur.com/dadK1dp.jpg)
+2. Fill out the event information:
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Create a new event:
-   - Set the event name and description
-   - Select the wallet for ticket payments
-   - Set closing date for registration
-   - Set event start and end dates
-   - Set ticket price
-3. Share the event registration link
-4. Use the ticket scanner at the venue to check in attendees
+   - event name
+   - wallet (normally there's only one)
+   - event information
+   - closing date for event registration
+   - begin and end date of the event
 
-## Use Cases
+   ![event info](https://imgur.com/KAv68Yr.jpg)
 
-- **Meetups** — sell tickets for Bitcoin meetups
-- **Conferences** — ticketing with Lightning and QR check-in
-- **Workshops** — paid registration with attendance tracking
-- **Parties** — sell entry tickets with a door scanner
+3. Share the event registration link\
+   ![event ticket](https://imgur.com/AQWUOBY.jpg)
+
+   - ticket example\
+     ![ticket example](https://i.imgur.com/trAVSLd.jpg)
+
+   - QR code ticket, presented after invoice paid, to present at registration\
+     ![event ticket](https://i.imgur.com/M0ROM82.jpg)
+
+4. Use the built-in ticket scanner to validate registered, and paid, attendees\
+   ![ticket scanner](https://i.imgur.com/zrm9202.jpg)
 
 ## API Reference
 
@@ -45,6 +45,4 @@ See the [Events API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Events API Reference](./api): API endpoints for this extension
-- [LN Ticket](/extensions/lnticket/): Paid support tickets (different concept)
-- [LNCalendar](/extensions/lncalendar/): Paid scheduling
 - [All Extensions](/extensions/): Browse all LNbits extensions

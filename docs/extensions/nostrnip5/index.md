@@ -6,44 +6,59 @@
   repo="lnbits/nostrnip5"
 />
 
-## Overview
+## Allow users to NIP-05 verify themselves at a domain you control
 
-Nostr NIP-5 lets you sell NIP-05 verification (e.g., `alice@yourdomain.com`) to Nostr users on a domain you control. Users pay Lightning to register their npub, and the extension serves the `.well-known/nostr.json` endpoint automatically. Requires a reverse proxy setup to serve the endpoint at your domain root.
+This extension allows users to sell NIP-05 verification to other nostr users on a domain they control.
 
-## Features
+## Usage
 
-- **Domain verification** — sell `username@yourdomain.com` NIP-05 identifiers
-- **Lightning payment** — users pay to register
-- **Fiat pricing** — set prices in your preferred fiat currency
-- **Auto-serve** — extension provides the `nostr.json` API endpoint
-- **Multiple domains** — manage verification for multiple domains
+1. Create a Domain by clicking "NEW DOMAIN"\
+2. Fill the options for your DOMAIN
+   - select the wallet
+   - select the fiat currency the invoice will be denominated in
+   - select an amount in fiat to charge users for verification
+   - enter the domain (or subdomain) you want to provide verification for
+     - Note, you must own this domain and have access to a web server
+3. You can then use share your signup link with your users to allow them to sign up
 
-## Setup
+## Installation
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Domain**:
-   - Select a wallet and fiat currency
-   - Set the registration price
-   - Enter your domain name
-3. Configure your reverse proxy to route `https://yourdomain.com/.well-known/nostr.json` to the extension endpoint
+In order for this to work, you need to have ownership of a domain name, and access to a web server that this domain is pointed to.
 
-### Nginx Example
+Then, you'll need to set up a proxy that points `https://{your_domain}/.well-known/nostr.json` to `https://{your_lnbits}/nostrnip5/api/v1/domain/{domain_id}/nostr.json`
 
-```nginx
+Example nginx configuration
+
+```
+## Proxy Server Caching
+proxy_cache_path /tmp/nginx_cache keys_zone=nip5_cache:5m levels=1:2 inactive=300s max_size=100m use_temp_path=off;
+
 location /.well-known/nostr.json {
-    proxy_pass https://your-lnbits/nostrnip5/api/v1/domain/{domain_id}/nostr.json;
-    proxy_set_header Host your-lnbits;
-    proxy_ssl_server_name on;
+   proxy_pass https://{your_lnbits}/nostrnip5/api/v1/domain/{domain_id}/nostr.json;
+   proxy_set_header Host {your_lnbits};
+   proxy_ssl_server_name on;
+
+   expires 5m;
+   add_header Cache-Control "public, no-transform";
+
+   proxy_cache nip5_cache;
+   proxy_cache_lock on;
+   proxy_cache_valid 200 300s;
+   proxy_cache_use_stale error timeout invalid_header updating http_500 http_502 http_503 http_504;
 }
 ```
 
-### Caddy Example
+### Example Caddy configuration
 
 ```
-yourdomain.com {
+my.lnbits.instance {
+    reverse_proxy {your_lnbits}
+}
+
+nip.5.domain {
     route /.well-known/nostr.json {
         rewrite * /nostrnip5/api/v1/domain/{domain_id}/nostr.json
-        reverse_proxy your-lnbits
+        reverse_proxy {your_lnbits}
     }
 }
 ```
@@ -55,6 +70,4 @@ See the [Nostr NIP-5 API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr NIP-5 API Reference](./api): API endpoints for this extension
-- [Nostr Relay](/extensions/nostrrelay/): Run your own relay
-- [Nostr Client](/extensions/nostrclient/): Relay multiplexer
 - [All Extensions](/extensions/): Browse all LNbits extensions

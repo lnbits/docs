@@ -6,36 +6,72 @@
   repo="lnbits/nwcprovider"
 />
 
-## Overview
+## Installation
 
-NWC Provider turns your LNbits wallet into a [Nostr Wallet Connect](https://nwc.dev/) service provider. Connect any NWC-compatible app (like Alby, Amethyst, or Damus) to your LNbits wallet via a pairing URL or QR code. Supports configurable permissions, spending limits, and expiry dates per connection.
+Install the extension via the .env file or through the admin UI on your LNbits server. More details can be found [here](https://github.com/lnbits/lnbits/wiki/LNbits-Extensions).
 
-## Features
+# Configuration
 
-- **NWC protocol** — standard Nostr Wallet Connect implementation
-- **Per-connection permissions** — control what each app can do
-- **Spending limits** — set maximum amounts per connection
-- **Expiry dates** — connections expire automatically
-- **Pairing URL and QR** — easy connection via URL or QR scan
-- **Third-party relay support** — use any public Nostr relay (recommended)
-- **Nostrclient integration** — alternatively use the Nostr Client extension as relay
+The **LNbits NWC Service Provider** requires a one-time setup before it can be used.  
+It relies on a Nostr relay, which can be either:
 
-## Setup
+- The **LNbits Nostrclient** browser extension
+- A **third-party Nostr relay** of your choice
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Configure a Nostr relay:
-   - **Option 1 (recommended):** Open settings (gear icon) and enter a public relay URL (e.g., `wss://relay.nostrconnect.com`)
-   - **Option 2:** Use the [Nostr Client](/extensions/nostrclient/) extension (requires public LNbits URL)
-3. Select a wallet and click **+** to add a connection
-4. Set description, permissions, limits, and expiry
-5. Share the pairing URL or QR code with the app
+## Relay Configuration
 
-## Use Cases
+Before you can start using the extension, you need to configure a Nostr relay.
 
-- **Mobile wallets** — connect Amethyst or Damus to your LNbits wallet
-- **Browser extensions** — use Alby with your LNbits backend
-- **App integrations** — any NWC-compatible app can access your wallet
-- **Controlled access** — give apps limited, time-bound permissions
+### Option 1: Use a third-party Nostr relay (recommended)
+
+This is the easiest option for most users. It allows you to run LNbits on a private network while connecting to NWC apps through a public Nostr relay.
+
+1. Choose a Nostr relay that supports NWC connections.
+2. Open the **NWC Service Provider settings** (gear icon in the top-right corner).
+   1. Enter your chosen relay URL in the **Nostr Relay URL** field (e.g. `wss://relay.nostrconnect.com`).
+   2. Click **Save**.
+
+### Option 2: Use the LNbits Nostrclient extension
+
+> **Note:** This option only works if your LNbits instance is publicly accessible on the internet. Refer to the [nostrclient documentation](https://github.com/lnbits/nostrclient) for more information.
+
+1. Install the **Nostrclient** extension in your browser.
+2. Open the extension.
+   1. Add at least one relay (e.g. `wss://relay.nostrconnect.com` is a good choice for NWC connections).
+   2. Open **Settings** and enable **Expose Public WebSocket**.
+
+---
+
+## Connecting a NWC App
+
+1. In the **NWC Service Provider** extension, select the wallet you want to connect.
+2. Click the **+** button to add a new connection.
+3. Enter a description, expiry date (optional), permissions, and limits.
+4. Click **Connect** to create the connection.
+5. Use the generated **pairing URL** or **QR code** to connect your chosen app.
+
+---
+
+# Extension Configuration
+
+The "Configuration" page of the NWC Service Provider extension can be accessed by clicking the gear icon in the top-right corner of the extension page.
+
+### Configuration Options:
+
+| Key                  | Description                                                                                                                                                                                                 | Default                         |
+| -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| relay                | URL of the nostr relay for dispatching and receiving NWC events. Use public relays or a custom one. Specify `nostrclient` to connect to the [nostrclient extension](https://github.com/lnbits/nostrclient). | nostrclient                     |
+| provider_key         | Nostr secret key of the NWC Service Provider.                                                                                                                                                               | Random key generated on install |
+| relay_alias          | Relay URL to display in pairing URLs. Set if different from `relay`.                                                                                                                                        | Empty (uses the `relay` value)  |
+| handle_missed_events | Number of seconds to look back for processing events missed while offline. Setting it to 0 disables this functionality.                                                                                     | 0                               |
+
+> [!WARNING]
+>
+> Do not change `handle_missed_events` from its default value of `0` unless you fully understand its implications.
+> While a non-zero value may improve service quality under unstable conditions (e.g., poor connectivity or unreliable power), it can also lead to unexpected behavior.
+> For example, in shared or community lnbits instances, where users are unaware of this functionality, they might assume a payment has failed and attempt to pay a new invoice with a different wallet, only for the instance to come back online and process the original payment request, potentially leading to duplicate payments.
+>
+> For this reason, unless you are trying to tackle this specific issue, it is recommended to leave this setting at `0`.
 
 ## API Reference
 
@@ -44,6 +80,4 @@ See the [NWC Provider API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [NWC Provider API Reference](./api): API endpoints for this extension
-- [Nostr Client](/extensions/nostrclient/): Nostr relay multiplexer
-- [LndHub](/extensions/lndhub/): Alternative wallet access protocol
 - [All Extensions](/extensions/): Browse all LNbits extensions

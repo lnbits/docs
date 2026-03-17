@@ -114,7 +114,7 @@ const backends = computed(() =>
 const quickLinks = [
   { title: 'Installation', desc: 'uv, Poetry, Docker, Nix, Fly.io', link: '/guide/installation/', icon: 'download' },
   { title: 'Wallet Backends', desc: '20+ funding sources', link: '/guide/wallets/', icon: 'wallet' },
-  { title: 'Extensions', desc: '50+ plugins ready to use', link: '/guide/using-extensions', icon: 'puzzle' },
+  { title: 'Extensions', desc: '60+ plugins ready to use', link: '/guide/using-extensions', icon: 'puzzle' },
   { title: 'Admin Dashboard', desc: 'Server config & user management', link: '/guide/admin-dashboard', icon: 'shield' },
   { title: 'Super User', desc: 'Full control & first-run setup', link: '/guide/core/super-user', icon: 'star' },
   { title: 'FAQ', desc: 'Common questions answered', link: '/guide/faq/', icon: 'help' },
@@ -232,7 +232,7 @@ const quickLinks = [
         </div>
         <div class="stat-sep"></div>
         <div class="stat-item">
-          <span class="stat-num">50+</span>
+          <span class="stat-num">60+</span>
           <span class="stat-label">Extensions</span>
         </div>
         <div class="stat-sep"></div>
@@ -244,6 +244,47 @@ const quickLinks = [
         <div class="stat-item">
           <span class="stat-num">MIT</span>
           <span class="stat-label">License</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SaaS Promo ── -->
+    <section class="saas anim" style="--d:0.42s">
+      <div class="saas-inner">
+        <div class="saas-video-wrap">
+          <video
+            class="saas-video"
+            src="/SaaS/saas-demo.mp4"
+            autoplay
+            loop
+            muted
+            playsinline
+          ></video>
+        </div>
+        <div class="saas-bottom">
+          <div class="saas-copy">
+            <span class="saas-eyebrow">No time to self-host?</span>
+            <h2 class="saas-title">Deploy LNbits in 3 minutes</h2>
+            <p class="saas-desc">
+              No server, no CLI, no config files. <strong>myLNbits</strong> gives you a production-ready
+              instance with all 60+ extensions, automatic updates, and backups.
+            </p>
+          </div>
+          <div class="saas-right">
+            <ul class="saas-features">
+              <li>Pay with Lightning or PayPal</li>
+              <li>All extensions pre-installed</li>
+              <li>Custom domain support</li>
+              <li>Migrate to self-hosted anytime</li>
+            </ul>
+            <div class="saas-actions">
+              <a href="https://my.lnbits.com" target="_blank" rel="noopener noreferrer" class="saas-btn saas-btn--primary">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                Start now
+              </a>
+              <a href="/guide/installation/saas" class="saas-btn">Learn more</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -713,6 +754,137 @@ const quickLinks = [
 }
 
 /* ═══════════════════════════════════
+   SaaS Promo
+   ═══════════════════════════════════ */
+.saas {
+  margin-bottom: 56px;
+}
+
+.saas-inner {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-elv);
+  overflow: hidden;
+}
+
+.saas-video-wrap {
+  background: #000;
+}
+
+.saas-video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.saas-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 28px 32px;
+  align-items: start;
+}
+
+.saas-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.saas-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vp-c-brand-1);
+}
+
+.saas-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.saas-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin: 4px 0 0;
+}
+
+.saas-right {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.saas-features {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.saas-features li {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  padding-left: 20px;
+  position: relative;
+}
+
+.saas-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.saas-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.saas-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.saas-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-1px);
+}
+
+.saas-btn--primary {
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+.saas-btn--primary:hover {
+  opacity: 0.9;
+  border-color: var(--vp-c-brand-1);
+}
+
+/* ═══════════════════════════════════
    Toast
    ═══════════════════════════════════ */
 .home-toast {
@@ -806,6 +978,16 @@ const quickLinks = [
 
   .stat-num {
     font-size: 22px;
+  }
+
+  .saas-bottom {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .saas-title {
+    font-size: 19px;
   }
 }
 

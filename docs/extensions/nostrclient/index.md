@@ -8,42 +8,124 @@
 
 ## Overview
 
-Nostr Client simplifies connecting to multiple Nostr relays. Instead of your Nostr client managing connections to dozens of relays, you connect to a single WebSocket endpoint provided by this extension. It fans out your requests to all configured relays and aggregates the responses back to you.
+`nostrclient` is an always-on Nostr relay multiplexer that simplifies connecting to multiple Nostr relays. Instead of your Nostr client managing connections to dozens of relays, you connect to a single WebSocket endpoint provided by `nostrclient`, which then fans out your requests to all configured relays and aggregates the responses back to you.
 
-## How It Works
+### Why Use This?
 
+- **Simplified Client Configuration** - Connect to one endpoint instead of managing multiple relay connections
+- **Always-On Connectivity** - Your LNbits instance maintains persistent connections to relays
+- **Resource Efficient** - Share relay connections across multiple clients
+- **Subscription Management** - Automatic subscription ID rewriting prevents conflicts between clients
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A[Client A] -->|WebSocket| N
+    B[Client B] -->|WebSocket| N
+    C[Client C] -->|WebSocket| N
+
+    N[nostrclient<br/>Router] -->|Fan Out| R1[Relay A]
+    N -->|Fan Out| R2[Relay B]
+    N -->|Fan Out| R3[Relay C]
+    N -->|Fan Out| R4[Relay D]
+
+    R1 -.->|Aggregate| N
+    R2 -.->|Aggregate| N
+    R3 -.->|Aggregate| N
+    R4 -.->|Aggregate| N
 ```
-Client A ──┐                    ┌── Relay A
-Client B ──┤── nostrclient ─────┤── Relay B
-Client C ──┘    (router)        ├── Relay C
-                                └── Relay D
-```
 
-1. Your Nostr client connects to the nostrclient WebSocket endpoint
-2. Subscription IDs are rewritten to prevent conflicts between clients
-3. Requests are fanned out to all configured relays
-4. Events from all relays are deduplicated and sent back to your client
+**Key Feature:** The router rewrites subscription IDs to prevent conflicts when multiple clients use the same IDs.
 
 ## Features
 
-- **Multi-relay multiplexing** — one WebSocket connection instead of many
-- **Public and private endpoints** — configurable access control
-- **Automatic reconnection** — failed relays are retried with exponential backoff
-- **Event deduplication** — events are deduplicated before delivery
-- **Health monitoring** — track relay status, latency, and error rates
-- **Test endpoint** — verify your setup is working
+- **Multi-Relay Multiplexing** - Connect to multiple Nostr relays through a single WebSocket
+- **Public & Private Endpoints** - Configurable public and private WebSocket access
+- **Automatic Reconnection** - Failed relays are automatically retried with exponential backoff
+- **Subscription Deduplication** - Events are deduplicated before being sent to clients
+- **Health Monitoring** - Track relay connection status, latency, and error rates
+- **Test Endpoint** - Send test messages to verify your setup is working
 
-## WebSocket Endpoints
+## How It Works
 
-- **Public**: `/api/v1/relay` — available to anyone (if enabled)
-- **Private**: `/api/v1/{encrypted_id}` — requires valid endpoint ID
+1. **Client Connection** - Your Nostr client connects to the nostrclient WebSocket endpoint
+2. **Subscription Rewriting** - Each subscription ID is rewritten to prevent conflicts between multiple clients
+3. **Fan-Out** - Subscription requests are sent to all configured relays
+4. **Aggregation** - Events from all relays are collected and deduplicated
+5. **Response** - Events are sent back to the client with the original subscription ID
 
-## Setup
+## Configuration
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Add Nostr relays in the extension UI
-3. Configure public and/or private WebSocket access
-4. Connect your Nostr clients to the nostrclient endpoint
+### WebSocket Endpoints
+
+- **Public Endpoint**: `/api/v1/relay` - Available to anyone (if enabled)
+- **Private Endpoint**: `/api/v1/{encrypted_id}` - Requires valid encrypted endpoint ID
+
+Configure endpoint access in the extension settings:
+
+- `private_ws` - Enable/disable private WebSocket access
+- `public_ws` - Enable/disable public WebSocket access
+
+### Adding Relays
+
+Use the nostrclient UI to add/remove Nostr relays. The extension will automatically:
+
+- Connect to new relays
+- Publish existing subscriptions to new relays
+- Monitor relay health and reconnect as needed
+
+## Testing
+
+### Test Endpoint Functionality
+
+The `Test Endpoint` feature helps verify that your nostrclient WebSocket endpoint works correctly.
+
+**How to test:**
+
+1. Navigate to the nostrclient extension in LNbits
+2. Use the Test Endpoint feature
+3. Send a DM to yourself (or a temporary account)
+4. Verify that messages are sent and received correctly
+
+https://user-images.githubusercontent.com/2951406/236780745-929c33c2-2502-49be-84a3-db02a7aabc0e.mp4
+
+## Troubleshooting
+
+### Connection Issues
+
+- **Check relay status** - View relay health in the nostrclient UI
+- **Verify endpoint configuration** - Ensure public_ws or private_ws is enabled
+- **Check logs** - Review LNbits logs for connection errors
+
+### Subscription Not Receiving Events
+
+- **Verify relays are connected** - Check the relay status in the UI
+- **Test with known event** - Use the Test Endpoint to verify connectivity
+- **Check relay compatibility** - Some relays may not support all Nostr features
+
+## Development
+
+This extension uses `uv` for dependency management.
+
+### Quick Start
+
+```bash
+# Format code
+make format
+
+# Run type checks and linting
+make check
+
+# Run tests
+make test
+```
+
+For more development commands, see the [Makefile](https://github.com/lnbits/nostrclient/blob/main/Makefile).
+
+## License
+
+MIT License - see [LICENSE](https://github.com/lnbits/nostrclient/blob/main/LICENSE)
 
 ## API Reference
 
@@ -52,7 +134,4 @@ See the [Nostr Client API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr Client API Reference](./api): API endpoints for this extension
-- [Nostr Market](/extensions/nostrmarket/): Nostr-based marketplace
-- [Nostr NIP-5](/extensions/nostrnip5/): Nostr NIP-05 verification
-- [Nostr Relay](/extensions/nostrrelay/): Run a paid Nostr relay
 - [All Extensions](/extensions/): Browse all LNbits extensions

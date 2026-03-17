@@ -6,42 +6,71 @@
   repo="lnbits/lncalendar"
 />
 
-## Overview
+## Create your calendar or schedule
 
-LNCalendar lets you create schedules and accept paid appointments via Lightning. Set your availability, define a price per appointment slot, and share a public booking page. Clients browse available times, book a slot, and pay with Lightning.
+Click _New Schedule_ and fill the required information
 
-## How It Works
+![new](https://i.imgur.com/bXPex1F.png)
 
-1. Create a schedule with your available days and hours
-2. Set a price per appointment (in sats or fiat)
-3. Share the public booking page
-4. Clients select a time, fill in their details, and pay the Lightning invoice
-5. View and manage your appointments in the extension
+- select a wallet
+- give your schedula a name
+- select a weekday to start and end
+- select the hours you are available for appointments
+- define a cost per appointment (for now it's 30 min slots)
 
-## Features
+Click create
 
-- **Weekly availability** — set start/end days and hours
-- **Paid bookings** — Lightning payment required to confirm an appointment
-- **Fiat pricing** — set prices in fiat currency with automatic sat conversion at booking time
-- **Unavailable dates** — block out specific days
-- **Calendar view** — see all appointments on a visual calendar
-- **Appointment details** — name, email (optional), and message from the client
+You'll see your newly created schedule and an appointments list
 
-## Setup
+![created](https://i.imgur.com/5PO9k5E.png)
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **New Schedule** and configure:
-   - Select a wallet for receiving payments
-   - Set a schedule name
-   - Choose available weekdays and hours
-   - Set a cost per appointment
-3. Share the public page link with clients
+Clients will see the public page to make appointments with you
 
-### Managing Appointments
+![client](https://i.imgur.com/L1Jhln4.png)
 
-- View appointments on the main extension page under **Appointments**
-- Click the settings button on a schedule to see the calendar and appointment details
-- Use the **Set Unavailable** tab to block out dates
+## View your appointments
+
+Your appointments will show up on the main extension page, on the Appointments section
+
+![appointments section](https://i.imgur.com/NPVUrTN.png)
+
+By clicking on the settings button, in your schedule, you can see your calendar/schedule, appointments and define some unavailable days.
+
+![settings](https://i.imgur.com/LCynQMp.png)
+
+A pop up will show up. On the _Schedule Info_ tab you'll see your calendar and appointments are marked on the calendar.
+
+![settings 2](https://i.imgur.com/3hhm27q.png)
+
+If you click the appointment you'll see some information about the appointments
+
+![info](https://i.imgur.com/njuQfT4.png)
+
+On the _Set Unavailable_ tab, you can set some days as unavailable
+
+![select unavailable](https://i.imgur.com/g6JuMId.png)
+
+- pick first and last day
+- click set unavailable
+
+These dates will show up on the client page as disabled for appointments
+
+![show unavailable](https://i.imgur.com/PGKVe2b.png)
+
+## Making appointments
+
+You can share the public **LNCalendar** page
+
+![public share](https://i.imgur.com/yud8UQi.png)
+
+Users can then book an appointment with you
+
+![make appointment](https://i.imgur.com/zJop96S.png)
+
+- select a day and time
+- fill in a name, optional email, and a message (describing what's the appointment about)
+- click _Submit_
+- Pay the invoice
 
 ## API Reference
 

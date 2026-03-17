@@ -6,39 +6,15 @@
   repo="lnbits/where39"
 />
 
-## Overview
+## For Dead Drops, Burying Treasure, or Just Sharing Your Location with Friends Privately
 
-Where39 is a BIP39-based location protocol you can self-host. It encodes geographic coordinates into memorable BIP39 word sequences — like what3words but private, because you run your own server. Perfect for dead drops, burying treasure, or sharing locations with friends without a third party.
+For dead drops and burying treasure
 
-## How It Works
+Any3Words is good, but it's not private. Where39 is a BIP39 location protocol that you can run yourself.
 
-1. Pin a location on the map or enter coordinates
-2. Where39 encodes the location as a sequence of BIP39 words
-3. Share the words — anyone with access to your Where39 server can decode them back to coordinates
+Where39 is useful for dead drops, burying treasure, or just sharing your location with friends. By running your own Where39 server, you can be sure that your location data is not shared with anyone.
 
-## Why Where39?
-
-- **Private** — you run your own server, no data shared with third parties
-- **BIP39 words** — uses the familiar Bitcoin seed word list
-- **Self-hosted** — full control over your location data
-- **Simple** — just words, no accounts or apps needed
-
-## Use Cases
-
-- **Dead drops** — encode secret locations in memorable words
-- **Treasure hunts** — create Bitcoin treasure hunts with word clues
-- **Private location sharing** — share locations without using a centralized service
-- **Events** — encode meetup locations in a fun, privacy-preserving way
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Open Where39 from the sidebar
-3. Click on the map to encode a location, or enter BIP39 words to decode
-
-## Resources
-
-- [Where39 Protocol](https://github.com/arcbtc/where39)
+Learn more about where39 here https://github.com/arcbtc/where39
 
 ## API Reference
 

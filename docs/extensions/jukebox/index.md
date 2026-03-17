@@ -6,40 +6,40 @@
   repo="lnbits/jukebox"
 />
 
-## Overview
+## An actual Jukebox where users pay sats to play their favourite music from your playlists
 
-Jukebox connects to your Spotify Premium account and lets users pay Lightning to pick songs from your playlists. After payment, the song automatically starts playing on your chosen Spotify device or enters the queue. Share the jukebox page at a bar, party, or event.
+**Note:** To use this extension you need a Premium Spotify subscription.
 
-## Prerequisites
+## Usage
 
-A **Spotify Premium** subscription is required.
+1. Click on "ADD SPOTIFY JUKEBOX"\
+   ![add jukebox](https://i.imgur.com/NdVoKXd.png)
+2. Follow the steps required on the form\
 
-## Features
+   - give your jukebox a name
+   - select a wallet to receive payment
+   - define the price a user must pay to select a song\
+     ![pick wallet price](https://i.imgur.com/4bJ8mb9.png)
+   - follow the steps to get your Spotify App and get the client ID and secret key\
+     ![spotify keys](https://i.imgur.com/w2EzFtB.png)
+   - paste the codes in the form\
+     ![api keys](https://i.imgur.com/6b9xauo.png)
+   - copy the _Redirect URL_ presented on the form\
+     ![redirect url](https://i.imgur.com/GMzl0lG.png)
+   - on Spotify click the "EDIT SETTINGS" button and paste the copied link in the _Redirect URI's_ prompt
+     ![spotify app setting](https://i.imgur.com/vb0x4Tl.png)
+   - back on LNbits, click "AUTORIZE ACCESS" and "Agree" on the page that will open
+   - choose on which device the LNbits Jukebox extensions will stream to, you may have to be logged in in order to select the device (browser, smartphone app, etc...)
+   - and select what playlist will be available for users to choose songs (you need to have already playlist on Spotify)\
+     ![select playlists](https://i.imgur.com/g4dbtED.png)
 
-- **Spotify integration** — connects via Spotify API with OAuth
-- **Playlist selection** — choose which playlists are available
-- **Device selection** — play on any Spotify-connected device
-- **Configurable price** — set the cost per song selection
-- **Auto-queue** — songs queue automatically after payment
-- **Shareable page** — public jukebox URL with QR code
-
-## Setup
-
-1. Enable the extension from the LNbits **Extensions** page
-2. Click **Add Spotify Jukebox**:
-   - Name your jukebox and select a wallet
-   - Set the price per song
-   - Create a Spotify App at [developer.spotify.com](https://developer.spotify.com) and get the Client ID and Secret
-   - Paste the credentials and authorize access
-   - Select the playback device and playlists
-3. Share the jukebox link or QR code
-
-## Use Cases
-
-- **Bars and restaurants** — let customers pick the music
-- **Parties** — crowdsourced playlist via Lightning
-- **Events** — interactive music at conferences and meetups
-- **Stores** — let customers influence the atmosphere
+3. After Jukebox is created, click the icon to open the dialog with the shareable QR, open the Jukebox page, etc...\
+   ![shareable jukebox](https://i.imgur.com/EAh9PI0.png)
+4. The users will see the Jukebox page and choose a song from the selected playlist\
+   ![select song](https://i.imgur.com/YYjeQAs.png)
+5. After selecting a song they'd like to hear next a dialog will show presenting the music\
+   ![play for sats](https://i.imgur.com/eEHl3o8.png)
+6. After payment, the song will automatically start playing on the device selected or enter the queue if some other music is already playing
 
 ## API Reference
 
@@ -48,5 +48,4 @@ See the [Jukebox API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Jukebox API Reference](./api): API endpoints for this extension
-- [Livestream](/extensions/livestream/): Music livestream tips
 - [All Extensions](/extensions/): Browse all LNbits extensions

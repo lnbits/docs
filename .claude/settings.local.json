@@ -10,7 +10,13 @@
       "WebFetch(domain:docs.btcpayserver.org)",
       "WebFetch(domain:docs.strike.me)",
       "WebFetch(domain:guides.getalby.com)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(curl:*)",
+      "Bash(node:*)",
+      "Bash(grep -rn '</details>\\\\|</summary>' docs/extensions/*/index.md)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(grep -o raw.githubusercontent.com[^\"\"]*.png docs/.vitepress/dist/extensions/index.html)",
+      "Bash(pkill -f \"vitepress dev\")"
     ]
   }
 }
