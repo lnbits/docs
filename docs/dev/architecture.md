@@ -74,53 +74,10 @@ lnbits/
 
 ## Request lifecycle
 
-```
-Client Request
-    │
-    ▼
-┌─────────────────────┐
-│ Middleware Stack      │
-│  1. CORS             │
-│  2. GZip             │
-│  3. Session (SSO)    │
-│  4. IP Block         │
-│  5. Rate Limit       │
-│  6. Audit            │
-│  7. Extension Routing│
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ Route Dispatch       │
-│  Core or Extension   │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ Auth Decorators      │
-│  @require_admin_key  │
-│  @require_invoice_key│
-│  @check_user_exists  │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ Service Layer        │
-│  Business logic      │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ CRUD Layer           │
-│  Database operations │
-└─────────┬───────────┘
-          │
-          ▼
-┌─────────────────────┐
-│ Database             │
-│  SQLite / PostgreSQL │
-└─────────────────────┘
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/diagrams/request-lifecycle-dark.svg">
+  <img src="/diagrams/request-lifecycle-light.svg" alt="Request lifecycle — middleware, routing, auth, service layer, CRUD, database" style="max-width: 380px; width: 100%; margin: 16px auto; display: block;" />
+</picture>
 
 ## Startup sequence
 

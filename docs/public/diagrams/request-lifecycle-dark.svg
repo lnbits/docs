@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 680" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .step-label { font-size: 14px; font-weight: 600; fill: white; }
+    .step-sub { font-size: 11px; fill: rgba(255,255,255,0.75); }
+    .neutral-label { font-size: 14px; font-weight: 600; fill: #e8e6f0; }
+    .neutral-sub { font-size: 11px; fill: #8b8b9e; }
+    .connector { stroke: #3d3856; stroke-width: 2; }
+    .arrow { fill: #3d3856; }
+  </style>
+
+  <!-- Client Request -->
+  <rect x="100" y="20" width="200" height="44" rx="22" fill="#1a1726" stroke="#2d2844" stroke-width="1.5"/>
+  <text x="200" y="47" text-anchor="middle" class="neutral-label">Client Request</text>
+
+  <line x1="200" y1="64" x2="200" y2="94" class="connector"/>
+  <polygon points="194,92 206,92 200,102" class="arrow"/>
+
+  <!-- Middleware -->
+  <rect x="60" y="102" width="280" height="90" rx="12" fill="#7c3aed"/>
+  <text x="200" y="130" text-anchor="middle" class="step-label">Middleware Stack</text>
+  <text x="200" y="148" text-anchor="middle" class="step-sub">CORS · GZip · Session · IP Block</text>
+  <text x="200" y="164" text-anchor="middle" class="step-sub">Rate Limit · Audit · Extension Routing</text>
+
+  <line x1="200" y1="192" x2="200" y2="222" class="connector"/>
+  <polygon points="194,220 206,220 200,230" class="arrow"/>
+
+  <!-- Route Dispatch -->
+  <rect x="60" y="230" width="280" height="56" rx="12" fill="#8b5cf6"/>
+  <text x="200" y="254" text-anchor="middle" class="step-label">Route Dispatch</text>
+  <text x="200" y="270" text-anchor="middle" class="step-sub">Core or Extension endpoint</text>
+
+  <line x1="200" y1="286" x2="200" y2="316" class="connector"/>
+  <polygon points="194,314 206,314 200,324" class="arrow"/>
+
+  <!-- Auth Decorators -->
+  <rect x="60" y="324" width="280" height="72" rx="12" fill="#a78bfa"/>
+  <text x="200" y="352" text-anchor="middle" class="step-label">Auth Decorators</text>
+  <text x="200" y="370" text-anchor="middle" class="step-sub">@require_admin_key · @require_invoice_key</text>
+  <text x="200" y="384" text-anchor="middle" class="step-sub">@check_user_exists</text>
+
+  <line x1="200" y1="396" x2="200" y2="426" class="connector"/>
+  <polygon points="194,424 206,424 200,434" class="arrow"/>
+
+  <!-- Service Layer -->
+  <rect x="60" y="434" width="280" height="56" rx="12" fill="#211e30" stroke="#3d3856" stroke-width="1.5"/>
+  <text x="200" y="458" text-anchor="middle" class="neutral-label">Service Layer</text>
+  <text x="200" y="474" text-anchor="middle" class="neutral-sub">Business logic</text>
+
+  <line x1="200" y1="490" x2="200" y2="520" class="connector"/>
+  <polygon points="194,518 206,518 200,528" class="arrow"/>
+
+  <!-- CRUD Layer -->
+  <rect x="60" y="528" width="280" height="56" rx="12" fill="#211e30" stroke="#3d3856" stroke-width="1.5"/>
+  <text x="200" y="552" text-anchor="middle" class="neutral-label">CRUD Layer</text>
+  <text x="200" y="568" text-anchor="middle" class="neutral-sub">Database operations</text>
+
+  <line x1="200" y1="584" x2="200" y2="614" class="connector"/>
+  <polygon points="194,612 206,612 200,622" class="arrow"/>
+
+  <!-- Database -->
+  <rect x="100" y="622" width="200" height="44" rx="12" fill="#1e1535" stroke="#4c3a7a" stroke-width="1.5"/>
+  <text x="200" y="649" text-anchor="middle" class="neutral-label">SQLite / PostgreSQL</text>
+
+  <!-- Watermark -->
+  <g transform="translate(306, 648) scale(0.028)" opacity="0.1">
+    <path d="M158.566 493.857L1 901L450.49 355.202H264.831L501.791 1H187.881L36.4218 493.857H158.566Z" fill="#a78bfa"/>
+    <path d="M616.041 764.863V134.611H741.647V645.115H1023.41V764.863H616.041Z" fill="#e8e6f0"/>
+    <path d="M1079.99 764.863V134.611H1198.81L1478.31 543.014V134.611H1600.52V764.863H1478.31L1198.81 360.241V764.863H1079.99Z" fill="#e8e6f0"/>
+    <path d="M1693.87 768.522V148.458H1764.1V377.349H1770.05C1775.21 369.275 1782.35 358.981 1791.47 346.467C1800.8 333.751 1814.09 322.448 1831.35 312.557C1848.81 302.465 1872.41 297.419 1902.17 297.419C1940.66 297.419 1974.58 307.208 2003.94 326.787C2033.3 346.366 2056.22 374.119 2072.68 410.048C2089.15 445.976 2097.38 488.363 2097.38 537.209C2097.38 586.459 2089.15 629.149 2072.68 665.279C2056.22 701.207 2033.4 729.061 2004.24 748.842C1975.08 768.421 1941.45 778.21 1903.36 778.21Z" fill="#e8e6f0"/>
+    <path d="M2204.81 768.522V303.474H2275.04V768.522H2204.81Z" fill="#e8e6f0"/>
+    <path d="M2602.45 303.474V364.027H2365.57V303.474H2602.45ZM2434.61 192.057H2504.84V635.305C2504.84 655.489 2507.72 670.628 2513.47 680.72C2519.42 690.61 2526.96 697.271 2536.09 700.702C2545.41 703.932 2555.23 705.546 2565.55 705.546Z" fill="#e8e6f0"/>
+    <path d="M3023.67 407.625L2960.58 425.791C2956.61 415.094 2950.76 404.699 2943.02 394.607C2935.49 384.313 2925.17 375.835 2912.08 369.174C2898.98 362.513 2882.22 359.183 2861.79 359.183Z" fill="#e8e6f0"/>
+  </g>
+</svg>
