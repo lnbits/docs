@@ -168,15 +168,41 @@ Tests must pass on both SQLite and PostgreSQL.
 | `dev` | Active development (PR target) |
 | `feature/*` | Feature branches |
 
+## Report a bug
+
+Found something broken? [Open an issue on GitHub](https://github.com/lnbits/lnbits/issues/new). Include:
+
+- What happened and what you expected
+- Your LNbits version and installation method (Docker, uv, Poetry, etc.)
+- Wallet backend you're using
+- Relevant logs (mask any secrets, macaroons, or API keys!)
+- Steps to reproduce the issue
+
+For extension bugs, open the issue on the extension's own repo (linked from each extension page).
+
+## Contributing to documentation
+
+This docs site pulls extension pages directly from each extension's GitHub repository. To improve an extension's documentation:
+
+1. Go to the extension repo (e.g., `github.com/lnbits/tpos`)
+2. Edit the `README.md` there
+3. Your changes will appear on the docs site at the next build
+
+For core docs (guides, API reference, developer docs), submit a PR to the [docs repository](https://github.com/lnbits/lnbits-docs).
+
+### Translations — great first contribution
+
+LNbits is used worldwide. If you're a native speaker of a non-English language, helping with translations is one of the easiest and most impactful ways to contribute. No coding required — just language skills and a GitHub account.
+
 ## Areas to contribute
 
 - **Bug fixes** — check the [GitHub Issues](https://github.com/lnbits/lnbits/issues)
-- **Documentation** — improve or add docs
+- **Documentation** — improve extension READMEs or core docs (see above)
 - **Extensions** — build new extensions (see [Building Extensions](/dev/building-extensions))
 - **Wallet backends** — add support for new Lightning services
 - **Frontend** — UI improvements and accessibility
 - **Tests** — increase test coverage
-- **Translations** — help localize LNbits
+- **Translations** — help localize LNbits (great first contribution!)
 
 ## PR checklist
 
@@ -202,7 +228,17 @@ Common CI/review rejection reasons:
 | `NEW_DEP` | Unapproved dependency | Remove or get approval first |
 | `MIGRATION_FAIL` | SQL syntax differences | Test on both SQLite and PostgreSQL |
 
+## Questions?
+
+Join the LNbits Telegram group: [@lnbits](https://t.me/lnbits)
+
+You can also reach the core team directly via the chat button on [lnbits.com](https://lnbits.com).
+
+::: warning Scam warning
+LNbits admins will **never** DM you first. There is **no official LNbits support team** that contacts users privately. If someone messages you claiming to be LNbits support, it is a scam.
+:::
+
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions.md)
-- [Architecture](/dev/architecture.md)
+- [Building Extensions](/dev/building-extensions)
+- [Architecture](/dev/architecture)

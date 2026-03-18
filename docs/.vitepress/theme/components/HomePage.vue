@@ -160,7 +160,7 @@ const quickLinks = [
       </button>
 
       <!-- Funding Sources Carousel -->
-      <div class="carousel-wrap">
+      <div class="carousel-wrap" :key="isDark ? 'dark' : 'light'">
         <span class="carousel-label">Funding Sources</span>
         <div class="carousel">
           <div class="carousel-track">

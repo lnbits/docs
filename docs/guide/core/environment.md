@@ -15,28 +15,10 @@ When `LNBITS_ADMIN_UI=true` (the default for most setups), LNbits splits setting
 1. **`.env`-only settings** — always read from the `.env` file, never managed by the Admin UI
 2. **Admin UI settings** — stored in the database, managed through the Admin UI. **The `.env` values for these are ignored.**
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                    .env file                            │
-│                                                         │
-│  ┌─────────────────────┐  ┌──────────────────────────┐  │
-│  │  .env-only settings │  │  Admin UI settings       │  │
-│  │  (always active)    │  │  (IGNORED when Admin UI  │  │
-│  │                     │  │   is enabled)            │  │
-│  │  HOST, PORT         │  │  LNBITS_SITE_TITLE       │  │
-│  │  DATABASE           │  │  LNBITS_BACKEND_WALLET   │  │
-│  │  DEBUG              │  │  Fees, Rate Limits       │  │
-│  │  SUPER_USER         │  │  Auth methods, Themes    │  │
-│  │  AUTH_SECRET_KEY    │  │  Extension config        │  │
-│  └─────────────────────┘  └──────────┬───────────────┘  │
-│                                      │ moved to         │
-└──────────────────────────────────────┼──────────────────┘
-                                       ▼
-                              ┌──────────────────┐
-                              │  Admin UI / DB    │
-                              │  (runtime config) │
-                              └──────────────────┘
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="/diagrams/config-layers-dark.svg">
+  <img src="/diagrams/config-layers-light.svg" alt="Configuration layers — .env-only settings vs Admin UI settings" style="max-width: 580px; width: 100%; margin: 16px auto; display: block;" />
+</picture>
 
 ::: warning
 When Admin UI is enabled, editing settings like `LNBITS_SITE_TITLE` or `LNBITS_BACKEND_WALLET_CLASS` in your `.env` file has **no effect**. You must change them through the Admin UI or the [Admin API](/api/admin/settings).
