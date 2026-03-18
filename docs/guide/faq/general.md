@@ -42,6 +42,10 @@ They complement each other — many setups use both.
 
 LNbits itself is a web application, but you can connect mobile Lightning wallets to it using the **LNDhub** extension. Apps like [BlueWallet](https://bluewallet.io/) and [Zeus](https://zeusln.app/) can connect to your LNbits wallet via the LNDhub protocol, giving you a mobile interface to your LNbits balance.
 
+## Can I install LNbits as an app on my phone?
+
+Yes. LNbits is a Progressive Web App (PWA) — you can install it directly from your browser, no app store needed. On Android, open LNbits in Chrome and tap "Add to Home screen". On iOS, use Safari and tap Share → "Add to Home Screen". It runs fullscreen like a native app. See the [PWA guide](/guide/core/pwa) for step-by-step instructions.
+
 ## Can I use LNbits for my business?
 
 Yes. LNbits is well-suited for businesses that need:

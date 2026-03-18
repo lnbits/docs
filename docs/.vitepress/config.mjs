@@ -169,6 +169,7 @@ export default withMermaid(defineConfig({
             { text: 'Environment', link: '/guide/core/environment' },
             { text: 'Database', link: '/guide/core/database' },
             { text: 'WebSockets', link: '/guide/core/websockets' },
+            { text: 'Progressive Web App', link: '/guide/core/pwa' },
           ],
         },
         {
