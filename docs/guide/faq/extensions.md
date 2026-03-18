@@ -74,7 +74,9 @@ Some widely used extensions include:
 | **SatsPay** | Payment pages (Lightning + on-chain) |
 | **LNDhub** | Mobile wallet connector (BlueWallet, Zeus) |
 | **Boltz** | Submarine swaps (Lightning ↔ on-chain) |
-| **LNURLdevice** | Hardware device payments (ATM, NFC, vending) |
+| **Bolt Cards** | NFC tap-to-pay cards |
+| **FOSSA** | Bitcoin ATM |
+| **Bitcoin Switch** | IoT device control on payment |
 | **Split Payments** | Automatic revenue sharing |
 | **Watch Only** | On-chain wallet monitoring |
 | **TipJar** | Accept tips with custom pages |
@@ -114,7 +116,7 @@ Admins can control extension availability:
 - **`LNBITS_DISABLED_EXTENSIONS`**: Comma-separated list of extension IDs to disable
 
 ```bash
-LNBITS_DISABLED_EXTENSIONS=tipjar,lnurldevice
+LNBITS_DISABLED_EXTENSIONS=tipjar,satsdice
 ```
 
 Disabled extensions are hidden from the Extensions page for all non-admin users.
