@@ -41,9 +41,6 @@
   "lndhub": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/lndhub/main/static/image/lndhub.png"
   },
-  "cashu": {
-    "tileUrl": "https://raw.githubusercontent.com/lnbits/cashu/main/static/image/cashu.png"
-  },
   "withdraw": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/withdraw/main/static/image/lnurl-withdraw.png"
   },

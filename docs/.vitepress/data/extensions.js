@@ -21,7 +21,6 @@ export const EXTENSIONS = [
   { id: 'scrub', name: 'Scrub', category: 'Wallet Tools', icon: '🧹', description: 'Forward all incoming payments to an external wallet.', repo: 'lnbits/scrub' },
   { id: 'nwcprovider', name: 'NWC Provider', category: 'Wallet Tools', icon: '📡', description: 'Serve as a Nostr Wallet Connect provider.', repo: 'lnbits/nwcprovider' },
   { id: 'lndhub', name: 'LndHub', category: 'Wallet Tools', icon: '🔐', description: 'LndHub-compatible interface for BlueWallet and Zeus.', repo: 'lnbits/lndhub' },
-  { id: 'cashu', name: 'Cashu', category: 'Wallet Tools', icon: '🥜', description: 'Cashu mint for ecash tokens backed by Lightning.', repo: 'lnbits/cashu' },
 
   // ── Tips & Donations ──
   { id: 'withdraw', name: 'Withdraw', category: 'Tips & Donations', icon: '🎟️', description: 'Create LNURL-withdraw links (vouchers, faucets).', repo: 'lnbits/withdraw' },
