@@ -8,9 +8,9 @@ LNbits provides packaged desktop applications for running locally without a serv
 
 Download from the [GitHub Releases](https://github.com/lnbits/lnbits/releases) page:
 
-- **Linux** — `.AppImage`
-- **macOS** — `.dmg`
-- **Windows** — `.exe`
+- **Linux** - `.AppImage`
+- **macOS** - `.dmg`
+- **Windows** - `.exe`
 
 ## Linux AppImage
 
@@ -40,10 +40,10 @@ Download the latest version from [GitHub Releases](https://github.com/lnbits/lnb
 
 ## Next steps
 
-- [Configuration](/guide/core/environment) — customize your instance
-- [Funding sources](/guide/wallets/) — connect a Lightning backend
+- [Configuration](/guide/core/environment) - customize your instance
+- [Funding sources](/guide/wallets/) - connect a Lightning backend
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Updating LNbits](/guide/installation/updating) — keep LNbits up to date
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Updating LNbits](/guide/installation/updating) - keep LNbits up to date

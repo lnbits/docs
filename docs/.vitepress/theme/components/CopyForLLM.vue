@@ -178,7 +178,7 @@ function buildPromptContent(intent) {
 
 function truncateForUrl(text) {
   if (text.length <= URL_CONTENT_LIMIT) return text
-  return text.slice(0, URL_CONTENT_LIMIT) + '\n\n[Content truncated — full page was copied to clipboard]'
+  return text.slice(0, URL_CONTENT_LIMIT) + '\n\n[Content truncated - full page was copied to clipboard]'
 }
 
 function selectIntent(intent) {
@@ -218,10 +218,10 @@ async function openInLLM(target) {
       grok: 'https://grok.com/',
     }
     window.open(urls[target], '_blank')
-    notify(`Copied — paste into ${formatName(target)}`)
+    notify(`Copied - paste into ${formatName(target)}`)
   } else {
     // IDE tools: clipboard only
-    notify(`Copied — paste into ${formatName(target)}`)
+    notify(`Copied - paste into ${formatName(target)}`)
   }
 
   showMenu.value = false
@@ -648,7 +648,7 @@ function formatName(key) {
   display: block;
 }
 
-/* OpenAI, Grok, Cursor use currentColor — force visible */
+/* OpenAI, Grok, Cursor use currentColor - force visible */
 .llm-logo--openai,
 .llm-logo--mono {
   filter: brightness(0);

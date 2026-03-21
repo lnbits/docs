@@ -87,7 +87,7 @@ LNbits uses a three-tier role system:
 | Manage all users | Yes | No | No |
 | Add/remove admin accounts | Yes | No | No |
 | Impersonate any user | Yes | No | No |
-| Cannot be demoted by admins | Yes | — | — |
+| Cannot be demoted by admins | Yes | - | - |
 
 ### Super User
 
@@ -103,10 +103,10 @@ Standard accounts created through the login flow. They can create wallets, use e
 
 ## Best practices
 
-- **Principle of least privilege** — give users the minimum role they need
-- **Separate admin accounts** — don't share the Super User for daily operations
-- **Audit regularly** — review admin accounts and user activity periodically
-- **Private instances** — use `LNBITS_ALLOWED_USERS` to restrict who can create accounts
+- **Principle of least privilege** - give users the minimum role they need
+- **Separate admin accounts** - don't share the Super User for daily operations
+- **Audit regularly** - review admin accounts and user activity periodically
+- **Private instances** - use `LNBITS_ALLOWED_USERS` to restrict who can create accounts
 
 ## Access patterns
 
@@ -114,11 +114,11 @@ Standard accounts created through the login flow. They can create wallets, use e
 | --- | --- | --- | --- |
 | Super user | All users | All wallets | Yes |
 | Admin | Limited users | Own wallets | Yes |
-| Regular user | — | Own wallets | — |
+| Regular user | - | Own wallets | - |
 
 ## Related Pages
 
-- [Super User](/guide/core/super-user) — highest-privilege account details
+- [Super User](/guide/core/super-user) - highest-privilege account details
 - [Authentication](/guide/authentication.md)
 - [Admin Dashboard](/guide/admin-dashboard.md)
 - [Users Admin API](/api/admin/users.md)

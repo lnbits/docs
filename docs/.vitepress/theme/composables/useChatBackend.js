@@ -9,7 +9,7 @@ let backendHandler = null
 const stubResponses = [
   {
     content:
-      'You can install LNbits using several methods:\n\n1. **uv** (recommended) — fastest setup, handles Python automatically\n2. **Poetry** — traditional Python dependency management\n3. **Docker** — containerized, good for production\n4. **Nix** — reproducible builds\n5. **AppImage** — single-file desktop app\n6. **Node platforms** — Voltage, Fly.io, Embassy, Citadel\n\nFor most users, **uv** is the quickest path:\n\n```bash\ngit clone https://github.com/lnbits/lnbits.git\ncd lnbits\nuv sync\nuv run lnbits\n```\n\nThen open `http://localhost:5000` in your browser.',
+      'You can install LNbits using several methods:\n\n1. **uv** (recommended) - fastest setup, handles Python automatically\n2. **Poetry** - traditional Python dependency management\n3. **Docker** - containerized, good for production\n4. **Nix** - reproducible builds\n5. **AppImage** - single-file desktop app\n6. **Node platforms** - Voltage, Fly.io, Embassy, Citadel\n\nFor most users, **uv** is the quickest path:\n\n```bash\ngit clone https://github.com/lnbits/lnbits.git\ncd lnbits\nuv sync\nuv run lnbits\n```\n\nThen open `http://localhost:5000` in your browser.',
     sources: [
       { title: 'Installation Overview', url: '/guide/installation/' },
       { title: 'uv (Recommended)', url: '/guide/installation/uv' },
@@ -26,7 +26,7 @@ const stubResponses = [
   },
   {
     content:
-      'To build a LNbits extension:\n\n1. **Scaffold** — use the example extension as a template\n2. **Define models** in `models.py` using Pydantic\n3. **Create migrations** in `migrations/` for database tables\n4. **Build API routes** in `views_api.py`\n5. **Add the frontend** with Vue 3 + Quasar in `templates/`\n\nKey files in every extension:\n\n```\nmy_extension/\n├── __init__.py        # Extension metadata\n├── config.json        # Name, version, description\n├── models.py          # Pydantic models\n├── crud.py            # Database operations\n├── views.py           # Page routes\n├── views_api.py       # API endpoints\n├── migrations/        # DB migrations\n└── templates/         # Vue frontend\n```\n\nStart with `make ext` to scaffold a new extension.',
+      'To build a LNbits extension:\n\n1. **Scaffold** - use the example extension as a template\n2. **Define models** in `models.py` using Pydantic\n3. **Create migrations** in `migrations/` for database tables\n4. **Build API routes** in `views_api.py`\n5. **Add the frontend** with Vue 3 + Quasar in `templates/`\n\nKey files in every extension:\n\n```\nmy_extension/\n├── __init__.py        # Extension metadata\n├── config.json        # Name, version, description\n├── models.py          # Pydantic models\n├── crud.py            # Database operations\n├── views.py           # Page routes\n├── views_api.py       # API endpoints\n├── migrations/        # DB migrations\n└── templates/         # Vue frontend\n```\n\nStart with `make ext` to scaffold a new extension.',
     sources: [
       { title: 'Building Extensions', url: '/dev/extensions/' },
       { title: 'Architecture', url: '/dev/architecture' },

@@ -64,12 +64,12 @@ After updating, use **Admin UI → Extensions → "Update All"** to update exten
 
 ## Next steps
 
-- [Configuration](/guide/core/environment) — customize your instance
-- [Funding sources](/guide/wallets/) — connect a Lightning backend
-- [Reverse proxy](/guide/installation/reverse-proxy) — set up HTTPS
+- [Configuration](/guide/core/environment) - customize your instance
+- [Funding sources](/guide/wallets/) - connect a Lightning backend
+- [Reverse proxy](/guide/installation/reverse-proxy) - set up HTTPS
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Install with uv](/guide/installation/uv) — faster alternative source install
-- [Updating LNbits](/guide/installation/updating) — keep LNbits up to date
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Install with uv](/guide/installation/uv) - faster alternative source install
+- [Updating LNbits](/guide/installation/updating) - keep LNbits up to date

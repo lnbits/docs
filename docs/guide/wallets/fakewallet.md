@@ -2,7 +2,7 @@
 
 > Use the FakeWallet backend for development and testing without real Lightning payments.
 
-FakeWallet simulates a Lightning node — invoices are auto-paid and payments always succeed. Use it for development and testing.
+FakeWallet simulates a Lightning node - invoices are auto-paid and payments always succeed. Use it for development and testing.
 
 ## Configuration
 
@@ -13,9 +13,9 @@ FAKE_WALLET_SECRET=development-secret
 
 ## When to use
 
-- Extension development — instant responses, no real node needed
-- UI testing — full workflow without real sats
-- CI/CD pipelines — automated tests against LNbits
+- Extension development - instant responses, no real node needed
+- UI testing - full workflow without real sats
+- CI/CD pipelines - automated tests against LNbits
 
 ## VoidWallet
 

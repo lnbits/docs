@@ -2,7 +2,7 @@
 
 > LNURL-pay, LNURL-withdraw, and LNURL-auth API endpoints.
 
-Handle LNURL protocol operations — scan, pay, and authenticate.
+Handle LNURL protocol operations - scan, pay, and authenticate.
 
 ## Scan LNURL
 

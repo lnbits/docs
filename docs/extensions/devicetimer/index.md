@@ -8,15 +8,15 @@
 
 ## Overview
 
-Device Timer is an LNbits extension compatible with the [Bitcoin Switch](/extensions/bitcoinswitch/) hardware for timed triggering. It extends the standard LNURL device behavior with opening hours, cooldown periods, and alternative displays — making it ideal for scenarios like animal feeding stations, vending machines, or any IoT device that should only accept payments during specific windows.
+Device Timer is an LNbits extension compatible with the [Bitcoin Switch](/extensions/bitcoinswitch/) hardware for timed triggering. It extends the standard LNURL device behavior with opening hours, cooldown periods, and alternative displays - making it ideal for scenarios like animal feeding stations, vending machines, or any IoT device that should only accept payments during specific windows.
 
 ## Features
 
-- **Opening hours** — restrict payments to a specific time window (e.g., 9 AM – 5 PM)
-- **Cooldown after payment** — block the device for a configurable period after each successful payment (prevents overuse)
-- **Alternative display** — show a custom image instead of the QR code outside opening hours
-- **LNURL error handling** — returns a proper error when payment is attempted outside the allowed window
-- **Bitcoin Switch compatible** — works with the bitcoinSwitch hardware device
+- **Opening hours** - restrict payments to a specific time window (e.g., 9 AM – 5 PM)
+- **Cooldown after payment** - block the device for a configurable period after each successful payment (prevents overuse)
+- **Alternative display** - show a custom image instead of the QR code outside opening hours
+- **LNURL error handling** - returns a proper error when payment is attempted outside the allowed window
+- **Bitcoin Switch compatible** - works with the bitcoinSwitch hardware device
 
 ## Setup
 
@@ -31,10 +31,10 @@ Device Timer is an LNbits extension compatible with the [Bitcoin Switch](/extens
 
 ## Use Cases
 
-- **Animal feeding stations** — accept payments to dispense food, with opening hours and cooldown to prevent overfeeding
-- **Vending machines** — time-limited product dispensing
-- **Access control** — timed entry during business hours
-- **IoT automation** — any device that should only activate within scheduled windows
+- **Animal feeding stations** - accept payments to dispense food, with opening hours and cooldown to prevent overfeeding
+- **Vending machines** - time-limited product dispensing
+- **Access control** - timed entry during business hours
+- **IoT automation** - any device that should only activate within scheduled windows
 
 ## API Reference
 

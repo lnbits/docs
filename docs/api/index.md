@@ -4,8 +4,8 @@
 
 ::: tip Interactive API Explorer
 Every LNbits instance serves interactive API documentation:
-- **Swagger UI** — `https://your-lnbits.com/docs`
-- **ReDoc** — `https://your-lnbits.com/redoc`
+- **Swagger UI** - `https://your-lnbits.com/docs`
+- **ReDoc** - `https://your-lnbits.com/redoc`
 
 These are auto-generated from the running instance and always match your version. Use them to test endpoints directly from your browser.
 :::
@@ -91,11 +91,11 @@ Error responses use standard HTTP status codes with a `detail` message:
 |------|---------|
 | `200` | Success |
 | `201` | Created |
-| `400` | Bad request — check parameters |
-| `401` | Unauthorized — invalid or missing API key |
-| `403` | Forbidden — insufficient permissions |
+| `400` | Bad request - check parameters |
+| `401` | Unauthorized - invalid or missing API key |
+| `403` | Forbidden - insufficient permissions |
 | `404` | Not found |
-| `422` | Validation error — check required fields and types |
+| `422` | Validation error - check required fields and types |
 | `429` | Rate limited |
 | `500` | Server error |
 

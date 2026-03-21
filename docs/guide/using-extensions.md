@@ -2,7 +2,7 @@
 
 > How to browse, install, activate, and manage LNbits extensions that add features like point-of-sale terminals, LNURL tools, and submarine swaps.
 
-Extensions add features to LNbits — from point-of-sale terminals to atomic swaps.
+Extensions add features to LNbits - from point-of-sale terminals to atomic swaps.
 
 ## Browsing extensions
 
@@ -101,7 +101,7 @@ Uninstalling an extension removes its code and UI, but **does not delete its dat
 
 ## Extension manifest format
 
-LNbits discovers extensions through manifest files — JSON documents that list available extensions and their download URLs. The official LNbits registry is a manifest, and you can add custom manifests.
+LNbits discovers extensions through manifest files - JSON documents that list available extensions and their download URLs. The official LNbits registry is a manifest, and you can add custom manifests.
 
 ### Adding custom extension sources
 
@@ -113,8 +113,8 @@ LNBITS_EXTENSIONS_MANIFESTS='["https://example.com/my-manifest.json"]'
 Or via the Admin UI under **Admin** → **Server** → **Extension Sources**.
 
 Manifests support two modes:
-- **Explicit release** — each version is listed directly with a download URL and hash
-- **GitHub repository** — LNbits auto-discovers releases from a GitHub repo
+- **Explicit release** - each version is listed directly with a download URL and hash
+- **GitHub repository** - LNbits auto-discovers releases from a GitHub repo
 
 See [Remote Manifest](/dev/extensions/manifest) for the full manifest format specification.
 
@@ -126,13 +126,13 @@ Extensions have three states:
 | --- | --- |
 | **Not installed** | Extension is not present on the instance |
 | **Installed (disabled)** | Code is present but not active for any user |
-| **Installed (enabled)** | Active and available — users can toggle it in their dashboard |
+| **Installed (enabled)** | Active and available - users can toggle it in their dashboard |
 
 Admins control installation and instance-level enablement. Individual users control whether an enabled extension appears in their personal dashboard.
 
 ## Related Pages
 
-- [Extensions Directory](/extensions/) — browse all available LNbits extensions
-- [Admin Dashboard](/guide/admin-dashboard) — manage extensions and server settings
-- [Building Extensions](/dev/building-extensions) — develop your own LNbits extensions
-- [Deploying Extensions](/dev/extensions/) — packaging, distribution, and installation methods
+- [Extensions Directory](/extensions/) - browse all available LNbits extensions
+- [Admin Dashboard](/guide/admin-dashboard) - manage extensions and server settings
+- [Building Extensions](/dev/building-extensions) - develop your own LNbits extensions
+- [Deploying Extensions](/dev/extensions/) - packaging, distribution, and installation methods

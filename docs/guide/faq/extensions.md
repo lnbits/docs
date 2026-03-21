@@ -83,15 +83,15 @@ Some widely used extensions include:
 
 Browse all available extensions on the [Extensions](/extensions/) page.
 
-## Extension won't install — common causes
+## Extension won't install - common causes
 
 If an extension fails to install:
 
-1. **Version mismatch** — the extension may require a newer LNbits version. Check the extension's `manifest.json` for `min_lnbits_version`.
-2. **Manifest unreachable** — ensure the extension source URL is accessible from your server. Check network/firewall.
-3. **Dependency errors** — check LNbits logs for Python import errors or missing packages.
-4. **Disk space** — ensure sufficient disk space for downloading the extension.
-5. **Permissions** — the LNbits process needs write access to the extensions directory.
+1. **Version mismatch** - the extension may require a newer LNbits version. Check the extension's `manifest.json` for `min_lnbits_version`.
+2. **Manifest unreachable** - ensure the extension source URL is accessible from your server. Check network/firewall.
+3. **Dependency errors** - check LNbits logs for Python import errors or missing packages.
+4. **Disk space** - ensure sufficient disk space for downloading the extension.
+5. **Permissions** - the LNbits process needs write access to the extensions directory.
 
 Check logs for specific error messages:
 
@@ -103,10 +103,10 @@ docker compose logs lnbits | tail -50
 
 Database migrations run automatically when LNbits starts. If data appears missing after an update:
 
-1. **Check logs for migration errors** — failed migrations may leave the database in an inconsistent state
-2. **Verify the extension version** — ensure you're running the expected version
-3. **Check the database** — the data may still exist but the schema changed. Look for renamed tables or columns in the migration files.
-4. **Report the issue** — if data is genuinely lost, file a [GitHub issue](https://github.com/lnbits/lnbits/issues) with the migration error logs
+1. **Check logs for migration errors** - failed migrations may leave the database in an inconsistent state
+2. **Verify the extension version** - ensure you're running the expected version
+3. **Check the database** - the data may still exist but the schema changed. Look for renamed tables or columns in the migration files.
+4. **Report the issue** - if data is genuinely lost, file a [GitHub issue](https://github.com/lnbits/lnbits/issues) with the migration error logs
 
 ## How do I restrict which extensions are available?
 
@@ -123,7 +123,7 @@ Disabled extensions are hidden from the Extensions page for all non-admin users.
 
 ## Related Pages
 
-- [Using Extensions](/guide/using-extensions) — install and manage extensions
-- [Building Extensions](/dev/building-extensions) — development guide
-- [Deploying Extensions](/dev/extensions/) — distribution options
-- [Custom Marketplace](/dev/extensions/custom-list) — host your own extension source
+- [Using Extensions](/guide/using-extensions) - install and manage extensions
+- [Building Extensions](/dev/building-extensions) - development guide
+- [Deploying Extensions](/dev/extensions/) - distribution options
+- [Custom Marketplace](/dev/extensions/custom-list) - host your own extension source

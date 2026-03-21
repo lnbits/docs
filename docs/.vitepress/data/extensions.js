@@ -30,10 +30,10 @@ export const EXTENSIONS = [
 
   // ── Hardware & Devices ──
   { id: 'boltcards', name: 'Bolt Cards', category: 'Hardware & Devices', icon: '💳', description: 'Self-custody NFC cards with one-time LNURLw links.', repo: 'lnbits/boltcards' },
-  { id: 'bitcoinswitch', name: 'Bitcoin Switch', category: 'Hardware & Devices', icon: '🔌', description: 'Turn things on with bitcoin — IoT device control.', repo: 'lnbits/bitcoinswitch_extension' },
-  { id: 'fossa', name: 'FOSSA', category: 'Hardware & Devices', icon: '🏧', description: 'Bitcoin ATM — sell bitcoin for cash.', repo: 'lnbits/fossa' },
+  { id: 'bitcoinswitch', name: 'Bitcoin Switch', category: 'Hardware & Devices', icon: '🔌', description: 'Turn things on with bitcoin - IoT device control.', repo: 'lnbits/bitcoinswitch_extension' },
+  { id: 'fossa', name: 'FOSSA', category: 'Hardware & Devices', icon: '🏧', description: 'Bitcoin ATM - sell bitcoin for cash.', repo: 'lnbits/fossa' },
   { id: 'lnpos', name: 'LNPoS', category: 'Hardware & Devices', icon: '📟', description: 'Hardware Lightning point-of-sale terminal.', repo: 'lnbits/lnpos' },
-  { id: 'lnurldevice', name: 'LNURL Device', category: 'Hardware & Devices', icon: '📱', description: 'Legacy hardware integration (deprecated — use Bitcoin Switch, FOSSA, LNPoS).', repo: 'lnbits/lnurldevice' },
+  { id: 'lnurldevice', name: 'LNURL Device', category: 'Hardware & Devices', icon: '📱', description: 'Legacy hardware integration (deprecated - use Bitcoin Switch, FOSSA, LNPoS).', repo: 'lnbits/lnurldevice' },
 
   // ── Swaps ──
   { id: 'boltz', name: 'Boltz', category: 'Swaps', icon: '🔄', description: 'Submarine and reverse submarine swaps (on-chain ↔ Lightning).', repo: 'lnbits/boltz' },
@@ -46,13 +46,13 @@ export const EXTENSIONS = [
   { id: 'nostrrelay', name: 'Nostr Relay', category: 'Social & Nostr', icon: '📨', description: 'Run a paid Nostr relay with Lightning.', repo: 'lnbits/nostrrelay' },
   { id: 'chat', name: 'Chat', category: 'Social & Nostr', icon: '💬', description: 'Live support chat with paid messages and embeddable widget.', repo: 'lnbits/chat' },
   { id: 'paidreviews', name: 'Paid Reviews', category: 'Social & Nostr', icon: '⭐', description: 'Collect reviews with Lightning-gated submission.', repo: 'lnbits/paidreviews' },
-  { id: 'pay2review', name: 'Pay2Review', category: 'Social & Nostr', icon: '📝', description: 'Charge sats for reviews — anti-sock-puppet.', repo: 'lnbits/pay2review' },
+  { id: 'pay2review', name: 'Pay2Review', category: 'Social & Nostr', icon: '📝', description: 'Charge sats for reviews - anti-sock-puppet.', repo: 'lnbits/pay2review' },
   { id: 'auctionhouse', name: 'Auction House', category: 'Social & Nostr', icon: '🔨', description: 'Run Lightning-powered auctions.', repo: 'lnbits/auctionhouse' },
 
   // ── Games & Gambling ──
-  { id: 'coinflip', name: 'Coinflip', category: 'Games & Gambling', icon: '🪙', description: 'Bet sats on coinflips — winner takes all.', repo: 'lnbits/coinflip' },
-  { id: 'satsdice', name: 'Sats Dice', category: 'Games & Gambling', icon: '🎲', description: 'LNURL satoshi dice — gambling in a QR code.', repo: 'lnbits/satsdice' },
-  { id: 'satspot', name: 'Satspot', category: 'Games & Gambling', icon: '🎯', description: 'Money pool games — pay to join, random winner.', repo: 'lnbits/satspot' },
+  { id: 'coinflip', name: 'Coinflip', category: 'Games & Gambling', icon: '🪙', description: 'Bet sats on coinflips - winner takes all.', repo: 'lnbits/coinflip' },
+  { id: 'satsdice', name: 'Sats Dice', category: 'Games & Gambling', icon: '🎲', description: 'LNURL satoshi dice - gambling in a QR code.', repo: 'lnbits/satsdice' },
+  { id: 'satspot', name: 'Satspot', category: 'Games & Gambling', icon: '🎯', description: 'Money pool games - pay to join, random winner.', repo: 'lnbits/satspot' },
   { id: 'blackjack', name: 'BlackJack', category: 'Games & Gambling', icon: '🃏', description: 'Lightning-powered blackjack dealer.', repo: 'lnbits/blackjack' },
   { id: 'numberlottery', name: 'Number Lottery', category: 'Games & Gambling', icon: '🔢', description: 'Provably fair numbers game using Bitcoin block data.', repo: 'lnbits/numberlottery' },
   { id: 'eightball', name: 'Magic 8ball', category: 'Games & Gambling', icon: '🎱', description: 'Pay sats, get a random word from a custom list.', repo: 'lnbits/eightball' },
@@ -60,7 +60,7 @@ export const EXTENSIONS = [
   // ── Events & Streaming ──
   { id: 'lnticket', name: 'LN Ticket', category: 'Events & Streaming', icon: '🎫', description: 'Sell event tickets for Lightning payments.', repo: 'lnbits/lnticket' },
   { id: 'events', name: 'Events', category: 'Events & Streaming', icon: '🎪', description: 'Event management with Lightning ticketing.', repo: 'lnbits/events' },
-  { id: 'lncalendar', name: 'LNCalendar', category: 'Events & Streaming', icon: '📅', description: 'Paid scheduling — like Calendly with Bitcoin.', repo: 'lnbits/lncalendar' },
+  { id: 'lncalendar', name: 'LNCalendar', category: 'Events & Streaming', icon: '📅', description: 'Paid scheduling - like Calendly with Bitcoin.', repo: 'lnbits/lncalendar' },
   { id: 'livestream', name: 'Livestream', category: 'Events & Streaming', icon: '🎥', description: 'Accept Lightning payments during livestreams.', repo: 'lnbits/livestream' },
   { id: 'jukebox', name: 'Jukebox', category: 'Events & Streaming', icon: '🎵', description: 'Lightning-powered jukebox for Spotify integration.', repo: 'lnbits/jukebox' },
   { id: 'copilot', name: 'Copilot', category: 'Events & Streaming', icon: '🧑‍✈️', description: 'Streaming overlay for Lightning donations.', repo: 'lnbits/copilot' },

@@ -1,6 +1,6 @@
 # Core Concepts
 
-> Understanding the building blocks of LNbits — accounts, wallets, API keys, payments, extensions, and funding sources.
+> Understanding the building blocks of LNbits - accounts, wallets, API keys, payments, extensions, and funding sources.
 
 ## Accounts
 
@@ -51,7 +51,7 @@ Every wallet has two keys:
 - Can create invoices
 - Can view all payment history
 - Can delete the wallet
-- **Treat like a password** — never expose publicly
+- **Treat like a password** - never expose publicly
 
 ### Invoice Key
 - Read and receive access only
@@ -86,13 +86,13 @@ PENDING ──→ SUCCESS
 
 Key fields on every payment:
 
-- `checking_id` — unique identifier for status checks
-- `amount` — amount in millisatoshis (positive = incoming, negative = outgoing)
-- `memo` — human-readable description
-- `bolt11` — the Lightning invoice (BOLT11 format)
-- `payment_hash` — the Lightning payment hash
-- `extra` — JSON metadata (tags, comments, extension data)
-- `webhook` — optional URL called when payment status changes
+- `checking_id` - unique identifier for status checks
+- `amount` - amount in millisatoshis (positive = incoming, negative = outgoing)
+- `memo` - human-readable description
+- `bolt11` - the Lightning invoice (BOLT11 format)
+- `payment_hash` - the Lightning payment hash
+- `extra` - JSON metadata (tags, comments, extension data)
+- `webhook` - optional URL called when payment status changes
 
 ## Extensions
 
@@ -110,7 +110,7 @@ Extensions are installed per-instance and activated per-user. See [Using Extensi
 
 The **funding source** (or wallet backend) is the Lightning node or service that LNbits connects to for actual Lightning operations. LNbits supports 20+ backends.
 
-All wallets on a LNbits instance share the same funding source. LNbits tracks individual wallet balances internally — the funding source only sees aggregate Lightning activity.
+All wallets on a LNbits instance share the same funding source. LNbits tracks individual wallet balances internally - the funding source only sees aggregate Lightning activity.
 
 ```
 User Wallet A (500 sats)  ──┐
@@ -131,9 +131,9 @@ Fees are configured by the admin and can be directed to a specific wallet.
 
 ## Next steps
 
-- [Wallets](/guide/core/wallets-and-accounts) — managing wallets in detail
-- [Payments](/guide/core/payments) — creating and tracking payments
-- [Authentication](/guide/authentication) — login methods and API auth
+- [Wallets](/guide/core/wallets-and-accounts) - managing wallets in detail
+- [Payments](/guide/core/payments) - creating and tracking payments
+- [Authentication](/guide/authentication) - login methods and API auth
 
 ## Related Pages
 

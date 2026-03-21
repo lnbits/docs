@@ -1,6 +1,6 @@
 # Skills
 
-> Skill files teach AI agents how to work with LNbits — integrating extensions into apps, using core features programmatically, and following LNbits standards.
+> Skill files teach AI agents how to work with LNbits - integrating extensions into apps, using core features programmatically, and following LNbits standards.
 
 Skills are structured instruction files (`.md`) that give AI agents the context they need to build on LNbits autonomously. Instead of an agent searching through documentation, a skill file provides a focused, task-ready prompt with the right endpoints, patterns, and constraints.
 
@@ -45,7 +45,7 @@ APIs, extensions, or configuration that must be in place.
 The task broken into clear, ordered actions with code examples.
 
 ## Rules
-Hard constraints — things the agent must or must not do.
+Hard constraints - things the agent must or must not do.
 
 ## Error handling
 Common failures and how to recover.
@@ -64,15 +64,15 @@ Skills for LNbits are being developed. This page will be updated as they are pub
 
 If you build integrations with LNbits and want to make them agent-ready:
 
-1. **Pick one task** — each skill should do one thing well
-2. **Include working code** — agents need copy-paste-ready examples with real endpoints
-3. **State prerequisites explicitly** — which extensions must be installed, which API keys are needed
-4. **Add constraints** — what the agent should never do (e.g., "never expose the admin key to the frontend")
-5. **Test with an agent** — load the skill into an AI agent and verify it can complete the task without extra context
+1. **Pick one task** - each skill should do one thing well
+2. **Include working code** - agents need copy-paste-ready examples with real endpoints
+3. **State prerequisites explicitly** - which extensions must be installed, which API keys are needed
+4. **Add constraints** - what the agent should never do (e.g., "never expose the admin key to the frontend")
+5. **Test with an agent** - load the skill into an AI agent and verify it can complete the task without extra context
 
 ## Related Pages
 
-- [LLM Integration](/llm/) — how AI agents consume LNbits documentation
-- [API Reference](/api/) — core and admin endpoints
-- [Building Extensions](/dev/building-extensions) — extension development guide
-- [Extensions](/extensions/) — available extensions
+- [LLM Integration](/llm/) - how AI agents consume LNbits documentation
+- [API Reference](/api/) - core and admin endpoints
+- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Extensions](/extensions/) - available extensions

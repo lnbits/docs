@@ -2,7 +2,7 @@
 
 > Manage extension installation and access at the server level via the Admin API.
 
-Server-wide extension management — list all extensions, enable/disable them globally, or install new ones from manifest URLs.
+Server-wide extension management - list all extensions, enable/disable them globally, or install new ones from manifest URLs.
 
 ## List Extensions
 

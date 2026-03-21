@@ -1,6 +1,6 @@
 # Wallet Backend Comparison
 
-> Feature comparison across all LNbits wallet backends — 21 funding sources including LND, CLN, Eclair, Phoenix, NWC, services, and testing backends.
+> Feature comparison across all LNbits wallet backends - 21 funding sources including LND, CLN, Eclair, Phoenix, NWC, services, and testing backends.
 
 Not all backends support all features. Use these tables to pick the right one.
 
@@ -77,20 +77,20 @@ Not all backends support all features. Use these tables to pick the right one.
 
 | Backend | Description |
 | --- | --- |
-| [FakeWallet](/guide/wallets/fakewallet) | Simulated node for development — invoices auto-pay |
-| VoidWallet | No-op backend for UI exploration — no payments processed |
+| [FakeWallet](/guide/wallets/fakewallet) | Simulated node for development - invoices auto-pay |
+| VoidWallet | No-op backend for UI exploration - no payments processed |
 
 ## Choosing a backend
 
-- **Self-hosted production**: LND or CLN — full control, best privacy, requires node management
-- **Easy self-custody**: Phoenix (phoenixd) — automatic channel management, minimal setup
-- **Quick start / no node**: OpenNode, Alby, or Blink — custodial but instant setup
-- **Development**: FakeWallet — instant, free, no external dependencies
-- **Nostr integration**: NWC or Alby — native Nostr wallet support
+- **Self-hosted production**: LND or CLN - full control, best privacy, requires node management
+- **Easy self-custody**: Phoenix (phoenixd) - automatic channel management, minimal setup
+- **Quick start / no node**: OpenNode, Alby, or Blink - custodial but instant setup
+- **Development**: FakeWallet - instant, free, no external dependencies
+- **Nostr integration**: NWC or Alby - native Nostr wallet support
 
 ## Related Pages
 
-- [Funding Sources](/guide/wallets/) — configuration reference for all backends
-- [Core Lightning (CLNRest)](/guide/wallets/clnrest) — detailed CLN setup
-- [LND (REST)](/guide/wallets/lnd-rest) — detailed LND setup
-- [FakeWallet](/guide/wallets/fakewallet) — testing backend
+- [Funding Sources](/guide/wallets/) - configuration reference for all backends
+- [Core Lightning (CLNRest)](/guide/wallets/clnrest) - detailed CLN setup
+- [LND (REST)](/guide/wallets/lnd-rest) - detailed LND setup
+- [FakeWallet](/guide/wallets/fakewallet) - testing backend

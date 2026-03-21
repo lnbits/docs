@@ -59,7 +59,7 @@ curl https://your-lnbits.com/api/v1/wallet \
 
 ## Bearer Tokens (JWT)
 
-For user-level operations — managing multiple wallets, updating your profile, or installing extensions — authenticate with a Bearer token.
+For user-level operations - managing multiple wallets, updating your profile, or installing extensions - authenticate with a Bearer token.
 
 ### Obtain a Token
 
@@ -98,7 +98,7 @@ curl -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIs..." \
 
 ## ACL Tokens
 
-Access Control Lists (ACLs) let you create tokens with custom permissions — restrict access to specific endpoints.
+Access Control Lists (ACLs) let you create tokens with custom permissions - restrict access to specific endpoints.
 
 ### Create an ACL
 
@@ -141,7 +141,7 @@ curl -X DELETE https://your-lnbits.com/api/v1/auth/acls/{acl_id}/tokens/{token_i
 | `GET /api/v1/wallets` (list all) | No | No | **Yes** | Configurable |
 | `PUT /api/v1/auth/me` (profile) | No | No | **Yes** | Configurable |
 | `POST /api/v1/extension` (install) | No | No | **Yes** | Configurable |
-| `POST /api/v1/auth/register` | None required | — | — | — |
+| `POST /api/v1/auth/register` | None required | - | - | - |
 | `GET /admin/api/v1/*` | No | No | **Super User** | No |
 
 ::: tip

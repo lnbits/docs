@@ -12,10 +12,10 @@ Auction House lets you run Lightning-powered auctions. Create auctions for digit
 
 ## Features
 
-- **Auction creation** — list items with descriptions and starting prices
-- **Lightning bidding** — bids placed via Lightning payments
-- **Market pricing** — let bidders compete for the final price
-- **Fixed price sales** — also supports buy-now pricing
+- **Auction creation** - list items with descriptions and starting prices
+- **Lightning bidding** - bids placed via Lightning payments
+- **Market pricing** - let bidders compete for the final price
+- **Fixed price sales** - also supports buy-now pricing
 
 ## Setup
 
@@ -26,10 +26,10 @@ Auction House lets you run Lightning-powered auctions. Create auctions for digit
 
 ## Use Cases
 
-- **Digital goods** — auction art, domains, or digital assets
-- **Services** — auction consulting hours or freelance work
-- **Collectibles** — sell rare digital items to the highest bidder
-- **Fundraising** — auction items for charity
+- **Digital goods** - auction art, domains, or digital assets
+- **Services** - auction consulting hours or freelance work
+- **Collectibles** - sell rare digital items to the highest bidder
+- **Fundraising** - auction items for charity
 
 ## API Reference
 

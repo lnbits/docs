@@ -16,9 +16,9 @@ The node management page appears in the admin navigation.
 
 Node management features are available with:
 
-- **LND** (gRPC and REST) — full support
-- **Core Lightning** — full support
-- Other backends — limited or no node management
+- **LND** (gRPC and REST) - full support
+- **Core Lightning** - full support
+- Other backends - limited or no node management
 
 ## Available information
 

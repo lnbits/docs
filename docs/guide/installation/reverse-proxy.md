@@ -175,7 +175,7 @@ Self-signed certificates trigger browser warnings. Only use for development or i
 
 ## Related Pages
 
-- [Docker](/guide/installation/docker) — container-based deployment
-- [Fly.io](/guide/installation/flyio) — deploy on Fly.io
-- [Security](/guide/core/security) — harden your LNbits instance
-- [Environment Variables](/guide/core/environment) — configure LNbits settings
+- [Docker](/guide/installation/docker) - container-based deployment
+- [Fly.io](/guide/installation/flyio) - deploy on Fly.io
+- [Security](/guide/core/security) - harden your LNbits instance
+- [Environment Variables](/guide/core/environment) - configure LNbits settings

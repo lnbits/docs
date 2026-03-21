@@ -1,6 +1,6 @@
 # Admin Top-up API
 
-> Add balance to any wallet without a Lightning payment — admin-only endpoint.
+> Add balance to any wallet without a Lightning payment - admin-only endpoint.
 
 Add balance to any wallet without a corresponding Lightning payment. Useful for testing, initial setup, and manual balance adjustments.
 

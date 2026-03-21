@@ -150,7 +150,7 @@ Always back up your SQLite database before migrating. Test the migration on a co
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — overview and deployment methods
-- [Building Extensions](/dev/building-extensions) — extension development guide
-- [Database & Migrations](/dev/database) — core database architecture
-- [Admin API — Extensions](/api/admin/extensions) — admin extension endpoints
+- [Deploying Extensions](/dev/extensions/) - overview and deployment methods
+- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Database & Migrations](/dev/database) - core database architecture
+- [Admin API - Extensions](/api/admin/extensions) - admin extension endpoints

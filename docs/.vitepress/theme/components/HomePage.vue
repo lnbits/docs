@@ -1,6 +1,7 @@
 <script setup>
 import { ref, onMounted, computed } from 'vue'
 import { useData } from 'vitepress'
+import { Code, SearchCheck, PenLine, Palette, Rocket, Megaphone } from 'lucide-vue-next'
 import openaiIcon from '@lobehub/icons-static-svg/icons/openai.svg'
 import claudeIcon from '@lobehub/icons-static-svg/icons/claude-color.svg'
 import perplexityIcon from '@lobehub/icons-static-svg/icons/perplexity-color.svg'
@@ -9,19 +10,35 @@ import grokIcon from '@lobehub/icons-static-svg/icons/grok.svg'
 
 const mounted = ref(false)
 const toast = ref('')
+const ghStars = ref('')
+const contribVideoActive = ref(false)
 const { isDark } = useData()
 
 onMounted(() => {
   mounted.value = true
+  fetch('https://api.github.com/repos/lnbits/lnbits', { headers: { Accept: 'application/vnd.github.v3+json' } })
+    .then(r => r.ok ? r.json() : null)
+    .then(d => { if (d?.stargazers_count) ghStars.value = (d.stargazers_count / 1000).toFixed(1) + 'k' })
+    .catch(() => {})
 })
 
-const LNB_PROMPT = `I want to understand how LNbits can help me build Lightning-powered applications.
+const LNB_PROMPT = `You are an LNbits expert assistant. Help me understand and build with LNbits.
 
-LNbits is a free, open-source Lightning Network wallet and accounts system. It offers 50+ extensions (Point of Sale, paywall, Nostr Wallet Connect, IoT, etc.), 20+ wallet backends, a REST API, and multi-user account management.
+LNbits is a free, open-source Lightning Network wallet and accounts system. Key facts:
+- 60+ extensions (Point of Sale, Bolt Cards, paywall, Nostr Wallet Connect, subscriptions, etc.)
+- 20+ wallet backends (LND, Core Lightning, Phoenixd, Alby, Breez, and more)
+- Full REST API for wallets, payments, users, and extensions
+- Multi-user account management with admin, user, and extension-level permissions
+- Runs self-hosted (Docker, uv, Nix) or as managed SaaS at my.lnbits.com
 
-The full documentation is available as LLM-ready files at https://docs.lnbits.com/llms.txt (index) and https://docs.lnbits.com/llms-full.txt (complete docs).
+Full documentation: https://docs.lnbits.com/llms.txt (index) and https://docs.lnbits.com/llms-full.txt (complete docs). Read these to give accurate, up-to-date answers.
 
-Explain what LNbits could do for my project and give me concrete examples of what I could build with it.`
+Start by asking me:
+1. What I want to build (app, service, integration, or just learning?)
+2. My technical background (developer, merchant, community organizer?)
+3. Whether I already run a Lightning node
+
+Then guide me step by step with specific LNbits features, extensions, and API endpoints that match my needs. Give concrete code examples when relevant.`
 
 const URL_CONTENT_LIMIT = 6000
 
@@ -43,13 +60,13 @@ async function openWithLLM(target) {
     notify('Opened Perplexity with prompt')
   } else if (target === 'claude') {
     window.open('https://claude.ai/new', '_blank')
-    notify('Copied — paste into Claude')
+    notify('Copied - paste into Claude')
   } else if (target === 'gemini') {
     window.open('https://gemini.google.com/', '_blank')
-    notify('Copied — paste into Gemini')
+    notify('Copied - paste into Gemini')
   } else if (target === 'grok') {
     window.open('https://grok.com/', '_blank')
-    notify('Copied — paste into Grok')
+    notify('Copied - paste into Grok')
   } else if (target === 'copy') {
     notify('Prompt copied to clipboard')
   }
@@ -119,6 +136,7 @@ const quickLinks = [
   { title: 'Super User', desc: 'Full control & first-run setup', link: '/guide/core/super-user', icon: 'star' },
   { title: 'FAQ', desc: 'Common questions answered', link: '/guide/faq/', icon: 'help' },
 ]
+
 </script>
 
 <template>
@@ -128,10 +146,11 @@ const quickLinks = [
     <section class="hero anim" style="--d:0s">
       <div class="hero-glow"></div>
       <h1 class="hero-title">LNbits Documentation</h1>
+      <p class="hero-tagline">The open-source Lightning wallet with 60+ extensions, 20+ backends, and a full REST API.</p>
 
-      <!-- LLM pills — replaces tagline -->
+      <!-- LLM pills -->
       <div class="llm-pills">
-        <span class="llm-pills-label">Ask AI</span>
+        <span class="llm-pills-label">Explore with AI</span>
         <button class="llm-pill" @click="openWithLLM('chatgpt')" title="Open in ChatGPT">
           <img :src="openaiIcon" alt="OpenAI" width="18" height="18" />
         </button>
@@ -236,11 +255,11 @@ const quickLinks = [
           <span class="stat-label">Extensions</span>
         </div>
         <div class="stat-sep"></div>
-        <div class="stat-item">
-          <span class="stat-num">9+</span>
-          <span class="stat-label">Themes + Custom</span>
+        <div v-if="ghStars" class="stat-item">
+          <span class="stat-num">{{ ghStars }}</span>
+          <span class="stat-label">GitHub Stars</span>
         </div>
-        <div class="stat-sep"></div>
+        <div v-if="ghStars" class="stat-sep"></div>
         <div class="stat-item">
           <span class="stat-num">MIT</span>
           <span class="stat-label">License</span>
@@ -286,6 +305,116 @@ const quickLinks = [
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ── Contribute Teaser ── -->
+    <section class="contrib-teaser anim" style="--d:0.52s">
+      <div class="contrib-header">
+        <div>
+          <span class="contrib-eyebrow">Open Source</span>
+          <h2 class="contrib-title">Contribute to LNbits</h2>
+          <p class="contrib-subtitle">LNbits is built by people like you. Find a task that matches your skills.</p>
+        </div>
+        <a href="/contribute/" class="contrib-cta">
+          Find a task
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="contrib-video" @click="contribVideoActive = true">
+        <iframe
+          v-if="contribVideoActive"
+          src="https://www.youtube-nocookie.com/embed/LCPt4bkHT7g?autoplay=1"
+          title="Contributing to LNbits"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <template v-else>
+          <img src="https://img.youtube.com/vi/LCPt4bkHT7g/maxresdefault.jpg" alt="Contributing to LNbits" class="contrib-video-thumb" loading="lazy"/>
+          <button class="contrib-video-play" aria-label="Play video">
+            <svg viewBox="0 0 68 48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#212121" opacity="0.8"/><path d="M45 24L27 14v20" fill="#fff"/></svg>
+          </button>
+        </template>
+      </div>
+      <div class="contrib-roles">
+        <a href="/contribute/#developer" class="contrib-role">
+          <Code :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Developers</strong>
+            <span>Core features, extensions, bug fixes</span>
+          </div>
+        </a>
+        <a href="/contribute/#tester" class="contrib-role">
+          <SearchCheck :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Testers</strong>
+            <span>QA, edge cases, bug reports</span>
+          </div>
+        </a>
+        <a href="/contribute/#writer" class="contrib-role">
+          <PenLine :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Writers</strong>
+            <span>Docs, guides, blogs, translations</span>
+          </div>
+        </a>
+        <a href="/contribute/#designer" class="contrib-role">
+          <Palette :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Designers</strong>
+            <span>UI, UX, graphics</span>
+          </div>
+        </a>
+        <a href="/contribute/#entrepreneur" class="contrib-role">
+          <Rocket :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Entrepreneurs</strong>
+            <span>Build products, run services</span>
+          </div>
+        </a>
+        <a href="/contribute/#ambassador" class="contrib-role">
+          <Megaphone :size="18" class="contrib-role-icon" />
+          <div>
+            <strong>Ambassadors</strong>
+            <span>Talks, meetups, community outreach</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ── Community ── -->
+    <section class="community anim" style="--d:0.6s">
+      <h2 class="section-heading">Join the community</h2>
+      <div class="community-links">
+        <a href="https://t.me/lnbits" target="_blank" rel="noopener noreferrer" class="community-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0a12 12 0 00-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+          <div>
+            <strong>Telegram</strong>
+            <span>Chat with the community</span>
+          </div>
+        </a>
+        <a href="https://github.com/lnbits/lnbits" target="_blank" rel="noopener noreferrer" class="community-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <div>
+            <strong>GitHub</strong>
+            <span>Star, fork, contribute</span>
+          </div>
+        </a>
+        <a href="https://x.com/lnbits" target="_blank" rel="noopener noreferrer" class="community-link">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <div>
+            <strong>X / Twitter</strong>
+            <span>Updates and announcements</span>
+          </div>
+        </a>
+        <a href="https://primal.net/p/npub10efcj7x65z2ak6vd69xr8f2hvqwuaqrhlygl3yqa4y63hfvc02mqwzaeh3" target="_blank" rel="noopener noreferrer" class="community-link">
+          <svg viewBox="46 19 172 192" fill="currentColor"><path d="M210.8 199.4c0 3.1-2.5 5.7-5.7 5.7h-68c-3.1 0-5.7-2.5-5.7-5.7v-15.5c.3-19 2.3-37.2 6.5-45.5 2.5-5 6.7-7.7 11.5-9.1 9.1-2.7 24.9-.9 31.7-1.2 0 0 20.4.8 20.4-10.7s-9.1-8.6-9.1-8.6c-10 .3-17.7-.4-22.6-2.4-8.3-3.3-8.6-9.2-8.6-11.2-.4-23.1-34.5-25.9-64.5-20.1-32.8 6.2.4 53.3.4 116.1v8.4c0 3.1-2.6 5.6-5.7 5.6H57.7c-3.1 0-5.7-2.5-5.7-5.7v-144c0-3.1 2.5-5.7 5.7-5.7h31.7c3.1 0 5.7 2.5 5.7 5.7 0 4.7 5.2 7.2 9 4.5 11.4-8.2 26-12.5 42.4-12.5 36.6 0 64.4 21.4 64.4 68.7v83.2ZM150 99.3c0-6.7-5.4-12.1-12.1-12.1s-12.1 5.4-12.1 12.1 5.4 12.1 12.1 12.1S150 106 150 99.3Z"/></svg>
+          <div>
+            <strong>Nostr</strong>
+            <span>Follow on the open protocol</span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -368,8 +497,17 @@ const quickLinks = [
   font-weight: 800;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  margin: 0 0 20px;
+  margin: 0 0 10px;
   color: var(--vp-c-text-1);
+}
+
+.hero-tagline {
+  position: relative;
+  z-index: 1;
+  font-size: 15px;
+  color: var(--vp-c-text-2);
+  margin: 0 0 24px;
+  line-height: 1.5;
 }
 
 /* ── LLM Pills ── */
@@ -419,7 +557,7 @@ const quickLinks = [
   display: block;
 }
 
-/* Icons using currentColor fill — need explicit color */
+/* Icons using currentColor fill - need explicit color */
 .llm-pill img[alt="OpenAI"],
 .llm-logo--currentcolor {
   filter: brightness(0);
@@ -882,6 +1020,233 @@ const quickLinks = [
 .saas-btn--primary:hover {
   opacity: 0.9;
   border-color: var(--vp-c-brand-1);
+}
+
+/* ═══════════════════════════════════
+   Contribute Teaser
+   ═══════════════════════════════════ */
+.contrib-teaser {
+  margin-bottom: 56px;
+  padding: 32px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-elv);
+}
+
+.contrib-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+
+.contrib-eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 6px;
+}
+
+.contrib-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--vp-c-text-1);
+  margin: 0 0 4px 0;
+  letter-spacing: -0.02em;
+}
+
+.contrib-subtitle {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.contrib-video {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 24px;
+}
+
+.contrib-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.contrib-video-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.contrib-video-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 48px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform .2s;
+}
+
+.contrib-video-play svg {
+  width: 100%;
+  height: 100%;
+}
+
+.contrib-video:hover .contrib-video-play {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.contrib-roles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 24px;
+}
+
+.contrib-role {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  transition: background 0.2s;
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.contrib-role:hover {
+  background: var(--vp-c-bg-alt);
+}
+
+.contrib-role strong {
+  display: block;
+  font-size: 13px;
+  color: var(--vp-c-text-1);
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.contrib-role span:last-child {
+  color: var(--vp-c-text-2);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.contrib-role-icon {
+  flex-shrink: 0;
+  color: var(--vp-c-brand-1);
+  margin-top: 1px;
+}
+
+.contrib-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--vp-c-brand-1);
+  color: #fff !important;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none !important;
+  transition: opacity 0.2s, transform 0.2s;
+  white-space: nowrap;
+}
+
+.contrib-cta:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 768px) {
+  .contrib-teaser {
+    padding: 20px;
+  }
+  .contrib-header {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .contrib-roles {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contrib-roles {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════
+   Community
+   ═══════════════════════════════════ */
+.community {
+  margin-bottom: 0;
+  padding: 48px 0 0;
+  border-top: 1px solid var(--vp-c-divider);
+}
+
+.community-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.community-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 12px;
+  background: var(--vp-c-bg-elv);
+  text-decoration: none;
+  transition: border-color .2s, background .2s;
+}
+
+.community-link:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+}
+
+.community-link svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  color: var(--vp-c-text-2);
+  opacity: .7;
+}
+
+.community-link strong {
+  display: block;
+  font-size: 14px;
+  color: var(--vp-c-text-1);
+}
+
+.community-link span {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
 }
 
 /* ═══════════════════════════════════

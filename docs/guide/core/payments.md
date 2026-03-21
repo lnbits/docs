@@ -172,7 +172,7 @@ Hold invoices require a backend that supports them (LND, some CLN configurations
 
 ## Internal transfers
 
-Payments between wallets on the same LNbits instance are settled instantly and internally — they don't touch the Lightning network.
+Payments between wallets on the same LNbits instance are settled instantly and internally - they don't touch the Lightning network.
 
 ## Related Pages
 

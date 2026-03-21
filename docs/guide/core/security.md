@@ -1,6 +1,6 @@
 # Security
 
-> Harden your LNbits instance — HTTPS, authentication, rate limiting, and access controls.
+> Harden your LNbits instance - HTTPS, authentication, rate limiting, and access controls.
 
 Best practices for securing your LNbits instance.
 

@@ -2,7 +2,7 @@
 
 > How extensions handle version compatibility, database migrations, upgrade mechanisms, and zero-downtime updates.
 
-Extensions must handle upgrades gracefully — new versions need to migrate data, maintain compatibility, and ideally avoid downtime.
+Extensions must handle upgrades gracefully - new versions need to migrate data, maintain compatibility, and ideally avoid downtime.
 
 ## Version compatibility
 
@@ -18,8 +18,8 @@ In your `config.json`:
 }
 ```
 
-- `min_lnbits_version` — the oldest LNbits version your extension works with
-- `max_lnbits_version` — (optional) the newest version tested; omit to allow all future versions
+- `min_lnbits_version` - the oldest LNbits version your extension works with
+- `max_lnbits_version` - (optional) the newest version tested; omit to allow all future versions
 
 LNbits checks these fields before installation. If the running LNbits version is outside the declared range, installation is blocked with a clear error message.
 
@@ -70,11 +70,11 @@ async def m003_add_index(db):
 
 ### Migration rules
 
-1. **Never modify existing migrations** — only add new ones
-2. **Make migrations idempotent** — use `IF NOT EXISTS`, `IF NOT EXISTS` for columns where possible
-3. **Test on both SQLite and PostgreSQL** — SQL syntax differs between them
-4. **Keep migrations small** — one logical change per migration
-5. **Order matters** — migrations run in numerical order (m001, m002, m003...)
+1. **Never modify existing migrations** - only add new ones
+2. **Make migrations idempotent** - use `IF NOT EXISTS`, `IF NOT EXISTS` for columns where possible
+3. **Test on both SQLite and PostgreSQL** - SQL syntax differs between them
+4. **Keep migrations small** - one logical change per migration
+5. **Order matters** - migrations run in numerical order (m001, m002, m003...)
 
 ### Cross-database compatibility
 
@@ -113,9 +113,9 @@ When a new version of an extension is installed:
 
 For production instances:
 
-- **Additive changes are safe** — new columns, new tables, new indexes
-- **Destructive changes need care** — dropping columns, changing types, renaming tables
-- **Data backups** — always recommend users back up before major upgrades
+- **Additive changes are safe** - new columns, new tables, new indexes
+- **Destructive changes need care** - dropping columns, changing types, renaming tables
+- **Data backups** - always recommend users back up before major upgrades
 
 ::: tip
 Prefer additive migrations. Instead of renaming a column, add a new one and populate it. Remove the old column in a later version after all users have migrated.
@@ -125,9 +125,9 @@ Prefer additive migrations. Instead of renaming a column, add a new one and popu
 
 When your extension requires breaking changes:
 
-1. **Deprecation notice** — warn users in the current version's release notes
-2. **Migration path** — provide a migration that converts old data to the new format
-3. **Version gate** — use `min_lnbits_version` to prevent installation on incompatible instances
+1. **Deprecation notice** - warn users in the current version's release notes
+2. **Migration path** - provide a migration that converts old data to the new format
+3. **Version gate** - use `min_lnbits_version` to prevent installation on incompatible instances
 
 ```python
 async def m010_migrate_to_v2(db):
@@ -153,13 +153,13 @@ async def m010_migrate_to_v2(db):
 
 Extensions depend on LNbits core APIs. When LNbits core changes:
 
-- **Stable APIs** (`lnbits.decorators`, `lnbits.db`, `lnbits.helpers`) — rarely change, safe to depend on
-- **Internal APIs** — may change between versions; pin your `min_lnbits_version` accordingly
-- **Database schema** — core tables may change; never access core tables directly
+- **Stable APIs** (`lnbits.decorators`, `lnbits.db`, `lnbits.helpers`) - rarely change, safe to depend on
+- **Internal APIs** - may change between versions; pin your `min_lnbits_version` accordingly
+- **Database schema** - core tables may change; never access core tables directly
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Database & Migrations](/dev/database) — core database architecture
-- [Building Extensions](/dev/building-extensions) — extension development guide
-- [Reference](/dev/extensions/reference) — environment variables and API endpoints
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Database & Migrations](/dev/database) - core database architecture
+- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Reference](/dev/extensions/reference) - environment variables and API endpoints

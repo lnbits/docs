@@ -1,6 +1,6 @@
 # Database
 
-> Configure and manage LNbits databases — SQLite for development, PostgreSQL for production.
+> Configure and manage LNbits databases - SQLite for development, PostgreSQL for production.
 
 LNbits supports SQLite (default) and PostgreSQL for data storage.
 

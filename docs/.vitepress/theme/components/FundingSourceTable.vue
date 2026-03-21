@@ -19,8 +19,8 @@ const sources = [
   { name: 'NWC', type: 'Advanced', protocol: 'Nostr', createInvoice: true, payInvoice: true, holdInvoice: false, nodeManagement: false, envClass: 'NWCWallet' },
   { name: 'Breez SDK', type: 'Advanced', protocol: 'SDK', createInvoice: true, payInvoice: true, holdInvoice: false, nodeManagement: false, envClass: 'BreezSdkWallet' },
   { name: 'Boltz', type: 'Advanced', protocol: 'REST', createInvoice: true, payInvoice: true, holdInvoice: false, nodeManagement: false, envClass: 'BoltzWallet' },
-  { name: 'FakeWallet', type: 'Testing', protocol: '—', createInvoice: true, payInvoice: true, holdInvoice: false, nodeManagement: false, envClass: 'FakeWallet' },
-  { name: 'VoidWallet', type: 'Testing', protocol: '—', createInvoice: true, payInvoice: false, holdInvoice: false, nodeManagement: false, envClass: 'VoidWallet' },
+  { name: 'FakeWallet', type: 'Testing', protocol: '-', createInvoice: true, payInvoice: true, holdInvoice: false, nodeManagement: false, envClass: 'FakeWallet' },
+  { name: 'VoidWallet', type: 'Testing', protocol: '-', createInvoice: true, payInvoice: false, holdInvoice: false, nodeManagement: false, envClass: 'VoidWallet' },
 ]
 
 const types = computed(() => {
@@ -79,10 +79,10 @@ const filtered = computed(() => {
           <td><strong>{{ s.name }}</strong></td>
           <td>{{ s.type }}</td>
           <td>{{ s.protocol }}</td>
-          <td>{{ s.createInvoice ? '✓' : '—' }}</td>
-          <td>{{ s.payInvoice ? '✓' : '—' }}</td>
-          <td>{{ s.holdInvoice ? '✓' : '—' }}</td>
-          <td>{{ s.nodeManagement ? '✓' : '—' }}</td>
+          <td>{{ s.createInvoice ? '✓' : '-' }}</td>
+          <td>{{ s.payInvoice ? '✓' : '-' }}</td>
+          <td>{{ s.holdInvoice ? '✓' : '-' }}</td>
+          <td>{{ s.nodeManagement ? '✓' : '-' }}</td>
           <td><code>{{ s.envClass }}</code></td>
         </tr>
       </tbody>

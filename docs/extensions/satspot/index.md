@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="Satspot"
-  description="Money pool games — pay to join, random winner."
+  description="Money pool games - pay to join, random winner."
   category="Games & Gambling"
   icon="🎯"
   repo="lnbits/satspot"

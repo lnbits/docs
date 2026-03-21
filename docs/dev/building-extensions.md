@@ -8,7 +8,7 @@ Create your own LNbits extension to add custom functionality.
 
 ```
 my_extension/
-├── __init__.py          # Entry point — defines routers and metadata
+├── __init__.py          # Entry point - defines routers and metadata
 ├── config.json          # Extension metadata
 ├── views.py             # UI routes (HTML pages)
 ├── views_api.py         # API endpoints
@@ -279,7 +279,7 @@ poetry install                # Poetry
 nix build .#checks.x86_64-linux.vmTest  # Nix
 ```
 
-See [Contributing — Adding new dependencies](/dev/contributing#adding-new-dependencies) for the full process.
+See [Contributing - Adding new dependencies](/dev/contributing#adding-new-dependencies) for the full process.
 
 ## Publishing
 
@@ -290,15 +290,15 @@ See [Contributing — Adding new dependencies](/dev/contributing#adding-new-depe
 
 For full deployment details, see the [Deploying Extensions](/dev/extensions/) guide, which covers:
 
-- [Local development deployment](/dev/extensions/local) — test by dropping folders on disk
-- [Remote manifest distribution](/dev/extensions/manifest) — publish via manifest files
-- [Official registry submission](/dev/extensions/registry) — get listed on the default marketplace
-- [Monetization](/dev/extensions/monetization) — charge for extensions via Lightning payments
-- [Auto-install](/dev/extensions/auto-install) — pre-configure extensions for Docker and automated deployments
+- [Local development deployment](/dev/extensions/local) - test by dropping folders on disk
+- [Remote manifest distribution](/dev/extensions/manifest) - publish via manifest files
+- [Official registry submission](/dev/extensions/registry) - get listed on the default marketplace
+- [Monetization](/dev/extensions/monetization) - charge for extensions via Lightning payments
+- [Auto-install](/dev/extensions/auto-install) - pre-configure extensions for Docker and automated deployments
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — packaging, distribution, and installation
+- [Deploying Extensions](/dev/extensions/) - packaging, distribution, and installation
 - [Contributing](/dev/contributing.md)
 - [Database & Migrations](/dev/database.md)
 - [Decorators & Auth](/dev/decorators.md)

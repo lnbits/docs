@@ -1,6 +1,6 @@
 # Official Registry
 
-> Get your extension listed on the official LNbits extension registry — the default marketplace visible to all LNbits instances.
+> Get your extension listed on the official LNbits extension registry - the default marketplace visible to all LNbits instances.
 
 The official registry is the default extension marketplace that ships with every LNbits instance. Getting listed here gives your extension maximum visibility.
 
@@ -45,7 +45,7 @@ The registry supports both free and paid extensions:
 
 | Type | How it works |
 | --- | --- |
-| **Free** | Anyone can install — no payment required |
+| **Free** | Anyone can install - no payment required |
 | **Paid (pay-to-install)** | User must pay a Lightning invoice before the extension is downloaded |
 | **Paid (pay-to-enable)** | Extension is downloaded for free but requires payment to activate |
 
@@ -81,7 +81,7 @@ When extensions are updated in the registry, LNbits instances that have the exte
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Remote Manifest](/dev/extensions/manifest) — how manifests work
-- [Monetization](/dev/extensions/monetization) — charge for your extension
-- [Building Extensions](/dev/building-extensions) — extension development guide
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Remote Manifest](/dev/extensions/manifest) - how manifests work
+- [Monetization](/dev/extensions/monetization) - charge for your extension
+- [Building Extensions](/dev/building-extensions) - extension development guide

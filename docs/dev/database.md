@@ -118,7 +118,7 @@ async def m003_wallet_index(db):
 - Use named parameters (`:param`) everywhere
 - Avoid database-specific SQL functions
 - Test migrations against both SQLite and PostgreSQL
-- Keep migrations small and focused — one change per migration
+- Keep migrations small and focused - one change per migration
 - Never modify a migration that has already been released
 
 ## Transactions

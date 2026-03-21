@@ -27,9 +27,9 @@ See the full [Wallet Comparison](/guide/wallets/comparison) for all backends wit
 
 Yes. You have several options:
 
-- **Hosted services** — Use OpenNode, Alby, Strike, or other cloud backends. No node setup required, but you depend on a third party.
-- **FakeWallet** — For testing and development only. Simulates payments without real Lightning.
-- **VoidWallet** — Similar to FakeWallet but rejects all payments. Useful for UI testing.
+- **Hosted services** - Use OpenNode, Alby, Strike, or other cloud backends. No node setup required, but you depend on a third party.
+- **FakeWallet** - For testing and development only. Simulates payments without real Lightning.
+- **VoidWallet** - Similar to FakeWallet but rejects all payments. Useful for UI testing.
 
 For production with real funds, you need either your own node or a hosted Lightning service.
 
@@ -83,7 +83,7 @@ LND_REST_MACAROON=your-macaroon-hex
 3. Restart LNbits
 
 ::: warning
-Switching backends does not transfer balances. LNbits wallet balances are internal accounting — the actual funds remain on the original node. If your old node had 100,000 sats and your new node has 0, your LNbits users will have balances they can't spend.
+Switching backends does not transfer balances. LNbits wallet balances are internal accounting - the actual funds remain on the original node. If your old node had 100,000 sats and your new node has 0, your LNbits users will have balances they can't spend.
 :::
 
 ## What's FakeWallet / VoidWallet?
@@ -105,10 +105,10 @@ Neither should ever be used in production with real funds. See [FakeWallet](/gui
 
 ## How do I fix "circular route" errors?
 
-This error occurs when LNbits tries to pay itself — the payment loops back to the same node. Common causes:
+This error occurs when LNbits tries to pay itself - the payment loops back to the same node. Common causes:
 
-1. **Testing on the same node** — your test wallet pays an invoice created on the same LNbits instance backed by the same node
-2. **LNDhub loop** — the LNDhub extension points back to the same instance
+1. **Testing on the same node** - your test wallet pays an invoice created on the same LNbits instance backed by the same node
+2. **LNDhub loop** - the LNDhub extension points back to the same instance
 
 Solutions:
 
@@ -121,12 +121,12 @@ Solutions:
 
 If LNbits loses connection to your Lightning backend:
 
-1. **Check the node** — ensure your Lightning node is running and responsive
-2. **Check network** — verify connectivity between LNbits and the node (firewalls, VPN, Tor)
-3. **Check certificates** — TLS cert may have expired or changed
-4. **Check macaroon/rune** — credentials may have been revoked or rotated
-5. **Check logs** — `docker compose logs -f` or the LNbits log file for specific errors
-6. **Increase timeouts** — some backends need longer timeouts for slow connections
+1. **Check the node** - ensure your Lightning node is running and responsive
+2. **Check network** - verify connectivity between LNbits and the node (firewalls, VPN, Tor)
+3. **Check certificates** - TLS cert may have expired or changed
+4. **Check macaroon/rune** - credentials may have been revoked or rotated
+5. **Check logs** - `docker compose logs -f` or the LNbits log file for specific errors
+6. **Increase timeouts** - some backends need longer timeouts for slow connections
 
 ## Insufficient balance errors
 
@@ -143,8 +143,8 @@ Check your node's channel balances with your node management tool (ThunderHub, R
 
 ## Related Pages
 
-- [Wallet Backends Overview](/guide/wallets/) — all supported backends
-- [Wallet Comparison](/guide/wallets/comparison) — feature comparison table
-- [LND REST](/guide/wallets/lnd-rest) — LND setup guide
-- [CLNRest](/guide/wallets/clnrest) — Core Lightning setup guide
-- [FakeWallet](/guide/wallets/fakewallet) — testing backend
+- [Wallet Backends Overview](/guide/wallets/) - all supported backends
+- [Wallet Comparison](/guide/wallets/comparison) - feature comparison table
+- [LND REST](/guide/wallets/lnd-rest) - LND setup guide
+- [CLNRest](/guide/wallets/clnrest) - Core Lightning setup guide
+- [FakeWallet](/guide/wallets/fakewallet) - testing backend

@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="FOSSA"
-  description="Bitcoin ATM — sell bitcoin for cash."
+  description="Bitcoin ATM - sell bitcoin for cash."
   category="Hardware & Devices"
   icon="🏧"
   repo="lnbits/fossa"

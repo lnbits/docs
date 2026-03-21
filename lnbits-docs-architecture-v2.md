@@ -1,4 +1,4 @@
-# LNBits Documentation — VitePress Architecture Plan v2
+# LNBits Documentation - VitePress Architecture Plan v2
 
 ## Vision
 
@@ -236,12 +236,12 @@ lnbits-docs/
 │   │   ├── index.md                   # Extension dev overview
 │   │   ├── getting-started.md        # Fork myextension, first steps
 │   │   ├── structure.md              # File structure: __init__, models, crud, views, etc.
-│   │   ├── models.md                 # models.py — Pydantic models
-│   │   ├── migrations.md             # migrations.py — DB table creation
-│   │   ├── views.md                   # views.py — Frontend routes
-│   │   ├── views-api.md              # views_api.py — API routes
-│   │   ├── crud.md                    # crud.py — Database operations
-│   │   ├── tasks.md                   # tasks.py — Background tasks
+│   │   ├── models.md                 # models.py - Pydantic models
+│   │   ├── migrations.md             # migrations.py - DB table creation
+│   │   ├── views.md                   # views.py - Frontend routes
+│   │   ├── views-api.md              # views_api.py - API routes
+│   │   ├── crud.md                    # crud.py - Database operations
+│   │   ├── tasks.md                   # tasks.py - Background tasks
 │   │   ├── templates.md              # Vue/Quasar templates (frontend)
 │   │   ├── manifest.md               # manifest.json format
 │   │   ├── publishing.md             # Submit to lnbits-extensions registry
@@ -269,19 +269,19 @@ lnbits-docs/
 │   │   ├── index.md                   # LNURL Pay Links + Lightning Addresses
 │   │   └── api.md                     # /lnurlp/api/v1/links (CRUD + callbacks)
 │   ├── withdraw/
-│   │   ├── index.md                   # LNURL Withdraw — vouchers, faucets
+│   │   ├── index.md                   # LNURL Withdraw - vouchers, faucets
 │   │   └── api.md                     # /withdraw/api/v1/links
 │   ├── tpos/
 │   │   ├── index.md                   # Touch Point of Sale terminal
 │   │   └── api.md                     # /tpos/api/v1/
 │   ├── satspay/
-│   │   ├── index.md                   # SatsPay Server — charges (LN + onchain)
+│   │   ├── index.md                   # SatsPay Server - charges (LN + onchain)
 │   │   └── api.md                     # /satspay/api/v1/charge
 │   ├── paywall/
 │   │   ├── index.md                   # Content paywalling
 │   │   └── api.md                     # /paywall/api/v1/paywalls
 │   ├── tipjar/
-│   │   ├── index.md                   # Tip Jar — accept donations
+│   │   ├── index.md                   # Tip Jar - accept donations
 │   │   └── api.md                     # /tipjar/api/v1/
 │   ├── invoices/
 │   │   ├── index.md                   # Invoice generator for clients
@@ -298,7 +298,7 @@ lnbits-docs/
 │   │
 │   │  # ═══ WALLET & ACCOUNT TOOLS ═══
 │   ├── lndhub/
-│   │   ├── index.md                   # LNDhub compat — BlueWallet / Zeus
+│   │   ├── index.md                   # LNDhub compat - BlueWallet / Zeus
 │   │   └── api.md                     # /lndhub/api/v1/ + /lndhub/ext/
 │   ├── splitpayments/
 │   │   ├── index.md                   # Revenue splitting across wallets
@@ -474,18 +474,18 @@ These are the **actual endpoints** served by the LNBits Core FastAPI router, gro
 | `GET` | `/admin/api/v1/users` | Admin | List all users |
 | Various | `/admin/api/v1/extensions/*` | Admin | Extension management |
 
-### Tag: `Core NON-API Website Routes` (generic.py — not in schema)
+### Tag: `Core NON-API Website Routes` (generic.py - not in schema)
 
 These are internal routes that serve the frontend but are excluded from the OpenAPI spec (`include_in_schema=False`):
 
-- `GET /wallet` — Wallet page (renders Vue app)
-- `GET /extensions` — Extensions management page
-- `GET /lnurlwallet` — LNURL-withdraw wallet creation
-- `GET /manifest/{usr}.webmanifest` — PWA manifest
+- `GET /wallet` - Wallet page (renders Vue app)
+- `GET /extensions` - Extensions management page
+- `GET /lnurlwallet` - LNURL-withdraw wallet creation
+- `GET /manifest/{usr}.webmanifest` - PWA manifest
 
 ---
 
-## Core Features — Detailed Coverage
+## Core Features - Detailed Coverage
 
 ### 1. Labels System
 
@@ -513,10 +513,10 @@ LNBits has deep fiat integration: wallets can display in fiat, payments track fi
 ```
 guide/core/fiat/
 ├── overview.md          # How fiat works in LNBits
-├── exchange-rates.md    # GET /api/v1/rate/{currency} — live rates
-├── rate-history.md      # GET /api/v1/rate/history — chart data
-├── currencies.md        # GET /api/v1/currencies — list all supported
-├── conversion.md        # POST /api/v1/conversion — sat↔fiat↔BTC
+├── exchange-rates.md    # GET /api/v1/rate/{currency} - live rates
+├── rate-history.md      # GET /api/v1/rate/history - chart data
+├── currencies.md        # GET /api/v1/currencies - list all supported
+├── conversion.md        # POST /api/v1/conversion - sat↔fiat↔BTC
 ├── fiat-tracking.md     # fiat_amount + fiat_currency stored per payment
 └── wallet-currency.md   # Per-wallet display currency setting
 ```
@@ -645,10 +645,10 @@ Auto-generated at build time. Format:
 - /guide/core/payments: Invoice lifecycle, payment flow, SSE, webhooks
 
 ## API Reference
-- /api/core/payments: POST /api/v1/payments — create/pay invoices
-- /api/core/rate: GET /api/v1/rate/{currency} — fiat exchange rates
-- /api/core/conversion: POST /api/v1/conversion — sat/fiat/BTC conversion
-- /api/core/wallets: GET /api/v1/wallets — list user wallets
+- /api/core/payments: POST /api/v1/payments - create/pay invoices
+- /api/core/rate: GET /api/v1/rate/{currency} - fiat exchange rates
+- /api/core/conversion: POST /api/v1/conversion - sat/fiat/BTC conversion
+- /api/core/wallets: GET /api/v1/wallets - list user wallets
 
 ## Extensions
 - /extensions/lnurlp: LNURL Pay Links + Lightning Addresses
@@ -662,24 +662,24 @@ Auto-generated at build time. Format:
 
 ## Build Phases
 
-### Phase 1 — Core Foundation
+### Phase 1 - Core Foundation
 - [ ] VitePress project + custom theme (dark-first, Lightning orange)
 - [ ] Landing page hero
 - [ ] OpenAPI sync script (fetches from demo.lnbits.com/openapi.json)
-- [ ] Complete `/guide/` — installation, wallets, core features
+- [ ] Complete `/guide/` - installation, wallets, core features
 - [ ] Core features deep-dive: **Labels**, **Fiat/Currency**, **User Management**
 - [ ] Core API reference (all endpoints from OpenAPI spec)
 - [ ] `llms.txt` + `llms-full.txt` generation
 
-### Phase 2 — LLM Integration
-- [ ] `LLMChat.vue` — Claude panel with page-context injection
-- [ ] `LLMModelDropdown.vue` — model selector + context level control
-- [ ] `LLMContextBanner.vue` — shows what's being sent
-- [ ] `LLMSuggestedQuestions.vue` — auto questions per page
+### Phase 2 - LLM Integration
+- [ ] `LLMChat.vue` - Claude panel with page-context injection
+- [ ] `LLMModelDropdown.vue` - model selector + context level control
+- [ ] `LLMContextBanner.vue` - shows what's being sent
+- [ ] `LLMSuggestedQuestions.vue` - auto questions per page
 - [ ] Serverless proxy (Netlify Functions / CF Workers)
 - [ ] System prompt engineering for LNBits domain expertise
 
-### Phase 3 — All Active Extensions
+### Phase 3 - All Active Extensions
 - [ ] Extension page template with consistent structure
 - [ ] Extension grid overview (filterable by category)
 - [ ] Individual pages for all ~37 active extensions
@@ -687,9 +687,9 @@ Auto-generated at build time. Format:
 - [ ] Cross-linking between related extensions
 - [ ] Use case recipes (e.g., "Merchant setup: TPoS + Boltz + Scrub")
 
-### Phase 4 — Advanced Features
-- [ ] `APIPlayground.vue` — live endpoint testing
-- [ ] `SchemaViewer.vue` — interactive Pydantic model explorer
+### Phase 4 - Advanced Features
+- [ ] `APIPlayground.vue` - live endpoint testing
+- [ ] `SchemaViewer.vue` - interactive Pydantic model explorer
 - [ ] Architecture diagrams (Mermaid)
 - [ ] Funding source comparison tool (interactive)
 - [ ] Search with LLM fallback

@@ -115,12 +115,12 @@ pm2 stop lnbits
 | **Best for** | Production Linux servers | Development, macOS, cross-platform |
 
 ::: tip
-For Docker deployments, the `restart: unless-stopped` policy in your `docker-compose.yml` handles restarts — you don't need systemd or PM2.
+For Docker deployments, the `restart: unless-stopped` policy in your `docker-compose.yml` handles restarts - you don't need systemd or PM2.
 :::
 
 ## Related Pages
 
-- [Install with uv](/guide/installation/uv) — source installation
-- [Install with Poetry](/guide/installation/poetry) — source installation
-- [Reverse Proxy](/guide/installation/reverse-proxy) — set up HTTPS
-- [First Setup](/guide/installation/first-setup) — post-install checklist
+- [Install with uv](/guide/installation/uv) - source installation
+- [Install with Poetry](/guide/installation/poetry) - source installation
+- [Reverse Proxy](/guide/installation/reverse-proxy) - set up HTTPS
+- [First Setup](/guide/installation/first-setup) - post-install checklist

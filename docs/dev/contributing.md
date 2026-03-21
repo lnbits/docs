@@ -1,6 +1,6 @@
 # Contributing
 
-> How to contribute to LNbits core and extensions — setup, standards, dependency rules, and PR process.
+> How to contribute to LNbits core and extensions - setup, standards, dependency rules, and PR process.
 
 ## Getting started
 
@@ -78,7 +78,7 @@ lnbits-cli superuser
 
 - **Python:** Follow PEP 8, use type hints
 - **Formatting:** Ruff (configured in `pyproject.toml`)
-- **Async:** Use `async/await` throughout — no blocking I/O
+- **Async:** Use `async/await` throughout - no blocking I/O
 - **Naming:** snake_case for functions/variables, PascalCase for classes
 - **Models:** Use Pydantic `BaseModel` for all request/response types
 
@@ -88,11 +88,11 @@ lnbits-cli superuser
 Try to use the packages already available in `pyproject.toml`. Getting the LNbits project to accept a new dependency is time-consuming and uncertain, and **may result in your extension NOT being made available to others**.
 :::
 
-If your extension absolutely requires a new Python package whose needs are not met by what's in `pyproject.toml`, you can add it with `poetry` or `uv` — but there are extra steps to ensure LNbits doesn't break in production.
+If your extension absolutely requires a new Python package whose needs are not met by what's in `pyproject.toml`, you can add it with `poetry` or `uv` - but there are extra steps to ensure LNbits doesn't break in production.
 
 ### Process for adding a dependency
 
-1. **Check `pyproject.toml` first** — search for an existing package that covers your need
+1. **Check `pyproject.toml` first** - search for an existing package that covers your need
 2. **Open an issue** on GitHub explaining why the dependency is necessary and what alternatives you evaluated
 3. **Add the dependency** to `pyproject.toml`:
 
@@ -190,19 +190,19 @@ This docs site pulls extension pages directly from each extension's GitHub repos
 
 For core docs (guides, API reference, developer docs), submit a PR to the [docs repository](https://github.com/lnbits/lnbits-docs).
 
-### Translations — great first contribution
+### Translations - great first contribution
 
-LNbits is used worldwide. If you're a native speaker of a non-English language, helping with translations is one of the easiest and most impactful ways to contribute. No coding required — just language skills and a GitHub account.
+LNbits is used worldwide. If you're a native speaker of a non-English language, helping with translations is one of the easiest and most impactful ways to contribute. No coding required - just language skills and a GitHub account.
 
 ## Areas to contribute
 
-- **Bug fixes** — check the [GitHub Issues](https://github.com/lnbits/lnbits/issues)
-- **Documentation** — improve extension READMEs or core docs (see above)
-- **Extensions** — build new extensions (see [Building Extensions](/dev/building-extensions))
-- **Wallet backends** — add support for new Lightning services
-- **Frontend** — UI improvements and accessibility
-- **Tests** — increase test coverage
-- **Translations** — help localize LNbits (great first contribution!)
+- **Bug fixes** - check the [GitHub Issues](https://github.com/lnbits/lnbits/issues)
+- **Documentation** - improve extension READMEs or core docs (see above)
+- **Extensions** - build new extensions (see [Building Extensions](/dev/building-extensions))
+- **Wallet backends** - add support for new Lightning services
+- **Frontend** - UI improvements and accessibility
+- **Tests** - increase test coverage
+- **Translations** - help localize LNbits (great first contribution!)
 
 ## PR checklist
 

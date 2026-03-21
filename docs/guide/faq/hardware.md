@@ -9,7 +9,7 @@
 Yes. The **[Bolt Cards](/extensions/boltcards/)** extension lets you program NFC cards for tap-to-pay:
 
 1. Enable the **Bolt Cards** extension
-2. Add a new card — set the wallet, daily limit, and per-transaction limit
+2. Add a new card - set the wallet, daily limit, and per-transaction limit
 3. Enter the card UID (or tap to auto-fill on Android)
 4. Write the keys to an NTAG424 NFC card using the [Boltcard NFC Card Creator](https://github.com/niccokunzmann/boltcard-nfc-card-creator) app
 5. Users tap the card to make payments from the linked wallet
@@ -27,29 +27,29 @@ LNbits integrates with various physical devices through dedicated extensions:
 | Bitcoin ATM | [FOSSA](/extensions/fossa/) | Sell Bitcoin for cash |
 | IoT device control | [Bitcoin Switch](/extensions/bitcoinswitch/) | Activate devices on payment (doors, vending) |
 | Hardware PoS terminal | [LNPoS](/extensions/lnpos/) | Offline-capable hardware terminal |
-| Thermal printer | — | Receipt printing (community integrations) |
+| Thermal printer | - | Receipt printing (community integrations) |
 
 ::: info
-The **LNURLdevice** extension is deprecated. It has been replaced by **FOSSA**, **LNPoS**, and **Bitcoin Switch** — each focused on a specific use case. **Bolt Cards** is a separate, independent extension for NFC tap-to-pay cards.
+The **LNURLdevice** extension is deprecated. It has been replaced by **FOSSA**, **LNPoS**, and **Bitcoin Switch** - each focused on a specific use case. **Bolt Cards** is a separate, independent extension for NFC tap-to-pay cards.
 :::
 
 ## Can I use LNbits as a merchant?
 
 Yes. LNbits is well-suited for merchant use with these key extensions:
 
-- **TPoS** — touchscreen point-of-sale terminal (works on tablets and phones)
-- **SatsPay** — payment pages for online stores (Lightning + on-chain)
-- **LNURLp** — static payment QR codes for print or display
-- **Split Payments** — automatic revenue sharing between partners
-- **TipJar** — accept tips with custom amounts and messages
-- **Watch Only** — monitor on-chain payments with xpub/zpub
+- **TPoS** - touchscreen point-of-sale terminal (works on tablets and phones)
+- **SatsPay** - payment pages for online stores (Lightning + on-chain)
+- **LNURLp** - static payment QR codes for print or display
+- **Split Payments** - automatic revenue sharing between partners
+- **TipJar** - accept tips with custom amounts and messages
+- **Watch Only** - monitor on-chain payments with xpub/zpub
 
 For a complete merchant setup, combine TPoS for in-person sales with SatsPay for online payments.
 
 ## How do I set up a point-of-sale terminal?
 
 1. Enable the **TPoS** extension
-2. Create a new terminal — set the currency (BTC or fiat), tax rate, and optional tip suggestions
+2. Create a new terminal - set the currency (BTC or fiat), tax rate, and optional tip suggestions
 3. Open the terminal URL on a tablet or phone
 4. Enter the amount and show the QR code to the customer
 
@@ -91,18 +91,18 @@ This works for any device that can make HTTP requests and display QR codes.
 
 Several options depending on your setup:
 
-**TipJar extension** — creates a dedicated tipping page with customizable amounts and thank-you messages. Share the URL or QR code.
+**TipJar extension** - creates a dedicated tipping page with customizable amounts and thank-you messages. Share the URL or QR code.
 
-**LNURLp extension** — generates a static Lightning address or QR code that customers can pay any amount to. Print it and display at your counter.
+**LNURLp extension** - generates a static Lightning address or QR code that customers can pay any amount to. Print it and display at your counter.
 
-**TPoS terminal** — includes built-in tip suggestions (percentage-based) during checkout.
+**TPoS terminal** - includes built-in tip suggestions (percentage-based) during checkout.
 
 ## How do I set up split payments for revenue sharing?
 
 The **Split Payments** extension automatically splits incoming payments across multiple wallets:
 
 1. Enable the Split Payments extension
-2. Configure the split — specify wallet IDs and percentages
+2. Configure the split - specify wallet IDs and percentages
 3. Every incoming payment to the source wallet is automatically distributed
 
 Example: A coffee shop with two partners could split 60/40, with every payment automatically divided between their wallets.
@@ -111,7 +111,7 @@ Splits can target wallets on the same instance or external Lightning addresses.
 
 ## Related Pages
 
-- [Extensions](/extensions/) — browse all available extensions
-- [Using Extensions](/guide/using-extensions) — install and manage extensions
-- [Payments FAQ](/guide/faq/payments) — payment-related questions
-- [General FAQ](/guide/faq/general) — LNbits for business
+- [Extensions](/extensions/) - browse all available extensions
+- [Using Extensions](/guide/using-extensions) - install and manage extensions
+- [Payments FAQ](/guide/faq/payments) - payment-related questions
+- [General FAQ](/guide/faq/general) - LNbits for business

@@ -404,7 +404,7 @@ Delete an ACL and revoke all its tokens.
 
 **Auth:** Bearer token
 
-Generate a new token for an existing ACL. Use this token as a Bearer token — it will only allow the endpoints defined in the ACL.
+Generate a new token for an existing ACL. Use this token as a Bearer token - it will only allow the endpoints defined in the ACL.
 
 #### Parameters
 

@@ -21,8 +21,8 @@ ws.onmessage = (event) => {
 
 The WebSocket sends JSON messages for:
 
-- **payment_received** — incoming payment settled
-- **payment_sent** — outgoing payment completed
+- **payment_received** - incoming payment settled
+- **payment_sent** - outgoing payment completed
 
 ## Authentication
 
@@ -116,4 +116,4 @@ ws[s]://<host>/api/v1/ws/<wallet_id>
 - [Payments](/guide/core/payments.md)
 - [WebSockets API Reference](/api/core/websockets.md)
 - [Background Tasks](/dev/tasks.md)
-- [Building Extensions](/dev/building-extensions) — frontend template with Vue.js
+- [Building Extensions](/dev/building-extensions) - frontend template with Vue.js

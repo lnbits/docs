@@ -13,10 +13,10 @@ Enable it for a user and every TPoS payment is recorded in the Orders list.
 
 ## Features
 
-- **Auto-capture** — paid TPoS invoices become Orders
-- **Items & totals** — stores line items, tax, and exchange rate data
-- **Source tracking** — keeps TPoS id/name and payment hash
-- **Notifications** — optional Telegram/Nostr/Email alerts
+- **Auto-capture** - paid TPoS invoices become Orders
+- **Items & totals** - stores line items, tax, and exchange rate data
+- **Source tracking** - keeps TPoS id/name and payment hash
+- **Notifications** - optional Telegram/Nostr/Email alerts
 
 ## Usage
 

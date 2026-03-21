@@ -107,7 +107,7 @@ cd lnbits/extensions/my_extension
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions) — extension code structure and patterns
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Remote Manifest](/dev/extensions/manifest) — publish for remote installation
-- [Reference](/dev/extensions/reference) — environment variables and configuration
+- [Building Extensions](/dev/building-extensions) - extension code structure and patterns
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Remote Manifest](/dev/extensions/manifest) - publish for remote installation
+- [Reference](/dev/extensions/reference) - environment variables and configuration

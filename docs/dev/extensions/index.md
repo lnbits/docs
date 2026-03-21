@@ -1,8 +1,8 @@
 # Deploying Extensions
 
-> Overview of how LNbits extensions are packaged, distributed, and installed — from local development to the official registry.
+> Overview of how LNbits extensions are packaged, distributed, and installed - from local development to the official registry.
 
-LNbits extensions can be deployed in several ways depending on your use case — from dropping a folder on disk during development to publishing on the official registry for the community.
+LNbits extensions can be deployed in several ways depending on your use case - from dropping a folder on disk during development to publishing on the official registry for the community.
 
 ## Quick start
 
@@ -18,9 +18,9 @@ Every extension goes through three stages:
 Build → Deploy → Activate
 ```
 
-- **Build** — write the code, config.json, migrations, and templates ([Building Extensions](/dev/building-extensions))
-- **Deploy** — make the extension available to an LNbits instance (this section)
-- **Activate** — users enable the extension in their dashboard
+- **Build** - write the code, config.json, migrations, and templates ([Building Extensions](/dev/building-extensions))
+- **Deploy** - make the extension available to an LNbits instance (this section)
+- **Activate** - users enable the extension in their dashboard
 
 ## config.json
 
@@ -51,17 +51,17 @@ Every extension must include a `config.json` at its root:
 
 | Field | Description |
 | --- | --- |
-| `payment_hash` | For paid extensions — the Lightning payment hash required for installation |
+| `payment_hash` | For paid extensions - the Lightning payment hash required for installation |
 | `max_lnbits_version` | Maximum compatible LNbits version |
 | `icon` | Icon name from the Quasar icon set |
 
 ## Hard rules
 
 ::: danger Extension rules
-1. **No new Python dependencies** — use only packages already in LNbits' `pyproject.toml`
-2. **Database namespace** — all tables must be prefixed with `ext_<extension_id>.` (e.g., `ext_my_extension.items`)
-3. **No core modifications** — extensions must not modify LNbits core files
-4. **Migrations must be idempotent** — they should be safe to run multiple times
+1. **No new Python dependencies** - use only packages already in LNbits' `pyproject.toml`
+2. **Database namespace** - all tables must be prefixed with `ext_<extension_id>.` (e.g., `ext_my_extension.items`)
+3. **No core modifications** - extensions must not modify LNbits core files
+4. **Migrations must be idempotent** - they should be safe to run multiple times
 :::
 
 ## Three-state activation
@@ -72,7 +72,7 @@ Extensions have three states at the instance level:
 | --- | --- |
 | **Not installed** | Extension code is not present on the instance |
 | **Installed (disabled)** | Code is present, but the extension is not active for any user |
-| **Installed (enabled)** | Extension is active and available — individual users can toggle it on/off in their dashboard |
+| **Installed (enabled)** | Extension is active and available - individual users can toggle it on/off in their dashboard |
 
 Admins control the first two states. Users control whether an enabled extension appears in their own dashboard.
 
@@ -88,8 +88,8 @@ db = Database("ext_my_extension")
 All tables are created under the `ext_my_extension` schema. This ensures:
 
 - No table name collisions with core or other extensions
-- Clean uninstall — the namespace can be dropped entirely
-- Clear ownership — you always know which extension owns which data
+- Clean uninstall - the namespace can be dropped entirely
+- Clear ownership - you always know which extension owns which data
 
 ::: info Data preservation
 Uninstalling an extension does **not** remove its database tables. User data is preserved so it can be restored if the extension is reinstalled.
@@ -108,9 +108,9 @@ Uninstalling an extension does **not** remove its database tables. User data is 
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions) — code structure, API patterns, and frontend templates
-- [Local Deployment](/dev/extensions/local) — test extensions during development
-- [Remote Manifest](/dev/extensions/manifest) — distribute via manifest files
-- [Official Registry](/dev/extensions/registry) — publish to the community
-- [Monetization](/dev/extensions/monetization) — charge for extensions
-- [Reference](/dev/extensions/reference) — environment variables, API endpoints, and DB tables
+- [Building Extensions](/dev/building-extensions) - code structure, API patterns, and frontend templates
+- [Local Deployment](/dev/extensions/local) - test extensions during development
+- [Remote Manifest](/dev/extensions/manifest) - distribute via manifest files
+- [Official Registry](/dev/extensions/registry) - publish to the community
+- [Monetization](/dev/extensions/monetization) - charge for extensions
+- [Reference](/dev/extensions/reference) - environment variables, API endpoints, and DB tables

@@ -43,11 +43,11 @@ After updating, use **Admin UI → Extensions → "Update All"** to update exten
 
 ## Next steps
 
-- [Configuration](/guide/core/environment) — customize your instance
-- [Funding sources](/guide/wallets/) — connect a Lightning backend
+- [Configuration](/guide/core/environment) - customize your instance
+- [Funding sources](/guide/wallets/) - connect a Lightning backend
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Docker](/guide/installation/docker) — container-based deployment
-- [Updating LNbits](/guide/installation/updating) — keep LNbits up to date
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Docker](/guide/installation/docker) - container-based deployment
+- [Updating LNbits](/guide/installation/updating) - keep LNbits up to date

@@ -28,16 +28,16 @@ See [Super User](/guide/core/super-user) for details on the Super User role and 
 
 The admin dashboard gives you access to:
 
-- **Server settings** — modify configuration without restarting
-- **User management** — create, edit, disable accounts
-- **Extension management** — control which extensions are available
-- **Funding source** — view backend status and balance
-- **Audit log** — track all system activity
-- **Node management** — manage channels and peers (if backend supports it)
+- **Server settings** - modify configuration without restarting
+- **User management** - create, edit, disable accounts
+- **Extension management** - control which extensions are available
+- **Funding source** - view backend status and balance
+- **Audit log** - track all system activity
+- **Node management** - manage channels and peers (if backend supports it)
 
 ## Server settings
 
-When the Admin UI is enabled, many settings that would normally live in the `.env` file are **moved to the database** and managed here instead. Editing those values in `.env` has no effect — you must change them through this UI or the [Admin API](/api/admin/settings).
+When the Admin UI is enabled, many settings that would normally live in the `.env` file are **moved to the database** and managed here instead. Editing those values in `.env` has no effect - you must change them through this UI or the [Admin API](/api/admin/settings).
 
 Settings you can manage at runtime:
 
@@ -51,7 +51,7 @@ Settings you can manage at runtime:
 - Wallet limits
 - Node UI visibility
 
-Changes take effect immediately — no restart needed.
+Changes take effect immediately - no restart needed.
 
 ::: tip
 Not sure which settings live in `.env` and which ones moved to the Admin UI? See the full breakdown at [`.env` file vs Admin UI](/guide/core/environment#env-vs-admin-ui).
@@ -97,7 +97,7 @@ If your Admin UI settings get into a bad state, you can reset them:
 
 1. Stop LNbits
 2. Delete the settings from the database (or delete the database file for SQLite)
-3. Restart LNbits — settings revert to `.env` file values
+3. Restart LNbits - settings revert to `.env` file values
 
 The Admin UI settings are stored in the database. When `LNBITS_ADMIN_UI=true`, the database values take precedence over `.env` values for managed settings.
 
@@ -130,7 +130,7 @@ The super user can perform any action on any account. Guard this credential care
 
 ## Related Pages
 
-- [Super User](/guide/core/super-user) — highest-privilege account details
-- [Admin API Reference](/api/admin/) — API endpoints for admin operations
-- [Configuration](/guide/core/environment) — environment variables and server settings
-- [Authentication](/guide/authentication) — login methods and access control
+- [Super User](/guide/core/super-user) - highest-privilege account details
+- [Admin API Reference](/api/admin/) - API endpoints for admin operations
+- [Configuration](/guide/core/environment) - environment variables and server settings
+- [Authentication](/guide/authentication) - login methods and access control

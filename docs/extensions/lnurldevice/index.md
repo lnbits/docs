@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="LNURL Device"
-  description="Legacy hardware integration (deprecated — use Bitcoin Switch, FOSSA, LNPoS)."
+  description="Legacy hardware integration (deprecated - use Bitcoin Switch, FOSSA, LNPoS)."
   category="Hardware & Devices"
   icon="📱"
   repo="lnbits/lnurldevice"
