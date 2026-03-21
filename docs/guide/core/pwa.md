@@ -1,16 +1,16 @@
 # Progressive Web App (PWA)
 
-> LNbits works as a Progressive Web App — install it on your phone or desktop for a native app experience, no app store needed.
+> LNbits works as a Progressive Web App - install it on your phone or desktop for a native app experience, no app store needed.
 
 ## What is a PWA?
 
-A Progressive Web App is a website that can be installed on your device and used like a native app. LNbits ships with full PWA support out of the box — you get:
+A Progressive Web App is a website that can be installed on your device and used like a native app. LNbits ships with full PWA support out of the box - you get:
 
-- **Home screen icon** — launch LNbits like any other app
-- **Fullscreen mode** — no browser chrome, just LNbits
-- **Offline indicator** — shows connection status
-- **Push-ready** — works with the notification system
-- **Instant access** — no app store, no downloads, no updates to manage
+- **Home screen icon** - launch LNbits like any other app
+- **Fullscreen mode** - no browser chrome, just LNbits
+- **Offline indicator** - shows connection status
+- **Push-ready** - works with the notification system
+- **Instant access** - no app store, no downloads, no updates to manage
 
 ## Install LNbits as an App
 
@@ -53,9 +53,9 @@ On iOS, only Safari supports PWA installation. Chrome and Firefox on iOS cannot 
 
 The PWA is especially useful for:
 
-- **Merchants** using [TPoS](/extensions/tpos/) — fullscreen point-of-sale on a tablet
-- **Mobile wallets** — quick access to send and receive Lightning payments
-- **Shared devices** — each user can install their own LNbits instance as a separate app
+- **Merchants** using [TPoS](/extensions/tpos/) - fullscreen point-of-sale on a tablet
+- **Mobile wallets** - quick access to send and receive Lightning payments
+- **Shared devices** - each user can install their own LNbits instance as a separate app
 
 ## For Instance Operators
 
@@ -65,6 +65,6 @@ If you customize your instance branding (site title, theme color), the PWA will 
 
 ## Related Pages
 
-- [TPoS](/extensions/tpos/): Touch-friendly point-of-sale — works great as a PWA
+- [TPoS](/extensions/tpos/): Touch-friendly point-of-sale - works great as a PWA
 - [First Setup](/guide/installation/first-setup): Post-install configuration
 - [Core Features](/guide/core/): All core LNbits features

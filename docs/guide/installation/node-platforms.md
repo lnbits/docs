@@ -6,7 +6,7 @@ LNbits is available as a one-click app on popular Bitcoin node platforms.
 
 ## Umbrel
 
-LNbits is in the Umbrel App Store. Install it from the dashboard — it auto-connects to your Umbrel's LND node.
+LNbits is in the Umbrel App Store. Install it from the dashboard - it auto-connects to your Umbrel's LND node.
 
 1. Open Umbrel dashboard
 2. Go to **App Store**
@@ -48,19 +48,19 @@ On node platforms, LNbits is pre-configured to connect to the platform's Lightni
 
 Updates are handled through the platform's UI:
 
-- **Umbrel** — App Store → LNbits → Update
-- **RaspiBlitz** — Services menu → LNbits → Update
-- **Start9** — Marketplace → LNbits → Update
-- **Citadel** — App Store → LNbits → Update
-- **myNode** — Dashboard → Applications → LNbits → Update
+- **Umbrel** - App Store → LNbits → Update
+- **RaspiBlitz** - Services menu → LNbits → Update
+- **Start9** - Marketplace → LNbits → Update
+- **Citadel** - App Store → LNbits → Update
+- **myNode** - Dashboard → Applications → LNbits → Update
 
 ## Next steps
 
-- [Core features](/guide/core/) — learn what you can do with LNbits
-- [Extensions](/extensions/) — add functionality
+- [Core features](/guide/core/) - learn what you can do with LNbits
+- [Extensions](/extensions/) - add functionality
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Updating LNbits](/guide/installation/updating) — keep LNbits up to date
-- [Funding Sources](/guide/wallets/) — connect a Lightning backend
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Updating LNbits](/guide/installation/updating) - keep LNbits up to date
+- [Funding Sources](/guide/wallets/) - connect a Lightning backend

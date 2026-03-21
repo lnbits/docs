@@ -59,7 +59,7 @@ cp -r ./data ./data-backup
 # Set the new database URL in .env
 # LNBITS_DATABASE_URL=postgres://...
 
-# Restart LNbits — it creates the new schema
+# Restart LNbits - it creates the new schema
 # Then use the admin API or built-in tools to migrate data
 ```
 
@@ -73,11 +73,11 @@ LNBITS_DATABASE_URL=cockroachdb://user:pass@localhost:26257/lnbits
 
 ## Next steps
 
-- [Configuration](/guide/core/environment) — all environment variables
-- [Security](/guide/core/security) — harden your instance
+- [Configuration](/guide/core/environment) - all environment variables
+- [Security](/guide/core/security) - harden your instance
 
 ## Related Pages
 
-- [Docker](/guide/installation/docker) — container-based deployment
-- [Database](/guide/core/database) — database configuration details
-- [Environment Variables](/guide/core/environment) — configure LNbits settings
+- [Docker](/guide/installation/docker) - container-based deployment
+- [Database](/guide/core/database) - database configuration details
+- [Environment Variables](/guide/core/environment) - configure LNbits settings

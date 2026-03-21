@@ -1,15 +1,29 @@
 # Changelog
 
-> Release history for LNbits — new features, bug fixes, and breaking changes by version.
+> Release history for LNbits - new features, bug fixes, and breaking changes by version.
 
-## v1.5.0
+<script setup>
+import { useData } from 'vitepress'
+import { computed } from 'vue'
 
-_Latest stable release_
+const { page } = useData()
+const params = computed(() => page.value.params || {})
+const version = computed(() => params.value.latestVersion || 'v1.5.0')
+const releaseDate = computed(() => {
+  const d = params.value.latestReleaseDate
+  if (!d) return ''
+  return new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })
+})
+const releaseBody = computed(() => params.value.latestReleaseBody || '')
+</script>
 
-- Restructured Docker images, added SparkL2 Docker image
-- Fixed PayPal subscriptions
-- Hidden `first_install_token` when not required
-- Various bug fixes and improvements
+## {{ version }} {#latest}
+
+<p v-if="releaseDate"><em>Released {{ releaseDate }} - Latest stable release</em></p>
+<p v-else><em>Latest stable release</em></p>
+
+<div v-if="releaseBody" v-html="releaseBody" class="release-notes"></div>
+<p v-else>See the <a :href="'https://github.com/lnbits/lnbits/releases/tag/' + version">release notes on GitHub</a> for details.</p>
 
 ## Previous releases
 

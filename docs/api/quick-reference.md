@@ -6,7 +6,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 
 **Auth levels:** **Admin** = Admin key, **Invoice** = Invoice key, **Bearer** = JWT Bearer token, **Super** = Super User, **None** = no auth required.
 
-## Core — Wallets
+## Core - Wallets
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -19,7 +19,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `PUT` | [`/api/v1/wallet/share`](/api/core/wallets#accept-share-invitation) | Bearer | Accept a wallet share invite |
 | `DELETE` | [`/api/v1/wallet/share/invite/{id}`](/api/core/wallets#reject-share-invitation) | Bearer | Reject a wallet share invite |
 
-## Core — Payments
+## Core - Payments
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -35,7 +35,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `PUT` | [`/api/v1/payments/{checking_id}`](/api/core/payments#settle-hold-invoice) | Admin | Settle a hold invoice |
 | `DELETE` | [`/api/v1/payments/{checking_id}`](/api/core/payments#cancel-hold-invoice) | Admin | Cancel a hold invoice |
 
-## Core — Users & Accounts
+## Core - Users & Accounts
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -56,7 +56,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `POST` | [`/api/v1/auth/acls/{acl_id}/tokens`](/api/core/users#generate-acl-token) | Bearer | Generate ACL token |
 | `DELETE` | [`/api/v1/auth/acls/{acl_id}/tokens/{token_id}`](/api/core/users#revoke-acl-token) | Bearer | Revoke ACL token |
 
-## Core — Extensions
+## Core - Extensions
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -67,7 +67,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `DELETE` | [`/api/v1/extension/{ext_id}`](/api/core/extensions#uninstall-extension) | Bearer | Uninstall extension |
 | `POST` | [`/api/v1/extension/{ext_id}/reviews`](/api/core/extensions#submit-review) | Bearer | Submit review |
 
-## Core — LNURL
+## Core - LNURL
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -75,7 +75,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `POST` | [`/api/v1/payments/lnurl`](/api/core/lnurl#pay-lnurl) | Admin | Pay via LNURL-pay flow |
 | `POST` | [`/api/v1/lnurlauth`](/api/core/lnurl#lnurl-auth) | Admin | Perform LNURL-auth login |
 
-## Core — Fiat & Rates
+## Core - Fiat & Rates
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -84,7 +84,7 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `GET` | [`/api/v1/rate/history`](/api/core/fiat#rate-history) | None | Historical exchange rates |
 | `POST` | [`/api/v1/conversion`](/api/core/fiat#convert-amount) | None | Convert between units |
 
-## Core — TinyURL
+## Core - TinyURL
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -92,20 +92,20 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `GET` | [`/api/v1/tinyurl/{tinyurl_id}`](/api/core/tinyurl#get-tinyurl) | Invoice | Get TinyURL details |
 | `DELETE` | [`/api/v1/tinyurl/{tinyurl_id}`](/api/core/tinyurl#delete-tinyurl) | Admin | Delete a TinyURL |
 
-## Core — WebSockets
+## Core - WebSockets
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | `WS` | [`/api/v1/ws/{wallet_id}`](/api/core/websockets#payment-updates) | None | Real-time payment events |
 
-## Admin — Settings
+## Admin - Settings
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | `GET` | [`/api/v1/admin/settings`](/api/admin/settings#get-settings) | Super | Get server settings |
 | `PUT` | [`/api/v1/admin/settings`](/api/admin/settings#update-settings) | Super | Update server settings |
 
-## Admin — Users
+## Admin - Users
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -116,13 +116,13 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 | `DELETE` | [`/users/api/v1/user/{user_id}`](/api/admin/users#delete-user) | Super | Delete user |
 | `PUT` | [`/users/api/v1/user/{user_id}/balance`](/api/admin/users#adjust-user-balance) | Admin | Adjust user balance |
 
-## Admin — Top-up
+## Admin - Top-up
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
 | `PUT` | [`/api/v1/admin/topup`](/api/admin/topup#top-up-a-wallet) | Super | Add balance to wallet |
 
-## Admin — Extensions
+## Admin - Extensions
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -138,8 +138,8 @@ All paths are relative to your instance base URL (e.g. `https://your-lnbits.com`
 
 ::: tip Interactive API Docs
 Every LNbits instance serves auto-generated interactive API documentation:
-- **Swagger UI** — `https://your-lnbits.com/docs`
-- **ReDoc** — `https://your-lnbits.com/redoc`
+- **Swagger UI** - `https://your-lnbits.com/docs`
+- **ReDoc** - `https://your-lnbits.com/redoc`
 
 Use these to browse endpoints and test them directly from your browser.
 :::

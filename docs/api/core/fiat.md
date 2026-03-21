@@ -2,7 +2,7 @@
 
 > Fiat currency conversion and exchange rate API endpoints.
 
-Exchange rates and currency conversion. All endpoints are public — no authentication required.
+Exchange rates and currency conversion. All endpoints are public - no authentication required.
 
 ## Get Exchange Rate
 

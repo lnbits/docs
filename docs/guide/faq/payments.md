@@ -8,10 +8,10 @@
 
 Lightning payments can get stuck for several reasons:
 
-1. **No route found** — the network can't find a path to the recipient. This is common for large payments or poorly-connected nodes.
-2. **Backend is down** — check that your Lightning node is running and connected to LNbits.
-3. **Channel liquidity** — your node may not have enough outbound capacity.
-4. **Recipient offline** — the receiving node must be online to settle the payment.
+1. **No route found** - the network can't find a path to the recipient. This is common for large payments or poorly-connected nodes.
+2. **Backend is down** - check that your Lightning node is running and connected to LNbits.
+3. **Channel liquidity** - your node may not have enough outbound capacity.
+4. **Recipient offline** - the receiving node must be online to settle the payment.
 
 Check LNbits logs for error details:
 
@@ -25,9 +25,9 @@ Pending payments will eventually resolve (succeed or fail) based on the Lightnin
 
 LNbits is primarily a Lightning wallet, but you can accept on-chain Bitcoin using extensions:
 
-1. **Watch Only** extension — import an xpub/zpub from your hardware wallet to monitor on-chain addresses
-2. **SatsPay** extension — create payment pages that accept both Lightning and on-chain payments
-3. **Boltz** extension — submarine swaps to convert on-chain BTC to Lightning
+1. **Watch Only** extension - import an xpub/zpub from your hardware wallet to monitor on-chain addresses
+2. **SatsPay** extension - create payment pages that accept both Lightning and on-chain payments
+3. **Boltz** extension - submarine swaps to convert on-chain BTC to Lightning
 
 The combination of Watch Only + SatsPay is the most common setup for accepting on-chain payments alongside Lightning.
 
@@ -40,14 +40,14 @@ The LNDhub extension turns each LNbits wallet into an LNDhub-compatible account,
 3. Scan the QR code with **BlueWallet** or **Zeus**
 4. Your LNbits wallet is now accessible from the mobile app
 
-The QR code contains two URLs — one for admin access (send + receive) and one for invoice-only access (receive only).
+The QR code contains two URLs - one for admin access (send + receive) and one for invoice-only access (receive only).
 
 ## What are hold invoices?
 
 Hold invoices (also called hodl invoices) are Lightning invoices where the payment is locked but not immediately settled. The recipient can choose to:
 
-- **Settle** the invoice — accept the payment
-- **Cancel** the invoice — reject and refund the payment
+- **Settle** the invoice - accept the payment
+- **Cancel** the invoice - reject and refund the payment
 
 This is useful for escrow-like scenarios, conditional payments, and marketplace applications. Hold invoices require a backend that supports them (LND, CLN).
 
@@ -55,9 +55,9 @@ This is useful for escrow-like scenarios, conditional payments, and marketplace 
 
 LNbits doesn't have a built-in refund mechanism because Lightning payments are final by design. Options for refunds:
 
-- **Send a new payment** — create a new outgoing payment for the refund amount
-- **Use LNURL-withdraw** — generate a withdraw link the customer can claim
-- **Use hold invoices** — cancel the invoice before settling to automatically refund
+- **Send a new payment** - create a new outgoing payment for the refund amount
+- **Use LNURL-withdraw** - generate a withdraw link the customer can claim
+- **Use hold invoices** - cancel the invoice before settling to automatically refund
 
 For merchant setups, the LNURL-withdraw approach provides the best user experience.
 
@@ -65,12 +65,12 @@ For merchant setups, the LNURL-withdraw approach provides the best user experien
 
 Labels let you categorize and filter payments. LNbits supports a two-level label system:
 
-- **Category labels** — broad groupings (e.g., "donations", "shop", "tips")
-- **Item labels** — specific items within a category
+- **Category labels** - broad groupings (e.g., "donations", "shop", "tips")
+- **Item labels** - specific items within a category
 
 Labels can be assigned via the API when creating payments. They're useful for accounting, reporting, and filtering transaction history. See [Labels](/guide/core/labels/overview).
 
-## Invoice expired before payment — what happens?
+## Invoice expired before payment - what happens?
 
 When a Lightning invoice expires (default: 24 hours), it can no longer be paid. The payer is not charged. Simply create a new invoice.
 
@@ -120,14 +120,14 @@ LNbits supports the full LNURL protocol suite:
 | **LNURL-pay** | Static payment links | LNURLp |
 | **LNURL-withdraw** | Withdrawable vouchers | LNURLw |
 | **LNURL-auth** | Login with Lightning | Core (built-in) |
-| **LNURL-channel** | Channel requests | — |
+| **LNURL-channel** | Channel requests | - |
 
 LNURL links work as both QR codes and clickable links. They're compatible with any LNURL-enabled wallet. See [LNURL](/guide/core/lnurl/overview).
 
 ## Related Pages
 
-- [Payments](/guide/core/payments) — payment system documentation
-- [Payments API](/api/core/payments) — API reference
-- [API Keys](/guide/core/api-keys) — key types and permissions
-- [LNURL](/guide/core/lnurl/overview) — LNURL protocol support
-- [Labels](/guide/core/labels/overview) — payment categorization
+- [Payments](/guide/core/payments) - payment system documentation
+- [Payments API](/api/core/payments) - API reference
+- [API Keys](/guide/core/api-keys) - key types and permissions
+- [LNURL](/guide/core/lnurl/overview) - LNURL protocol support
+- [Labels](/guide/core/labels/overview) - payment categorization

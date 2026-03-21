@@ -104,7 +104,7 @@ curl -X DELETE https://your-lnbits.com/api/v1/wallet \
 
 ## Best practices
 
-- **One wallet per purpose** — keep shop revenue separate from personal funds
+- **One wallet per purpose** - keep shop revenue separate from personal funds
 - **Use invoice keys** in public-facing applications
 - **Rotate keys** if you suspect they've been compromised (recreate the wallet)
 - **Monitor balances** using the paginated wallet list endpoint

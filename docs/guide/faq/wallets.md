@@ -13,7 +13,7 @@ LNbits wallets have two API keys with different permission levels:
 | **Admin key** | Yes | Yes | Yes |
 | **Invoice key** | Yes | No | Yes |
 
-The **Admin key** has full access — it can create invoices, send payments, and read wallet data. The **Invoice key** can only create invoices (receive) and read wallet data. It cannot send payments.
+The **Admin key** has full access - it can create invoices, send payments, and read wallet data. The **Invoice key** can only create invoices (receive) and read wallet data. It cannot send payments.
 
 **Best practice**: Use the Invoice key for public-facing integrations (e.g., a donation page). Use the Admin key only in trusted server-side code. See [API Keys](/guide/core/api-keys).
 
@@ -25,7 +25,7 @@ Yes. Each user can create multiple wallets, each with its own balance and API ke
 
 Wallet balances are internal accounting within LNbits. The actual Bitcoin lives on the connected Lightning backend (your node). The total of all LNbits wallet balances should not exceed the backend's available liquidity.
 
-If your node has 500,000 sats in outbound capacity, the sum of all LNbits wallet balances should stay within that limit. LNbits does not enforce this automatically — the admin is responsible for monitoring liquidity.
+If your node has 500,000 sats in outbound capacity, the sum of all LNbits wallet balances should stay within that limit. LNbits does not enforce this automatically - the admin is responsible for monitoring liquidity.
 
 ## How do I create a new user or wallet?
 
@@ -91,16 +91,16 @@ In the LNbits UI, click on a wallet to see its transaction list. Each transactio
 
 If wallet balances appear incorrect after an update:
 
-1. **Check migration logs** — database migrations run automatically on startup. Look for errors in the logs.
-2. **Verify the database** — ensure the correct database is configured in `.env`. A common mistake is accidentally switching between SQLite and PostgreSQL.
-3. **Check the funding source** — verify your Lightning backend is connected and has the expected balance.
-4. **Restart LNbits** — sometimes a clean restart resolves stale cache issues.
+1. **Check migration logs** - database migrations run automatically on startup. Look for errors in the logs.
+2. **Verify the database** - ensure the correct database is configured in `.env`. A common mistake is accidentally switching between SQLite and PostgreSQL.
+3. **Check the funding source** - verify your Lightning backend is connected and has the expected balance.
+4. **Restart LNbits** - sometimes a clean restart resolves stale cache issues.
 
 If the issue persists, check [GitHub Issues](https://github.com/lnbits/lnbits/issues) or ask in the [Telegram group](https://t.me/lnbits).
 
 ## Related Pages
 
-- [API Keys](/guide/core/api-keys) — key types and usage
-- [Wallets & Accounts](/guide/core/wallets-and-accounts) — detailed wallet documentation
-- [User Roles](/guide/core/user-roles) — role-based permissions
-- [User Management](/guide/core/user-management/) — managing users
+- [API Keys](/guide/core/api-keys) - key types and usage
+- [Wallets & Accounts](/guide/core/wallets-and-accounts) - detailed wallet documentation
+- [User Roles](/guide/core/user-roles) - role-based permissions
+- [User Management](/guide/core/user-management/) - managing users

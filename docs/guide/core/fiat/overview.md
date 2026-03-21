@@ -45,13 +45,13 @@ curl https://your-lnbits.com/api/v1/conversion \
 
 ## Use cases
 
-- **Point of sale** — display prices in local currency
-- **Invoicing** — create invoices denominated in fiat
-- **Reporting** — track revenue in fiat terms
+- **Point of sale** - display prices in local currency
+- **Invoicing** - create invoices denominated in fiat
+- **Reporting** - track revenue in fiat terms
 
 ## Related Pages
 
-- [Fiat Payments (Stripe / PayPal)](/guide/core/fiat-payments) — accept card and PayPal payments
-- [Fiat & Conversion API](/api/core/fiat) — API endpoints
+- [Fiat Payments (Stripe / PayPal)](/guide/core/fiat-payments) - accept card and PayPal payments
+- [Fiat & Conversion API](/api/core/fiat) - API endpoints
 - [Core Features](/guide/core/)
 - [Configuration](/guide/core/environment)

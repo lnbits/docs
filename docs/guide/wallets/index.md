@@ -180,7 +180,7 @@ LNBITS_BACKEND_WALLET_CLASS=VoidWallet
 
 ### FakeWallet
 
-Simulates a Lightning node — invoices are auto-paid, payments always succeed. Use for development and testing.
+Simulates a Lightning node - invoices are auto-paid, payments always succeed. Use for development and testing.
 
 ```bash
 LNBITS_BACKEND_WALLET_CLASS=FakeWallet

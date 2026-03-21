@@ -8,14 +8,14 @@
 
 ## Overview
 
-Decoder is a utility extension that lets you inspect and decode Lightning Network payment data directly in your LNbits UI. Paste a BOLT11 invoice, LNURL, or Lightning Address and see the decoded fields — amount, description, expiry, routing hints, and more.
+Decoder is a utility extension that lets you inspect and decode Lightning Network payment data directly in your LNbits UI. Paste a BOLT11 invoice, LNURL, or Lightning Address and see the decoded fields - amount, description, expiry, routing hints, and more.
 
 ## Features
 
-- **BOLT11 decoding** — inspect invoice fields (amount, description, expiry, payee, routing hints)
-- **LNURL decoding** — resolve and display LNURL metadata
-- **Lightning Address** — resolve addresses to their LNURL-pay endpoints
-- **No configuration needed** — just paste and decode
+- **BOLT11 decoding** - inspect invoice fields (amount, description, expiry, payee, routing hints)
+- **LNURL decoding** - resolve and display LNURL metadata
+- **Lightning Address** - resolve addresses to their LNURL-pay endpoints
+- **No configuration needed** - just paste and decode
 
 ## Setup
 
@@ -25,10 +25,10 @@ Decoder is a utility extension that lets you inspect and decode Lightning Networ
 
 ## Use Cases
 
-- **Debugging** — inspect invoice details before paying
-- **Verification** — confirm amounts and descriptions in invoices
-- **Development** — decode test invoices while building extensions
-- **Education** — explore how Lightning invoices and LNURLs are structured
+- **Debugging** - inspect invoice details before paying
+- **Verification** - confirm amounts and descriptions in invoices
+- **Development** - decode test invoices while building extensions
+- **Education** - explore how Lightning invoices and LNURLs are structured
 
 ## API Reference
 

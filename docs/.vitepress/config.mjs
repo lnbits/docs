@@ -1,16 +1,20 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
 
-// Fetch latest LNbits release tag from GitHub at build time
+// Fetch latest LNbits release from GitHub at build time
 let latestVersion = 'v1.5.0' // fallback
+let latestReleaseBody = ''
+let latestReleaseDate = ''
 try {
   const res = await fetch(
     'https://api.github.com/repos/lnbits/lnbits/releases/latest',
-    { headers: { Accept: 'application/vnd.github.v3+json' } }
+    { headers: { Accept: 'application/vnd.github.v3.html+json' } }
   )
   if (res.ok) {
     const data = await res.json()
     latestVersion = data.tag_name || latestVersion
+    latestReleaseBody = data.body_html || data.body || ''
+    latestReleaseDate = data.published_at || ''
   }
 } catch {
   // Build continues with fallback version
@@ -46,6 +50,17 @@ export default withMermaid(defineConfig({
   },
   lastUpdated: true,
 
+  transformPageData(pageData) {
+    if (pageData.relativePath === 'changelog.md') {
+      pageData.params = {
+        ...pageData.params,
+        latestVersion,
+        latestReleaseBody,
+        latestReleaseDate,
+      }
+    }
+  },
+
   themeConfig: {
     logo: {
       light: '/logos/lnbits.svg',
@@ -57,36 +72,92 @@ export default withMermaid(defineConfig({
       {
         text: 'Guide',
         items: [
-          { text: 'Overview', link: '/guide/' },
-          { text: 'Installation', link: '/guide/installation/' },
-          { text: 'First Setup', link: '/guide/installation/first-setup' },
-          { text: 'Wallet Backends', link: '/guide/wallets/' },
-          { text: 'Core Features', link: '/guide/core/' },
-          { text: 'Admin Dashboard', link: '/guide/admin-dashboard' },
-          { text: 'FAQ', link: '/guide/faq/' },
+          {
+            text: 'Getting Started',
+            items: [
+              { text: 'Overview', link: '/guide/' },
+              { text: 'What is LNbits?', link: '/guide/what-is-lnbits' },
+              { text: 'Concepts', link: '/guide/concepts' },
+            ],
+          },
+          {
+            text: 'Installation',
+            items: [
+              { text: 'Choose a Method', link: '/guide/installation/' },
+              { text: 'First Setup', link: '/guide/installation/first-setup' },
+              { text: 'Updating', link: '/guide/installation/updating' },
+            ],
+          },
+          {
+            text: 'Using LNbits',
+            items: [
+              { text: 'Wallet Backends', link: '/guide/wallets/' },
+              { text: 'Core Features', link: '/guide/core/' },
+              { text: 'Extensions', link: '/guide/using-extensions' },
+              { text: 'Admin Dashboard', link: '/guide/admin-dashboard' },
+              { text: 'FAQ', link: '/guide/faq/' },
+            ],
+          },
         ],
       },
       {
         text: 'API',
         items: [
-          { text: 'Overview', link: '/api/' },
-          { text: 'Quick Reference', link: '/api/quick-reference' },
-          { text: 'Authentication', link: '/api/authentication' },
-          { text: 'Wallets', link: '/api/core/wallets' },
-          { text: 'Payments', link: '/api/core/payments' },
-          { text: 'Admin Endpoints', link: '/api/admin/' },
+          {
+            text: 'Reference',
+            items: [
+              { text: 'Overview', link: '/api/' },
+              { text: 'Quick Reference', link: '/api/quick-reference' },
+              { text: 'Authentication', link: '/api/authentication' },
+            ],
+          },
+          {
+            text: 'Core Endpoints',
+            items: [
+              { text: 'Wallets', link: '/api/core/wallets' },
+              { text: 'Payments', link: '/api/core/payments' },
+              { text: 'Users & Accounts', link: '/api/core/users' },
+              { text: 'LNURL', link: '/api/core/lnurl' },
+            ],
+          },
+          {
+            text: 'Admin',
+            items: [
+              { text: 'Admin Endpoints', link: '/api/admin/' },
+              { text: 'Settings', link: '/api/admin/settings' },
+            ],
+          },
         ],
       },
       { text: 'Extensions', link: '/extensions/' },
+      { text: 'Contribute', link: '/contribute/' },
       {
         text: 'Developers',
         items: [
-          { text: 'Architecture', link: '/dev/architecture' },
-          { text: 'Building Extensions', link: '/dev/building-extensions' },
-          { text: 'Deploying Extensions', link: '/dev/extensions/' },
-          { text: 'Wallet Backends', link: '/dev/wallet-backends' },
-          { text: 'Database & Migrations', link: '/dev/database' },
-          { text: 'Contributing', link: '/dev/contributing' },
+          {
+            text: 'Architecture',
+            items: [
+              { text: 'Overview', link: '/dev/architecture' },
+              { text: 'Database & Migrations', link: '/dev/database' },
+              { text: 'Models & Types', link: '/dev/models' },
+              { text: 'Decorators & Auth', link: '/dev/decorators' },
+            ],
+          },
+          {
+            text: 'Extensions',
+            items: [
+              { text: 'Building Extensions', link: '/dev/building-extensions' },
+              { text: 'Deploying Extensions', link: '/dev/extensions/' },
+              { text: 'Wallet Backends', link: '/dev/wallet-backends' },
+            ],
+          },
+          {
+            text: 'Contribute',
+            items: [
+              { text: 'Contributing', link: '/dev/contributing' },
+              { text: 'Fiat Integration', link: '/dev/fiat-integration' },
+            ],
+          },
         ],
       },
       {
@@ -163,12 +234,16 @@ export default withMermaid(defineConfig({
             { text: 'API Keys', link: '/guide/core/api-keys' },
             { text: 'Payments', link: '/guide/core/payments' },
             { text: 'Labels', link: '/guide/core/labels/overview' },
-            { text: 'Fiat Payments (Stripe)', link: '/guide/core/fiat-payments' },
+            { text: 'Fiat Payments', link: '/guide/core/fiat-payments' },
+            { text: 'Stripe', link: '/guide/core/fiat-stripe' },
+            { text: 'PayPal', link: '/guide/core/fiat-paypal' },
             { text: 'Fiat Display', link: '/guide/core/fiat/overview' },
             { text: 'LNURL', link: '/guide/core/lnurl/overview' },
             { text: 'Environment', link: '/guide/core/environment' },
             { text: 'Database', link: '/guide/core/database' },
+            { text: 'Notifications', link: '/guide/core/notifications' },
             { text: 'WebSockets', link: '/guide/core/websockets' },
+            { text: 'Extension Builder', link: '/guide/core/extension-builder' },
             { text: 'Progressive Web App', link: '/guide/core/pwa' },
           ],
         },
@@ -248,6 +323,7 @@ export default withMermaid(defineConfig({
             { text: 'Decorators & Auth', link: '/dev/decorators' },
             { text: 'Background Tasks', link: '/dev/tasks' },
             { text: 'Fiat Provider Integration', link: '/dev/fiat-integration' },
+            { text: 'Tools', link: '/dev/tools' },
             { text: 'Contributing', link: '/dev/contributing' },
           ],
         },
@@ -402,6 +478,7 @@ export default withMermaid(defineConfig({
           text: 'LLM Integration',
           items: [
             { text: 'Overview', link: '/llm/' },
+            { text: 'System Prompt', link: '/llm/system-prompt' },
             { text: 'Skills', link: '/llm/skills' },
           ],
         },
@@ -416,7 +493,7 @@ export default withMermaid(defineConfig({
         icon: {
           svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="46 19 172 192"><path fill="currentColor" d="M210.8 199.4c0 3.1-2.5 5.7-5.7 5.7h-68c-3.1 0-5.7-2.5-5.7-5.7v-15.5c.3-19 2.3-37.2 6.5-45.5 2.5-5 6.7-7.7 11.5-9.1 9.1-2.7 24.9-.9 31.7-1.2 0 0 20.4.8 20.4-10.7s-9.1-8.6-9.1-8.6c-10 .3-17.7-.4-22.6-2.4-8.3-3.3-8.6-9.2-8.6-11.2-.4-23.1-34.5-25.9-64.5-20.1-32.8 6.2.4 53.3.4 116.1v8.4c0 3.1-2.6 5.6-5.7 5.6H57.7c-3.1 0-5.7-2.5-5.7-5.7v-144c0-3.1 2.5-5.7 5.7-5.7h31.7c3.1 0 5.7 2.5 5.7 5.7 0 4.7 5.2 7.2 9 4.5 11.4-8.2 26-12.5 42.4-12.5 36.6 0 64.4 21.4 64.4 68.7v83.2ZM150 99.3c0-6.7-5.4-12.1-12.1-12.1s-12.1 5.4-12.1 12.1 5.4 12.1 12.1 12.1S150 106 150 99.3Z"/></svg>'
         },
-        link: 'https://primal.net/p/nprofile1qqs8u5uf0rd2p9wmdxxaznpn54tkq8wwspmljy0cjqw6jdgm5kv84dsd6z52x',
+        link: 'https://primal.net/p/npub10efcj7x65z2ak6vd69xr8f2hvqwuaqrhlygl3yqa4y63hfvc02mqwzaeh3',
         ariaLabel: 'Nostr'
       },
     ],

@@ -32,7 +32,7 @@ for (const ext of EXTENSIONS) {
 }
 
 console.log(`=== FOUND IN OPENAPI (${found.length}) ===`)
-for (const f of found) console.log(`  ${f.id} — ${f.count} endpoints`)
+for (const f of found) console.log(`  ${f.id} - ${f.count} endpoints`)
 console.log()
 console.log(`=== MISSING FROM OPENAPI (${missing.length}) ===`)
-for (const m of missing) console.log(`  ${m.id} — ${m.repo}`)
+for (const m of missing) console.log(`  ${m.id} - ${m.repo}`)

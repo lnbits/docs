@@ -174,7 +174,7 @@ After adding, the extensions from your manifest appear alongside official extens
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Official Registry](/dev/extensions/registry) — get listed on the official marketplace
-- [Custom Marketplace](/dev/extensions/custom-list) — build your own extension marketplace
-- [Monetization](/dev/extensions/monetization) — charge for extension access
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Official Registry](/dev/extensions/registry) - get listed on the official marketplace
+- [Custom Marketplace](/dev/extensions/custom-list) - build your own extension marketplace
+- [Monetization](/dev/extensions/monetization) - charge for extension access

@@ -28,7 +28,7 @@ function paramsTable(params) {
   md += '| --- | --- | --- | --- | --- |\n'
   for (const p of params) {
     const type = p.schema ? p.schema.type || 'any' : 'any'
-    md += `| \`${p.name}\` | ${p.in} | ${type} | ${p.required ? 'Yes' : 'No'} | ${p.description || '—'} |\n`
+    md += `| \`${p.name}\` | ${p.in} | ${type} | ${p.required ? 'Yes' : 'No'} | ${p.description || '-'} |\n`
   }
   return md
 }
@@ -68,7 +68,7 @@ function responseBlock(responses) {
   if (!responses) return ''
   let md = '\n**Responses:**\n\n'
   for (const [code, resp] of Object.entries(responses)) {
-    md += `- **${code}** — ${resp.description || 'No description'}\n`
+    md += `- **${code}** - ${resp.description || 'No description'}\n`
   }
   return md
 }

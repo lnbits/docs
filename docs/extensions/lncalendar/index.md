@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="LNCalendar"
-  description="Paid scheduling — like Calendly with Bitcoin."
+  description="Paid scheduling - like Calendly with Bitcoin."
   category="Events & Streaming"
   icon="📅"
   repo="lnbits/lncalendar"

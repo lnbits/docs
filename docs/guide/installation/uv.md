@@ -1,6 +1,6 @@
 # Install with uv
 
-> Install LNbits from source using the uv package manager — the fastest installation method.
+> Install LNbits from source using the uv package manager - the fastest installation method.
 
 [uv](https://github.com/astral-sh/uv) is a fast Python package manager written in Rust. It's the quickest way to install LNbits from source.
 
@@ -92,12 +92,12 @@ After updating, use **Admin UI → Extensions → "Update All"** to update exten
 
 ## Next steps
 
-- [Configuration](/guide/core/environment) — customize your instance
-- [Funding sources](/guide/wallets/) — connect a Lightning backend
-- [Reverse proxy](/guide/installation/reverse-proxy) — set up HTTPS
+- [Configuration](/guide/core/environment) - customize your instance
+- [Funding sources](/guide/wallets/) - connect a Lightning backend
+- [Reverse proxy](/guide/installation/reverse-proxy) - set up HTTPS
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Install with Poetry](/guide/installation/poetry) — alternative source install
-- [Updating LNbits](/guide/installation/updating) — keep LNbits up to date
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Install with Poetry](/guide/installation/poetry) - alternative source install
+- [Updating LNbits](/guide/installation/updating) - keep LNbits up to date

@@ -1,6 +1,6 @@
 # Docker
 
-> Install LNbits with Docker Compose — the recommended method for production deployments.
+> Install LNbits with Docker Compose - the recommended method for production deployments.
 
 Run LNbits with Docker for easy deployment and updates.
 
@@ -126,7 +126,7 @@ Use `host.docker.internal` to reach services running on the Docker host from ins
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Reverse Proxy](/guide/installation/reverse-proxy) — set up HTTPS with Nginx or Caddy
-- [PostgreSQL](/guide/installation/postgresql) — migrate to PostgreSQL for production
-- [Environment Variables](/guide/core/environment) — configure LNbits settings
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Reverse Proxy](/guide/installation/reverse-proxy) - set up HTTPS with Nginx or Caddy
+- [PostgreSQL](/guide/installation/postgresql) - migrate to PostgreSQL for production
+- [Environment Variables](/guide/core/environment) - configure LNbits settings

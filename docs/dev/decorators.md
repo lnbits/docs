@@ -1,6 +1,6 @@
 # Decorators & Auth
 
-> Authentication decorators for protecting LNbits API endpoints — require_admin_key, require_invoice_key, and more.
+> Authentication decorators for protecting LNbits API endpoints - require_admin_key, require_invoice_key, and more.
 
 Authentication decorators used in LNbits API endpoints.
 
@@ -17,14 +17,14 @@ from lnbits.decorators import require_admin_key, WalletTypeInfo
 async def create_item(
     wallet: WalletTypeInfo = Depends(require_admin_key),
 ):
-    # wallet.wallet — the Wallet object
-    # wallet.key_type — KeyType.admin
+    # wallet.wallet - the Wallet object
+    # wallet.key_type - KeyType.admin
     ...
 ```
 
 ### `require_invoice_key`
 
-Requires an invoice key (or admin key — admin keys pass invoice checks too).
+Requires an invoice key (or admin key - admin keys pass invoice checks too).
 
 ```python
 from lnbits.decorators import require_invoice_key

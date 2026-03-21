@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="Sats Dice"
-  description="LNURL satoshi dice — gambling in a QR code."
+  description="LNURL satoshi dice - gambling in a QR code."
   category="Games & Gambling"
   icon="🎲"
   repo="lnbits/satsdice"

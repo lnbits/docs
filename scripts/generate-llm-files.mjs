@@ -3,8 +3,8 @@
 /**
  * Generate llms.txt and llms-full.txt for LLM-friendly documentation access.
  *
- * llms.txt — index of all pages with titles and paths
- * llms-full.txt — full concatenated content of all pages
+ * llms.txt - index of all pages with titles and paths
+ * llms-full.txt - full concatenated content of all pages
  *
  * Usage: node scripts/generate-llm-files.mjs
  */
@@ -72,7 +72,7 @@ async function main() {
 
   // Build llms-full.txt (concatenated)
   const fullParts = [
-    '# LNbits Documentation — Full Content',
+    '# LNbits Documentation - Full Content',
     '',
     '> Auto-generated from all documentation pages.',
     '',
@@ -89,14 +89,14 @@ async function main() {
     // Index entry
     indexLines.push(`- [${title}](${url})`)
 
-    // Full content entry — strip frontmatter
+    // Full content entry - strip frontmatter
     const stripped = content.replace(/^---\n[\s\S]*?\n---\n*/, '')
     fullParts.push(`---\n\nSource: ${url}\n\n${stripped.trim()}\n`)
   }
 
   await mkdir(OUTPUT_DIR, { recursive: true })
 
-  // Only generate llms-full.txt — llms.txt is curated manually
+  // Only generate llms-full.txt - llms.txt is curated manually
   await writeFile(
     join(OUTPUT_DIR, 'llms-full.txt'),
     fullParts.join('\n'),

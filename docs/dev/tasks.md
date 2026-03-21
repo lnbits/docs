@@ -84,9 +84,9 @@ async def process_queue():
 
 - Always wrap task bodies in try/except to prevent crashes
 - Use `asyncio.sleep()` between iterations to avoid busy-waiting
-- Filter payments by tag before processing — your listener receives ALL payments
-- Log errors but don't re-raise — crashed tasks don't restart automatically
-- Keep task handlers fast — slow handlers delay payment notifications
+- Filter payments by tag before processing - your listener receives ALL payments
+- Log errors but don't re-raise - crashed tasks don't restart automatically
+- Keep task handlers fast - slow handlers delay payment notifications
 
 ## Related Pages
 

@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="Coinflip"
-  description="Bet sats on coinflips — winner takes all."
+  description="Bet sats on coinflips - winner takes all."
   category="Games & Gambling"
   icon="🪙"
   repo="lnbits/coinflip"

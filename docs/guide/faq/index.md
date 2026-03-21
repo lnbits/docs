@@ -38,6 +38,6 @@ NFC/Boltcards, point-of-sale, ATMs, vending machines, and merchant setup. **8 qu
 
 ## Related Pages
 
-- [What is LNbits?](/guide/what-is-lnbits) — overview and core concepts
-- [Installation](/guide/installation/) — choose your setup method
-- [Using Extensions](/guide/using-extensions) — install and manage extensions
+- [What is LNbits?](/guide/what-is-lnbits) - overview and core concepts
+- [Installation](/guide/installation/) - choose your setup method
+- [Using Extensions](/guide/using-extensions) - install and manage extensions

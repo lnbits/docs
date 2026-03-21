@@ -89,15 +89,25 @@ watch(isLoading, () => {
   })
 })
 
+function openFromNav() {
+  isOpen.value = true
+  nextTick(() => {
+    const el = document.querySelector('.dc-input')
+    if (el) el.focus()
+  })
+}
+
 onMounted(() => {
   checkMobile()
   window.addEventListener('resize', checkMobile)
   document.addEventListener('keydown', handleEscape)
+  window.addEventListener('open-doc-chat', openFromNav)
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', checkMobile)
   document.removeEventListener('keydown', handleEscape)
+  window.removeEventListener('open-doc-chat', openFromNav)
 })
 
 // Simple markdown to HTML (lightweight, no external deps)
@@ -456,7 +466,7 @@ function renderMarkdown(text) {
   box-shadow: none;
 }
 
-/* Panel transitions — desktop slide */
+/* Panel transitions - desktop slide */
 .dc-panel-enter-active {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -470,7 +480,7 @@ function renderMarkdown(text) {
   transform: translateX(100%);
 }
 
-/* Panel transitions — mobile slide up */
+/* Panel transitions - mobile slide up */
 .dc-panel-mobile-enter-active {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }

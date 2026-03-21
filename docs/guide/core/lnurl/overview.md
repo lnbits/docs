@@ -32,9 +32,9 @@ Passwordless authentication using Lightning wallets. LNbits supports LNURL-auth 
 
 Several LNbits extensions build on LNURL:
 
-- **LNURLp** — create LNURL-pay links with branded pages
-- **Withdraw** — create LNURL-withdraw vouchers
-- **SatsPay** — payment pages with LNURL support
+- **LNURLp** - create LNURL-pay links with branded pages
+- **Withdraw** - create LNURL-withdraw vouchers
+- **SatsPay** - payment pages with LNURL support
 
 ## API
 

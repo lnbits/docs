@@ -12,7 +12,7 @@ Get details of the wallet associated with the provided API key.
 
 #### Parameters
 
-None — the wallet is identified by the API key.
+None - the wallet is identified by the API key.
 
 #### Response `200`
 
@@ -157,7 +157,7 @@ This permanently deletes the wallet and all its payment history. The balance is 
 
 #### Parameters
 
-None — the wallet is identified by the API key.
+None - the wallet is identified by the API key.
 
 #### Response `200`
 

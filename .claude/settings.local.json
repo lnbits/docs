@@ -16,7 +16,15 @@
       "Bash(grep -rn '</details>\\\\|</summary>' docs/extensions/*/index.md)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(grep -o raw.githubusercontent.com[^\"\"]*.png docs/.vitepress/dist/extensions/index.html)",
-      "Bash(pkill -f \"vitepress dev\")"
+      "Bash(pkill -f \"vitepress dev\")",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:darthcoin.substack.com)",
+      "WebFetch(domain:contribute.btcpayserver.org)",
+      "WebFetch(domain:webcache.googleusercontent.com)",
+      "WebFetch(domain:web.archive.org)",
+      "WebFetch(domain:www.youtube.com)",
+      "Bash(find /Users/drshift/projects/docs_LNBITS/docs -name \"*.md\" -exec sed -i '' 's/ — / - /g' {} +)",
+      "Bash(npx vitepress:*)"
     ]
   }
 }

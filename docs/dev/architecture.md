@@ -1,6 +1,6 @@
 # Architecture
 
-> Internal structure and design decisions behind LNbits — modules, data flow, and extension system.
+> Internal structure and design decisions behind LNbits - modules, data flow, and extension system.
 
 Deep dive into how LNbits is built.
 
@@ -76,18 +76,18 @@ lnbits/
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/diagrams/request-lifecycle-dark.svg">
-  <img src="/diagrams/request-lifecycle-light.svg" alt="Request lifecycle — middleware, routing, auth, service layer, CRUD, database" style="max-width: 380px; width: 100%; margin: 16px auto; display: block;" />
+  <img src="/diagrams/request-lifecycle-light.svg" alt="Request lifecycle - middleware, routing, auth, service layer, CRUD, database" style="max-width: 380px; width: 100%; margin: 16px auto; display: block;" />
 </picture>
 
 ## Startup sequence
 
-1. **Load configuration** — read `.env` and admin settings from DB
-2. **Initialize database** — run migrations, create tables
-3. **Check admin settings** — merge file and DB configs
-4. **Set funding source** — connect to Lightning backend (with retry)
-5. **Load extensions** — verify, import modules, register routes
-6. **Start background tasks** — invoice listeners, payment checker, exchange rates
-7. **Ready** — accept HTTP requests
+1. **Load configuration** - read `.env` and admin settings from DB
+2. **Initialize database** - run migrations, create tables
+3. **Check admin settings** - merge file and DB configs
+4. **Set funding source** - connect to Lightning backend (with retry)
+5. **Load extensions** - verify, import modules, register routes
+6. **Start background tasks** - invoice listeners, payment checker, exchange rates
+7. **Ready** - accept HTTP requests
 
 ## Key design patterns
 

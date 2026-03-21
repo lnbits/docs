@@ -26,7 +26,7 @@ lnbits/
 ```
 
 Bundled extensions:
-- Load automatically on startup — no installation step needed
+- Load automatically on startup - no installation step needed
 - Cannot be uninstalled through the UI (they're part of the codebase)
 - Are always available to all users
 - Update when you update your fork
@@ -79,11 +79,11 @@ When merging upstream changes, watch for conflicts in the `lnbits/extensions/` d
 
 For enterprise deployments:
 
-- **Version pinning** — tag your fork at specific commits for reproducible builds
-- **CI/CD** — automate builds and testing of your custom fork
-- **Extension testing** — run `make test` to verify extensions work with the current LNbits version
-- **Compliance** — bundled extensions are auditable as part of your codebase
-- **Rollback** — git tags make it easy to roll back to a previous version
+- **Version pinning** - tag your fork at specific commits for reproducible builds
+- **CI/CD** - automate builds and testing of your custom fork
+- **Extension testing** - run `make test` to verify extensions work with the current LNbits version
+- **Compliance** - bundled extensions are auditable as part of your codebase
+- **Rollback** - git tags make it easy to roll back to a previous version
 
 ## Docker distribution
 
@@ -104,7 +104,7 @@ docker push your-org/lnbits:v1.0
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Custom Marketplace](/dev/extensions/custom-list) — curate extensions via manifests
-- [Auto-install](/dev/extensions/auto-install) — auto-install without forking
-- [Reference](/dev/extensions/reference) — environment variables and configuration
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Custom Marketplace](/dev/extensions/custom-list) - curate extensions via manifests
+- [Auto-install](/dev/extensions/auto-install) - auto-install without forking
+- [Reference](/dev/extensions/reference) - environment variables and configuration

@@ -101,7 +101,7 @@ async function fetchConfig(repo) {
       if (res.ok) {
         const config = await res.json()
         if (config.tile) {
-          // tile is like "/tpos/static/image/tpos.png" — extract path after ext id
+          // tile is like "/tpos/static/image/tpos.png" - extract path after ext id
           const tilePath = config.tile.replace(/^\/[^/]+\//, '')
           return `https://raw.githubusercontent.com/${repo}/${branch}/${tilePath}`
         }
@@ -134,7 +134,7 @@ function isBadgeLine(line) {
 
 /**
  * Clean a GitHub README for use as a docs page:
- * - Strip everything before the first H2 (##) — this removes the logo block,
+ * - Strip everything before the first H2 (##) - this removes the logo block,
  *   badges, H1, and intro blurb which are all replaced by ExtensionHeader
  * - If no H2 exists, fall back to stripping just the H1 + badges
  * - Strip badge lines throughout the body
@@ -143,7 +143,7 @@ function isBadgeLine(line) {
 function cleanReadme(raw) {
   const lines = raw.split('\n')
 
-  // Find the first H2 line — everything before it is header boilerplate
+  // Find the first H2 line - everything before it is header boilerplate
   let firstH2 = -1
   for (let i = 0; i < lines.length; i++) {
     if (/^## /.test(lines[i])) {
@@ -157,7 +157,7 @@ function cleanReadme(raw) {
     // Start from the first H2
     start = firstH2
   } else {
-    // No H2 found — strip leading blanks, badges, H1, blockquote manually
+    // No H2 found - strip leading blanks, badges, H1, blockquote manually
     while (start < lines.length && lines[start].trim() === '') start++
     // Skip badge/HTML lines
     while (start < lines.length) {
@@ -185,7 +185,7 @@ function cleanReadme(raw) {
   for (let i = start; i < lines.length; i++) {
     const t = lines[i].trim()
 
-    // Detect "Powered by LNbits" section — skip everything from there to end
+    // Detect "Powered by LNbits" section - skip everything from there to end
     if (/^#{1,3}\s+Powered by/i.test(t)) {
       skipSection = true
       continue
@@ -324,7 +324,7 @@ async function processExtension(ext, tagEndpoints) {
     return { status: 'fetched', tileUrl }
   }
 
-  // Fetch failed — only write if no page exists yet
+  // Fetch failed - only write if no page exists yet
   if (!(await fileExists(indexPath))) {
     await writeFile(indexPath, generateFallbackPage(ext), 'utf-8')
     return { status: 'fallback', tileUrl }
@@ -362,7 +362,7 @@ async function main() {
     const raw = await readFile(SPEC_PATH, 'utf-8')
     spec = JSON.parse(raw)
   } catch {
-    console.log('No OpenAPI spec found — generating pages without API details.')
+    console.log('No OpenAPI spec found - generating pages without API details.')
   }
 
   // Group endpoints by tag
@@ -402,7 +402,7 @@ async function main() {
   await writeFile(META_PATH, JSON.stringify(extensionMeta, null, 2) + '\n', 'utf-8')
   console.log(`\nWrote ${Object.keys(extensionMeta).length} tile URLs to ${META_PATH}`)
 
-  // API pages — only create if missing
+  // API pages - only create if missing
   for (const ext of EXTENSIONS) {
     const apiPath = join(OUTPUT_DIR, ext.id, 'api.md')
     const endpoints = tagEndpoints[ext.id] || null

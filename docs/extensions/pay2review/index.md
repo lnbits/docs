@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="Pay2Review"
-  description="Charge sats for reviews — anti-sock-puppet."
+  description="Charge sats for reviews - anti-sock-puppet."
   category="Social & Nostr"
   icon="📝"
   repo="lnbits/pay2review"

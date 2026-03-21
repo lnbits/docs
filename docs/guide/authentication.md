@@ -145,6 +145,6 @@ curl -X POST https://your-lnbits.com/api/v1/auth/register \
 
 ## Related Pages
 
-- [Security](/guide/core/security) — security best practices for your LNbits instance
-- [Authentication](/api/authentication) — API reference for authentication endpoints
-- [User Management](/guide/core/user-management/) — managing users, roles, and permissions
+- [Security](/guide/core/security) - security best practices for your LNbits instance
+- [Authentication](/api/authentication) - API reference for authentication endpoints
+- [User Management](/guide/core/user-management/) - managing users, roles, and permissions

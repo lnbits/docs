@@ -1,6 +1,6 @@
 <ExtensionHeader
   name="Bitcoin Switch"
-  description="Turn things on with bitcoin — IoT device control."
+  description="Turn things on with bitcoin - IoT device control."
   category="Hardware & Devices"
   icon="🔌"
   repo="lnbits/bitcoinswitch_extension"

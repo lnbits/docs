@@ -1,23 +1,23 @@
 # Configuration
 
-> Complete reference of all LNbits environment variables — server, database, admin, auth, fees, rate limiting, extensions, and notifications.
+> Complete reference of all LNbits environment variables - server, database, admin, auth, fees, rate limiting, extensions, and notifications.
 
 LNbits is configured through environment variables, typically set in a `.env` file.
 
 ## `.env` file vs Admin UI {#env-vs-admin-ui}
 
-LNbits has two layers of configuration: the `.env` file and the **Admin UI**. Understanding which one controls what is critical — getting this wrong means your changes silently do nothing.
+LNbits has two layers of configuration: the `.env` file and the **Admin UI**. Understanding which one controls what is critical - getting this wrong means your changes silently do nothing.
 
 ### How it works
 
 When `LNBITS_ADMIN_UI=true` (the default for most setups), LNbits splits settings into two groups:
 
-1. **`.env`-only settings** — always read from the `.env` file, never managed by the Admin UI
-2. **Admin UI settings** — stored in the database, managed through the Admin UI. **The `.env` values for these are ignored.**
+1. **`.env`-only settings** - always read from the `.env` file, never managed by the Admin UI
+2. **Admin UI settings** - stored in the database, managed through the Admin UI. **The `.env` values for these are ignored.**
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="/diagrams/config-layers-dark.svg">
-  <img src="/diagrams/config-layers-light.svg" alt="Configuration layers — .env-only settings vs Admin UI settings" style="max-width: 580px; width: 100%; margin: 16px auto; display: block;" />
+  <img src="/diagrams/config-layers-light.svg" alt="Configuration layers - .env-only settings vs Admin UI settings" style="max-width: 580px; width: 100%; margin: 16px auto; display: block;" />
 </picture>
 
 ::: warning
@@ -34,10 +34,10 @@ These are always read from the `.env` file regardless of whether Admin UI is ena
 | `HOST` | `127.0.0.1` | Server bind address |
 | `PORT` | `5000` | Server bind port |
 | `LNBITS_DATA_FOLDER` | `./data` | SQLite data directory |
-| `LNBITS_DATABASE_URL` | — | PostgreSQL/CockroachDB connection string |
-| `SUPER_USER` | — | Super user ID (highest privilege) |
+| `LNBITS_DATABASE_URL` | - | PostgreSQL/CockroachDB connection string |
+| `SUPER_USER` | - | Super user ID (highest privilege) |
 | `AUTH_SECRET_KEY` | auto | Secret key for JWT signing |
-| `FIRST_INSTALL_TOKEN` | — | Required token for `/first_install` page |
+| `FIRST_INSTALL_TOKEN` | - | Required token for `/first_install` page |
 | `DEBUG` | `false` | Enable debug logging |
 | `DEBUG_DATABASE` | `false` | Log all database queries |
 | `BUNDLE_ASSETS` | `true` | Bundle static assets for production |
@@ -46,9 +46,9 @@ These are always read from the `.env` file regardless of whether Admin UI is ena
 | `LOG_RETENTION` | `3 months` | How long to keep log files |
 | `FORWARDED_ALLOW_IPS` | `*` | Trusted proxy IPs for HTTPS headers |
 | `LNBITS_EXTENSIONS_PATH` | `./lnbits/` | Directory for extension installation |
-| `LNBITS_EXTENSIONS_DEFAULT_INSTALL` | — | Extensions to auto-install on every restart |
+| `LNBITS_EXTENSIONS_DEFAULT_INSTALL` | - | Extensions to auto-install on every restart |
 | `LNBITS_EXTENSIONS_MANIFESTS` | official | Extension manifest URLs |
-| `LNBITS_EXT_GITHUB_TOKEN` | — | GitHub token to avoid API rate limits |
+| `LNBITS_EXT_GITHUB_TOKEN` | - | GitHub token to avoid API rate limits |
 | `LNBITS_ALLOWED_FUNDING_SOURCES` | all | Funding sources shown in Admin UI |
 | `FUNDING_SOURCE_MAX_RETRIES` | `4` | Connection retries before falling back to VoidWallet |
 
@@ -78,7 +78,7 @@ If you need to go back to file-based configuration:
    ```sql
    DELETE FROM settings;
    ```
-3. Restart LNbits — it will read all values from `.env` again
+3. Restart LNbits - it will read all values from `.env` again
 
 ::: tip
 The `.env.example` file in the [LNbits repository](https://github.com/lnbits/lnbits/blob/dev/.env.example) marks which settings are `.env`-only with clear `###### .env ONLY SETTINGS ######` comment blocks. When in doubt, check the source.
@@ -102,7 +102,7 @@ The `.env.example` file in the [LNbits repository](https://github.com/lnbits/lnb
 | Variable | Default | Description |
 | --- | --- | --- |
 | `LNBITS_DATA_FOLDER` | `./data` | SQLite data directory |
-| `LNBITS_DATABASE_URL` | — | PostgreSQL or CockroachDB connection string |
+| `LNBITS_DATABASE_URL` | - | PostgreSQL or CockroachDB connection string |
 
 ```bash
 # SQLite (default)
@@ -120,9 +120,9 @@ LNBITS_DATABASE_URL=cockroachdb://user:pass@localhost:26257/lnbits
 | Variable | Default | Description |
 | --- | --- | --- |
 | `LNBITS_ADMIN_UI` | `false` | Enable the admin settings dashboard |
-| `LNBITS_ADMIN_USERS` | — | Comma-separated user IDs with admin access |
-| `SUPER_USER` | — | Super user ID (full system access) |
-| `LNBITS_ALLOWED_USERS` | — | Restrict login to these user IDs only |
+| `LNBITS_ADMIN_USERS` | - | Comma-separated user IDs with admin access |
+| `SUPER_USER` | - | Super user ID (full system access) |
+| `LNBITS_ALLOWED_USERS` | - | Restrict login to these user IDs only |
 | `LNBITS_ALLOW_NEW_ACCOUNTS` | `true` | Allow new user registration |
 
 ### Theming
@@ -130,7 +130,7 @@ LNBITS_DATABASE_URL=cockroachdb://user:pass@localhost:26257/lnbits
 | Variable | Default | Description |
 | --- | --- | --- |
 | `LNBITS_THEME_OPTIONS` | all themes | Comma-separated list of available themes |
-| `LNBITS_CUSTOM_LOGO` | — | URL to a custom logo image |
+| `LNBITS_CUSTOM_LOGO` | - | URL to a custom logo image |
 | `LNBITS_HIDE_API` | `false` | Hide the API section in the UI |
 
 Available themes: `classic`, `bitcoin`, `flamingo`, `freedom`, `mint`, `autumn`, `monochrome`, `salvador`, `cyber`
@@ -168,7 +168,7 @@ KEYCLOAK_DISCOVERY_URL=https://keycloak.example.com/realms/master/.well-known/op
 | `LNBITS_RESERVE_FEE_MIN` | `2000` | Minimum reserve in millisatoshis |
 | `LNBITS_RESERVE_FEE_PERCENT` | `1.0` | Reserve fee percentage |
 | `LNBITS_WALLET_LIMIT_MAX_BALANCE` | `0` | Maximum wallet balance (0 = unlimited) |
-| `LNBITS_SERVICE_FEE_WALLET` | — | Wallet ID that receives service fees |
+| `LNBITS_SERVICE_FEE_WALLET` | - | Wallet ID that receives service fees |
 
 ## Rate limiting
 
@@ -176,29 +176,47 @@ KEYCLOAK_DISCOVERY_URL=https://keycloak.example.com/realms/master/.well-known/op
 | --- | --- | --- |
 | `LNBITS_RATE_LIMIT_NO` | `200` | Number of requests allowed |
 | `LNBITS_RATE_LIMIT_UNIT` | `minute` | Time unit (`second`, `minute`, `hour`) |
-| `LNBITS_ALLOWED_IPS` | — | Whitelist of IP addresses |
-| `LNBITS_BLOCKED_IPS` | — | Blocklist of IP addresses |
+| `LNBITS_ALLOWED_IPS` | - | Whitelist of IP addresses |
+| `LNBITS_BLOCKED_IPS` | - | Blocklist of IP addresses |
 
 ## Extensions
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `LNBITS_EXTENSIONS_DEFAULT_INSTALL` | — | Extensions to auto-install on startup |
-| `LNBITS_ADMIN_EXTENSIONS` | — | Extensions only admins can activate |
-| `LNBITS_USER_DEFAULT_EXTENSIONS` | — | Extensions auto-activated for new users |
+| `LNBITS_EXTENSIONS_DEFAULT_INSTALL` | - | Extensions to auto-install on startup |
+| `LNBITS_ADMIN_EXTENSIONS` | - | Extensions only admins can activate |
+| `LNBITS_USER_DEFAULT_EXTENSIONS` | - | Extensions auto-activated for new users |
 | `LNBITS_EXTENSIONS_DEACTIVATE_ALL` | `false` | Disable all extensions (core-only mode) |
 | `LNBITS_EXTENSIONS_MANIFESTS` | official | Extension manifest URLs |
 
 ## Notifications
 
-```bash
-# Email (SMTP)
-LNBITS_EMAIL_HOST=smtp.example.com
-LNBITS_EMAIL_PORT=587
-LNBITS_EMAIL_USERNAME=user@example.com
-LNBITS_EMAIL_PASSWORD=your-password
-LNBITS_EMAIL_NOTIFICATIONS_TO_EMAILS=admin@example.com
-```
+See [Notifications](/guide/core/notifications) for full setup guides and trigger details.
+
+| Variable | Default | Description |
+| --- | --- | --- |
+| `LNBITS_NOTIFICATION_SETTINGS_UPDATE` | `false` | Notify on config changes |
+| `LNBITS_NOTIFICATION_CREDIT_DEBIT` | `false` | Notify on balance changes |
+| `NOTIFICATION_BALANCE_DELTA_THRESHOLD_SATS` | `0` | Min sats delta to trigger alert |
+| `LNBITS_NOTIFICATION_SERVER_START_STOP` | `false` | Notify on server start/stop |
+| `LNBITS_NOTIFICATION_WATCHDOG` | `false` | Notify on node balance drift |
+| `LNBITS_WATCHDOG_INTERVAL_MINUTES` | `60` | Watchdog check frequency |
+| `LNBITS_NOTIFICATION_SERVER_STATUS_HOURS` | `0` | Periodic status interval (0 = off) |
+| `LNBITS_NOTIFICATION_INCOMING_PAYMENT_AMOUNT_SATS` | `0` | Min sats for incoming alert |
+| `LNBITS_NOTIFICATION_OUTGOING_PAYMENT_AMOUNT_SATS` | `0` | Min sats for outgoing alert |
+| `LNBITS_EMAIL_NOTIFICATIONS_ENABLED` | `false` | Enable email channel |
+| `LNBITS_EMAIL_NOTIFICATIONS_SERVER` | - | SMTP server |
+| `LNBITS_EMAIL_NOTIFICATIONS_PORT` | `587` | SMTP port |
+| `LNBITS_EMAIL_NOTIFICATIONS_EMAIL` | - | Sender email |
+| `LNBITS_EMAIL_NOTIFICATIONS_USERNAME` | - | SMTP username |
+| `LNBITS_EMAIL_NOTIFICATIONS_PASSWORD` | - | SMTP password |
+| `LNBITS_EMAIL_NOTIFICATIONS_TO_EMAILS` | - | Recipient emails (comma-separated) |
+| `LNBITS_TELEGRAM_NOTIFICATIONS_ENABLED` | `false` | Enable Telegram channel |
+| `LNBITS_TELEGRAM_NOTIFICATIONS_ACCESS_TOKEN` | - | Telegram bot token |
+| `LNBITS_TELEGRAM_NOTIFICATIONS_CHAT_ID` | - | Telegram chat ID |
+| `LNBITS_NOSTR_NOTIFICATIONS_ENABLED` | `false` | Enable Nostr DM channel |
+| `LNBITS_NOSTR_NOTIFICATIONS_PRIVATE_KEY` | - | Nostr sender nsec |
+| `LNBITS_NOSTR_NOTIFICATIONS_IDENTIFIERS` | - | Recipient npubs (comma-separated) |
 
 ## Funding source
 
@@ -241,9 +259,9 @@ LNBITS_THEME_OPTIONS=classic,bitcoin,mint
 
 ## Next steps
 
-- [Funding Sources](/guide/wallets/) — backend-specific configuration
-- [Reverse Proxy](/guide/installation/reverse-proxy) — Nginx / Caddy setup
-- [Security](/guide/core/security) — hardening your instance
+- [Funding Sources](/guide/wallets/) - backend-specific configuration
+- [Reverse Proxy](/guide/installation/reverse-proxy) - Nginx / Caddy setup
+- [Security](/guide/core/security) - hardening your instance
 
 ## Related Pages
 

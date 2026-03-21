@@ -1,6 +1,6 @@
 # Super User
 
-> The Super User is the highest-privilege account in LNbits — created on first run when the Admin UI is enabled, stored in `data/.super_user`.
+> The Super User is the highest-privilege account in LNbits - created on first run when the Admin UI is enabled, stored in `data/.super_user`.
 
 The Super User has unrestricted access to every function in LNbits. It is the only account that can manage Top Ups and Funding Sources.
 
@@ -41,13 +41,13 @@ The Super User has all admin privileges plus exclusive capabilities:
 | Impersonate any user | Yes | No | No |
 | Access all system settings | Yes | No | No |
 | Modify the admin user list | Yes | No | No |
-| Cannot be demoted by admins | Yes | — | — |
+| Cannot be demoted by admins | Yes | - | - |
 
 ## Key rules
 
-- **Cannot be demoted** — admins cannot remove or demote the Super User. Only the Super User can modify its own status.
-- **Only one Super User** — there is exactly one Super User per LNbits instance.
-- **CLI-only replacement** — to replace the Super User, you must edit or delete the `data/.super_user` file directly. There is no UI for this.
+- **Cannot be demoted** - admins cannot remove or demote the Super User. Only the Super User can modify its own status.
+- **Only one Super User** - there is exactly one Super User per LNbits instance.
+- **CLI-only replacement** - to replace the Super User, you must edit or delete the `data/.super_user` file directly. There is no UI for this.
 
 ## Replacing the Super User
 
@@ -89,19 +89,19 @@ LNBITS_ADMIN_UI=true
 LNBITS_ADMIN_USERS=user-id-1,user-id-2
 ```
 
-The Super User is **not** set via environment variables — it's created interactively on first run and stored in `data/.super_user`.
+The Super User is **not** set via environment variables - it's created interactively on first run and stored in `data/.super_user`.
 
 ## Security best practices
 
 - Use a strong password for the Super User account
 - Limit who has filesystem access to `data/.super_user`
-- Don't share Super User credentials — create separate admin accounts for other administrators
+- Don't share Super User credentials - create separate admin accounts for other administrators
 - Regularly review the admin user list
 - Consider using the Super User only for initial setup, then use regular admin accounts for day-to-day operations
 
 ## Related Pages
 
-- [Admin Dashboard](/guide/admin-dashboard) — server administration interface
-- [User Management](/guide/core/user-management/) — managing user accounts
-- [Authentication](/guide/authentication) — login methods and access control
-- [Security](/guide/core/security) — hardening your LNbits instance
+- [Admin Dashboard](/guide/admin-dashboard) - server administration interface
+- [User Management](/guide/core/user-management/) - managing user accounts
+- [Authentication](/guide/authentication) - login methods and access control
+- [Security](/guide/core/security) - hardening your LNbits instance

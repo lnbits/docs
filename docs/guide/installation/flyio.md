@@ -1,6 +1,6 @@
 # Deploy on Fly.io
 
-> Deploy LNbits on Fly.io — a platform for running full-stack apps and databases close to your users.
+> Deploy LNbits on Fly.io - a platform for running full-stack apps and databases close to your users.
 
 [Fly.io](https://fly.io) runs applications in lightweight VMs (Firecracker) across global edge locations. It's a good option for deploying LNbits with low latency and easy scaling.
 
@@ -150,7 +150,7 @@ After updating, use **Admin UI → Extensions → "Update All"** to update exten
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Docker](/guide/installation/docker) — container-based deployment
-- [Reverse Proxy](/guide/installation/reverse-proxy) — HTTPS setup with Nginx or Caddy
-- [PostgreSQL](/guide/installation/postgresql) — database configuration
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Docker](/guide/installation/docker) - container-based deployment
+- [Reverse Proxy](/guide/installation/reverse-proxy) - HTTPS setup with Nginx or Caddy
+- [PostgreSQL](/guide/installation/postgresql) - database configuration

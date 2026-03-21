@@ -12,12 +12,12 @@ Scheduler (previously "crontabs") lets you create, edit, and monitor scheduled H
 
 ## Features
 
-- **Cron scheduling** — use standard 5-field cron expressions for flexible timing
-- **HTTP methods** — supports GET, PUT, POST, and DELETE actions
-- **Custom headers and body** — configure request payloads per job
-- **Job controls** — start, stop, test, edit, and delete from the main panel
-- **Three log levels** — individual job logs, test logs, and full extension logs
-- **Admin-only** — should be limited to admin accounts for security
+- **Cron scheduling** - use standard 5-field cron expressions for flexible timing
+- **HTTP methods** - supports GET, PUT, POST, and DELETE actions
+- **Custom headers and body** - configure request payloads per job
+- **Job controls** - start, stop, test, edit, and delete from the main panel
+- **Three log levels** - individual job logs, test logs, and full extension logs
+- **Admin-only** - should be limited to admin accounts for security
 
 ## Prerequisites
 
@@ -45,10 +45,10 @@ chmod +x run_cron_job.py
 
 ## Use Cases
 
-- **Recurring payments** — schedule periodic API calls to send payments
-- **Data collection** — periodically fetch data from external APIs
-- **Maintenance tasks** — automate cleanup or reporting jobs
-- **Webhook triggers** — call webhooks on a schedule
+- **Recurring payments** - schedule periodic API calls to send payments
+- **Data collection** - periodically fetch data from external APIs
+- **Maintenance tasks** - automate cleanup or reporting jobs
+- **Webhook triggers** - call webhooks on a schedule
 
 ## API Reference
 

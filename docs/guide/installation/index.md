@@ -1,6 +1,6 @@
 # Installation
 
-> Choose the best LNbits installation method for your environment — Docker, uv, Poetry, Nix, AppImage, node platforms, or hosted SaaS.
+> Choose the best LNbits installation method for your environment - Docker, uv, Poetry, Nix, AppImage, node platforms, or hosted SaaS.
 
 Choose the installation method that best fits your environment.
 
@@ -18,26 +18,26 @@ Choose the installation method that best fits your environment.
 
 ## All methods
 
-- [uv](/guide/installation/uv) — fastest Python install
-- [Poetry](/guide/installation/poetry) — traditional Python setup
-- [Docker](/guide/installation/docker) — container-based (recommended for production)
-- [Nix](/guide/installation/nix) — reproducible builds
-- [AppImage](/guide/installation/appimage) — desktop app
-- [Node platforms](/guide/installation/node-platforms) — Umbrel, RaspiBlitz, Start9, Citadel
-- [SaaS](/guide/installation/saas) — hosted LNbits providers
+- [uv](/guide/installation/uv) - fastest Python install
+- [Poetry](/guide/installation/poetry) - traditional Python setup
+- [Docker](/guide/installation/docker) - container-based (recommended for production)
+- [Nix](/guide/installation/nix) - reproducible builds
+- [AppImage](/guide/installation/appimage) - desktop app
+- [Node platforms](/guide/installation/node-platforms) - Umbrel, RaspiBlitz, Start9, Citadel
+- [SaaS](/guide/installation/saas) - hosted LNbits providers
 
 ## After installation
 
-- [First Setup](/guide/installation/first-setup) — create your admin account, connect a Lightning backend
-- [Process Manager](/guide/installation/process-manager) — run LNbits as a systemd service or with PM2
-- [Reverse Proxy](/guide/installation/reverse-proxy) — set up HTTPS with Nginx or Caddy
-- [PostgreSQL](/guide/installation/postgresql) — migrate from SQLite for production
-- [Updating](/guide/installation/updating) — keep LNbits up to date
+- [First Setup](/guide/installation/first-setup) - create your admin account, connect a Lightning backend
+- [Process Manager](/guide/installation/process-manager) - run LNbits as a systemd service or with PM2
+- [Reverse Proxy](/guide/installation/reverse-proxy) - set up HTTPS with Nginx or Caddy
+- [PostgreSQL](/guide/installation/postgresql) - migrate from SQLite for production
+- [Updating](/guide/installation/updating) - keep LNbits up to date
 
 ## Related Pages
 
-- [First Setup](/guide/installation/first-setup) — what to do after installing
-- [Docker](/guide/installation/docker) — container-based deployment (recommended)
-- [Install with uv](/guide/installation/uv) — fastest source install
-- [Node Platforms](/guide/installation/node-platforms) — Umbrel, RaspiBlitz, Start9, Citadel
-- [SaaS / Hosted](/guide/installation/saas) — hosted LNbits providers
+- [First Setup](/guide/installation/first-setup) - what to do after installing
+- [Docker](/guide/installation/docker) - container-based deployment (recommended)
+- [Install with uv](/guide/installation/uv) - fastest source install
+- [Node Platforms](/guide/installation/node-platforms) - Umbrel, RaspiBlitz, Start9, Citadel
+- [SaaS / Hosted](/guide/installation/saas) - hosted LNbits providers

@@ -31,10 +31,10 @@ Your LNbits instance is now accessible via Tor at the `.onion` address. No clear
 Set up a [reverse proxy](/guide/installation/reverse-proxy) pointing your domain to LNbits:
 
 1. Point your domain's DNS A record to your server's IP
-2. Install a reverse proxy (Caddy recommended — handles TLS automatically)
+2. Install a reverse proxy (Caddy recommended - handles TLS automatically)
 3. Configure the proxy to forward to `127.0.0.1:5000`
 
-**Caddy** (simplest — automatic HTTPS):
+**Caddy** (simplest - automatic HTTPS):
 
 ```
 lnbits.example.com {
@@ -85,7 +85,7 @@ For **Caddy**, WebSocket proxying works automatically with `reverse_proxy`.
 
 Other causes:
 - **Firewall** blocking WebSocket ports
-- **Cloudflare** — enable WebSocket support in your Cloudflare dashboard
+- **Cloudflare** - enable WebSocket support in your Cloudflare dashboard
 - **Browser extensions** blocking WebSocket connections
 
 See [WebSockets](/guide/core/websockets) for details.
@@ -111,10 +111,10 @@ If you get CORS errors when calling the LNbits API from a browser:
 
 LNbits allows CORS by default for API endpoints. If you're still seeing errors:
 
-1. **Check the URL** — ensure you're using the correct protocol (HTTPS, not HTTP)
-2. **Check headers** — the `X-Api-Key` header must be included
-3. **Reverse proxy** — ensure your proxy passes CORS headers through (don't strip them)
-4. **Custom CORS** — if you need specific origins, configure them in the Admin Dashboard under Server settings
+1. **Check the URL** - ensure you're using the correct protocol (HTTPS, not HTTP)
+2. **Check headers** - the `X-Api-Key` header must be included
+3. **Reverse proxy** - ensure your proxy passes CORS headers through (don't strip them)
+4. **Custom CORS** - if you need specific origins, configure them in the Admin Dashboard under Server settings
 
 ## Can only access locally, not from other devices
 
@@ -210,7 +210,7 @@ You can also use firewall rules (ufw, iptables) at the OS level.
 
 ## Related Pages
 
-- [Reverse Proxy](/guide/installation/reverse-proxy) — Caddy, Nginx, and Apache setup
-- [Process Manager](/guide/installation/process-manager) — systemd and PM2 setup
-- [WebSockets](/guide/core/websockets) — real-time updates configuration
-- [Environment](/guide/core/environment) — all configuration variables
+- [Reverse Proxy](/guide/installation/reverse-proxy) - Caddy, Nginx, and Apache setup
+- [Process Manager](/guide/installation/process-manager) - systemd and PM2 setup
+- [WebSockets](/guide/core/websockets) - real-time updates configuration
+- [Environment](/guide/core/environment) - all configuration variables

@@ -129,7 +129,7 @@ function buildPromptContent(intent) {
 }
 
 function truncateForUrl(text) {
-  return text.length <= URL_CONTENT_LIMIT ? text : text.slice(0, URL_CONTENT_LIMIT) + '\n\n[Content truncated — full page was copied to clipboard]'
+  return text.length <= URL_CONTENT_LIMIT ? text : text.slice(0, URL_CONTENT_LIMIT) + '\n\n[Content truncated - full page was copied to clipboard]'
 }
 
 function notify(msg) {
@@ -152,9 +152,9 @@ async function openInLLM(target) {
   } else if (target === 'claude' || target === 'gemini' || target === 'grok') {
     const urls = { claude: 'https://claude.ai/new', gemini: 'https://gemini.google.com/', grok: 'https://grok.com/' }
     window.open(urls[target], '_blank')
-    notify(`Copied — paste into ${formatName(target)}`)
+    notify(`Copied - paste into ${formatName(target)}`)
   } else {
-    notify(`Copied — paste into ${formatName(target)}`)
+    notify(`Copied - paste into ${formatName(target)}`)
   }
   showCopyMenu.value = false
 }
@@ -216,17 +216,24 @@ function checkMobile() { isMobile.value = window.innerWidth <= 768 }
 watch(() => messages.value.length, () => { nextTick(() => { if (messagesContainer.value) messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight }) })
 watch(isLoading, () => { nextTick(() => { if (messagesContainer.value) messagesContainer.value.scrollTop = messagesContainer.value.scrollHeight }) })
 
+function openFromNav() {
+  isChatOpen.value = true
+  nextTick(() => inputEl.value?.focus())
+}
+
 onMounted(() => {
   checkMobile()
   window.addEventListener('resize', checkMobile)
   document.addEventListener('keydown', handleEscape)
   document.addEventListener('click', closeCopyMenu)
+  window.addEventListener('open-doc-chat', openFromNav)
 })
 
 onUnmounted(() => {
   window.removeEventListener('resize', checkMobile)
   document.removeEventListener('keydown', handleEscape)
   document.removeEventListener('click', closeCopyMenu)
+  window.removeEventListener('open-doc-chat', openFromNav)
 })
 
 function renderMarkdown(text) {

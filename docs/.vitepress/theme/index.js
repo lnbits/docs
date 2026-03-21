@@ -10,11 +10,17 @@ import FundingSourceTable from './components/FundingSourceTable.vue'
 import PageToolbar from './components/PageToolbar.vue'
 import HomePage from './components/HomePage.vue'
 import ExtensionHeader from './components/ExtensionHeader.vue'
+import ContributePage from './components/ContributePage.vue'
+import NavSwitch from './components/NavSwitch.vue'
+import NavChatIcon from './components/NavChatIcon.vue'
+import SectionTabs from './components/SectionTabs.vue'
 
 export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
+      'nav-bar-content-before': () => h(NavSwitch),
+      'nav-bar-content-after': () => h(NavChatIcon),
       'layout-bottom': () => h(PageToolbar),
     })
   },
@@ -27,5 +33,6 @@ export default {
     app.component('FundingSourceTable', FundingSourceTable)
     app.component('HomePage', HomePage)
     app.component('ExtensionHeader', ExtensionHeader)
+    app.component('ContributePage', ContributePage)
   },
 }

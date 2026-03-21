@@ -1,6 +1,6 @@
 # Auto-Install Extensions
 
-> Pre-configure extensions to install automatically when LNbits starts — useful for Docker, automated deployments, and managed instances.
+> Pre-configure extensions to install automatically when LNbits starts - useful for Docker, automated deployments, and managed instances.
 
 Auto-install lets you specify which extensions should be installed automatically when LNbits starts. This is essential for reproducible deployments where you want a consistent set of extensions.
 
@@ -81,7 +81,7 @@ Both settings work together:
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Custom Marketplace](/dev/extensions/custom-list) — curate your own extension list
-- [Using Extensions](/guide/using-extensions) — user-facing extension management
-- [Reference](/dev/extensions/reference) — all environment variables
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Custom Marketplace](/dev/extensions/custom-list) - curate your own extension list
+- [Using Extensions](/guide/using-extensions) - user-facing extension management
+- [Reference](/dev/extensions/reference) - all environment variables

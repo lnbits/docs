@@ -1,6 +1,6 @@
 # Extension Monetization
 
-> Charge for extensions using pay-to-install or pay-to-enable models — configured via the manifest file with Lightning payments.
+> Charge for extensions using pay-to-install or pay-to-enable models - configured via the manifest file with Lightning payments.
 
 LNbits supports paid extensions. Developers can require a Lightning payment before an extension is installed or enabled.
 
@@ -14,7 +14,7 @@ The user must pay before the extension is downloaded:
 2. LNbits presents a Lightning invoice
 3. User pays the invoice
 4. Extension is downloaded and installed
-5. Payment hash is stored — no re-payment on reinstall
+5. Payment hash is stored - no re-payment on reinstall
 
 ### Pay-to-enable
 
@@ -108,7 +108,7 @@ LNbits tracks payments per extension:
 - If an extension is uninstalled and reinstalled, the original payment is recognized
 
 ::: info
-Payment verification happens between the LNbits instance and the developer's payment endpoint. The instance operator doesn't need to handle payments — it's between the user and the extension developer.
+Payment verification happens between the LNbits instance and the developer's payment endpoint. The instance operator doesn't need to handle payments - it's between the user and the extension developer.
 :::
 
 ## Pricing strategies
@@ -121,7 +121,7 @@ Payment verification happens between the LNbits instance and the developer's pay
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Remote Manifest](/dev/extensions/manifest) — manifest format and fields
-- [Official Registry](/dev/extensions/registry) — publishing to the community
-- [Reference](/dev/extensions/reference) — API endpoints for extension management
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Remote Manifest](/dev/extensions/manifest) - manifest format and fields
+- [Official Registry](/dev/extensions/registry) - publishing to the community
+- [Reference](/dev/extensions/reference) - API endpoints for extension management

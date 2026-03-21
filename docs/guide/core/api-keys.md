@@ -8,8 +8,8 @@ Every LNbits wallet has two API keys with different permission levels.
 
 | Key | Header | Permissions |
 | --- | --- | --- |
-| **Admin key** | `X-Api-Key: <admin_key>` | Full access — send, receive, read, manage |
-| **Invoice key** | `X-Api-Key: <invoice_key>` | Limited — create invoices, read wallet info |
+| **Admin key** | `X-Api-Key: <admin_key>` | Full access - send, receive, read, manage |
+| **Invoice key** | `X-Api-Key: <invoice_key>` | Limited - create invoices, read wallet info |
 
 ## Admin key
 
@@ -43,7 +43,7 @@ curl -H "X-Api-Key: INVOICE_KEY" \
   https://your-lnbits.com/api/v1/wallet
 ```
 
-Use the invoice key when you only need to receive payments — for example, in a point-of-sale terminal or a public payment page.
+Use the invoice key when you only need to receive payments - for example, in a point-of-sale terminal or a public payment page.
 
 ## Finding your keys
 

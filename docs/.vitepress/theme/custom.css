@@ -7,7 +7,7 @@
 
 /* ── Light Mode (B&W) ── */
 :root {
-  /* Brand — black in light mode */
+  /* Brand - black in light mode */
   --vp-c-brand-1: #111111;
   --vp-c-brand-2: #333333;
   --vp-c-brand-3: #000000;
@@ -19,13 +19,13 @@
   --vp-c-tip-3: rgba(0, 0, 0, 0.2);
   --vp-c-tip-soft: rgba(0, 0, 0, 0.06);
 
-  /* Backgrounds — pure white */
+  /* Backgrounds - pure white */
   --vp-c-bg: #ffffff;
   --vp-c-bg-alt: #f7f7f7;
   --vp-c-bg-elv: #ffffff;
   --vp-c-bg-soft: #f2f2f2;
 
-  /* Home hero — B&W gradient */
+  /* Home hero - B&W gradient */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #111, #444, #000);
   --vp-home-hero-image-background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.06));

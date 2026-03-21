@@ -43,7 +43,7 @@ Create a Lightning invoice to receive a payment.
 
 **Auth:** Admin key **only**
 
-Pay a Lightning invoice. Requires the Admin key — Invoice keys cannot send payments.
+Pay a Lightning invoice. Requires the Admin key - Invoice keys cannot send payments.
 
 #### Parameters
 
@@ -307,7 +307,7 @@ None.
 
 ## Hold Invoices
 
-Hold invoices let you accept a payment but delay settlement — useful for escrow, conditional payments, or order confirmation flows.
+Hold invoices let you accept a payment but delay settlement - useful for escrow, conditional payments, or order confirmation flows.
 
 ### Settle Hold Invoice
 

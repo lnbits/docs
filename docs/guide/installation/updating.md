@@ -69,11 +69,11 @@ fly deploy
 
 Updates are handled through the platform's UI:
 
-- **Umbrel** — App Store → LNbits → Update
-- **RaspiBlitz** — Services menu → LNbits → Update
-- **Start9** — Marketplace → LNbits → Update
-- **Citadel** — App Store → LNbits → Update
-- **myNode** — Dashboard → Applications → LNbits → Update
+- **Umbrel** - App Store → LNbits → Update
+- **RaspiBlitz** - Services menu → LNbits → Update
+- **Start9** - Marketplace → LNbits → Update
+- **Citadel** - App Store → LNbits → Update
+- **myNode** - Dashboard → Applications → LNbits → Update
 
 ## After updating
 
@@ -81,10 +81,10 @@ Use **Admin UI → Extensions → "Update All"** to bring extensions up to the l
 
 ## Next steps
 
-- [Changelog](/changelog) — see what changed
+- [Changelog](/changelog) - see what changed
 
 ## Related Pages
 
-- [Installation Overview](/guide/installation/) — all installation methods
-- [Docker](/guide/installation/docker) — container-based deployment
-- [Install with uv](/guide/installation/uv) — source-based installation
+- [Installation Overview](/guide/installation/) - all installation methods
+- [Docker](/guide/installation/docker) - container-based deployment
+- [Install with uv](/guide/installation/uv) - source-based installation

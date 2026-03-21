@@ -1,6 +1,6 @@
 # Custom Marketplace
 
-> Replace or extend the default LNbits extension marketplace with your own curated manifest — ideal for enterprise, white-label, and industry-specific deployments.
+> Replace or extend the default LNbits extension marketplace with your own curated manifest - ideal for enterprise, white-label, and industry-specific deployments.
 
 You can replace or supplement the official extension registry with your own curated list of extensions. This is useful for controlled environments where you want to limit which extensions are available.
 
@@ -30,7 +30,7 @@ Extensions from all manifests are merged and displayed together.
 2. Add or remove manifest URLs
 3. Click **Save**
 
-Changes take effect immediately — no restart needed.
+Changes take effect immediately - no restart needed.
 
 ## Use cases
 
@@ -72,11 +72,11 @@ For organizations running LNbits internally:
 
 ## Hosting tips
 
-- **HTTPS required** — LNbits only fetches manifests over HTTPS
-- **Static hosting works** — GitHub Pages, Netlify, S3, or any static file server
-- **Version your manifest** — keep previous versions accessible for rollback
-- **CDN for archives** — use a CDN for archive downloads if serving many instances
-- **Pin versions** — don't overwrite archive URLs; create new URLs for new versions
+- **HTTPS required** - LNbits only fetches manifests over HTTPS
+- **Static hosting works** - GitHub Pages, Netlify, S3, or any static file server
+- **Version your manifest** - keep previous versions accessible for rollback
+- **CDN for archives** - use a CDN for archive downloads if serving many instances
+- **Pin versions** - don't overwrite archive URLs; create new URLs for new versions
 
 ## Restricting extension installation
 
@@ -92,7 +92,7 @@ LNBITS_EXTENSIONS_DEFAULT_INSTALL=tpos,lnurlp
 
 ## Related Pages
 
-- [Deploying Extensions](/dev/extensions/) — all deployment methods
-- [Remote Manifest](/dev/extensions/manifest) — manifest format and fields
-- [Auto-install](/dev/extensions/auto-install) — pre-configure extensions
-- [Forked Distribution](/dev/extensions/forked) — bundle extensions into a custom build
+- [Deploying Extensions](/dev/extensions/) - all deployment methods
+- [Remote Manifest](/dev/extensions/manifest) - manifest format and fields
+- [Auto-install](/dev/extensions/auto-install) - pre-configure extensions
+- [Forked Distribution](/dev/extensions/forked) - bundle extensions into a custom build

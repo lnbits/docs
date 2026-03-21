@@ -1,6 +1,6 @@
 # Admin API
 
-> Server administration API — manage settings, users, and extensions at the instance level.
+> Server administration API - manage settings, users, and extensions at the instance level.
 
 The Admin API provides endpoints for managing the LNbits instance. These endpoints require elevated privileges.
 
@@ -8,13 +8,13 @@ The Admin API provides endpoints for managing the LNbits instance. These endpoin
 
 To use the Admin API:
 
-1. **Enable the Admin UI** — set `LNBITS_ADMIN_UI=true` in your `.env` file
-2. **Authenticate as an admin** — you must be either:
+1. **Enable the Admin UI** - set `LNBITS_ADMIN_UI=true` in your `.env` file
+2. **Authenticate as an admin** - you must be either:
    - The **Super User** (defined by `SUPER_USER` in `.env`)
    - A user listed in `LNBITS_ADMIN_USERS`
 
 ::: warning
-Some endpoints (settings, deleting users, installing extensions) require **Super User** access — admin users alone cannot perform these operations.
+Some endpoints (settings, deleting users, installing extensions) require **Super User** access - admin users alone cannot perform these operations.
 :::
 
 ## Authentication
