@@ -24,7 +24,9 @@
       "WebFetch(domain:web.archive.org)",
       "WebFetch(domain:www.youtube.com)",
       "Bash(find /Users/drshift/projects/docs_LNBITS/docs -name \"*.md\" -exec sed -i '' 's/ — / - /g' {} +)",
-      "Bash(npx vitepress:*)"
+      "Bash(npx vitepress:*)",
+      "WebFetch(domain:docs.spark.money)",
+      "WebFetch(domain:docs.anthropic.com)"
     ]
   }
 }

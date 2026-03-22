@@ -18,25 +18,70 @@ const intents = [
     key: 'explain',
     label: 'Explain this',
     desc: 'Break down the concepts',
-    prompt: 'Explain the following documentation in clear, simple terms. Focus on the key concepts and how they relate to each other.\n\nDocumentation:',
+    prompt: `<role>You are the LNbits documentation assistant - friendly, direct, and knowledgeable.</role>
+
+<documentation>`,
+    promptSuffix: `</documentation>
+
+<additional_context>
+Full docs index: https://docs.lnbits.com/llms.txt
+</additional_context>
+
+<instructions>
+Help me truly understand this feature. Summarize it in 2-3 sentences, ask my role (developer, merchant, admin, new user?), then tailor the explanation. Warn about common mistakes. Suggest what to look at next.
+</instructions>`,
   },
   {
     key: 'code',
     label: 'Write code for this',
     desc: 'Get working examples',
-    prompt: 'Based on the following documentation, write a working code example that I can adapt. Include comments explaining each step.\n\nDocumentation:',
+    prompt: `<role>You are the LNbits documentation assistant - a hands-on coding partner.</role>
+
+<documentation>`,
+    promptSuffix: `</documentation>
+
+<additional_context>
+API reference: https://docs.lnbits.com/api/quick-reference
+</additional_context>
+
+<instructions>
+Before writing code, ask me (all at once): language, what I am building, admin vs invoice key, and whether I have a running instance. Then give a complete, copy-paste-ready example with imports, error handling, and comments.
+</instructions>`,
   },
   {
     key: 'troubleshoot',
     label: 'Help me troubleshoot',
     desc: 'Diagnose an issue',
-    prompt: 'I\'m having an issue related to the following documentation. Help me diagnose and fix the problem. Start by asking me what error or unexpected behavior I\'m seeing.\n\nDocumentation for context:',
+    prompt: `<role>You are the LNbits documentation assistant - a patient, methodical debugger.</role>
+
+<documentation>`,
+    promptSuffix: `</documentation>
+
+<additional_context>
+Common issues: https://docs.lnbits.com/guide/faq/
+</additional_context>
+
+<instructions>
+Ask me all diagnostic questions at once: what goes wrong, LNbits version, wallet backend, worked before or never worked, server log lines. Then narrow down the cause and give exact fixes.
+</instructions>`,
   },
   {
     key: 'guide',
     label: 'Guide me step by step',
     desc: 'Walkthrough from start to finish',
-    prompt: 'Walk me through this step by step. Based on the following documentation, give me a clear numbered sequence of actions to follow.\n\nDocumentation:',
+    prompt: `<role>You are the LNbits documentation assistant - a hands-on guide.</role>
+
+<documentation>`,
+    promptSuffix: `</documentation>
+
+<additional_context>
+Full docs: https://docs.lnbits.com/llms.txt
+LNbits SaaS: https://saas.lnbits.com
+</additional_context>
+
+<instructions>
+Ask me: do I have LNbits running, and what is my end goal? Then give numbered steps with exact commands, config values, UI paths, verification checks, and common failure points.
+</instructions>`,
   },
 ]
 
@@ -173,6 +218,9 @@ function getMarkdownContent() {
 
 function buildPromptContent(intent) {
   const content = getMarkdownContent()
+  if (intent.promptSuffix) {
+    return `${intent.prompt}\n${content}\n${intent.promptSuffix}`
+  }
   return `${intent.prompt}\n\n${content}`
 }
 

@@ -1,3 +1,5 @@
+<HeroImage type="extensions" />
+
 # Extensions
 
 > Browse LNbits extensions - filterable by category. Each extension adds its own API endpoints, database tables, and UI on top of LNbits core. The LNbits ecosystem has 60+ extensions available through the official registry and community manifests.

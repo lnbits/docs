@@ -1,3 +1,5 @@
+<HeroImage type="architecture" />
+
 # Architecture
 
 > Internal structure and design decisions behind LNbits - modules, data flow, and extension system.

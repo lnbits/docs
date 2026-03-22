@@ -1,3 +1,5 @@
+<HeroImage type="core" />
+
 # Core Features
 
 > Overview of LNbits core features - wallets, payments, labels, fiat payments (Stripe/PayPal), LNURL, and administration.

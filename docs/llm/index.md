@@ -82,6 +82,37 @@ npm run generate:llm
 
 Run this after adding or restructuring documentation pages.
 
+## Extension APIs
+
+Each of the 60+ LNbits extensions has its own API documentation page at `/extensions/{name}/api`. These pages include:
+
+- **Live API Explorer tip** - points to Swagger UI (`/docs`) and ReDoc (`/redoc`) on any running instance
+- **Authentication table** - which key type (Admin/Invoice) each endpoint requires
+- **Endpoint table** - method, path, auth level, description
+
+### For AI agents accessing extension APIs
+
+The fastest way to get complete, accurate endpoint data for any extension:
+
+```bash
+# Fetch the full OpenAPI spec from a running instance
+curl https://your-lnbits.com/openapi.json
+
+# Filter for a specific extension (e.g., satspay)
+# Look for paths starting with /satspay/
+```
+
+The OpenAPI spec is auto-generated and always matches the running version. It includes request/response schemas, parameter types, and authentication requirements.
+
+### Documentation pages vs live spec
+
+| Source | Best for |
+|---|---|
+| Docs page (`/extensions/satspay/api`) | Human-readable overview, auth guidance, related pages |
+| Swagger UI (`/docs`) | Interactive testing, try endpoints in browser |
+| ReDoc (`/redoc`) | Clean, readable API reference |
+| OpenAPI JSON (`/openapi.json`) | Machine consumption, agent integration |
+
 ## For extension developers
 
 When documenting your extension, follow the LLM-ready structure:
