@@ -286,13 +286,29 @@ const roleData = {
     video: { id: 'Pe0YXHawHvQ', title: 'NFC BoltCard Setup with LNbits' },
     steps: [
       {
-        num: '01', title: 'Deploy for your community', illust: 'setup',
-        desc: 'Get LNbits running for your local community. SaaS is the fastest path; self-host for full sovereignty.',
+        num: '01', title: 'Deploy for your community', illust: 'deploy',
+        desc: 'LNbits runs on every major Bitcoin node platform with one-click installation. No terminal, no config files. Pick a platform and your community has Lightning wallets in minutes.',
+        columns: [
+          {
+            label: 'One-click node platforms',
+            items: [
+              { name: 'Umbrel', desc: 'App Store', logo: '/logos/backends/umbrel.png', url: '/guide/installation/node-platforms#umbrel' },
+              { name: 'Start9', desc: 'Marketplace', logo: '/logos/backends/start9.png', url: '/guide/installation/node-platforms#start9' },
+              { name: 'RaspiBlitz', desc: 'Services menu', logo: '/logos/backends/blitz.png', url: '/guide/installation/node-platforms#raspiblitz' },
+              { name: 'myNode', desc: 'Dashboard', logo: '/logos/backends/mynode.png', url: '/guide/installation/node-platforms#mynode' },
+            ],
+          },
+          {
+            label: 'Cloud & hosted',
+            items: [
+              { name: 'LNbits SaaS', desc: 'Live in 3 min', url: 'https://saas.lnbits.com' },
+              { name: 'Voltage', desc: 'Cloud dashboard', logo: '/logos/backends/voltage.png', url: 'https://voltage.cloud' },
+              { name: 'Docker + VPS', desc: 'Full control', url: '/guide/installation/docker' },
+            ],
+          },
+        ],
         items: [
-          { name: 'LNbits SaaS', url: 'https://saas.lnbits.com', badge: '3 minutes' },
-          { name: 'Installation guide', url: '/guide/installation/', badge: 'Self-host' },
-          { name: 'Docker install', url: '/guide/installation/docker', badge: 'Production' },
-          { name: 'Fly.io', url: '/guide/installation/flyio', badge: 'Cloud' },
+          { name: 'All deployment methods', url: '/guide/installation/', badge: 'Compare' },
         ],
       },
       {
@@ -308,25 +324,24 @@ const roleData = {
       },
       {
         num: '03', title: 'Build your local network', illust: 'tips',
-        desc: 'Connect with other ambassadors and grow Lightning adoption in your area.',
+        desc: 'Start local. Every merchant you onboard brings Lightning closer to everyday life. Your city, your street, your community.',
         tips: [
           'Run a workshop at your local Bitcoin meetup',
           'Document your deployment and share it as a case study or blog post',
           'Help merchants troubleshoot - you are their first line of support',
+          'Offer hosting to your community - run a multi-tenant LNbits instance',
           'Connect with other ambassadors on Telegram to share what works',
-          'Share your story on X and Nostr to inspire other communities',
         ],
       },
       {
         num: '04', title: 'Spread the word', illust: 'ship',
-        desc: 'Every merchant you onboard and every meetup you host brings Lightning closer to everyday life.',
+        desc: 'Every merchant you onboard and every meetup you host brings Lightning closer to everyday life. Share your story and inspire other communities.',
         items: [
-          { name: 'Installation guide', url: '/guide/installation/', badge: 'Deploy' },
           { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+onboarding+merchants+to+Lightning+with+%40lnbits' },
           { name: 'Telegram community', url: 'https://t.me/lnbits' },
           { name: 'GitHub Discussions', url: 'https://github.com/lnbits/lnbits/discussions' },
         ],
-        action: { label: 'Get started', url: '/guide/installation/' },
+        action: { label: 'Deploy LNbits now', url: '/guide/installation/' },
       },
     ],
   },
@@ -695,6 +710,29 @@ onUnmounted(() => {
                 </div>
               </template>
 
+              <!-- Platform columns (side-by-side grid) -->
+              <template v-if="step.columns">
+                <div class="cp-columns">
+                  <div v-for="col in step.columns" :key="col.label" class="cp-col">
+                    <span class="cp-col-label">{{ col.label }}</span>
+                    <a
+                      v-for="p in col.items" :key="p.name"
+                      :href="p.url"
+                      class="cp-platform"
+                      :target="isExt(p.url) ? '_blank' : undefined"
+                      :rel="isExt(p.url) ? 'noopener noreferrer' : undefined"
+                    >
+                      <img v-if="p.logo" :src="p.logo" :alt="p.name" class="cp-platform-logo" />
+                      <span v-else class="cp-platform-icon">{{ p.name.charAt(0) }}</span>
+                      <span class="cp-platform-info">
+                        <span class="cp-platform-name">{{ p.name }}</span>
+                        <span class="cp-platform-desc">{{ p.desc }}</span>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </template>
+
               <!-- Action (CTA step) -->
               <div v-if="step.action" class="cp-step-action">
                 <a :href="step.action.url" class="cp-cta-btn" :target="isExt(step.action.url) ? '_blank' : undefined" :rel="isExt(step.action.url) ? 'noopener noreferrer' : undefined">
@@ -738,6 +776,28 @@ onUnmounted(() => {
                   <rect x="44" y="44" width="38" height="2.5" rx="1" fill="var(--vp-c-text-3)" opacity=".25"/>
                   <rect x="26" y="60" width="10" height="10" rx="2" stroke="var(--vp-c-divider)" stroke-width="1.2" fill="none"/>
                   <rect x="44" y="62" width="42" height="2.5" rx="1" fill="var(--vp-c-text-3)" opacity=".2"/>
+                </svg>
+                <!-- Deploy: server with network nodes -->
+                <svg v-if="step.illust==='deploy'" viewBox="0 0 120 90" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Central server -->
+                  <rect x="38" y="20" width="44" height="32" rx="6" fill="var(--vp-c-bg-soft)" stroke="var(--vp-c-brand-1)" stroke-width="1.5" opacity=".4"/>
+                  <circle cx="60" cy="32" r="5" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".35" fill="none"/>
+                  <path d="M58 28l-2 5h3l-2 5" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".4"/>
+                  <rect x="46" y="42" width="28" height="3" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".15"/>
+                  <!-- Connected nodes -->
+                  <circle cx="20" cy="20" r="8" stroke="var(--vp-c-divider)" stroke-width="1.2" fill="var(--vp-c-bg-soft)"/>
+                  <rect x="16" y="17" width="8" height="6" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".2"/>
+                  <circle cx="100" cy="20" r="8" stroke="var(--vp-c-divider)" stroke-width="1.2" fill="var(--vp-c-bg-soft)"/>
+                  <rect x="96" y="17" width="8" height="6" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".2"/>
+                  <circle cx="20" cy="70" r="8" stroke="var(--vp-c-divider)" stroke-width="1.2" fill="var(--vp-c-bg-soft)"/>
+                  <rect x="16" y="67" width="8" height="6" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".2"/>
+                  <circle cx="100" cy="70" r="8" stroke="var(--vp-c-divider)" stroke-width="1.2" fill="var(--vp-c-bg-soft)"/>
+                  <rect x="96" y="67" width="8" height="6" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".2"/>
+                  <!-- Connection lines -->
+                  <line x1="28" y1="22" x2="38" y2="30" stroke="var(--vp-c-brand-1)" stroke-width=".8" opacity=".15" stroke-dasharray="3 2"/>
+                  <line x1="92" y1="22" x2="82" y2="30" stroke="var(--vp-c-brand-1)" stroke-width=".8" opacity=".15" stroke-dasharray="3 2"/>
+                  <line x1="28" y1="68" x2="38" y2="46" stroke="var(--vp-c-brand-1)" stroke-width=".8" opacity=".12" stroke-dasharray="3 2"/>
+                  <line x1="92" y1="68" x2="82" y2="46" stroke="var(--vp-c-brand-1)" stroke-width=".8" opacity=".12" stroke-dasharray="3 2"/>
                 </svg>
                 <!-- Ship: rocket launch -->
                 <svg v-if="step.illust==='ship'" viewBox="0 0 120 90" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -975,6 +1035,40 @@ onUnmounted(() => {
 }
 .cp-tip-group .cp-row:first-child { border-top: none; }
 
+/* Platform columns */
+.cp-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px 16px;
+}
+.cp-col-label {
+  display: block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: #7c4dff; opacity: .5; margin-bottom: 8px;
+}
+.cp-platform {
+  display: flex; align-items: center; gap: 10px;
+  padding: 8px 10px; margin-bottom: 6px;
+  border-radius: 8px; border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft); text-decoration: none; color: inherit;
+  transition: border-color .2s, transform .15s;
+}
+.cp-platform:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-1px);
+}
+.cp-platform-logo {
+  width: 28px; height: 28px; object-fit: contain; border-radius: 6px; flex-shrink: 0;
+}
+.cp-platform-icon {
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  border-radius: 6px; background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1);
+  font-weight: 700; font-size: 13px; flex-shrink: 0;
+}
+.cp-platform-info { display: flex; flex-direction: column; min-width: 0; }
+.cp-platform-name { font-size: 13px; font-weight: 600; color: var(--vp-c-text-1); }
+.cp-platform-desc { font-size: 11px; color: var(--vp-c-text-2); }
+
 /* Action CTA */
 .cp-step-action { padding: 32px 0 0; }
 .cp-cta-btn {
@@ -1092,6 +1186,12 @@ onUnmounted(() => {
   .cp-row-check { width: 14px; height: 14px; }
   .cp-row--tip .cp-row-text { font-size: 13px; }
   .cp-tip-group-label { font-size: 9px; padding: 12px 14px 3px; }
+  .cp-columns { grid-template-columns: 1fr; padding: 8px 12px; }
+  .cp-col-label { font-size: 9px; }
+  .cp-platform { padding: 6px 8px; }
+  .cp-platform-logo { width: 24px; height: 24px; }
+  .cp-platform-name { font-size: 12px; }
+  .cp-platform-desc { font-size: 10px; }
   .cp-step-action { padding: 20px 0 0; }
   .cp-cta-btn { padding: 12px 24px; font-size: 14px; border-radius: 9px; width: 100%; justify-content: center; }
 
