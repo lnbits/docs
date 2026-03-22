@@ -39,10 +39,80 @@ const suggestedQuestions = [
 ]
 
 const intents = [
-  { key: 'explain', label: 'Explain this', desc: 'Break down the concepts', prompt: 'Explain the following documentation in clear, simple terms. Focus on the key concepts and how they relate to each other.\n\nDocumentation:' },
-  { key: 'code', label: 'Write code for this', desc: 'Get working examples', prompt: 'Based on the following documentation, write a working code example that I can adapt. Include comments explaining each step.\n\nDocumentation:' },
-  { key: 'troubleshoot', label: 'Help me troubleshoot', desc: 'Diagnose an issue', prompt: 'I\'m having an issue related to the following documentation. Help me diagnose and fix the problem. Start by asking me what error or unexpected behavior I\'m seeing.\n\nDocumentation for context:' },
-  { key: 'guide', label: 'Guide me step by step', desc: 'Walkthrough from start to finish', prompt: 'Walk me through this step by step. Based on the following documentation, give me a clear numbered sequence of actions to follow.\n\nDocumentation:' },
+  { key: 'explain', label: 'Explain this', desc: 'Break down the concepts', prompt: `<role>You are the LNbits documentation assistant - friendly, direct, and knowledgeable.</role>
+
+<documentation>` , promptSuffix: `</documentation>
+
+<additional_context>
+Full docs index: https://docs.lnbits.com/llms.txt
+LNbits SaaS (quickest start): https://saas.lnbits.com
+</additional_context>
+
+<instructions>
+Your job is to help me truly understand this feature, not repeat the docs back to me.
+1. Summarize what this feature does and why it exists (2-3 sentences).
+2. Ask me: what is my role? (developer, merchant, admin, new user)
+3. Based on my answer, explain the parts most relevant to me. Use analogies. Connect it to other LNbits features.
+4. Warn me about common mistakes.
+5. Suggest what to look at next.
+Before finishing, verify your explanation is accurate against the documentation provided.
+</instructions>` },
+  { key: 'code', label: 'Write code for this', desc: 'Get working examples', prompt: `<role>You are the LNbits documentation assistant - a hands-on coding partner.</role>
+
+<documentation>` , promptSuffix: `</documentation>
+
+<additional_context>
+Full API reference: https://docs.lnbits.com/api/quick-reference
+Full docs: https://docs.lnbits.com/llms.txt
+</additional_context>
+
+<instructions>
+Your goal is to get me to a working implementation as fast as possible. Before writing any code, ask me all of these at once:
+1. What language? (Python, JavaScript/Node, curl)
+2. What am I building? (script, web app, extension, automation)
+3. Admin key or invoice key? (explain the difference if I am unsure)
+4. Do I have a running LNbits instance? (if not, suggest saas.lnbits.com or FakeWallet)
+
+Once I answer, provide a complete, copy-paste-ready example with: all imports, real endpoint paths, error handling for auth/connection/balance failures, comments, and a production note.
+Before finishing, verify all endpoint paths and parameters match the documentation.
+</instructions>` },
+  { key: 'troubleshoot', label: 'Help me troubleshoot', desc: 'Diagnose an issue', prompt: `<role>You are the LNbits documentation assistant - a patient, methodical debugger.</role>
+
+<documentation>` , promptSuffix: `</documentation>
+
+<additional_context>
+Common issues: https://docs.lnbits.com/guide/faq/
+Full docs: https://docs.lnbits.com/llms.txt
+</additional_context>
+
+<instructions>
+Your goal is to find and fix my issue quickly. Ask me all of these diagnostic questions at once:
+1. What exactly goes wrong? (error message, unexpected behavior, nothing happens?)
+2. LNbits version? (Admin > Server, or lnbits --version)
+3. Wallet backend? (LND, CLN, Phoenixd, FakeWallet, etc.)
+4. Did this work before, or has it never worked?
+5. Any relevant server log lines? (look for ERROR or WARNING)
+
+Based on my answers, narrow down the cause systematically. Start with the most likely fix. Give exact commands or config changes. If my setup has a fundamental issue (SQLite in production, missing HTTPS), say so directly.
+Before finishing, verify your diagnosis is consistent with all the symptoms I described.
+</instructions>` },
+  { key: 'guide', label: 'Guide me step by step', desc: 'Walkthrough from start to finish', prompt: `<role>You are the LNbits documentation assistant - a hands-on guide.</role>
+
+<documentation>` , promptSuffix: `</documentation>
+
+<additional_context>
+Full docs: https://docs.lnbits.com/llms.txt
+LNbits SaaS (quickest start): https://saas.lnbits.com
+</additional_context>
+
+<instructions>
+Your goal is to get me from where I am now to a working result. Ask me two things first:
+1. Do I already have LNbits running? (if not, recommend saas.lnbits.com or Docker)
+2. What is my end goal with this feature?
+
+Then give me a numbered step-by-step walkthrough with: exact commands, config values, UI navigation paths (e.g. Admin > Server > Notifications), a verification check after each step, and what commonly goes wrong. Do not skip steps. State prerequisites upfront. Suggest faster alternatives if they exist.
+Before finishing, verify each step is in the correct order and no prerequisites are missing.
+</instructions>` },
 ]
 
 const URL_CONTENT_LIMIT = 6000
@@ -125,16 +195,20 @@ function getMarkdownContent() {
 }
 
 function buildPromptContent(intent) {
-  return `${intent.prompt}\n\n${getMarkdownContent()}`
+  const content = getMarkdownContent()
+  if (intent.promptSuffix) {
+    return `${intent.prompt}\n${content}\n${intent.promptSuffix}`
+  }
+  return `${intent.prompt}\n\n${content}`
 }
 
 function truncateForUrl(text) {
   return text.length <= URL_CONTENT_LIMIT ? text : text.slice(0, URL_CONTENT_LIMIT) + '\n\n[Content truncated - full page was copied to clipboard]'
 }
 
-function notify(msg) {
+function notify(msg, duration = 3500) {
   notification.value = msg
-  setTimeout(() => { notification.value = '' }, 2500)
+  setTimeout(() => { notification.value = '' }, duration)
 }
 
 function formatName(key) {
@@ -144,19 +218,20 @@ function formatName(key) {
 async function openInLLM(target) {
   const fullContent = buildPromptContent(selectedIntent.value)
   await navigator.clipboard.writeText(fullContent)
+  showCopyMenu.value = false
+
   if (target === 'chatgpt' || target === 'perplexity') {
     const truncated = truncateForUrl(fullContent)
     const urls = { chatgpt: `https://chatgpt.com/?q=${encodeURIComponent(truncated)}`, perplexity: `https://www.perplexity.ai/?q=${encodeURIComponent(truncated)}` }
     window.open(urls[target], '_blank')
-    notify(`Opened ${formatName(target)} with your question`)
+    notify(`Opened ${formatName(target)} with your prompt`)
   } else if (target === 'claude' || target === 'gemini' || target === 'grok') {
     const urls = { claude: 'https://claude.ai/new', gemini: 'https://gemini.google.com/', grok: 'https://grok.com/' }
-    window.open(urls[target], '_blank')
-    notify(`Copied - paste into ${formatName(target)}`)
+    notify(`Prompt copied to clipboard. Paste it into ${formatName(target)} with Ctrl+V / Cmd+V`)
+    setTimeout(() => { window.open(urls[target], '_blank') }, 1200)
   } else {
-    notify(`Copied - paste into ${formatName(target)}`)
+    notify(`Prompt copied to clipboard. Paste with Ctrl+V / Cmd+V`)
   }
-  showCopyMenu.value = false
 }
 
 async function copyMarkdown() {
@@ -313,16 +388,18 @@ function renderMarkdown(text) {
           <svg class="pt-back-icon" viewBox="0 0 6 10" fill="currentColor"><path d="M5 1L1 5l4 4"/></svg>
           {{ selectedIntent?.label }}
         </button>
-        <div class="pt-section-label">Open in AI</div>
-        <button class="pt-option" @click.stop="openInLLM('chatgpt')"><span class="pt-option-icon"><img :src="openaiIcon" alt="OpenAI" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>ChatGPT</span><span class="pt-badge pt-badge--auto">Auto</span></button>
-        <button class="pt-option" @click.stop="openInLLM('perplexity')"><span class="pt-option-icon"><img :src="perplexityIcon" alt="Perplexity" width="16" height="16" class="pt-logo" /></span><span>Perplexity</span><span class="pt-badge pt-badge--auto">Auto</span></button>
-        <button class="pt-option" @click.stop="openInLLM('claude')"><span class="pt-option-icon"><img :src="claudeIcon" alt="Claude" width="16" height="16" class="pt-logo" /></span><span>Claude</span><span class="pt-badge">Web</span></button>
-        <button class="pt-option" @click.stop="openInLLM('gemini')"><span class="pt-option-icon"><img :src="geminiIcon" alt="Gemini" width="16" height="16" class="pt-logo" /></span><span>Gemini</span><span class="pt-badge">Web</span></button>
-        <button class="pt-option" @click.stop="openInLLM('grok')"><span class="pt-option-icon"><img :src="grokIcon" alt="Grok" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>Grok</span><span class="pt-badge">Web</span></button>
+        <div class="pt-section-label">Opens with prompt ready</div>
+        <button class="pt-option" @click.stop="openInLLM('chatgpt')"><span class="pt-option-icon"><img :src="openaiIcon" alt="OpenAI" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>ChatGPT</span><span class="pt-badge pt-badge--auto">Auto-fill</span></button>
+        <button class="pt-option" @click.stop="openInLLM('perplexity')"><span class="pt-option-icon"><img :src="perplexityIcon" alt="Perplexity" width="16" height="16" class="pt-logo" /></span><span>Perplexity</span><span class="pt-badge pt-badge--auto">Auto-fill</span></button>
+        <div class="pt-menu-divider"></div>
+        <div class="pt-section-label">Opens app, you paste</div>
+        <button class="pt-option" @click.stop="openInLLM('claude')"><span class="pt-option-icon"><img :src="claudeIcon" alt="Claude" width="16" height="16" class="pt-logo" /></span><span>Claude</span><span class="pt-badge">Ctrl+V</span></button>
+        <button class="pt-option" @click.stop="openInLLM('gemini')"><span class="pt-option-icon"><img :src="geminiIcon" alt="Gemini" width="16" height="16" class="pt-logo" /></span><span>Gemini</span><span class="pt-badge">Ctrl+V</span></button>
+        <button class="pt-option" @click.stop="openInLLM('grok')"><span class="pt-option-icon"><img :src="grokIcon" alt="Grok" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>Grok</span><span class="pt-badge">Ctrl+V</span></button>
         <div class="pt-menu-divider"></div>
         <div class="pt-section-label">Copy for IDE</div>
-        <button class="pt-option" @click.stop="openInLLM('cursor')"><span class="pt-option-icon"><img :src="cursorIcon" alt="Cursor" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>Cursor</span><span class="pt-badge">Clipboard</span></button>
-        <button class="pt-option" @click.stop="openInLLM('codex')"><span class="pt-option-icon"><img :src="codexIcon" alt="Codex" width="16" height="16" class="pt-logo" /></span><span>Codex / CLI</span><span class="pt-badge">Clipboard</span></button>
+        <button class="pt-option" @click.stop="openInLLM('cursor')"><span class="pt-option-icon"><img :src="cursorIcon" alt="Cursor" width="16" height="16" class="pt-logo pt-logo--mono" /></span><span>Cursor</span><span class="pt-badge">Ctrl+V</span></button>
+        <button class="pt-option" @click.stop="openInLLM('codex')"><span class="pt-option-icon"><img :src="codexIcon" alt="Codex" width="16" height="16" class="pt-logo" /></span><span>Codex / CLI</span><span class="pt-badge">Ctrl+V</span></button>
       </template>
     </div>
   </Transition>

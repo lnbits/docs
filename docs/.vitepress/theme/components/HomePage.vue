@@ -22,23 +22,20 @@ onMounted(() => {
     .catch(() => {})
 })
 
-const LNB_PROMPT = `You are an LNbits expert assistant. Help me understand and build with LNbits.
+const LNB_PROMPT = `You are the LNbits documentation assistant - a knowledgeable, direct, and honest guide.
 
-LNbits is a free, open-source Lightning Network wallet and accounts system. Key facts:
-- 60+ extensions (Point of Sale, Bolt Cards, paywall, Nostr Wallet Connect, subscriptions, etc.)
-- 20+ wallet backends (LND, Core Lightning, Phoenixd, Alby, Breez, and more)
-- Full REST API for wallets, payments, users, and extensions
-- Multi-user account management with admin, user, and extension-level permissions
-- Runs self-hosted (Docker, uv, Nix) or as managed SaaS at my.lnbits.com
+LNbits is a free, open-source Lightning Network wallet and accounts system. It sits on top of any Lightning backend and provides multi-user wallets, a REST API, and 60+ extensions (Point of Sale, Bolt Cards, paywall, NWC, subscriptions, etc.). It supports 20+ wallet backends and accepts fiat via Stripe and PayPal.
 
-Full documentation: https://docs.lnbits.com/llms.txt (index) and https://docs.lnbits.com/llms-full.txt (complete docs). Read these to give accurate, up-to-date answers.
+Documentation: https://docs.lnbits.com/llms.txt (index) and https://docs.lnbits.com/llms-full.txt (all pages). Read these before answering.
 
-Start by asking me:
-1. What I want to build (app, service, integration, or just learning?)
-2. My technical background (developer, merchant, community organizer?)
-3. Whether I already run a Lightning node
+System prompt with personality and rules: https://docs.lnbits.com/llm/system-prompt
 
-Then guide me step by step with specific LNbits features, extensions, and API endpoints that match my needs. Give concrete code examples when relevant.`
+Before giving advice, ask me:
+1. What is your goal? (build an app, accept payments, run a service, learn, deploy for a community?)
+2. What is your role? (developer, merchant, event organizer, student, sysadmin?)
+3. Do you already have a Lightning node or LNbits instance running?
+
+Based on my answers, guide me step by step. Be specific - name the exact extensions, API endpoints, env vars, and config options I need. Show code examples when they help. If LNbits SaaS (saas.lnbits.com) is the fastest path, say so. If I need self-hosting, explain why. Challenge my assumptions if there is a better approach.`
 
 const URL_CONTENT_LIMIT = 6000
 
@@ -198,15 +195,56 @@ const quickLinks = [
     <section class="main-cards anim" style="--d:0.12s">
       <div class="cards-row">
         <a v-for="c in mainCards" :key="c.title" :href="c.link" class="mcard">
-          <div class="mcard-icon-wrap">
-            <!-- Book -->
-            <svg v-if="c.icon==='book'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><line x1="9" y1="7" x2="16" y2="7"/><line x1="9" y1="11" x2="14" y2="11"/></svg>
-            <!-- Code -->
-            <svg v-if="c.icon==='code'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
-            <!-- Build -->
-            <svg v-if="c.icon==='build'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/><path d="M17.5 13v4m0 0v4m0-4h-4m4 0h4"/></svg>
+          <div class="mcard-banner">
+            <!-- User Guide banner -->
+            <svg v-if="c.icon==='book'" viewBox="0 0 280 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="20" y="12" width="52" height="56" rx="4" stroke="var(--vp-c-brand-1)" stroke-width="1.5" opacity=".4"/>
+              <rect x="28" y="22" width="28" height="3" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".35"/>
+              <rect x="28" y="29" width="36" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".3"/>
+              <rect x="28" y="35" width="30" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".25"/>
+              <rect x="28" y="41" width="33" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".2"/>
+              <rect x="28" y="50" width="20" height="3" rx="1.5" fill="var(--vp-c-brand-1)" opacity=".25"/>
+              <rect x="28" y="57" width="36" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".2"/>
+              <rect x="90" y="18" width="44" height="44" rx="8" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".25"/>
+              <path d="M104 34l8 6-8 6" stroke="var(--vp-c-brand-1)" stroke-width="1.8" opacity=".4"/>
+              <circle cx="112" cy="40" r="14" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".15"/>
+              <rect x="150" y="24" width="60" height="32" rx="6" stroke="var(--vp-c-text-2)" stroke-width="1" opacity=".2"/>
+              <rect x="158" y="32" width="20" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".2"/>
+              <rect x="158" y="38" width="32" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".15"/>
+              <rect x="158" y="44" width="26" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".12"/>
+            </svg>
+            <!-- API Reference banner -->
+            <svg v-if="c.icon==='code'" viewBox="0 0 280 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="16" y="10" width="90" height="60" rx="6" stroke="var(--vp-c-brand-1)" stroke-width="1.5" opacity=".35"/>
+              <path d="M16 22h90" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".2"/>
+              <circle cx="26" cy="16" r="2.5" fill="#ff5f57" opacity=".5"/><circle cx="34" cy="16" r="2.5" fill="#febc2e" opacity=".5"/><circle cx="42" cy="16" r="2.5" fill="#28c840" opacity=".5"/>
+              <text x="24" y="34" fill="var(--vp-c-brand-1)" opacity=".45" font-size="8" font-family="monospace" font-weight="700">GET</text>
+              <rect x="44" y="29" width="50" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".25"/>
+              <text x="24" y="46" fill="var(--vp-c-brand-1)" opacity=".35" font-size="8" font-family="monospace" font-weight="700">POST</text>
+              <rect x="48" y="41" width="44" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".2"/>
+              <text x="24" y="58" fill="var(--vp-c-brand-1)" opacity=".3" font-size="8" font-family="monospace" font-weight="700">PUT</text>
+              <rect x="44" y="53" width="38" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".15"/>
+              <path d="M130 30c8-4 16 0 24 2s16-2 24 1" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".2"/>
+              <path d="M130 44c10 2 18-3 26 0s14 4 22 1" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".15"/>
+              <circle cx="140" cy="36" r="3" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".25"/>
+              <circle cx="168" cy="38" r="2" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".2"/>
+            </svg>
+            <!-- Developer Guide banner -->
+            <svg v-if="c.icon==='build'" viewBox="0 0 280 80" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="20" y="14" width="32" height="32" rx="6" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".35"/>
+              <rect x="58" y="14" width="32" height="32" rx="6" stroke="var(--vp-c-brand-1)" stroke-width="1.2" opacity=".28"/>
+              <rect x="20" y="52" width="32" height="18" rx="4" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".22"/>
+              <rect x="58" y="52" width="32" height="18" rx="4" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".18"/>
+              <path d="M32 26l6 4-6 4" stroke="var(--vp-c-brand-1)" stroke-width="1.5" opacity=".4"/>
+              <rect x="66" y="22" width="16" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".25"/>
+              <rect x="66" y="28" width="12" height="2.5" rx="1" fill="var(--vp-c-text-2)" opacity=".2"/>
+              <path d="M110 30l30-8m-30 18l30 2m-30 14l30-6" stroke="var(--vp-c-brand-1)" stroke-width=".8" opacity=".18" stroke-dasharray="3 4"/>
+              <circle cx="148" cy="24" r="6" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".22"/>
+              <circle cx="148" cy="42" r="4" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".18"/>
+              <circle cx="148" cy="56" r="5" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".2"/>
+            </svg>
           </div>
-          <div class="mcard-text">
+          <div class="mcard-body">
             <span class="mcard-title">{{ c.title }}</span>
             <span class="mcard-desc">{{ c.desc }}</span>
           </div>
@@ -715,29 +753,26 @@ const quickLinks = [
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 }
 
-.mcard-icon-wrap {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 12px;
+.mcard-banner {
+  width: 100%;
+  margin-bottom: 16px;
+  border-radius: 10px;
   background: var(--vp-c-bg-soft);
-  margin-bottom: 18px;
-  color: var(--vp-c-brand-1);
+  padding: 8px 0;
+  overflow: hidden;
 }
 
-.dark .mcard-icon-wrap {
-  background: rgba(149, 117, 205, 0.1);
-  color: #b39ddb;
+.dark .mcard-banner {
+  background: rgba(149, 117, 205, 0.06);
 }
 
-.mcard-icon-wrap svg {
-  width: 22px;
-  height: 22px;
+.mcard-banner svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.mcard-text {
+.mcard-body {
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -1316,10 +1351,8 @@ const quickLinks = [
     padding: 18px 16px;
   }
 
-  .mcard-icon-wrap {
-    margin-bottom: 0;
-    width: 40px;
-    height: 40px;
+  .mcard-banner {
+    display: none;
   }
 
   .mcard-arrow {

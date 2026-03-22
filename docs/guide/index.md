@@ -1,3 +1,5 @@
+<HeroImage type="guide" />
+
 # Guide
 
 > Quick-start guide to LNbits - choose an installation method, connect a Lightning backend, and start using wallets, payments, and extensions.

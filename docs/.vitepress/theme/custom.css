@@ -161,6 +161,29 @@
   padding-top: 0;
 }
 
+/* ── Method tags (API docs) ── */
+.vp-doc h3 code {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 14px;
+  font-weight: 600;
+  background: var(--vp-c-bg-soft);
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  color: var(--vp-c-brand-1);
+}
+
+.dark .vp-doc h3 code {
+  background: rgba(149, 117, 205, 0.08);
+  border-color: rgba(149, 117, 205, 0.15);
+}
+
+/* HTTP method badges in API docs */
+.vp-doc code:is([class*="GET"], [class*="POST"], [class*="PUT"], [class*="DELETE"]) {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
 /* ── Scrollbar (dark mode) ── */
 .dark ::-webkit-scrollbar {
   width: 6px;

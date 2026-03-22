@@ -1,3 +1,5 @@
+<HeroImage type="wallets" />
+
 # Funding Sources
 
 > Configure which Lightning backend LNbits connects to for real payments. Set LNBITS_BACKEND_WALLET_CLASS in your .env file.

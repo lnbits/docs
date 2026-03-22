@@ -1,3 +1,5 @@
+<HeroImage type="installation" />
+
 # Installation
 
 > Choose the best LNbits installation method for your environment - Docker, uv, Poetry, Nix, AppImage, node platforms, or hosted SaaS.

@@ -1,3 +1,5 @@
+<HeroImage type="api" />
+
 # API Reference
 
 > Complete REST API for managing LNbits wallets, payments, users, and extensions.
