@@ -14,6 +14,7 @@ import ContributePage from './components/ContributePage.vue'
 import NavSwitch from './components/NavSwitch.vue'
 import NavChatIcon from './components/NavChatIcon.vue'
 import HeroImage from './components/HeroImage.vue'
+import DeploymentGrid from './components/DeploymentGrid.vue'
 
 export default {
   extends: DefaultTheme,
@@ -35,5 +36,6 @@ export default {
     app.component('ExtensionHeader', ExtensionHeader)
     app.component('ContributePage', ContributePage)
     app.component('HeroImage', HeroImage)
+    app.component('DeploymentGrid', DeploymentGrid)
   },
 }

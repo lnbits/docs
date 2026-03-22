@@ -2,31 +2,30 @@
 
 # Installation
 
-> Choose the best LNbits installation method for your environment - Docker, uv, Poetry, Nix, AppImage, node platforms, or hosted SaaS.
+> Choose the best LNbits installation method for your environment - one-click node platforms, hosted SaaS, Docker, uv, or manual builds.
 
-Choose the installation method that best fits your environment.
+LNbits is a free, open-source Lightning wallet and accounts system. Because it is open source, there are many deployment methods available. Different solutions work best for different use cases.
+
+::: tip Non-custodial by design
+No matter how you deploy, LNbits connects to **your** Lightning backend. Your keys, your node, your rules. Third-party hosts simply run the software for you.
+:::
+
+## Choose your deployment
+
+<DeploymentGrid />
 
 ## Quick decision tree
 
 | Scenario | Recommended method |
 | --- | --- |
-| **Try it out quickly** | [Docker](/guide/installation/docker) |
+| **Try it out quickly** | [LNbits SaaS](/guide/installation/saas) or [Docker](/guide/installation/docker) |
+| **Already run a Bitcoin node** | [Node platforms](/guide/installation/node-platforms) (one click) |
 | **Production server** | [Docker](/guide/installation/docker) + [PostgreSQL](/guide/installation/postgresql) |
 | **Development** | [uv](/guide/installation/uv) or [Poetry](/guide/installation/poetry) |
 | **NixOS user** | [Nix](/guide/installation/nix) |
 | **Desktop / offline** | [AppImage](/guide/installation/appimage) |
-| **Umbrel / RaspiBlitz / Start9** | [Node platforms](/guide/installation/node-platforms) |
-| **Hosted / no server** | [SaaS](/guide/installation/saas) |
-
-## All methods
-
-- [uv](/guide/installation/uv) - fastest Python install
-- [Poetry](/guide/installation/poetry) - traditional Python setup
-- [Docker](/guide/installation/docker) - container-based (recommended for production)
-- [Nix](/guide/installation/nix) - reproducible builds
-- [AppImage](/guide/installation/appimage) - desktop app
-- [Node platforms](/guide/installation/node-platforms) - Umbrel, RaspiBlitz, Start9, Citadel
-- [SaaS](/guide/installation/saas) - hosted LNbits providers
+| **Cloud, no hardware** | [Fly.io](/guide/installation/flyio) or [Voltage](https://voltage.cloud) |
+| **Workshops / events** | [LNbits SaaS](/guide/installation/saas) with FakeWallet |
 
 ## After installation
 
