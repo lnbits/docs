@@ -18,7 +18,7 @@
 ## Installation
 - [Choose a Method](https://docs.lnbits.com/guide/installation/): Decision tree for picking the right installation method
 - [Docker](https://docs.lnbits.com/guide/installation/docker): Container-based setup with Docker Compose (recommended for production)
-- [uv](https://docs.lnbits.com/guide/installation/uv): Fastest from-source install using the uv package manager
+- [uv](https://docs.lnbits.com/guide/installation/uv): Fastest from-source install using the uv package manager. Includes official one-line install script for Debian/Ubuntu (lnbits.sh)
 - [Poetry](https://docs.lnbits.com/guide/installation/poetry): Traditional Python setup with Poetry dependency manager
 - [Nix](https://docs.lnbits.com/guide/installation/nix): Reproducible builds with Nix flakes
 - [AppImage](https://docs.lnbits.com/guide/installation/appimage): Desktop application for Linux, macOS, and Windows

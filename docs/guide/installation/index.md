@@ -20,6 +20,7 @@ No matter how you deploy, LNbits connects to **your** Lightning backend. Your ke
 | --- | --- |
 | **Try it out quickly** | [LNbits SaaS](/guide/installation/saas) or [Docker](/guide/installation/docker) |
 | **Already run a Bitcoin node** | [Node platforms](/guide/installation/node-platforms) (one click) |
+| **Debian/Ubuntu server** | [Install script](/guide/installation/uv#install-script-debian-ubuntu) (one command) |
 | **Production server** | [Docker](/guide/installation/docker) + [PostgreSQL](/guide/installation/postgresql) |
 | **Development** | [uv](/guide/installation/uv) or [Poetry](/guide/installation/poetry) |
 | **NixOS user** | [Nix](/guide/installation/nix) |
