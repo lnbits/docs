@@ -1,78 +1,87 @@
-# Skills
+# Skills Catalog
 
-> Skill files teach AI agents how to work with LNbits - integrating extensions into apps, using core features programmatically, and following LNbits standards.
+> Ready-made skill files that teach AI agents how to work with LNbits - install one and your agent knows the endpoints, rules, and patterns for the task.
 
-Skills are structured instruction files (`.md`) that give AI agents the context they need to build on LNbits autonomously. Instead of an agent searching through documentation, a skill file provides a focused, task-ready prompt with the right endpoints, patterns, and constraints.
+Skills are structured instruction files (`.md`) that give AI agents the context they need to build on LNbits autonomously. Instead of searching through documentation and guessing, an agent with the right skill file has focused, task-ready instructions with working code examples.
 
-## What is a skill file?
+## What is a Skill?
 
-A skill file is a markdown document designed to be loaded into an AI agent's context. It contains everything the agent needs to complete a specific LNbits task:
+A skill file is a markdown document loaded into an AI agent's context. It contains everything the agent needs for a specific LNbits task:
 
-- **What** the feature or integration does
-- **How** to use it (endpoints, parameters, code patterns)
-- **Rules** and constraints to follow
-- **Examples** of correct usage
+- **Context** on what the feature does and how it fits into LNbits
+- **Prerequisites** that must be in place before starting
+- **Steps** with working code examples and real endpoints
+- **Rules** the agent must follow (security constraints, key handling)
+- **Error handling** for common failures
 
-Think of it as a cheat sheet that turns a general-purpose AI agent into one that knows LNbits.
+One skill, one task. That is the design principle. "Create a paywall" is a skill. "Set up an entire e-commerce store" is a project that uses multiple skills.
 
-## When to use skills
+## How to Use a Skill
 
-| Scenario | Example skill |
-| --- | --- |
-| **Integrate an extension into your app** | "Use the LNURLp extension to create pay links via API" |
-| **Use a core LNbits feature** | "Create wallets and process payments with the LNbits API" |
-| **Build a new extension** | "Follow LNbits extension standards: file structure, models, migrations, API patterns" |
-| **Audit an extension** | "Vet this extension against LNbits quality and security standards" |
-| **Accept fiat payments** | "Integrate Stripe checkout via the LNbits fiat payment system" |
-| **Set up hold invoices** | "Create, settle, and cancel hold invoices with proper status tracking" |
+### With Claude Code or compatible agents
 
-## Skill file structure
+Skills follow the [Agent Skills specification](https://agentskills.io/specification) and work across 22+ agents including Claude Code, Cursor, GitHub Copilot, Windsurf, and Gemini CLI.
 
-A well-structured skill file follows this pattern:
+```bash
+# Install a skill from a repository
+npx skills add owner/repo
 
-```markdown
-# Skill Name
-
-> One-sentence summary of what this skill enables.
-
-## Context
-What the agent needs to know before starting.
-
-## Prerequisites
-APIs, extensions, or configuration that must be in place.
-
-## Steps
-The task broken into clear, ordered actions with code examples.
-
-## Rules
-Hard constraints - things the agent must or must not do.
-
-## Error handling
-Common failures and how to recover.
-
-## Examples
-Complete working examples for the most common use cases.
+# Search for LNbits skills
+npx skills search lnbits
 ```
 
-## Available skills
+### Manual loading
 
-Skills for LNbits are being developed. This page will be updated as they are published.
+Copy the skill's `SKILL.md` content and paste it into your agent's context or system prompt. The agent will follow the instructions as if it were a LNbits expert for that specific task.
 
-<!-- Future skills will be listed here as they are created -->
+## Available Skills
 
-## Creating a skill file
+### Core
 
-If you build integrations with LNbits and want to make them agent-ready:
+| Skill | Description | Status |
+|---|---|---|
+| [Wallet & Payments](/llm/skills/wallet-payments) | Create wallets, send/receive payments, check balances via the LNbits API | Available |
+| [Shared Wallet (Uncle Jim)](/llm/skills/shared-wallet) | Onboard family and friends to Lightning with shared wallets and granular permissions | Available |
+| Authentication | API key management, auth decorators, key rotation | Planned |
+| User Management | Create users, assign roles, manage permissions | Planned |
 
-1. **Pick one task** - each skill should do one thing well
-2. **Include working code** - agents need copy-paste-ready examples with real endpoints
-3. **State prerequisites explicitly** - which extensions must be installed, which API keys are needed
-4. **Add constraints** - what the agent should never do (e.g., "never expose the admin key to the frontend")
-5. **Test with an agent** - load the skill into an AI agent and verify it can complete the task without extra context
+### Extensions
+
+| Skill | Description | Status |
+|---|---|---|
+| [Lightning Address](/llm/skills/lnurlp-pay-links) | Create a human-readable Lightning Address like alice@yourdomain.com | Available |
+| Paywall | Put URLs behind Lightning paywalls | Planned |
+| TPoS | Set up point-of-sale terminals | Planned |
+| Bolt Cards | Program and manage NFC Lightning cards | Planned |
+| SatsPay | Create on-chain and Lightning payment pages | Planned |
+
+### Development
+
+| Skill | Description | Status |
+|---|---|---|
+| Build an Extension | Scaffold, develop, and test a new LNbits extension | Planned |
+| Vet an Extension | Audit an extension for quality, security, and compliance | Planned |
+| Database Migrations | Write migrations that work across SQLite, PostgreSQL, and CockroachDB | Planned |
+| Fiat Integration | Add Stripe or PayPal checkout to an extension | Planned |
+| Hold Invoices | Create, settle, and cancel hold invoices with status tracking | Planned |
+
+::: info Community skills welcome
+The planned skills above are on the roadmap. Want to help? Pick a task you know well and [create a skill](/llm/create-skill) for it.
+:::
+
+## When to Use Skills vs Docs
+
+| Need | Use |
+|---|---|
+| Agent should complete a specific task autonomously | **Skill file** - focused instructions with code |
+| Agent needs to answer questions about LNbits | **llms.txt / llms-full.txt** - documentation index |
+| Agent should behave like the docs assistant | **System prompt** - personality and knowledge rules |
+| Human wants to learn about a feature | **Documentation pages** - full explanations with context |
 
 ## Related Pages
 
+- [How to Create a Skill](/llm/create-skill) - build your own skill file from scratch
 - [LLM Integration](/llm/) - how AI agents consume LNbits documentation
+- [System Prompt](/llm/system-prompt) - the docs assistant's personality and rules
 - [API Reference](/api/) - core and admin endpoints
-- [Building Extensions](/dev/building-extensions) - extension development guide
-- [Extensions](/extensions/) - available extensions
+- [Extensions](/extensions/) - all available extensions

@@ -10,7 +10,8 @@
     "sync:openapi": "node scripts/sync-openapi.mjs",
     "extract:endpoints": "node scripts/extract-endpoints.mjs",
     "generate:llm": "node scripts/generate-llm-files.mjs",
-    "generate:extensions": "node scripts/generate-extension-pages.mjs"
+    "generate:extensions": "node scripts/generate-extension-pages.mjs",
+    "generate:apps": "node scripts/generate-app-pages.mjs"
   },
   "devDependencies": {
     "mermaid": "^11.12.3",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "@lobehub/icons-static-svg": "^1.82.0",
-    "lucide-vue-next": "^0.577.0"
+    "lucide-vue-next": "^0.577.0",
+    "simple-icons": "^16.13.0"
   }
 }

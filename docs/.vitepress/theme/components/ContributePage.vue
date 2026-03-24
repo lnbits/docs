@@ -1,7 +1,8 @@
 <script setup>
-import { ref, reactive, computed, nextTick, onMounted, onUnmounted } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import { useData } from 'vitepress'
 import VPSwitchAppearance from 'vitepress/dist/client/theme-default/components/VPSwitchAppearance.vue'
+import { siYoutube, siReddit } from 'simple-icons'
 
 const { isDark } = useData()
 const mounted = ref(false)
@@ -13,8 +14,8 @@ const roleIds = ['developer', 'tester', 'writer', 'designer', 'entrepreneur', 'a
 const roles = [
   { id: 'developer', title: 'Developer', tagline: 'Fix bugs, build features, get your code merged.' },
   { id: 'tester', title: 'Tester', tagline: 'Hunt bugs, test PRs, and file clear reports.' },
-  { id: 'writer', title: 'Writer', tagline: 'Write docs, guides, and blog posts that help users understand LNbits.' },
-  { id: 'designer', title: 'Designer', tagline: 'Shape the UI, improve UX, and create visuals for the project.' },
+  { id: 'writer', title: 'Writer', tagline: 'Write docs, share stories, create tutorials, and get featured on our news page.' },
+  { id: 'designer', title: 'Designer', tagline: 'Shape the UI with Vue and Quasar, create marketing material, and design visuals that make LNbits shine.' },
   { id: 'entrepreneur', title: 'Entrepreneur', tagline: 'Build products and run services on top of LNbits.' },
   { id: 'ambassador', title: 'Ambassador', tagline: 'Deploy LNbits for your community and onboard merchants to Lightning.' },
 ]
@@ -26,22 +27,55 @@ const communityLinks = [
   { name: 'Nostr', url: 'https://primal.net/p/npub10efcj7x65z2ak6vd69xr8f2hvqwuaqrhlygl3yqa4y63hfvc02mqwzaeh3', icon: 'nostr', desc: 'Find us on the decentralized social network' },
 ]
 
-const faqItems = ref([
-  { q: 'Do I need to know Python to contribute?', a: 'No. Testers, writers, designers, entrepreneurs, and ambassadors all contribute without writing Python. Developers working on extensions use Python and Vue.js, but the Extension Builder lets you create extensions without code.', open: false },
-  { q: 'Do I need a Lightning node?', a: 'No. Use FakeWallet for local testing. It simulates Lightning payments without a real node. For a quick live instance, spin one up on saas.lnbits.com in under 3 minutes.', open: false },
-  { q: 'Where do I ask for help?', a: 'Join the Telegram group at t.me/lnbits. The core team and community are active there. You can also open a GitHub Discussion for longer questions.', open: false },
-  { q: 'How do I test a pull request locally?', a: 'Clone the repo, check out the PR branch, install dependencies with uv, set LNBITS_BACKEND_WALLET_CLASS=FakeWallet, and run lnbits. The contributing guide has step-by-step instructions.', open: false },
-  { q: 'Can I get paid for contributing?', a: 'LNbits is a volunteer open-source project. Some contributors receive grants from organizations like OpenSats or HRF. Extension developers can monetize their work via the pay-to-install model in the registry.', open: false },
-  { q: 'What license does LNbits use?', a: 'MIT license. You can use, modify, and distribute the code freely.', open: false },
-  { q: 'How do I write a blog post for LNbits?', a: 'Reach out on Telegram or open an issue in the docs repo. Blog posts about deployments, use cases, merchant stories, and tutorials are welcome.', open: false },
-  { q: 'I found a bug. Where do I report it?', a: 'Open an issue at github.com/lnbits/lnbits/issues. Include clear reproduction steps, your LNbits version, browser/OS info, and any error messages from the console or logs.', open: false },
-  { q: 'Can I contribute translations?', a: 'Translation infrastructure is being planned. Reach out on Telegram if you want to help - early volunteers will shape how it works.', open: false },
-  { q: 'How do I build and sell an extension?', a: 'Build your extension following the developer guide, then list it in the registry with a price. The pay-to-install model lets users pay with Lightning to download. See the extension monetization docs for details.', open: false },
-])
+const allFaqItems = [
+  // ── General (shown for every role) ──
+  { q: 'Where do I ask for help?', roles: '*', a: 'The <a href="https://t.me/lnbits" target="_blank">Telegram group</a> is the heartbeat of the community. Core devs, extension builders, and users are all there. For longer questions, open a <a href="https://github.com/lnbits/lnbits/discussions" target="_blank">GitHub Discussion</a>.' },
+  { q: 'Can I get paid for contributing?', roles: '*', a: 'LNbits is volunteer open-source, but there are paths. <a href="https://opensats.org" target="_blank">OpenSats</a> and <a href="https://hrf.org" target="_blank">HRF</a> fund contributors. Extension developers can <a href="/dev/extensions/monetization">monetize via pay-to-install</a> in the registry. Some community members tip contributors over Lightning directly.' },
+  { q: 'What license does LNbits use?', roles: '*', a: 'MIT. Use it, fork it, sell it, remix it. The only rule is keeping the license notice. See the <a href="https://github.com/lnbits/lnbits/blob/main/LICENSE" target="_blank">LICENSE file</a>.' },
+
+  // ── Developer ──
+  { q: 'What tech stack do I need to know?', roles: ['developer'], a: 'Backend is <strong>Python + FastAPI</strong>. Frontend is <strong>Vue 3 + Quasar</strong>. The <a href="/dev/architecture">architecture page</a> has the full picture. Not a coder yet? The <a href="/guide/core/extension-builder">Extension Builder</a> lets you create extensions through a visual wizard.' },
+  { q: 'How do I set up a dev environment?', roles: ['developer'], a: 'Clone the repo, install with <a href="/guide/installation/uv">uv</a>, set <code>LNBITS_BACKEND_WALLET_CLASS=FakeWallet</code>, and run. No Lightning node needed. The <a href="/dev/contributing">contributing guide</a> has the full walkthrough.' },
+  { q: 'How do I test a pull request locally?', roles: ['developer', 'tester'], a: '<code>git fetch origin pull/ID/head:pr-ID && git checkout pr-ID</code>, then <code>uv sync && lnbits</code> with <a href="/guide/wallets/fakewallet">FakeWallet</a>. Check the <a href="/dev/contributing">contributing guide</a> for the detailed steps.' },
+  { q: 'How do I build and publish an extension?', roles: ['developer'], a: 'Start with the <a href="/dev/extensions/">extension development guide</a>, use <a href="/dev/tools">Polar</a> for local Lightning testing, then <a href="/dev/extensions/registry">list it in the registry</a>. Want to charge for it? The <a href="/dev/extensions/monetization">monetization docs</a> cover pay-to-install setup.' },
+  { q: 'Can I contribute translations?', roles: ['developer', 'writer'], a: 'Translation infrastructure is being planned. Jump into <a href="https://t.me/lnbits" target="_blank">Telegram</a> if you want to help shape it. Early volunteers get to define how it works.' },
+
+  // ── Tester ──
+  { q: 'Do I need a Lightning node to test?', roles: ['tester'], a: 'No. <a href="/guide/wallets/fakewallet">FakeWallet</a> simulates Lightning payments locally. For quick live testing, spin up an instance on <a href="https://my.lnbits.com" target="_blank">my.lnbits.com</a> in under 3 minutes.' },
+  { q: 'What makes a good bug report?', roles: ['tester'], a: 'Reproduction steps, LNbits version, browser and OS, plus any errors from the console or <a href="/dev/architecture">server logs</a>. Screenshots or screen recordings go a long way. File it at <a href="https://github.com/lnbits/lnbits/issues" target="_blank">github.com/lnbits/lnbits/issues</a>.' },
+  { q: 'Which areas need testing the most?', roles: ['tester'], a: 'Extensions with recent updates, the <a href="/guide/core/admin-dashboard">admin panel</a>, multi-wallet workflows, and anything tagged <a href="https://github.com/lnbits/lnbits/labels/needs-testing" target="_blank"><code>needs-testing</code></a> on GitHub. Mobile browser testing is always valuable.' },
+
+  // ── Writer ──
+  { q: 'Do I need technical knowledge to write docs?', roles: ['writer'], a: 'Not at all. Some of the best contributions are clear explanations of features, <a href="/guide/faq/">FAQ improvements</a>, and merchant stories. If you can use LNbits, you can document it.' },
+  { q: 'Where do the docs live and how do I edit them?', roles: ['writer'], a: 'Everything is in the <a href="https://github.com/DoktorShift/docs_lnbits" target="_blank">docs repo on GitHub</a>. Pages are Markdown files in <code>docs/</code>. Extension pages auto-generate from their GitHub READMEs, so improving a README improves the <a href="/extensions/">extension docs</a> too.' },
+  { q: 'How do I get a blog post featured?', roles: ['writer'], a: 'Write about a real experience: a deployment story, a merchant case study, a tutorial. Share it on <a href="https://x.com/lnbits" target="_blank">X</a> or <a href="https://t.me/lnbits" target="_blank">Telegram</a> and the team will consider it for <a href="https://news.lnbits.com" target="_blank">news.lnbits.com</a>.' },
+
+  // ── Designer ──
+  { q: 'What frontend stack does LNbits use?', roles: ['designer'], a: '<a href="/dev/architecture">Vue 3 + Quasar UI</a> for the app, <a href="https://vitepress.dev" target="_blank">VitePress</a> for docs. The Quasar component library gives you a huge toolkit. Browse the <a href="https://github.com/lnbits/lnbits" target="_blank">main repo</a> for the app or the <a href="https://github.com/DoktorShift/docs_lnbits" target="_blank">docs repo</a> for this site.' },
+  { q: 'Can I redesign existing UI without writing backend code?', roles: ['designer'], a: 'Yes. Frontend templates live in each extension\'s <code>templates/</code> folder. You can restyle components, improve layouts, and fix mobile views using only HTML, CSS, and Vue. The <a href="/dev/building-extensions">extension development guide</a> has the patterns.' },
+  { q: 'What kind of design work is needed?', roles: ['designer'], a: 'UI improvements for the <a href="/guide/core/admin-dashboard">admin panel</a> and extension flows, hero images for <a href="https://news.lnbits.com" target="_blank">blog posts</a>, social media cards, infographics, and illustrations. Check <a href="https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign" target="_blank">design-tagged issues</a> for open requests.' },
+
+  // ── Entrepreneur ──
+  { q: 'How do I deploy LNbits for my community?', roles: ['entrepreneur'], a: 'Fastest path: one-click install on a <a href="/guide/installation/">node platform</a> like Umbrel, Start9, or myNode. For full control, use <a href="/guide/installation/docker">Docker</a> on a VPS. Or skip infra entirely with <a href="https://my.lnbits.com" target="_blank">the hosted SaaS</a>.' },
+  { q: 'Can I white-label or brand LNbits?', roles: ['entrepreneur'], a: 'Yes. LNbits is MIT-licensed, so you can customize the UI, add your logo, and run it under your own brand. The <a href="/guide/core/admin-dashboard">admin dashboard</a> lets you configure branding, and you can go deeper by editing the frontend templates.' },
+  { q: 'How does the extension marketplace work for business?', roles: ['entrepreneur'], a: 'You can build or commission extensions for your use case, then optionally <a href="/dev/extensions/monetization">sell them via pay-to-install</a>. Other operators pay Lightning to download. Extensions like <a href="/extensions/tpos/">TPoS</a>, <a href="/extensions/boltcards/">Boltcards</a>, and <a href="/extensions/lnticket/">LNTicket</a> already power real businesses.' },
+
+  // ── Ambassador ──
+  { q: 'What materials can I use for meetups and talks?', roles: ['ambassador'], a: 'The <a href="/">docs site</a> is your main resource. The <a href="/guide/">user guide</a> works as a walkthrough, the <a href="/extensions/">extension directory</a> shows what\'s possible, and <a href="https://news.lnbits.com" target="_blank">news.lnbits.com</a> has community stories. Demo with <a href="https://my.lnbits.com" target="_blank">my.lnbits.com</a> for live audiences.' },
+  { q: 'How do I onboard merchants to LNbits?', roles: ['ambassador'], a: 'Start with <a href="/extensions/tpos/">TPoS</a> for point-of-sale, add <a href="/extensions/boltcards/">Boltcards</a> for tap-to-pay, and show them the <a href="/guide/wallets/">wallet management</a>. A <a href="https://my.lnbits.com" target="_blank">SaaS instance</a> lets them try it without any setup. The <a href="/guide/faq/payments">payments FAQ</a> answers their first questions.' },
+  { q: 'Where should I share LNbits content?', roles: ['ambassador'], a: '<a href="https://x.com/lnbits" target="_blank">X</a> (tag @lnbits), <a href="https://primal.net/p/npub10efcj7x65z2ak6vd69xr8f2hvqwuaqrhlygl3yqa4y63hfvc02mqwzaeh3" target="_blank">Nostr</a>, <a href="https://reddit.com/r/lightningnetwork" target="_blank">Reddit</a>, and <a href="https://www.youtube.com/@lnbits" target="_blank">YouTube</a>. Cross-post to Bitcoin meetup groups and local communities. Real stories with numbers ("onboarded 12 merchants in 3 weeks") spread the furthest.' },
+]
+
+const faqFiltered = computed(() =>
+  allFaqItems
+    .filter(f => f.roles === '*' || f.roles.includes(activeRole.value))
+    .map((f, i) => ({ ...f, open: faqOpen.value.has(i) }))
+)
+const faqOpen = ref(new Set())
 
 const roleData = {
   developer: {
-    video: { id: 'ZTjFalYeOlA', title: 'LNbits Extensions Deep-Dive' },
+    video: null,
     steps: [
       {
         num: '01', title: 'Set up your environment', illust: 'setup',
@@ -89,59 +123,78 @@ const roleData = {
     ],
   },
   tester: {
-    video: { id: 'i5FQf96e6zg', title: 'Use Your Lightning Node On-The-Go' },
+    video: null,
     steps: [
       {
         num: '01', title: 'Get a test instance running', illust: 'setup',
-        desc: 'No Lightning node needed. Run LNbits locally with FakeWallet or spin up a SaaS instance in minutes.',
+        desc: 'Pick one and you are ready in minutes. No Lightning node needed.',
+        featured: {
+          name: 'Fastest option: LNbits SaaS',
+          desc: 'Get a full LNbits instance in 3 minutes with FakeWallet for testing. No install, no config.',
+          url: 'https://my.lnbits.com',
+          badge: 'Recommended',
+        },
         items: [
-          { name: 'Install with uv', url: '/guide/installation/uv', badge: 'Fastest' },
-          { name: 'FakeWallet', url: '/guide/wallets/fakewallet', badge: 'No node needed' },
-          { name: 'LNbits SaaS', url: 'https://saas.lnbits.com', badge: 'No install' },
+          { name: 'Demo server for quick tests', url: 'https://demo.lnbits.com', badge: 'Instant' },
+          { name: 'Install locally with uv', url: '/guide/installation/uv', badge: 'From source' },
+          { name: 'Run with Docker', url: '/guide/installation/docker', badge: 'Isolated' },
+          { name: 'FakeWallet for simulated payments', url: '/guide/wallets/fakewallet' },
+          { name: 'Polar for real Lightning testing', url: 'https://lightningpolar.com', badge: 'Advanced' },
           { name: 'Dev environment setup', url: '/dev/contributing', badge: 'Full guide' },
         ],
       },
       {
-        num: '02', title: 'Learn the QA workflow', illust: 'tips',
-        desc: 'Testing is one of the most valuable contributions. Here is how to do it well.',
-        tipGroups: [
-          {
-            label: 'Day to day',
-            tips: [
-              'Try every new release as soon as it drops',
-              'Report bugs with clear reproduction steps, version, and logs',
-              'Test on both desktop and mobile - many merchants use phones',
-            ],
-          },
-          {
-            label: 'When testing a PR',
-            tips: [
-              'Check out the PR branch and run it locally',
-              'Follow the exact steps described in the PR',
-              'Record a video or screenshot showing the result',
-              'Leave a comment with your findings - what worked, what did not',
-              'Approve the PR and state it has been user-tested',
-            ],
-          },
+        num: '02', title: 'Know where bugs hide', illust: 'browse',
+        desc: 'Some areas break more often than others. Focus here for the biggest impact.',
+        tips: [
+          'Funding sources: connect different backends (LND, CLN, Phoenixd, NWC) and verify payments settle correctly',
+          'Node Manager: channel operations, peer connections, balance reporting, fee policies',
+          'Extension edge cases: what happens when two extensions share a wallet, or when data migrates between versions',
+          'Fiat providers: Stripe and PayPal checkout flows, webhook delivery, refund handling',
+          'Multi-user under load: shared wallets with concurrent payments, ACL token expiry, role escalation boundaries',
+          'Mobile in the field: test TPoS and Boltcards on a real phone with real network conditions',
         ],
       },
       {
-        num: '03', title: 'Find a PR to test', illust: 'browse',
-        desc: 'Pick an open pull request, run the changes on your test instance, and share your feedback.',
+        num: '03', title: 'Test and report', illust: 'tips',
+        desc: 'Good bug reports save developers hours. Good PR reviews prevent bugs from reaching users.',
+        featured: {
+          name: 'Pull requests that need testing',
+          desc: 'Pick an open PR, check it out locally, run it, and leave your review.',
+          url: 'https://github.com/lnbits/lnbits/pulls',
+          badge: 'Test now',
+        },
+        refPanels: [
+          {
+            label: 'Testing a PR',
+            steps: [
+              { num: '1', text: 'Check out the PR branch and run it locally with FakeWallet' },
+              { num: '2', text: 'Follow the PR description, test exactly what changed, record a screenshot or video' },
+            ],
+          },
+          {
+            label: 'Reporting a bug',
+            steps: [
+              { num: '1', text: 'Include your LNbits version and wallet backend (LND, CLN, Phoenixd, etc.)' },
+              { num: '2', text: 'Describe what you did, what happened, and paste relevant ERROR lines from the logs' },
+            ],
+          },
+        ],
         items: [
-          { name: 'Open pull requests', url: 'https://github.com/lnbits/lnbits/pulls' },
-          { name: 'Report a bug', url: 'https://github.com/lnbits/lnbits/issues/new' },
+          { name: 'Try on demo.lnbits.com first', url: 'https://demo.lnbits.com', badge: 'Quick test' },
+          { name: 'Report a bug', url: 'https://github.com/lnbits/lnbits/issues/new', badge: 'Public issue' },
+          { name: 'Report a security vulnerability', url: 'https://github.com/lnbits/lnbits/security/advisories/new', badge: 'Private' },
         ],
       },
       {
-        num: '04', title: 'Leave your review', illust: 'ship',
-        desc: 'Testers catch what developers miss. Your feedback is the last line of defense before code reaches users.',
+        num: '04', title: 'Your testing makes LNbits reliable', illust: 'ship',
+        desc: 'Every PR you test and every bug you report makes LNbits more stable for thousands of merchants, developers, and communities running it in production.',
         items: [
-          { name: 'Open pull requests', url: 'https://github.com/lnbits/lnbits/pulls', badge: 'Test now' },
-          { name: 'Report a bug', url: 'https://github.com/lnbits/lnbits/issues/new' },
-          { name: 'Join Telegram for QA coordination', url: 'https://t.me/lnbits' },
+          { name: 'Join Telegram for QA coordination', url: 'https://t.me/lnbits', badge: 'Connect' },
+          { name: 'Share your testing on X', url: 'https://x.com/intent/tweet?text=I%27m+testing+%40lnbits+and+helping+make+Lightning+more+reliable' },
+          { name: 'Get featured on news.lnbits.com', url: 'https://news.lnbits.com', badge: 'Showcase' },
         ],
-        action: { label: 'Test a PR', url: 'https://github.com/lnbits/lnbits/pulls' },
+        action: { label: 'Find a PR to test', url: 'https://github.com/lnbits/lnbits/pulls' },
       },
     ],
   },
@@ -149,44 +202,75 @@ const roleData = {
     video: null,
     steps: [
       {
-        num: '01', title: 'Find what is missing', illust: 'browse',
-        desc: 'Read through the docs and look for gaps - missing pages, outdated instructions, unclear explanations, and undocumented features are all fair game.',
+        num: '01', title: 'Pick a quick win', illust: 'browse',
+        desc: 'You do not need to write a whole guide from scratch. Start small. These are things you can fix in 10 minutes.',
+        featured: {
+          name: 'Extension READMEs become docs automatically',
+          desc: 'Every extension page is fetched from its GitHub README at build time. Improve the README on GitHub and the docs site updates on the next build.',
+          url: '/dev/extensions/registry',
+          badge: 'Good to know',
+        },
         items: [
-          { name: 'User Guide', url: '/guide/' },
-          { name: 'API Reference', url: '/api/' },
-          { name: 'Developer Guide', url: '/dev/architecture' },
-          { name: 'Extensions', url: '/extensions/', badge: '60+ pages' },
+          { name: 'Find an extension with a thin page', url: '/extensions/', badge: 'Quick win' },
+          { name: 'Check FAQ for unanswered questions', url: '/guide/faq/', badge: 'Quick win' },
+          { name: 'Fix a broken link or typo', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'Quick win' },
+          { name: 'Add a missing "Related Pages" section', url: '/guide/', badge: 'Quick win' },
         ],
       },
       {
-        num: '02', title: 'Follow the conventions', illust: 'tips',
-        desc: 'Consistency matters. Follow these patterns so your work fits in naturally.',
+        num: '02', title: 'Write content that lands', illust: 'setup',
+        desc: 'The best content comes from real experience. Share what you learned, what surprised you, and what others should know.',
         tips: [
-          'Every page starts with an H1 title and a summary blockquote (>)',
-          'Every page ends with a "Related Pages" section',
-          'Write in English, clear and concise - lead with the answer',
-          'Use bash for CLI examples, python for backend, javascript for frontend',
-          'Verify all links and code examples actually work before submitting',
+          'Lead with what the reader gets, not what LNbits is',
+          'Real numbers and results make stories stick - "onboarded 12 merchants in 3 weeks"',
+          'Screenshots and short videos beat long paragraphs',
+          'Link to docs.lnbits.com so readers can go deeper',
+        ],
+        items: [
+          { name: 'Edit the docs directly', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'For doc contributions' },
         ],
       },
       {
-        num: '03', title: 'Fork, write, and submit', illust: 'setup',
-        desc: 'Clone the docs repo, make your changes locally, preview with npm run docs:dev, and open a pull request.',
-        items: [
-          { name: 'Docs repo', url: 'https://github.com/lnbits/lnbits-docs' },
-          { name: 'Open doc issues', url: 'https://github.com/lnbits/lnbits-docs/issues' },
-          { name: 'Blog posts wanted', url: 'https://github.com/lnbits/lnbits-docs/issues', badge: 'Content' },
+        num: '03', title: 'Write stories and blogs', illust: 'tips',
+        desc: 'We want real stories from real people. Write about what you see in the community and share it.',
+        featured: {
+          name: 'Get featured on news.lnbits.com',
+          desc: 'We spotlight community articles on our news page. Write something great, reach out on Telegram, and we will feature it.',
+          url: 'https://news.lnbits.com',
+          badge: 'Community spotlight',
+        },
+        columns: [
+          {
+            label: 'Blog ideas',
+            items: [
+              { name: 'Deployment story', desc: 'How you set up LNbits', logo: '/logos/lnbits.svg' },
+              { name: 'Merchant case study', desc: 'TPoS + Boltcards in action', logo: '/logos/lnbits.svg' },
+              { name: 'Extension tutorial', desc: 'Step-by-step walkthrough', logo: '/logos/lnbits.svg' },
+              { name: 'Event recap', desc: 'LNbits at a festival or meetup', logo: '/logos/lnbits.svg' },
+            ],
+          },
+          {
+            label: 'Share on',
+            items: [
+              { name: 'X / Twitter', desc: 'Tag @lnbits', icon: 'devicon-twitter-original', url: 'https://x.com/lnbits' },
+              { name: 'Nostr', desc: 'Active community', logo: '/logos/nostr10.png', url: 'https://primal.net/p/npub10efcj7x65z2ak6vd69xr8f2hvqwuaqrhlygl3yqa4y63hfvc02mqwzaeh3' },
+              { name: 'YouTube', desc: 'Tutorials and demos', si: siYoutube, url: 'https://www.youtube.com/@lnbits' },
+              { name: 'Reddit', desc: 'r/Bitcoin, r/lightningnetwork', si: siReddit, url: 'https://reddit.com/r/lightningnetwork' },
+            ],
+          },
         ],
       },
       {
-        num: '04', title: 'Your words help thousands', illust: 'ship',
-        desc: 'Great documentation saves thousands of people from asking the same question.',
+        num: '04', title: 'Your words reach thousands', illust: 'ship',
+        desc: 'Every guide you write, every blog you publish, and every story you share helps someone discover Lightning. Your content feeds the docs, the AI assistant, and the community.',
         items: [
-          { name: 'Open doc issues', url: 'https://github.com/lnbits/lnbits-docs/issues', badge: 'Pick one' },
-          { name: 'Write a blog post', url: 'https://github.com/lnbits/lnbits-docs/issues', badge: 'Content' },
-          { name: 'LLM integration docs', url: '/llm/', badge: 'AI-ready' },
+          { name: 'Docs repo on GitHub', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'Contribute' },
+          { name: 'LNbits news and community articles', url: 'https://news.lnbits.com', badge: 'Get featured' },
+          { name: 'LLM integration docs', url: '/llm/', badge: 'Your writing feeds AI' },
+          { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+writing+docs+for+%40lnbits' },
+          { name: 'Telegram community', url: 'https://t.me/lnbits' },
         ],
-        action: { label: 'Pick a doc issue', url: 'https://github.com/lnbits/lnbits-docs/issues' },
+        action: { label: 'Start writing', url: 'https://github.com/DoktorShift/docs_lnbits' },
       },
     ],
   },
@@ -194,42 +278,66 @@ const roleData = {
     video: null,
     steps: [
       {
-        num: '01', title: 'Explore the current UI', illust: 'browse',
-        desc: 'LNbits uses Quasar (a Vue 3 component framework) for its UI. Try the app, install some extensions, and note what feels clunky or unclear.',
-        items: [
-          { name: 'LNbits SaaS', url: 'https://saas.lnbits.com', badge: 'Try it live' },
-          { name: 'Extensions gallery', url: '/extensions/' },
-          { name: 'Quasar components', url: 'https://quasar.dev/vue-components', badge: 'UI library' },
-          { name: 'Frontend patterns', url: '/dev/building-extensions', badge: 'Vue + Quasar' },
+        num: '01', title: 'Get to know the stack', illust: 'browse',
+        desc: 'LNbits is built with Vue 3 and Quasar UI framework. The docs site uses VitePress. Try the app, explore the components, and spot what could look better.',
+        columns: [
+          {
+            label: 'LNbits app (Vue + Quasar)',
+            items: [
+              { name: 'Try LNbits live', desc: 'Use the real UI', logo: '/logos/lnbits.svg', url: 'https://my.lnbits.com' },
+              { name: 'Quasar components', desc: 'Full UI library', icon: 'devicon-quasar-plain', url: 'https://quasar.dev/vue-components' },
+              { name: 'LNbits repo', desc: 'Frontend source code', icon: 'devicon-github-original', url: 'https://github.com/lnbits/lnbits' },
+            ],
+          },
+          {
+            label: 'Docs site (VitePress)',
+            items: [
+              { name: 'Docs site', desc: 'You are looking at it', logo: '/logos/lnbits.svg', url: '/' },
+              { name: 'Docs repo', desc: 'VitePress + Vue', icon: 'devicon-github-original', url: 'https://github.com/DoktorShift/docs_lnbits' },
+              { name: 'VitePress docs', desc: 'Theming reference', icon: 'devicon-vuejs-plain', url: 'https://vitepress.dev' },
+            ],
+          },
         ],
       },
       {
-        num: '02', title: 'Know where design matters most', illust: 'tips',
-        desc: 'These are the areas where your design skills will have the biggest impact.',
+        num: '02', title: 'What we need', illust: 'tips',
+        desc: 'Pick what excites you. Every area has open opportunities.',
+        columns: [
+          {
+            label: 'Product design',
+            items: [
+              { name: 'UI improvements', desc: 'Admin panel, extension flows, mobile views', icon: 'devicon-quasar-plain', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign' },
+              { name: 'Docs site design', desc: 'Pages, layouts, components', icon: 'devicon-vuejs-plain', url: 'https://github.com/DoktorShift/docs_lnbits' },
+            ],
+          },
+          {
+            label: 'Creative design',
+            items: [
+              { name: 'Blog and news headers', desc: 'Hero images for articles', icon: 'devicon-figma-plain', url: 'https://news.lnbits.com' },
+              { name: 'Illustrations for marketing', desc: 'Visuals that help us tell the LNbits story', icon: 'devicon-figma-plain', url: 'https://t.me/lnbits' },
+              { name: 'Social media content', desc: 'Shareable cards, infographics, announcements', logo: '/logos/lnbits.svg', url: 'https://x.com/lnbits' },
+            ],
+          },
+        ],
+      },
+      {
+        num: '03', title: 'How to contribute', illust: 'setup',
+        desc: 'Share your idea on Telegram first, get feedback, then submit. This keeps quality high and avoids wasted effort.',
         tips: [
-          'The admin dashboard and extension install flow get the most user feedback',
-          'Mobile experience is critical - many merchants use LNbits on phones',
-          'Propose mockups as GitHub issues before writing code',
-          'Icons, illustrations, and diagrams are always needed',
-          'Dark mode is the default - design for dark first, then light',
+          'Post your mockup or concept in the Telegram group for quick feedback',
+          'For UI changes: open a GitHub issue with before/after screenshots',
+          'For visuals: share the file (Figma, SVG, PNG) directly in the issue or PR',
+          'Design for dark mode first, then adapt for light',
         ],
+        action: { label: 'Join the Telegram group', url: 'https://t.me/lnbits' },
       },
       {
-        num: '03', title: 'Share your work', illust: 'setup',
-        desc: 'Contribute Figma files, screenshots, CSS pull requests, or even a sketch photographed and posted to an issue. Any format helps.',
+        num: '04', title: 'Your design has impact', illust: 'ship',
+        desc: 'When LNbits looks professional and feels intuitive, more people trust it. Your work reaches merchants, developers, and communities worldwide.',
         items: [
-          { name: 'LNbits repo', url: 'https://github.com/lnbits/lnbits' },
-          { name: 'Docs repo', url: 'https://github.com/lnbits/lnbits-docs' },
-          { name: 'Open UX issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign', badge: 'Needs design' },
-        ],
-      },
-      {
-        num: '04', title: 'Design for everyone', illust: 'ship',
-        desc: 'Good design removes barriers. When LNbits is easy to use, more people adopt Lightning.',
-        items: [
-          { name: 'Open UX issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign', badge: 'Needs design' },
-          { name: 'LNbits repo', url: 'https://github.com/lnbits/lnbits' },
-          { name: 'Share ideas on Telegram', url: 'https://t.me/lnbits' },
+          { name: 'Open design issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign', badge: 'Pick one' },
+          { name: 'Get featured on news.lnbits.com', url: 'https://news.lnbits.com', badge: 'Showcase' },
+          { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+designing+for+%40lnbits' },
         ],
         action: { label: 'Browse design issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign' },
       },
@@ -237,6 +345,12 @@ const roleData = {
   },
   entrepreneur: {
     video: null,
+    blog: {
+      title: 'How to set up your own LNbits server',
+      desc: 'Step-by-step tutorial on PlanB Academy covering a full LNbits deployment for your business.',
+      url: 'https://planb.academy/en/tutorials/business/others/lnbits-server-6a406046-3cef-4a64-a82b-8d8f0f82a192',
+      image: 'https://pbs.twimg.com/media/HDhjniXX0AAFuU6?format=jpg&name=medium',
+    },
     steps: [
       {
         num: '01', title: 'Understand the platform', illust: 'browse',
@@ -251,10 +365,15 @@ const roleData = {
       {
         num: '02', title: 'Pick a business model', illust: 'tips',
         desc: 'Entrepreneurs are already building on LNbits. Here are proven models.',
+        featured: {
+          name: 'Run multiple instances from one dashboard',
+          desc: 'LNbits SaaS lets you spin up and manage many LNbits instances from a single account. Perfect for serving multiple clients, regions, or projects.',
+          url: 'https://my.lnbits.com',
+          badge: 'SaaS',
+        },
         tips: [
-          'Host LNbits as a managed service and charge a monthly fee (like LNbits SaaS)',
           'Build a paid extension and list it in the registry with pay-to-install',
-          'Package TPoS + Boltcards + SplitPayments into a turnkey merchant solution',
+          'Package TPoS + Inventory + Boltcards + SplitPayments into a turnkey merchant solution',
           'White-label LNbits under your own brand for a specific industry or region',
           'Offer consulting: help businesses integrate Lightning payments via the LNbits API',
         ],
@@ -263,7 +382,7 @@ const roleData = {
         num: '03', title: 'Launch and scale', illust: 'setup',
         desc: 'Start fast with SaaS or go self-hosted for full control. The extension marketplace lets you distribute and monetize your work.',
         items: [
-          { name: 'LNbits SaaS', url: 'https://saas.lnbits.com', badge: '3 minutes' },
+          { name: 'LNbits SaaS', url: 'https://my.lnbits.com', badge: '3 minutes' },
           { name: 'Docker install', url: '/guide/installation/docker', badge: 'Production' },
           { name: 'Extension monetization', url: '/dev/extensions/monetization' },
           { name: 'Custom marketplace', url: '/dev/extensions/custom-list' },
@@ -273,17 +392,17 @@ const roleData = {
         num: '04', title: 'Grow with the ecosystem', illust: 'ship',
         desc: 'Your product strengthens LNbits, and a stronger LNbits grows your market. The ecosystem scales together.',
         items: [
-          { name: 'LNbits SaaS', url: 'https://saas.lnbits.com', badge: 'Launch fast' },
+          { name: 'LNbits SaaS', url: 'https://my.lnbits.com', badge: 'Launch fast' },
           { name: 'Extension monetization', url: '/dev/extensions/monetization', badge: 'Earn sats' },
           { name: 'Share your story on Telegram', url: 'https://t.me/lnbits' },
           { name: 'GitHub Discussions', url: 'https://github.com/lnbits/lnbits/discussions' },
         ],
-        action: { label: 'Get started', url: 'https://saas.lnbits.com' },
+        action: { label: 'Get started', url: 'https://my.lnbits.com' },
       },
     ],
   },
   ambassador: {
-    video: { id: 'Pe0YXHawHvQ', title: 'NFC BoltCard Setup with LNbits' },
+    video: { id: 'ZTjFalYeOlA', title: 'LNbits Extensions Deep-Dive' },
     steps: [
       {
         num: '01', title: 'Deploy for your community', illust: 'deploy',
@@ -301,9 +420,9 @@ const roleData = {
           {
             label: 'Cloud & hosted',
             items: [
-              { name: 'LNbits SaaS', desc: 'Live in 3 min', url: 'https://saas.lnbits.com' },
+              { name: 'LNbits SaaS', desc: 'Live in 3 min', logo: '/logos/lnbits.svg', url: 'https://my.lnbits.com' },
               { name: 'Voltage', desc: 'Cloud dashboard', logo: '/logos/backends/voltage.png', url: 'https://voltage.cloud' },
-              { name: 'Docker + VPS', desc: 'Full control', url: '/guide/installation/docker' },
+              { name: 'Docker + VPS', desc: 'Full control', icon: 'devicon-docker-plain', url: '/guide/installation/docker' },
             ],
           },
         ],
@@ -314,6 +433,12 @@ const roleData = {
       {
         num: '02', title: 'Onboard merchants', illust: 'browse',
         desc: 'LNbits gives merchants everything they need: point of sale, NFC cards, static QR codes, and tipping. Set up a wallet for each merchant and get them accepting Lightning.',
+        featured: {
+          name: 'TPoS Wrapper - Tap to Pay on Android',
+          desc: 'Accept credit cards, debit cards, Google Pay, and Apple Pay via Stripe. Turns any Android phone with NFC into a full payment terminal.',
+          url: '/apps/tpos-wrapper',
+          badge: 'Android App',
+        },
         items: [
           { name: 'TPoS', url: '/extensions/tpos/', badge: 'Point of Sale' },
           { name: 'Bolt Cards', url: '/extensions/boltcards/', badge: 'NFC tap-to-pay' },
@@ -337,6 +462,7 @@ const roleData = {
         num: '04', title: 'Spread the word', illust: 'ship',
         desc: 'Every merchant you onboard and every meetup you host brings Lightning closer to everyday life. Share your story and inspire other communities.',
         items: [
+          { name: 'Create YouTube tutorials', url: 'https://www.youtube.com/@lnbits', badge: 'High impact' },
           { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+onboarding+merchants+to+Lightning+with+%40lnbits' },
           { name: 'Telegram community', url: 'https://t.me/lnbits' },
           { name: 'GitHub Discussions', url: 'https://github.com/lnbits/lnbits/discussions' },
@@ -356,11 +482,13 @@ function playVideo(id) { activeVideos.add(id) }
 function selectRole(id) {
   activeRole.value = id
   activeVideos.clear()
+  faqOpen.value.clear()
   history.replaceState(null, '', `#${id}`)
-  nextTick(() => {
-    const firstStep = document.querySelector('.cp-step')
-    if (firstStep) firstStep.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  })
+  // Wait for the transition to complete before scrolling
+  setTimeout(() => {
+    const flow = document.querySelector('.cp-flow')
+    if (flow) flow.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }, 400)
 }
 
 function onHashChange() {
@@ -371,10 +499,13 @@ function onHashChange() {
   }
 }
 
-function toggleFaq(i) { faqItems.value[i].open = !faqItems.value[i].open }
+function toggleFaq(i) {
+  if (faqOpen.value.has(i)) faqOpen.value.delete(i)
+  else faqOpen.value.add(i)
+}
 
 
-function isExt(url) { return url.startsWith('http') }
+function isExt(url) { return url && url.startsWith('http') }
 
 async function fetchContributors() {
   const all = []
@@ -618,25 +749,33 @@ onUnmounted(() => {
               </svg>
               <!-- Ambassador: world map with pins -->
               <svg v-if="role.id==='ambassador'" viewBox="0 0 240 160" fill="none">
-                <!-- Globe -->
-                <circle cx="120" cy="80" r="58" fill="var(--vp-c-bg-soft)" stroke="var(--vp-c-divider)" stroke-width="2"/>
-                <!-- Latitude lines -->
-                <ellipse cx="120" cy="50" rx="52" ry="8" stroke="var(--vp-c-divider)" stroke-width="0.6" fill="none"/>
-                <ellipse cx="120" cy="80" rx="58" ry="14" stroke="var(--vp-c-divider)" stroke-width="0.8" fill="none"/>
-                <ellipse cx="120" cy="110" rx="52" ry="8" stroke="var(--vp-c-divider)" stroke-width="0.6" fill="none"/>
-                <!-- Longitude lines -->
-                <ellipse cx="120" cy="80" rx="20" ry="58" stroke="var(--vp-c-divider)" stroke-width="0.7" fill="none"/>
-                <ellipse cx="120" cy="80" rx="42" ry="58" stroke="var(--vp-c-divider)" stroke-width="0.5" fill="none"/>
-                <!-- Location pins -->
-                <g><!-- Pin 1 --><circle cx="92" cy="58" r="5" fill="var(--vp-c-brand-1)" opacity=".15"/><circle cx="92" cy="58" r="2.5" fill="var(--vp-c-brand-1)" opacity=".5"/></g>
-                <g><!-- Pin 2 --><circle cx="150" cy="68" r="5" fill="var(--vp-c-brand-1)" opacity=".15"/><circle cx="150" cy="68" r="2.5" fill="var(--vp-c-brand-1)" opacity=".5"/></g>
-                <g><!-- Pin 3 --><circle cx="110" cy="98" r="5" fill="var(--vp-c-brand-1)" opacity=".15"/><circle cx="110" cy="98" r="2.5" fill="var(--vp-c-brand-1)" opacity=".5"/></g>
-                <g><!-- Pin 4 --><circle cx="138" cy="48" r="4" fill="var(--vp-c-brand-1)" opacity=".1"/><circle cx="138" cy="48" r="2" fill="var(--vp-c-brand-1)" opacity=".4"/></g>
-                <g><!-- Pin 5 --><circle cx="78" cy="85" r="4" fill="var(--vp-c-brand-1)" opacity=".1"/><circle cx="78" cy="85" r="2" fill="var(--vp-c-brand-1)" opacity=".4"/></g>
-                <!-- Connection lines between pins -->
-                <line x1="93" y1="59" x2="149" y2="67" stroke="var(--vp-c-brand-1)" stroke-width="0.8" opacity="0.12"/>
-                <line x1="93" y1="59" x2="111" y2="97" stroke="var(--vp-c-brand-1)" stroke-width="0.8" opacity="0.1"/>
-                <line x1="149" y1="69" x2="111" y2="97" stroke="var(--vp-c-brand-1)" stroke-width="0.8" opacity="0.1"/>
+                <!-- Map background -->
+                <rect x="25" y="14" width="190" height="132" rx="10" fill="var(--vp-c-bg-soft)" stroke="var(--vp-c-divider)" stroke-width="1.5"/>
+                <!-- Map grid (streets) -->
+                <g opacity=".06" stroke="var(--vp-c-text-3)" stroke-width="0.8">
+                  <line x1="25" y1="50" x2="215" y2="50"/><line x1="25" y1="80" x2="215" y2="80"/><line x1="25" y1="110" x2="215" y2="110"/>
+                  <line x1="70" y1="14" x2="70" y2="146"/><line x1="120" y1="14" x2="120" y2="146"/><line x1="170" y1="14" x2="170" y2="146"/>
+                </g>
+                <!-- Location pin 1 (merchant - large) -->
+                <g opacity=".3"><path d="M75 55c0-8 6-14 14-14s14 6 14 14c0 10-14 20-14 20S75 65 75 55z" fill="var(--vp-c-brand-1)" fill-opacity=".4" stroke="var(--vp-c-brand-1)" stroke-width="1.2"/><circle cx="89" cy="55" r="5" fill="var(--vp-c-brand-1)" opacity=".6"/></g>
+                <!-- Location pin 2 (merchant) -->
+                <g opacity=".22"><path d="M140 70c0-7 5-12 12-12s12 5 12 12c0 8-12 17-12 17s-12-9-12-17z" fill="var(--vp-c-brand-1)" fill-opacity=".35" stroke="var(--vp-c-brand-1)" stroke-width="1"/><circle cx="152" cy="70" r="4" fill="var(--vp-c-brand-1)" opacity=".5"/></g>
+                <!-- Location pin 3 (merchant) -->
+                <g opacity=".18"><path d="M100 98c0-6 4-10 10-10s10 4 10 10c0 7-10 14-10 14s-10-7-10-14z" fill="var(--vp-c-brand-1)" fill-opacity=".3" stroke="var(--vp-c-brand-1)" stroke-width="1"/><circle cx="110" cy="98" r="3.5" fill="var(--vp-c-brand-1)" opacity=".5"/></g>
+                <!-- Connection arcs between pins -->
+                <path d="M89 60c15 5 40 2 63 12" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".1" fill="none" stroke-dasharray="3 3"/>
+                <path d="M93 62c5 15 10 28 17 38" stroke="var(--vp-c-brand-1)" stroke-width="1" opacity=".08" fill="none" stroke-dasharray="3 3"/>
+                <!-- People icons (small figures around pins) -->
+                <g opacity=".15"><circle cx="68" cy="42" r="3" fill="var(--vp-c-text-3)"/><path d="M64 48a4 4 0 018 0" fill="var(--vp-c-text-3)"/></g>
+                <g opacity=".12"><circle cx="170" cy="58" r="3" fill="var(--vp-c-text-3)"/><path d="M166 64a4 4 0 018 0" fill="var(--vp-c-text-3)"/></g>
+                <g opacity=".1"><circle cx="130" cy="110" r="3" fill="var(--vp-c-text-3)"/><path d="M126 116a4 4 0 018 0" fill="var(--vp-c-text-3)"/></g>
+                <!-- Lightning bolt in center -->
+                <g transform="translate(186, 28)"><path d="M4-8l-6 10h5l-6 12" stroke="var(--vp-c-brand-1)" stroke-width="1.8" fill="none" stroke-linecap="round" opacity=".25"/></g>
+                <!-- Small store icons -->
+                <rect x="42" y="88" width="14" height="10" rx="2" stroke="var(--vp-c-text-3)" stroke-width="0.8" opacity=".1" fill="none"/>
+                <path d="M42 88l7-5 7 5" stroke="var(--vp-c-text-3)" stroke-width="0.8" opacity=".1" fill="none"/>
+                <rect x="180" y="100" width="14" height="10" rx="2" stroke="var(--vp-c-text-3)" stroke-width="0.8" opacity=".08" fill="none"/>
+                <path d="M180 100l7-5 7 5" stroke="var(--vp-c-text-3)" stroke-width="0.8" opacity=".08" fill="none"/>
               </svg>
             </div>
             <span class="cp-role-name">{{ role.title }}</span>
@@ -661,6 +800,20 @@ onUnmounted(() => {
               </template>
             </div>
             <p class="cp-vid-cap">{{ active.video.title }}</p>
+          </div>
+        </section>
+
+        <!-- Blog article -->
+        <section v-if="active.blog" class="cp-blog-sec">
+          <div class="cp-w">
+            <a :href="active.blog.url" target="_blank" rel="noopener noreferrer" class="cp-blog-card">
+              <img :src="active.blog.image" :alt="active.blog.title" class="cp-blog-img" loading="lazy" />
+              <div class="cp-blog-overlay">
+                <span class="cp-blog-badge">Article</span>
+                <h3 class="cp-blog-title">{{ active.blog.title }}</h3>
+                <p class="cp-blog-desc">{{ active.blog.desc }}</p>
+              </div>
+            </a>
           </div>
         </section>
 
@@ -690,6 +843,16 @@ onUnmounted(() => {
                   <svg class="cp-row-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
                 </a>
               </template>
+
+              <!-- Featured item (prominent CTA card) -->
+              <a v-if="step.featured" :href="step.featured.url" class="cp-featured" :target="isExt(step.featured.url) ? '_blank' : undefined" :rel="isExt(step.featured.url) ? 'noopener noreferrer' : undefined">
+                <div class="cp-featured-content">
+                  <span v-if="step.featured.badge" class="cp-featured-badge">{{ step.featured.badge }}</span>
+                  <strong class="cp-featured-name">{{ step.featured.name }}</strong>
+                  <span class="cp-featured-desc">{{ step.featured.desc }}</span>
+                </div>
+                <svg class="cp-featured-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
 
               <!-- Tip items (simple list) -->
               <template v-if="step.tips">
@@ -723,12 +886,27 @@ onUnmounted(() => {
                       :rel="isExt(p.url) ? 'noopener noreferrer' : undefined"
                     >
                       <img v-if="p.logo" :src="p.logo" :alt="p.name" class="cp-platform-logo" />
+                      <svg v-else-if="p.si" class="cp-platform-si" viewBox="0 0 24 24" :fill="'#' + p.si.hex"><path :d="p.si.path"/></svg>
+                      <i v-else-if="p.icon" :class="p.icon" class="cp-platform-devicon"></i>
                       <span v-else class="cp-platform-icon">{{ p.name.charAt(0) }}</span>
                       <span class="cp-platform-info">
                         <span class="cp-platform-name">{{ p.name }}</span>
                         <span class="cp-platform-desc">{{ p.desc }}</span>
                       </span>
                     </a>
+                  </div>
+                </div>
+              </template>
+
+              <!-- Reference panels (numbered steps, side by side) -->
+              <template v-if="step.refPanels">
+                <div class="cp-ref-panels">
+                  <div v-for="panel in step.refPanels" :key="panel.label" class="cp-ref-panel">
+                    <span class="cp-ref-label">{{ panel.label }}</span>
+                    <div v-for="s in panel.steps" :key="s.num" class="cp-ref-step">
+                      <span class="cp-ref-num">{{ s.num }}</span>
+                      <span class="cp-ref-text">{{ s.text }}</span>
+                    </div>
                   </div>
                 </div>
               </template>
@@ -823,16 +1001,19 @@ onUnmounted(() => {
     <section class="cp-faq">
       <div class="cp-w">
         <h2 class="cp-section-title">Frequently asked questions</h2>
+        <p class="cp-faq-sub">Showing questions for <strong>{{ roles.find(r => r.id === activeRole)?.title }}s</strong></p>
         <div class="cp-faq-list">
-          <div v-for="(item, i) in faqItems" :key="i" class="cp-faq-item" :class="{ 'cp-faq-item--open': item.open }">
-            <button class="cp-faq-q" @click="toggleFaq(i)">
-              <span>{{ item.q }}</span>
-              <svg class="cp-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
-            <div class="cp-faq-a">
-              <p>{{ item.a }}</p>
+          <TransitionGroup name="cp-faq-anim">
+            <div v-for="(item, i) in faqFiltered" :key="item.q" class="cp-faq-item" :class="{ 'cp-faq-item--open': item.open }">
+              <button class="cp-faq-q" @click="toggleFaq(i)">
+                <span>{{ item.q }}</span>
+                <svg class="cp-faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+              </button>
+              <div class="cp-faq-a">
+                <p v-html="item.a"></p>
+              </div>
             </div>
-          </div>
+          </TransitionGroup>
         </div>
       </div>
     </section>
@@ -988,6 +1169,51 @@ onUnmounted(() => {
 .cp-vid:hover .cp-vid-play { transform: translate(-50%,-50%) scale(1.1); }
 .cp-vid-cap { font-size: 13px; color: var(--vp-c-text-3); text-align: center; margin-top: 14px; }
 
+/* ═══ Blog Card ═══ */
+.cp-blog-sec { padding: 0 0 32px; }
+.cp-blog-card {
+  display: block; position: relative; border-radius: 14px; overflow: hidden;
+  border: 1px solid var(--vp-c-divider); text-decoration: none;
+  transition: border-color .25s, transform .25s;
+}
+.cp-blog-card:hover { border-color: var(--vp-c-brand-1); transform: translateY(-2px); }
+.cp-blog-img {
+  width: 100%; max-height: 280px; object-fit: cover; object-position: center top; display: block;
+}
+.cp-blog-overlay {
+  padding: 20px 24px; background: var(--vp-c-bg-elv);
+}
+.cp-blog-badge {
+  display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--vp-c-brand-1); margin-bottom: 8px;
+}
+.cp-blog-title {
+  font-size: 17px; font-weight: 700; color: var(--vp-c-text-1);
+  margin: 0 0 6px; line-height: 1.3;
+}
+.cp-blog-desc {
+  font-size: 13px; color: var(--vp-c-text-2); line-height: 1.5; margin: 0;
+}
+
+/* ═══ Featured Item ═══ */
+.cp-featured {
+  display: flex; align-items: center; gap: 16px;
+  padding: 16px 20px; margin-bottom: 4px;
+  background: var(--vp-c-brand-soft); border: 1px solid var(--vp-c-divider);
+  border-radius: 10px; text-decoration: none; color: var(--vp-c-text-1);
+  transition: border-color .2s, background .2s;
+}
+.cp-featured:hover { border-color: var(--vp-c-brand-1); }
+.cp-featured-content { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.cp-featured-badge {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.8px; color: var(--vp-c-brand-1); line-height: 1;
+}
+.cp-featured-name { font-size: 14px; font-weight: 700; line-height: 1.3; }
+.cp-featured-desc { font-size: 12px; color: var(--vp-c-text-2); line-height: 1.45; }
+.cp-featured-arr { width: 18px; height: 18px; flex-shrink: 0; color: var(--vp-c-text-3); transition: color .2s; }
+.cp-featured:hover .cp-featured-arr { color: var(--vp-c-brand-1); }
+
 /* ═══ Steps ═══ */
 .cp-flow { padding-bottom: 24px; }
 .cp-step { position: relative; }
@@ -1035,6 +1261,40 @@ onUnmounted(() => {
 }
 .cp-tip-group .cp-row:first-child { border-top: none; }
 
+/* Reference panels (numbered steps, side by side) */
+.cp-ref-panels {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+  margin-bottom: 8px;
+}
+.cp-ref-panel {
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  border-left: 3px solid var(--vp-c-brand-1);
+}
+.cp-ref-label {
+  display: block;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1px; color: var(--vp-c-brand-1);
+  margin-bottom: 12px;
+}
+.cp-ref-step {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin-bottom: 10px;
+}
+.cp-ref-step:last-child { margin-bottom: 0; }
+.cp-ref-num {
+  flex-shrink: 0; width: 22px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--vp-c-brand-1);
+  border: 1.5px solid var(--vp-c-brand-1); border-radius: 50%;
+  opacity: .6;
+}
+.cp-ref-text {
+  font-size: 13px; color: var(--vp-c-text-2); line-height: 1.5;
+  padding-top: 2px;
+}
+
 /* Platform columns */
 .cp-columns {
   display: grid;
@@ -1060,6 +1320,13 @@ onUnmounted(() => {
 .cp-platform-logo {
   width: 28px; height: 28px; object-fit: contain; border-radius: 6px; flex-shrink: 0;
 }
+.cp-platform-devicon {
+  width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0; color: var(--vp-c-text-2);
+}
+.cp-platform-si {
+  width: 28px; height: 28px; flex-shrink: 0; border-radius: 6px;
+}
 .cp-platform-icon {
   width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;
   border-radius: 6px; background: var(--vp-c-brand-soft); color: var(--vp-c-brand-1);
@@ -1081,6 +1348,7 @@ onUnmounted(() => {
 
 /* ═══ FAQ ═══ */
 .cp-faq { padding: 64px 0; border-top: 1px solid var(--vp-c-divider); }
+.cp-faq-sub { font-size: 14px; color: var(--vp-c-text-2); text-align: center; margin: 4px 0 0; }
 .cp-faq-list { max-width: 720px; margin: 24px auto 0; }
 .cp-faq-item { border-bottom: 1px solid var(--vp-c-divider); }
 .cp-faq-q {
@@ -1094,8 +1362,14 @@ onUnmounted(() => {
 .cp-faq-a {
   max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease;
 }
-.cp-faq-item--open .cp-faq-a { max-height: 200px; }
+.cp-faq-item--open .cp-faq-a { max-height: 300px; }
 .cp-faq-a p { font-size: 14px; color: var(--vp-c-text-2); line-height: 1.65; margin: 0; padding: 0 0 20px; }
+.cp-faq-a a { color: var(--vp-c-brand-1); text-decoration: none; font-weight: 500; }
+.cp-faq-a a:hover { text-decoration: underline; }
+.cp-faq-a code { font-size: 12px; padding: 2px 6px; border-radius: 4px; background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); }
+.cp-faq-anim-enter-active, .cp-faq-anim-leave-active { transition: all .3s ease; }
+.cp-faq-anim-enter-from, .cp-faq-anim-leave-to { opacity: 0; transform: translateY(-8px); }
+.cp-faq-anim-move { transition: transform .3s ease; }
 
 /* ═══ Contact ═══ */
 .cp-contact { padding: 0 0 64px; }
@@ -1187,6 +1461,8 @@ onUnmounted(() => {
   .cp-row--tip .cp-row-text { font-size: 13px; }
   .cp-tip-group-label { font-size: 9px; padding: 12px 14px 3px; }
   .cp-columns { grid-template-columns: 1fr; padding: 8px 12px; }
+  .cp-ref-panels { grid-template-columns: 1fr; gap: 12px; }
+  .cp-ref-panel { padding: 14px 14px; }
   .cp-col-label { font-size: 9px; }
   .cp-platform { padding: 6px 8px; }
   .cp-platform-logo { width: 24px; height: 24px; }

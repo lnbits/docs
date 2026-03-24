@@ -41,5 +41,5 @@ curl -X POST -H "X-Api-Key: ADMIN_KEY" \
 
 ## Related Pages
 
-- [Payments](/guide/core/payments.md)
-- [Core Features](/guide/core/index.md)
+- [Payments](/guide/core/payments)
+- [Core Features](/guide/core/)

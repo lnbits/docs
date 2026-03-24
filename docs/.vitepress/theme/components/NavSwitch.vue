@@ -10,6 +10,7 @@ const sections = [
   { text: 'Guide', link: '/guide/', match: '/guide' },
   { text: 'API', link: '/api/', match: '/api' },
   { text: 'Extensions', link: '/extensions/', match: '/extensions' },
+  { text: 'Apps', link: '/apps/tpos-wrapper', match: '/apps' },
   { text: 'Developers', link: '/dev/architecture', match: '/dev' },
   { text: 'LLM', link: '/llm/', match: '/llm' },
   { text: 'Contribute', link: '/contribute/', match: '/contribute' },

@@ -18,7 +18,7 @@ const starsImg = props.repo
 
 // Extract extension id from repo (e.g. "lnbits/tpos" → "tpos")
 const extId = props.repo ? props.repo.split('/').pop().replace('_extension', '') : ''
-const tileUrl = extId && extensionMeta[extId]?.tileUrl || null
+const tileUrl = (extId && extensionMeta[extId]?.tileUrl) || null
 </script>
 
 <template>

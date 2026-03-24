@@ -113,7 +113,7 @@ ws[s]://<host>/api/v1/ws/<wallet_id>
 
 ## Related Pages
 
-- [Payments](/guide/core/payments.md)
-- [WebSockets API Reference](/api/core/websockets.md)
-- [Background Tasks](/dev/tasks.md)
+- [Payments](/guide/core/payments)
+- [WebSockets API Reference](/api/core/websockets)
+- [Background Tasks](/dev/tasks)
 - [Building Extensions](/dev/building-extensions) - frontend template with Vue.js

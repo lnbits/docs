@@ -69,6 +69,6 @@ Access tokens are obtained through the authentication API.
 
 ## Related Pages
 
-- [Wallets & Accounts](/guide/core/wallets-and-accounts.md)
+- [Wallets & Accounts](/guide/core/wallets-and-accounts)
 - [Authentication](/api/authentication)
-- [Security](/guide/core/security.md)
+- [Security](/guide/core/security)

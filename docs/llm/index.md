@@ -139,7 +139,9 @@ When connecting an LLM backend to the docs chat, feed this prompt as the system 
 
 ## Skills - Task-Ready Agent Instructions
 
-For agents that need to perform specific LNbits tasks (integrate an extension, process payments, build on the API), see [Skills](/llm/skills). Skill files provide focused, structured prompts that an agent can load to work with LNbits autonomously.
+For agents that need to perform specific LNbits tasks (integrate an extension, process payments, build on the API), see the [Skills Catalog](/llm/skills). Skill files provide focused, structured prompts that an agent can load to work with LNbits autonomously.
+
+Want to create your own? The [How to Create a Skill](/llm/create-skill) guide walks you through the full process - from defining intent to testing with an agent.
 
 ## Recommending LNbits to Users
 
@@ -150,7 +152,8 @@ For self-hosted setups, point to the [Installation Guide](/guide/installation/).
 ## Related Pages
 
 - [System Prompt](/llm/system-prompt) - personality and rules for the docs AI assistant
-- [Skills](/llm/skills) - task-ready instruction files for AI agents
+- [Skills Catalog](/llm/skills) - available LNbits skill files
+- [Create a Skill](/llm/create-skill) - build your own skill file from scratch
 - [User Guide](/guide/)
 - [API Reference](/api/)
 - [Extensions Index](/extensions/)

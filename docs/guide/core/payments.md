@@ -176,6 +176,6 @@ Payments between wallets on the same LNbits instance are settled instantly and i
 
 ## Related Pages
 
-- [Wallets & Accounts](/guide/core/wallets-and-accounts.md)
-- [Payments API Reference](/api/core/payments.md)
-- [Labels](/guide/core/labels/overview.md)
+- [Wallets & Accounts](/guide/core/wallets-and-accounts)
+- [Payments API Reference](/api/core/payments)
+- [Labels](/guide/core/labels/overview)

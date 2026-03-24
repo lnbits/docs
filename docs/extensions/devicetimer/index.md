@@ -3,38 +3,36 @@
   description="Control IoT devices with timed Lightning payments."
   category="Utilities & Tools"
   icon="⏱️"
-  repo="lnbits/devicetimer"
+  repo="DoktorShift/DeviceTimer"
 />
 
-## Overview
+**LNbits extension compatible with bitcoinSwitch device for timed triggering.**<br>
 
-Device Timer is an LNbits extension compatible with the [Bitcoin Switch](/extensions/bitcoinswitch/) hardware for timed triggering. It extends the standard LNURL device behavior with opening hours, cooldown periods, and alternative displays - making it ideal for scenarios like animal feeding stations, vending machines, or any IoT device that should only accept payments during specific windows.
+Preview:
 
-## Features
+![combined_DeviceTimer_presentation_with_shadows](https://github.com/DoktorShift/DeviceTimer/assets/106493492/4bb2c7c1-a094-411e-9e98-f877ced08838)
+<br>
+<br>
 
-- **Opening hours** - restrict payments to a specific time window (e.g., 9 AM – 5 PM)
-- **Cooldown after payment** - block the device for a configurable period after each successful payment (prevents overuse)
-- **Alternative display** - show a custom image instead of the QR code outside opening hours
-- **LNURL error handling** - returns a proper error when payment is attempted outside the allowed window
-- **Bitcoin Switch compatible** - works with the bitcoinSwitch hardware device
+This extension behaves like the standard BitcoinSwitch extension with the following changes:
 
-## Setup
+**(1)** Payments available during specified time window. This allows to create a device (for animal feeding or whatever you want to activate) with opening hours so that it is only accessible during a specific time window.
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Open Device Timer from the sidebar
-3. Create a new device:
-   - Set the opening hours (start and end time)
-   - Set the cooldown timeout between payments
-   - Configure the alternative image for closed hours
-   - Connect to your bitcoinSwitch device
-4. Deploy the generated LNURL to your device
+**(2)** Timeout after each payment. After each succesful payment, the device is blocked for some time. This to prevent overfeeding or triggering when feeding is active.
 
-## Use Cases
+**(3)** When making a payment is not allowed, an alternative image is displayed instead of a QR code. The LNURL payment flow also returns an error when trying to make a payment outside opening hours.
 
-- **Animal feeding stations** - accept payments to dispense food, with opening hours and cooldown to prevent overfeeding
-- **Vending machines** - time-limited product dispensing
-- **Access control** - timed entry during business hours
-- **IoT automation** - any device that should only activate within scheduled windows
+**(4)** Removed support for devices other that bitcoinSwitch
+<br>
+
+This LNbits extension was built with <a href="https://www.Business-Bitcoin.de">Business-Bitcoin.de</a> and massive support of <a href="https://github.com/pieterjm">Pieterjm</a> & <a
+href="https://github.com/DoktorShift">DrShift</a>
+<br>
+
+<p>💻 If you like this extension and feel like you wanna donate, go ahead.<br>
+Your donation will fund contribution to this and future extensions. A shared part will also go to <a href="https://lnbits.com">LNBits</a> donation wallet.</p>
+
+<p><a href="https://v1.lnbits.de/tipjar/gCxr7AbQzjcxHkicmhTBio">Donation</a></p>
 
 ## API Reference
 
@@ -43,7 +41,4 @@ See the [Device Timer API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Device Timer API Reference](./api): API endpoints for this extension
-- [Bitcoin Switch](/extensions/bitcoinswitch/): IoT device control with Bitcoin
-- [LNURL Device](/extensions/lnurldevice/): Legacy hardware integration
-- [Hardware & Merchants FAQ](/guide/faq/hardware): Hardware setup questions
 - [All Extensions](/extensions/): Browse all LNbits extensions

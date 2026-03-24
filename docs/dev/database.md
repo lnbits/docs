@@ -149,6 +149,6 @@ This prevents naming collisions between extensions.
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions.md)
-- [Database Guide](/guide/core/database.md)
-- [Models & Types](/dev/models.md)
+- [Building Extensions](/dev/building-extensions)
+- [Database Guide](/guide/core/database)
+- [Models & Types](/dev/models)

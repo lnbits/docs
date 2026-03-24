@@ -10,7 +10,7 @@ const props = defineProps({
   link: { type: String, default: '' },
 })
 
-const tileUrl = props.id && extensionMeta[props.id]?.tileUrl || null
+const tileUrl = (props.id && extensionMeta[props.id]?.tileUrl) || null
 </script>
 
 <template>

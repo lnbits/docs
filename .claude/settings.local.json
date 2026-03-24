@@ -26,7 +26,29 @@
       "Bash(find /Users/drshift/projects/docs_LNBITS/docs -name \"*.md\" -exec sed -i '' 's/ — / - /g' {} +)",
       "Bash(npx vitepress:*)",
       "WebFetch(domain:docs.spark.money)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:brandfetch.com)",
+      "Bash(grep -r \"hosted\\\\|provider\\\\|SaaS\\\\|saas\" /Users/drshift/projects/docs_LNBITS/docs/guide/installation --include=*.md)",
+      "Bash(grep -E \"\\\\.md$\")",
+      "Bash(grep -r \"my\\\\.lnbits\\\\|saas\\\\.lnbits\\\\|myLNbits\\\\|Alby\\\\|hosted\" /Users/drshift/projects/docs_LNBITS/docs --include=*.vue --include=*.md)",
+      "Bash(grep -r \"sk_test_\\\\|sk_live_\\\\|pk_test_\\\\|pk_live_\" /Users/drshift/projects/docs_LNBITS --include=*.md --include=*.vue --include=*.mjs --include=*.js)",
+      "Bash(grep -r \"github.*com.*token\\\\|GITHUB_TOKEN\\\\|github_token\" /Users/drshift/projects/docs_LNBITS --include=*.md --include=*.mjs --include=*.json)",
+      "Bash(grep -rn \"href=\\\\|to=/\\\\|url:\" /Users/drshift/projects/docs_LNBITS/docs --include=*.vue)",
+      "Bash(grep -r \"drshift\\\\|@drshift\\\\|personal\\\\|private\\\\|internal\" /Users/drshift/projects/docs_LNBITS/docs /Users/drshift/projects/docs_LNBITS/package.json /Users/drshift/projects/docs_LNBITS/scripts --include=*.mjs --include=*.js --include=*.json --include=*.vue)",
+      "Bash(grep -E \"\\\\.mov$|\\\\.mp4$|\\\\.png$|\\\\.jpg$\")",
+      "Bash(git rev-list:*)",
+      "Bash(grep -E \"\\\\.mov$|\\\\.mp4$\")",
+      "Bash(sort -k2)",
+      "Bash(xargs git:*)",
+      "Bash(grep:*)",
+      "Bash(grep -rh ]\\\\\\(/.*.md /Users/drshift/projects/docs_LNBITS/docs --include=*.md)",
+      "Bash(grep -rn ]\\\\\\(/.*.md /Users/drshift/projects/docs_LNBITS/docs --include=*.md)",
+      "Bash(git check-ignore:*)",
+      "Bash(ls:*)",
+      "WebFetch(domain:skills.sh)",
+      "Bash(python3 -c \"import sys,json; [print\\(x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")",
+      "Bash(python3 -c \"import sys,json; [print\\(x[''''type''''], x[''''name'''']\\) for x in json.load\\(sys.stdin\\)]\")",
+      "WebFetch(domain:www.anthropic.com)"
     ]
   }
 }

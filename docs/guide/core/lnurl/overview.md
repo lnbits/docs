@@ -48,6 +48,6 @@ curl https://your-lnbits.com/api/v1/lnurlscan/{lnurl}
 
 ## Related Pages
 
-- [Core Features](/guide/core/index.md)
-- [Payments](/guide/core/payments.md)
-- [LNURLp Extension](/extensions/lnurlp/index.md)
+- [Core Features](/guide/core/)
+- [Payments](/guide/core/payments)
+- [LNURLp Extension](/extensions/lnurlp/)
