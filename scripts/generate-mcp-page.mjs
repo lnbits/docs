@@ -47,14 +47,18 @@ async function fetchReadme() {
 function cleanReadme(raw) {
   let content = raw
 
+  // Remove all HTML blocks: <a>, <picture>, <p>, <div> with nested content
+  content = content.replace(/<a\s[^>]*>[\s\S]*?<\/a>\s*/gm, '')
+  content = content.replace(/<picture>[\s\S]*?<\/picture>\s*/gm, '')
+  content = content.replace(/<p\s+align[^>]*>[\s\S]*?<\/p>\s*/gm, '')
+  content = content.replace(/<div\s+align[^>]*>[\s\S]*?<\/div>\s*/gm, '')
+  // Remove standalone HTML img tags
+  content = content.replace(/<img\s[^>]*\/?\s*>\s*/gm, '')
+
   // Remove H1 (we add our own)
   content = content.replace(/^#\s+.+\n*/m, '')
 
-  // Remove HTML blocks at the top (badges, centered headers, etc.)
-  content = content.replace(/^<p\s+align[^>]*>[\s\S]*?<\/p>\s*/gm, '')
-  content = content.replace(/^<div\s+align[^>]*>[\s\S]*?<\/div>\s*/gm, '')
-
-  // Remove standalone badge images
+  // Remove standalone badge images (markdown syntax)
   content = content.replace(/^\[!\[[^\]]*\]\([^)]*\)\]\([^)]*\)\s*/gm, '')
   content = content.replace(/^!\[[^\]]*\]\([^)]*\)\s*/gm, '')
 
@@ -93,6 +97,8 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open 
 :::
 
 <SkillHeader repo="${REPO}" :official="true" source="https://github.com/${REPO}" />
+
+<iframe width="560" height="315" src="https://rumble.com/embed/v6tquy6/?pub=4" title="LNbits MCP Server - LNbits in your AI" frameborder="0" allowfullscreen style="max-width: 100%; border-radius: 8px; margin: 16px 0;"></iframe>
 
 ## How it fits together
 

@@ -3,12 +3,12 @@
 > Connect AI assistants like Claude directly to your LNbits instance. Create invoices, send payments, manage wallets, and control extensions through natural conversation.
 
 ::: tip What is MCP?
-The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open standard that lets AI assistants use external tools. The LNbits MCP Server auto-discovers every endpoint on your LNbits instance and exposes them as tools that Claude, Cursor, and other MCP-compatible agents can call directly.
+The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open standard that lets AI assistants use external tools. The LNbits MCP Server exposes 30+ Lightning wallet operations that Claude, Cursor, and other MCP-compatible agents can call directly.
 :::
 
 <SkillHeader repo="lnbits/LNbits-MCP-Server" :official="true" source="https://github.com/lnbits/LNbits-MCP-Server" />
 
-<iframe width="560" height="315" src="https://rumble.com/embed/v6tquy6/?pub=4" title="LNbits MCP Server - LNbits in your AI" frameborder="0" allowfullscreen style="max-width: 100%; border-radius: 8px;"></iframe>
+<iframe width="560" height="315" src="https://rumble.com/embed/v6tquy6/?pub=4" title="LNbits MCP Server - LNbits in your AI" frameborder="0" allowfullscreen style="max-width: 100%; border-radius: 8px; margin: 16px 0;"></iframe>
 
 ## How it fits together
 
@@ -20,18 +20,41 @@ The [Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open 
 
 ---
 
-## Features
+Give your AI assistant a Lightning wallet. The LNbits MCP Server connects any [MCP-compatible](https://modelcontextprotocol.io/) AI client to your [LNbits](https://lnbits.com/) instance - check balances, create invoices, send payments, and manage extensions, all through natural language.
 
-- **Auto-discovery** - tools are discovered from your instance's OpenAPI spec at startup. Every extension is supported with zero code changes.
-- **Core wallet operations** - balance, transaction history, wallet details
-- **Send and receive** - pay bolt11 invoices, pay Lightning Addresses, create invoices with QR codes
-- **Extension support** - LNURLp, TPoS, SatsPay, Watch-only, and every other extension on your instance
+### What is MCP?
+
+[Model Context Protocol](https://modelcontextprotocol.io/) (MCP) is an open standard that lets AI assistants use external tools. Instead of copy-pasting API responses into a chat, MCP gives your AI direct access to your LNbits wallet. You talk naturally, the AI calls the right API endpoint, and you see the result - all in one conversation.
+
+### Features
+
+- **Wallet operations** - check balances, view transaction history, get wallet details
+- **Send and receive** - pay Lightning invoices, pay Lightning addresses, create invoices
+- **Extension support** - LNURLp, TPoS, SatsPay, Watch-only wallets
 - **Admin tools** - node info, user management, system stats
-- **Runtime configuration** - configure your LNbits connection through natural language chat (no env files needed)
-- **Secure** - API keys stay in memory only, never written to disk
-- **Rate limited** - built-in request throttling
+- **Runtime config** - configure your LNbits connection through chat, no env files needed
+- **Secure** - API keys are stored in memory only, never logged; HTTPS recommended for production
+- **Rate limited** - built-in request throttling to prevent accidental API floods
+
+---
+
+## Table of Contents
+
+- [Quick Start](#quick-start)
+- [What you can say](#what-you-can-say)
+- [Available Tools](#available-tools)
+- [Configuration Reference](#configuration-reference)
+- [Running the Server Manually](#running-the-server-manually)
+- [Troubleshooting](#troubleshooting)
+- [Development](#development)
+- [Contributing](#contributing)
+- [Powered by LNbits](#powered-by-lnbits)
+
+---
 
 ## Quick Start
+
+Three steps, takes about two minutes.
 
 ### 1. Install
 
@@ -41,14 +64,14 @@ cd LNbits-MCP-Server
 pip install -e .
 ```
 
-Requires Python 3.10+.
+> You need Python 3.10+ installed. If you're unsure, run `python3 --version` first.
 
 ### 2. Add to your AI client
 
-For **Claude Desktop**, edit your config file:
+Tell your MCP client where the server lives. For **Claude Desktop**, edit the config file:
 
-- **macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
-- **Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
+**macOS**: `~/Library/Application Support/Claude/claude_desktop_config.json`
+**Windows**: `%APPDATA%\Claude\claude_desktop_config.json`
 
 ```json
 {
@@ -60,35 +83,28 @@ For **Claude Desktop**, edit your config file:
 }
 ```
 
-For **other MCP clients** (Cursor, Windsurf, etc.), add the same server entry to your client's MCP configuration.
+> Restart Claude Desktop after saving. The server only activates after a restart.
 
-### 3. Configure via chat
+### 3. Connect to your LNbits
 
-Restart your AI client, then tell it:
+Now just talk to your AI. No extra config files needed - tell it your credentials in plain language:
 
 ```
 Configure lnbits.
 
-URL: https://your-lnbits.com
-Key: your-admin-key
+URL: https://your-lnbits-instance.com
+Key: your_api_key_here
 Auth method: api_key_header
 ```
 
-The server discovers all available tools from your instance automatically. No restart needed.
+That's it. Try asking "What's my wallet balance?" to confirm it works.
 
-### Run manually (optional)
+> **Where's my API key?** Open your LNbits instance, look in the sidebar under "Node URL, API keys and API docs". Use the **Admin key** if you want to send payments, or the **Invoice key** if you only need to check balances and create invoices.
 
-```bash
-# Using the installed command
-lnbits-mcp-server
 
-# Or run directly
-python -m lnbits_mcp_server.server
-```
+## What you can say
 
-## Examples
-
-Once configured, interact with your LNbits wallet through natural language:
+Just talk naturally. The AI figures out which tool to call.
 
 ```
 "Check my wallet balance"
@@ -96,146 +112,132 @@ Once configured, interact with your LNbits wallet through natural language:
 "Pay this invoice: lnbc10u1p3..."
 "Send 500 sats to alice@lnbits.com"
 "Show me my recent payments"
-"Create a pay link for tips"
-"Set up a TPoS terminal called 'Market Stand'"
+"Decode this invoice and tell me what it's for"
 ```
 
-## Architecture: OpenAPI Auto-Discovery
+> You can also chain requests: "Create a 5000 sat invoice and show me the QR code" or "Check if that last payment went through, and if so, what's my new balance?"
 
-The MCP Server does not hardcode tools. Instead, it discovers them at runtime from your LNbits instance's `/openapi.json` spec:
 
-```
-Startup / Refresh
-       |
-       v
-  openapi_parser      Fetches /openapi.json, resolves $ref pointers
-       |               -> DiscoveredOperation objects
-       v
-  tool_registry        Filters operations (no DELETE by default,
-       |               skips non-API paths, 200-tool safety cap)
-       v               -> MCP Tool objects with curated descriptions
-  dispatcher           Generic HTTP executor for any discovered tool
-       |               -> handles path/query/body params automatically
-       v
-  meta_tools           6 curated infrastructure tools that aren't
-                       auto-discovered (configure, test, refresh, etc.)
-```
+## Available Tools
 
-This means:
-- **Every extension is automatically supported** - install a new extension, refresh tools, it appears
-- **No code changes needed** when LNbits adds new endpoints
-- **Curated descriptions** for common endpoints (wallet, payments, LNURLp) give the AI better context
-- **Safety filters** skip destructive DELETE endpoints by default
+These are the tools the AI uses behind the scenes. You don't need to call them directly - just describe what you want and the AI picks the right one.
 
-### Meta tools (always available)
-
-These 6 tools are built-in and not auto-discovered:
+### Configuration
 
 | Tool | Description |
 |---|---|
 | `configure_lnbits` | Set LNbits URL, API key, and auth method at runtime |
-| `test_connection` | Verify the connection to your LNbits instance |
-| `get_configuration` | Show current config (keys are masked) |
-| `refresh_tools` | Re-fetch the OpenAPI spec and update available tools |
-| `list_extensions` | List all extensions on the instance |
-| `pay_lightning_address` | Pay a Lightning Address (e.g., alice@lnbits.com) |
+| `get_lnbits_configuration` | Show current connection settings |
+| `test_lnbits_configuration` | Verify the connection works |
 
-### Auto-discovered tools (from your instance)
+> You only need to configure once per session. The server remembers your settings until you restart it.
 
-These depend on what your LNbits instance has enabled. Common ones:
+### Wallet
 
-| Category | Examples |
+| Tool | Description |
 |---|---|
-| **Wallet** | `get_wallet_details`, `get_wallet_balance`, `get_payments`, `check_connection` |
-| **Payments** | `pay_invoice`, `get_payment_status`, `decode_invoice`, `create_invoice` |
-| **LNURLp** | `create_lnurlp_link`, `get_lnurlp_links` |
-| **TPoS** | `create_tpos`, `get_tpos_list` |
-| **SatsPay** | `create_satspay_charge`, `get_satspay_charges` |
-| **Watch-only** | `create_watchonly_wallet`, `get_watchonly_wallets` |
-| **Admin** | `get_node_info`, `list_users`, `create_user`, `get_system_stats` |
+| `get_wallet_details` | Wallet info including balance and keys |
+| `get_wallet_balance` | Current balance |
+| `get_payments` | Payment history |
+| `check_connection` | Test connection to LNbits |
 
-## Invoice QR Code Enrichment
+### Payments
 
-When creating an invoice (`out=false`), the server automatically enriches the response with:
+| Tool | Description |
+|---|---|
+| `pay_invoice` | Pay a BOLT11 Lightning invoice |
+| `pay_lightning_address` | Pay a Lightning address (user@domain.com) |
+| `get_payment_status` | Check status by payment hash |
+| `decode_invoice` | Decode and inspect a Lightning invoice |
+| `create_invoice` | Create a new Lightning invoice |
 
-| Field | Value | Use |
-|---|---|---|
-| `qr_code` | `https://your-lnbits.com/api/v1/qrcode/{bolt11}` | Scannable QR code image URL |
-| `lightning_uri` | `lightning:{bolt11}` | Deep-link URI for wallet apps |
+> **Tip:** You can pay Lightning addresses directly - just say "Send 1000 sats to user@domain.com". No need to create an invoice first.
 
-Outgoing payments (`out=true`) are not enriched.
+### Extensions (when enabled)
 
-## Access Token Injection (LNbits v1.4+)
+These tools appear when you have the corresponding extensions installed on your LNbits instance.
 
-LNbits v1.4 blocks `usr` query param auth for admin users. The MCP Server handles this automatically:
+| Tool | Description |
+|---|---|
+| `create_lnurlp_link` / `get_lnurlp_links` | LNURLp pay links |
+| `create_tpos` / `get_tpos_list` | TPoS terminals |
+| `create_satspay_charge` / `get_satspay_charges` | SatsPay charges |
+| `create_watchonly_wallet` / `get_watchonly_wallets` | Watch-only wallets |
 
-- Detects endpoints requiring `usr` or `cookie_access_token` parameters
-- Injects `Authorization: Bearer <access_token>` header automatically
-- Hides these implementation details from the AI's tool schemas
+### Admin (requires admin key)
 
-Add your access token during configuration:
+Only available when you connect with a Super User or admin-level API key.
 
-```
-Configure lnbits.
+| Tool | Description |
+|---|---|
+| `get_node_info` | Lightning node information |
+| `list_users` / `create_user` | User management |
+| `get_system_stats` | System statistics |
 
-URL: https://your-lnbits.com
-Key: your-admin-key
-Access token: your-access-token
-Auth method: api_key_header
-```
 
 ## Configuration Reference
 
-### Runtime configuration (recommended)
-
-Use `configure_lnbits` through your AI client. Keys stay in memory only.
-
-### Environment variables (legacy)
-
-```bash
-LNBITS_URL=https://your-lnbits.com
-LNBITS_API_KEY=your_api_key
-LNBITS_AUTH_METHOD=api_key_header  # or api_key_query, http_bearer, oauth2
-```
+Most people just use the runtime config (step 3 above). But if you prefer environment variables, these work too:
 
 | Variable | Description | Default |
 |---|---|---|
-| `LNBITS_URL` | Base URL for LNbits instance | `https://demo.lnbits.com` |
-| `LNBITS_API_KEY` | API key for authentication | None (required) |
-| `LNBITS_BEARER_TOKEN` | Bearer token (alternative auth) | None |
-| `LNBITS_OAUTH2_TOKEN` | OAuth2 token (alternative auth) | None |
-| `LNBITS_AUTH_METHOD` | Auth method | `api_key_header` |
+| `LNBITS_URL` | LNbits instance URL | `https://demo.lnbits.com` |
+| `LNBITS_API_KEY` | API key | - |
+| `LNBITS_BEARER_TOKEN` | Bearer token (alternative auth) | - |
+| `LNBITS_OAUTH2_TOKEN` | OAuth2 token (alternative auth) | - |
+| `LNBITS_AUTH_METHOD` | `api_key_header`, `api_key_query`, `http_bearer`, or `oauth2` | `api_key_header` |
 | `LNBITS_TIMEOUT` | Request timeout (seconds) | `30` |
-| `LNBITS_MAX_RETRIES` | Max request retries | `3` |
+| `LNBITS_MAX_RETRIES` | Max retries on failure | `3` |
 | `LNBITS_RATE_LIMIT_PER_MINUTE` | Rate limit | `60` |
 
-At least one authentication method must be provided.
+> At least one auth method is required. For most setups, `LNBITS_API_KEY` with `api_key_header` is all you need.
+
+
+## Running the Server Manually
+
+Your AI client usually starts the server automatically. But if you want to test it directly or debug connection issues, you can run it yourself:
+
+```bash
+# Using the installed command
+lnbits-mcp-server
+
+# Or run directly with Python
+python -m lnbits_mcp_server.server
+```
+
+You can also set credentials via environment variables instead of runtime config:
+
+```bash
+export LNBITS_URL="https://your-lnbits-instance.com"
+export LNBITS_API_KEY="your_api_key_here"
+lnbits-mcp-server
+```
+
+> This is useful for testing outside an AI client, running in Docker, or integrating into scripts.
+
 
 ## Troubleshooting
 
-### Server won't start
+**Server won't start**
+- Check that Python 3.10+ is installed: `python3 --version`
+- Make sure you ran `pip install -e .` from the repo directory
+- Verify the `lnbits-mcp-server` command is available: `which lnbits-mcp-server`
 
-- Verify Python 3.10+ is installed (`python --version`)
-- Reinstall dependencies: `pip install -e .`
-- Check that `lnbits-mcp-server` is on your PATH
+**Connection fails after configuring**
+- Verify your LNbits instance is running and reachable from your machine
+- Double-check the API key - Admin and Invoice keys are different
+- Make sure you're using `https://` for remote instances
 
-### Connection fails
+**AI client doesn't show LNbits tools**
+- Restart your AI client after editing the config file
+- Check that the path in `claude_desktop_config.json` is correct
+- Look at your client's logs for MCP connection errors
 
-- Verify your LNbits URL is reachable: `curl https://your-lnbits.com/api/v1/health`
-- Check your API key is valid and has the right permissions
-- For self-signed certificates, ensure your environment trusts them
+**Payments fail**
+- Invoice key can only create invoices and check balances - use Admin key for sending payments
+- Check that your LNbits wallet has sufficient balance
+- For Lightning address payments, the recipient's server must be reachable
 
-### AI client doesn't see the tools
-
-- Restart the AI client after adding the MCP server config
-- Use `refresh_tools` to re-discover endpoints
-- Check the AI client's MCP logs for error messages
-
-### Payments fail
-
-- Verify the wallet has sufficient balance
-- Check that you are using an admin key (invoice keys cannot send)
-- For Lightning Address payments, ensure the recipient's address is reachable
 
 ## Development
 
@@ -244,7 +246,7 @@ git clone https://github.com/lnbits/LNbits-MCP-Server.git
 cd LNbits-MCP-Server
 pip install -e .[dev]
 
-# Run tests (92 tests across 8 files)
+# Run tests
 pytest
 
 # Format
@@ -255,17 +257,21 @@ isort src tests
 mypy src
 ```
 
-## Security
+## Contributing
 
-- **API keys** stay in memory only, never written to disk
-- **HTTPS** required for production instances
-- **Rate limiting** prevents API abuse
-- **DELETE endpoints** are filtered out by default
-- **Sensitive info** is never logged
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes and add tests
+4. Submit a pull request
 
-## License
+Questions? Drop by the [Telegram group](https://t.me/lnbits) first - a quick chat often saves a round-trip on the PR.
 
-MIT License - see [LICENSE](https://github.com/lnbits/LNbits-MCP-Server/blob/main/LICENSE) for details.
+
+## Powered by LNbits
+
+[LNbits](https://lnbits.com) is a free and open-source Lightning accounts system.
+
+
 
 ## Related Pages
 
@@ -273,4 +279,4 @@ MIT License - see [LICENSE](https://github.com/lnbits/LNbits-MCP-Server/blob/mai
 - [Skills Catalog](/llm/skills) - task-ready instruction files for agents
 - [API Reference](/api/) - the REST API the MCP Server calls under the hood
 - [Authentication](/api/authentication) - API key types and permissions
-- [Extensions](/extensions/) - extensions the MCP Server can control
+- [Extensions](/extensions/) - extensions the MCP Server can control (LNURLp, TPoS, SatsPay)
