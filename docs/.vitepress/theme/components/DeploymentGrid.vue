@@ -50,6 +50,8 @@ const platforms = [
         name: 'Citadel',
         desc: 'App Store install',
         url: '/guide/installation/node-platforms#citadel',
+        dark: '/logos/backends/citadel-dark.svg',
+        light: '/logos/backends/citadel-light.svg',
         difficulty: 'Easy',
         features: 'Full',
       },
@@ -63,6 +65,7 @@ const platforms = [
         name: 'LNbits SaaS',
         desc: 'Official hosted solution',
         url: '/guide/installation/saas',
+        icon: '/logos/lnbits.svg',
         difficulty: 'Easiest',
         features: 'Full',
         badge: 'Fastest',
@@ -87,6 +90,7 @@ const platforms = [
         name: 'Docker',
         desc: 'Recommended for production',
         url: '/guide/installation/docker',
+        icon: '/logos/backends/docker.svg',
         difficulty: 'Moderate',
         features: 'Full',
         badge: 'Production',
@@ -95,6 +99,7 @@ const platforms = [
         name: 'uv',
         desc: 'Fastest Python install',
         url: '/guide/installation/uv',
+        icon: '/logos/backends/python.svg',
         difficulty: 'Moderate',
         features: 'Full',
         badge: 'Dev',
@@ -103,6 +108,7 @@ const platforms = [
         name: 'Poetry',
         desc: 'Traditional Python setup',
         url: '/guide/installation/poetry',
+        icon: '/logos/backends/poetry.svg',
         difficulty: 'Moderate',
         features: 'Full',
       },
@@ -110,6 +116,7 @@ const platforms = [
         name: 'Nix',
         desc: 'Reproducible builds',
         url: '/guide/installation/nix',
+        icon: '/logos/backends/nixos.svg',
         difficulty: 'Advanced',
         features: 'Full',
       },
@@ -117,6 +124,7 @@ const platforms = [
         name: 'AppImage',
         desc: 'Desktop app',
         url: '/guide/installation/appimage',
+        icon: '/logos/backends/appimage.svg',
         difficulty: 'Easy',
         features: 'Full',
       },
@@ -124,6 +132,7 @@ const platforms = [
         name: 'Fly.io',
         desc: 'Cloud deployment',
         url: '/guide/installation/flyio',
+        icon: '/logos/backends/flyio.svg',
         difficulty: 'Moderate',
         features: 'Full',
       },
@@ -132,6 +141,7 @@ const platforms = [
 ]
 
 function logoSrc(item) {
+  if (item.icon) return item.icon
   if (!item.dark && !item.light) return null
   return isDark.value ? item.dark : item.light
 }

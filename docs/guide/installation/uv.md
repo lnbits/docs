@@ -68,17 +68,13 @@ lnbits-cli superuser
 
 ## Install script (Debian/Ubuntu)
 
-For a quick install on Debian-based systems:
+The official one-line install script handles everything: system dependencies, cloning, venv setup, and configuration.
 
 ```bash
-# One-liner install (installs system deps, clones repo, sets up venv)
-sudo apt install python3-dev python3-venv libpq-dev build-essential -y && \
-  git clone https://github.com/lnbits/lnbits.git && \
-  cd lnbits && \
-  uv venv && source .venv/bin/activate && \
-  uv pip install . && \
-  cp .env.example .env
+wget https://raw.githubusercontent.com/lnbits/lnbits/main/lnbits.sh && chmod +x lnbits.sh && ./lnbits.sh
 ```
+
+After installation, use `./lnbits.sh` to run, or for more control: `cd lnbits && uv run lnbits`.
 
 ## Updating
 
