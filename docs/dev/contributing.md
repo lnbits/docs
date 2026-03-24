@@ -4,66 +4,33 @@
 
 ## Getting started
 
+Fork and clone the repo, then use `make dev` for a one-command setup:
+
 ```bash
-# Fork and clone
 git clone https://github.com/your-username/lnbits.git
 cd lnbits
-
-# Install dependencies (uv preferred, Poetry also supported)
-uv venv && source .venv/bin/activate && uv pip install -e ".[dev]"
-# or: poetry install
-
-# Set up for development
-cp .env.example .env
-
-# Use FakeWallet for development
-echo "LNBITS_BACKEND_WALLET_CLASS=FakeWallet" >> .env
-
-# Run in debug mode
-DEBUG=true lnbits
-# or: poetry run lnbits
-```
-
-### Debian/Ubuntu dependencies
-
-If building from source on Debian/Ubuntu, install system dependencies first:
-
-```bash
-sudo apt install python3-dev libpq-dev build-essential
-```
-
-### Quick start with Make
-
-```bash
-# One-command dev setup (installs, configures, and starts)
 make dev
 ```
 
+This installs dependencies, configures FakeWallet, and starts LNbits in debug mode.
+
+::: tip Prefer manual setup?
+See the full installation guides for [uv](/guide/installation/uv), [Poetry](/guide/installation/poetry), or [Nix](/guide/installation/nix). Use [FakeWallet](/guide/wallets/fakewallet) for development - it simulates Lightning payments without a real node.
+:::
+
 ### Pre-commit hooks
 
-Set up pre-commit hooks to catch issues before committing:
-
 ```bash
-# Install pre-commit hooks
 pre-commit install
-
-# Run hooks manually on all files
 pre-commit run --all-files
 ```
 
 ### LNbits CLI
 
-LNbits includes a CLI tool for common operations:
-
 ```bash
-# See available commands
-lnbits-cli --help
-
-# Run database migrations
-lnbits-cli migrate
-
-# Create a superuser
-lnbits-cli superuser
+lnbits-cli --help        # available commands
+lnbits-cli migrate       # run database migrations
+lnbits-cli superuser     # create a superuser
 ```
 
 ## Development workflow
@@ -94,17 +61,7 @@ If your extension absolutely requires a new Python package whose needs are not m
 
 1. **Check `pyproject.toml` first** - search for an existing package that covers your need
 2. **Open an issue** on GitHub explaining why the dependency is necessary and what alternatives you evaluated
-3. **Add the dependency** to `pyproject.toml`:
-
-```bash
-# With Poetry
-poetry add package-name
-
-# With uv
-uv pip install package-name
-# then manually add to pyproject.toml
-```
-
+3. **Add the dependency** to `pyproject.toml`
 4. **Test compatibility across all supported installers:**
 
 ```bash
@@ -129,7 +86,7 @@ All three installation methods (uv, Poetry, Nix) must work. A PR that breaks any
 ### What gets rejected
 
 | Reason | Example |
-| --- | --- |
+|---|---|
 | Duplicate functionality | Adding `requests` when `httpx` is already available |
 | Heavy/bloated package | Adding a large framework for a small utility |
 | Unmaintained package | No releases or commits in 12+ months |
@@ -139,23 +96,13 @@ All three installation methods (uv, Poetry, Nix) must work. A PR that breaks any
 ## Testing
 
 ```bash
-# Run all tests
-make test
+make test              # run all tests
+make format            # run formatting check
+make mypy              # run type checking
+make all               # format + lint + type check + tests
 
 # Run specific test file
-poetry run pytest tests/test_wallets.py
-
-# Run with verbose output
-poetry run pytest -v
-
-# Run formatting check
-make format
-
-# Run type checking
-make mypy
-
-# Run all checks (format + lint + type check + tests)
-make all
+poetry run pytest tests/test_wallets.py -v
 ```
 
 Tests must pass on both SQLite and PostgreSQL.
@@ -163,7 +110,7 @@ Tests must pass on both SQLite and PostgreSQL.
 ## Project branches
 
 | Branch | Purpose |
-| --- | --- |
+|---|---|
 | `main` | Stable releases |
 | `dev` | Active development (PR target) |
 | `feature/*` | Feature branches |
@@ -178,31 +125,21 @@ Found something broken? [Open an issue on GitHub](https://github.com/lnbits/lnbi
 - Relevant logs (mask any secrets, macaroons, or API keys!)
 - Steps to reproduce the issue
 
-For extension bugs, open the issue on the extension's own repo (linked from each extension page).
+For extension bugs, open the issue on the extension's own repo (linked from each [extension page](/extensions/)).
 
 ## Contributing to documentation
 
-This docs site pulls extension pages directly from each extension's GitHub repository. To improve an extension's documentation:
+The docs site is a separate project. Extension pages are auto-generated from each extension's GitHub README at build time.
 
-1. Go to the extension repo (e.g., `github.com/lnbits/tpos`)
-2. Edit the `README.md` there
-3. Your changes will appear on the docs site at the next build
+**To improve an extension page:** Edit the `README.md` in the extension's own repo (e.g., `github.com/lnbits/tpos`). Changes appear on the docs site at the next build.
 
-For core docs (guides, API reference, developer docs), submit a PR to the [docs repository](https://github.com/lnbits/lnbits-docs).
+**To improve core docs:** Submit a PR to the [docs repository](https://github.com/DoktorShift/docs_lnbits). Pages are Markdown files in `docs/`.
 
-### Translations - great first contribution
+**Not sure where to start?** The [Contribute page](/contribute/) has role-specific guides for developers, testers, writers, designers, entrepreneurs, and ambassadors.
 
-LNbits is used worldwide. If you're a native speaker of a non-English language, helping with translations is one of the easiest and most impactful ways to contribute. No coding required - just language skills and a GitHub account.
+### Translations
 
-## Areas to contribute
-
-- **Bug fixes** - check the [GitHub Issues](https://github.com/lnbits/lnbits/issues)
-- **Documentation** - improve extension READMEs or core docs (see above)
-- **Extensions** - build new extensions (see [Building Extensions](/dev/building-extensions))
-- **Wallet backends** - add support for new Lightning services
-- **Frontend** - UI improvements and accessibility
-- **Tests** - increase test coverage
-- **Translations** - help localize LNbits (great first contribution!)
+Translation infrastructure is being planned. If you're a native speaker of a non-English language and want to help shape how translations work, reach out on [Telegram](https://t.me/lnbits). Early volunteers will define the process.
 
 ## PR checklist
 
@@ -221,7 +158,7 @@ LNbits is used worldwide. If you're a native speaker of a non-English language, 
 Common CI/review rejection reasons:
 
 | Code | Cause | Fix |
-| --- | --- | --- |
+|---|---|---|
 | `LINT_FAIL` | Ruff formatting errors | Run `make format` |
 | `TYPE_ERROR` | Missing type hints | Add type annotations |
 | `WRONG_BRANCH` | PR targets `main` | Rebase onto `dev` |
@@ -232,13 +169,16 @@ Common CI/review rejection reasons:
 
 Join the LNbits Telegram group: [@lnbits](https://t.me/lnbits)
 
-You can also reach the core team directly via the chat button on [lnbits.com](https://lnbits.com).
-
 ::: warning Scam warning
 LNbits admins will **never** DM you first. There is **no official LNbits support team** that contacts users privately. If someone messages you claiming to be LNbits support, it is a scam.
 :::
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
-- [Architecture](/dev/architecture)
+- [Contribute to LNbits](/contribute/) - role-specific guides for all contributor types
+- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Architecture](/dev/architecture) - internal structure and design decisions
+- [Developer Tools](/dev/tools) - Extension Builder, Polar, MCP Server, TableTown
+- [FakeWallet](/guide/wallets/fakewallet) - simulated Lightning backend for development
+- [Installation (uv)](/guide/installation/uv) - recommended from-source install
+- [Installation (Poetry)](/guide/installation/poetry) - alternative Python setup
