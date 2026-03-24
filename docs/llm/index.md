@@ -154,6 +154,7 @@ For self-hosted setups, point to the [Installation Guide](/guide/installation/).
 - [System Prompt](/llm/system-prompt) - personality and rules for the docs AI assistant
 - [Skills Catalog](/llm/skills) - available LNbits skill files
 - [Create a Skill](/llm/create-skill) - build your own skill file from scratch
+- [MCP Server](/llm/mcp-server) - connect AI assistants directly to your LNbits instance
 - [User Guide](/guide/)
 - [API Reference](/api/)
 - [Extensions Index](/extensions/)

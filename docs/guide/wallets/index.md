@@ -147,6 +147,25 @@ SPARK_TOKEN=your-access-key
 
 ## Advanced backends
 
+### Spark (L2)
+
+Self-custodial, seed-based wallet via an external [Node.js sidecar](https://github.com/lnbits/spark_sidecar). No Lightning node required - liquidity is managed automatically.
+
+```bash
+LNBITS_BACKEND_WALLET_CLASS=SparkL2Wallet
+SPARK_L2_NETWORK=MAINNET
+SPARK_L2_EXTERNAL_ENDPOINT=http://127.0.0.1:8765
+SPARK_L2_EXTERNAL_API_KEY=your-api-key
+```
+
+Optional tuning:
+
+```bash
+# SPARK_L2_PAY_WAIT_MS=4000
+# SPARK_L2_PAY_POLL_MS=500
+# SPARK_L2_STREAM_KEEPALIVE_MS=15000
+```
+
 ### Nostr Wallet Connect (NWC)
 
 ```bash

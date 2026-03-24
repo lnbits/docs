@@ -55,9 +55,16 @@ Polar shows you the macaroon and cert paths directly in the node info panel. Cop
 
 Built by [Arbadacarbayk](https://github.com/Arbadacarbayk) - a standout community contribution that makes pre-release reviews fast and reliable.
 
+## MCP Server - AI assistant integration
+
+The [LNbits MCP Server](https://github.com/lnbits/LNbits-MCP-Server) lets AI assistants like Claude control a LNbits instance directly. 30+ tools for wallet management, payments, invoices, and extension operations. Useful for testing workflows through natural language, automating tasks, or building AI-powered Lightning applications.
+
+[MCP Server documentation →](/llm/mcp-server)
+
 ## Related Pages
 
 - [Extension Builder](/guide/core/extension-builder) - no-code extension creation wizard
 - [FakeWallet](/guide/wallets/fakewallet) - simulated Lightning backend for quick testing
 - [Building Extensions](/dev/building-extensions) - full extension development guide
 - [Contributing](/dev/contributing) - dev setup, commands, and PR process
+- [MCP Server](/llm/mcp-server) - connect AI assistants to LNbits

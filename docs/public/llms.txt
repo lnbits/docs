@@ -129,4 +129,5 @@
 - [LLM Integration](https://docs.lnbits.com/llm/): How to use LNbits docs with AI agents and LLMs
 - [System Prompt](https://docs.lnbits.com/llm/system-prompt): Personality, knowledge, and rules for the LNbits documentation assistant - feed this as the system instruction when connecting an LLM
 - [Skills Catalog](https://docs.lnbits.com/llm/skills): Task-ready instruction files for AI agents - official skills (maintained by LNbits team) and community skills (third-party, use at own risk). Each skill page shows trust indicators (official/community badge, GitHub stars, last updated)
+- [MCP Server](https://docs.lnbits.com/llm/mcp-server): Connect AI assistants (Claude, Cursor, etc.) directly to LNbits via Model Context Protocol. 30+ tools for wallet management, payments, invoices, extensions, and admin. Fetched live from github.com/lnbits/LNbits-MCP-Server
 - [Full Content Dump](https://docs.lnbits.com/llms-full.txt): All documentation concatenated into one file (220 pages)

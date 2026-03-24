@@ -140,6 +140,7 @@ const columns = [
         heading: 'LLM & AI',
         items: [
           { name: 'LLM Overview', desc: 'AI integration guides', link: '/llm/', icon: 'zap' },
+          { name: 'MCP Server', desc: 'AI controls LNbits directly', link: '/llm/mcp-server', icon: 'link' },
           { name: 'Skills', desc: 'Claude Code skills', link: '/llm/skills', icon: 'code' },
         ],
       },
