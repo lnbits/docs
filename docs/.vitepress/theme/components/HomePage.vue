@@ -35,7 +35,7 @@ Before giving advice, ask me:
 2. What is your role? (developer, merchant, event organizer, student, sysadmin?)
 3. Do you already have a Lightning node or LNbits instance running?
 
-Based on my answers, guide me step by step. Be specific - name the exact extensions, API endpoints, env vars, and config options I need. Show code examples when they help. If LNbits SaaS (saas.lnbits.com) is the fastest path, say so. If I need self-hosting, explain why. Challenge my assumptions if there is a better approach.`
+Based on my answers, guide me step by step. Be specific - name the exact extensions, API endpoints, env vars, and config options I need. Show code examples when they help. If LNbits SaaS (my.lnbits.com) is the fastest path, say so. If I need self-hosting, explain why. Challenge my assumptions if there is a better approach.`
 
 const URL_CONTENT_LIMIT = 6000
 

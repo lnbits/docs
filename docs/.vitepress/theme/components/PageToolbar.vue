@@ -13,6 +13,248 @@ import codexIcon from '@lobehub/icons-static-svg/icons/codex-color.svg'
 // ── Route: hide on home page ──
 const route = useRoute()
 const isHomePage = computed(() => route.path === '/' || route.path === '/index.html')
+const isContributePage = computed(() => route.path.startsWith('/contribute'))
+
+// ── Contribute page data ──
+const contributeRoles = [
+  { id: 'developer', title: 'Developer', tagline: 'Fix bugs, build features, get your code merged.' },
+  { id: 'tester', title: 'Tester', tagline: 'Hunt bugs, test PRs, and file clear reports.' },
+  { id: 'writer', title: 'Writer', tagline: 'Write docs, share stories, create tutorials, and get featured on our news page.' },
+  { id: 'designer', title: 'Designer', tagline: 'Shape the UI with Vue and Quasar, create marketing material, and design visuals.' },
+  { id: 'entrepreneur', title: 'Entrepreneur', tagline: 'Build products and run services on top of LNbits.' },
+  { id: 'ambassador', title: 'Ambassador', tagline: 'Deploy LNbits for your community and onboard merchants to Lightning.' },
+]
+
+const contributeRoleContent = {
+  developer: `# Contribute as a Developer
+
+LNbits is Python + FastAPI (backend) and Vue 3 + Quasar (frontend). MIT licensed.
+
+## Getting started
+1. Clone the repo: https://github.com/lnbits/lnbits
+2. Install with uv: https://docs.lnbits.com/guide/installation/uv
+3. Set LNBITS_BACKEND_WALLET_CLASS=FakeWallet (no Lightning node needed)
+4. Run lnbits and start coding
+
+## What to work on
+- Good first issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+- Architecture overview: https://docs.lnbits.com/dev/architecture
+- Build extensions: https://docs.lnbits.com/dev/building-extensions
+- Extension Builder (no-code): https://docs.lnbits.com/guide/core/extension-builder
+- Deploy to registry: https://docs.lnbits.com/dev/extensions/registry
+- Extension monetization (pay-to-install): https://docs.lnbits.com/dev/extensions/monetization
+
+## PR best practices
+- Include screenshots or screen recordings
+- Test locally with FakeWallet before requesting review
+- Write clear description of what changed and why
+- Keep PRs focused on one change
+- Run make format before pushing
+
+## Community
+- Telegram: https://t.me/lnbits
+- GitHub Discussions: https://github.com/lnbits/lnbits/discussions`,
+
+  tester: `# Contribute as a Tester
+
+No Lightning node needed. FakeWallet simulates payments locally.
+
+## Getting a test instance
+- Fastest: https://my.lnbits.com (full instance in 3 minutes)
+- Demo server: https://demo.lnbits.com
+- Local install with uv: https://docs.lnbits.com/guide/installation/uv
+- Docker: https://docs.lnbits.com/guide/installation/docker
+- FakeWallet: https://docs.lnbits.com/guide/wallets/fakewallet
+- Polar for real Lightning testing: https://lightningpolar.com
+
+## Where bugs hide
+- Funding sources: connect different backends (LND, CLN, Phoenixd, NWC) and verify payments settle
+- Node Manager: channel operations, peer connections, balance reporting
+- Extension edge cases: two extensions sharing a wallet, data migration between versions
+- Fiat providers: Stripe and PayPal checkout flows, webhook delivery
+- Multi-user under load: shared wallets with concurrent payments, ACL token expiry
+- Mobile in the field: test TPoS and Boltcards on real phones
+
+## How to test a PR
+1. git fetch origin pull/ID/head:pr-ID && git checkout pr-ID
+2. uv sync && lnbits with FakeWallet
+3. Follow the PR description, test what changed, screenshot/record results
+
+## How to report a bug
+- Include: LNbits version, wallet backend, browser/OS
+- Describe: what you did, what happened, paste ERROR lines from logs
+- File at: https://github.com/lnbits/lnbits/issues
+- Security issues: https://github.com/lnbits/lnbits/security/advisories/new
+
+## Community
+- Telegram: https://t.me/lnbits`,
+
+  writer: `# Contribute as a Writer
+
+You do not need technical knowledge. If you can use LNbits, you can document it.
+
+## Quick wins (10 minutes)
+- Find an extension with a thin page: https://docs.lnbits.com/extensions/
+- Check FAQ for unanswered questions: https://docs.lnbits.com/guide/faq/
+- Fix a broken link or typo in the docs repo
+- Add a missing "Related Pages" section
+
+## Where docs live
+- Docs repo: https://github.com/DoktorShift/docs_lnbits
+- Pages are Markdown files in docs/
+- Extension pages auto-generate from GitHub READMEs - improve a README, improve the docs
+
+## Content ideas
+- Deployment story: how you set up LNbits
+- Merchant case study: TPoS + Boltcards in action
+- Extension tutorial: step-by-step walkthrough
+- Event recap: LNbits at a festival or meetup
+
+## Tips
+- Lead with what the reader gets, not what LNbits is
+- Real numbers make stories stick ("onboarded 12 merchants in 3 weeks")
+- Screenshots and short videos beat long paragraphs
+- Link to docs.lnbits.com so readers can go deeper
+
+## Get featured
+Share your writing on X (tag @lnbits) or Telegram and the team will consider it for news.lnbits.com
+
+## Community
+- Telegram: https://t.me/lnbits
+- News site: https://news.lnbits.com`,
+
+  designer: `# Contribute as a Designer
+
+LNbits uses Vue 3 + Quasar UI for the app, VitePress for docs. You can restyle components without writing backend code.
+
+## The stack
+- LNbits app: https://github.com/lnbits/lnbits (Vue + Quasar)
+- Docs site: https://github.com/DoktorShift/docs_lnbits (VitePress)
+- Quasar components: https://quasar.dev/vue-components
+- Try LNbits live: https://my.lnbits.com
+
+## What we need
+### Product design
+- UI improvements for admin panel, extension flows, mobile views
+- Docs site pages, layouts, components
+
+### Creative design
+- Blog and news header images for articles at news.lnbits.com
+- Illustrations for marketing
+- Social media cards, infographics, announcements
+
+## How to contribute
+1. Post your mockup or concept in Telegram for quick feedback
+2. For UI changes: open a GitHub issue with before/after screenshots
+3. For visuals: share the file (Figma, SVG, PNG) in the issue or PR
+4. Design for dark mode first, then adapt for light
+
+## Open requests
+- Design-tagged issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign
+
+## Community
+- Telegram: https://t.me/lnbits`,
+
+  entrepreneur: `# Contribute as an Entrepreneur
+
+LNbits is not just a wallet - it is a platform with REST API, extension system, and multi-user architecture for building Lightning-powered businesses.
+
+## Understand the platform
+- What is LNbits: https://docs.lnbits.com/guide/what-is-lnbits
+- API quick reference: https://docs.lnbits.com/api/quick-reference
+- 60+ extensions: https://docs.lnbits.com/extensions/
+- Fiat payments (Stripe + PayPal): https://docs.lnbits.com/guide/core/fiat-payments
+
+## Business models
+- Build a paid extension and list it with pay-to-install in the registry
+- Package TPoS + Inventory + Boltcards + SplitPayments into a turnkey merchant solution
+- White-label LNbits under your own brand (MIT license allows it)
+- Offer consulting: help businesses integrate Lightning via the LNbits API
+- Run a multi-tenant instance for multiple clients
+
+## Launch options
+- LNbits SaaS (3 minutes): https://my.lnbits.com
+- Docker (production): https://docs.lnbits.com/guide/installation/docker
+- Extension monetization: https://docs.lnbits.com/dev/extensions/monetization
+- Custom marketplace: https://docs.lnbits.com/dev/extensions/custom-list
+
+## Community
+- Telegram: https://t.me/lnbits
+- GitHub Discussions: https://github.com/lnbits/lnbits/discussions`,
+
+  ambassador: `# Contribute as an Ambassador
+
+Deploy LNbits for your community and onboard merchants to Lightning.
+
+## Deploy for your community
+### One-click node platforms
+- Umbrel: https://docs.lnbits.com/guide/installation/node-platforms#umbrel
+- Start9: https://docs.lnbits.com/guide/installation/node-platforms#start9
+- RaspiBlitz: https://docs.lnbits.com/guide/installation/node-platforms#raspiblitz
+- myNode: https://docs.lnbits.com/guide/installation/node-platforms#mynode
+
+### Cloud & hosted
+- LNbits SaaS (live in 3 min): https://my.lnbits.com
+- Docker + VPS: https://docs.lnbits.com/guide/installation/docker
+
+## Onboard merchants
+- TPoS (Point of Sale): https://docs.lnbits.com/extensions/tpos/
+- Bolt Cards (NFC tap-to-pay): https://docs.lnbits.com/extensions/boltcards/
+- LNURLp (Static QR codes): https://docs.lnbits.com/extensions/lnurlp/
+- SatsPay (Payment pages): https://docs.lnbits.com/extensions/satspay/
+- TPoS Wrapper Android App: https://docs.lnbits.com/apps/tpos-wrapper
+
+## Build your local network
+- Run a workshop at your local Bitcoin meetup
+- Document your deployment as a case study or blog post
+- Help merchants troubleshoot - you are their first line of support
+- Offer hosting: run a multi-tenant LNbits instance for your community
+
+## Spread the word
+- X: https://x.com/lnbits (tag @lnbits)
+- YouTube tutorials: https://www.youtube.com/@lnbits
+- Reddit: https://reddit.com/r/lightningnetwork
+
+## Community
+- Telegram: https://t.me/lnbits`,
+}
+
+const contributeFaqContent = `## Frequently Asked Questions
+
+### General (all roles)
+- **Where do I ask for help?** Telegram group (https://t.me/lnbits). Core devs, extension builders, and users are all there.
+- **Can I get paid?** LNbits is volunteer open-source, but OpenSats and HRF fund contributors. Extension developers can monetize via pay-to-install.
+- **What license?** MIT. Use it, fork it, sell it, remix it.
+
+### Developer
+- **Tech stack:** Python + FastAPI backend, Vue 3 + Quasar frontend.
+- **Dev setup:** Clone, install with uv, set FakeWallet, run. No node needed.
+
+### Tester
+- **No node needed.** FakeWallet simulates payments. Or use my.lnbits.com for quick testing.
+- **Good bug report:** Steps to reproduce, LNbits version, browser/OS, console errors.
+
+### Writer
+- **No tech knowledge needed.** FAQ improvements, merchant stories, and clear explanations are valuable.
+
+### Designer
+- **Needed:** UI improvements, blog headers, social media cards, infographics.
+
+### Entrepreneur
+- **Models:** Paid extensions, merchant solutions, white-labeling, consulting.
+
+### Ambassador
+- **Merchant onboarding:** TPoS for point-of-sale, Boltcards for tap-to-pay, LNURLp for QR codes.`
+
+function getContributeRoleMarkdown(roleId) {
+  return contributeRoleContent[roleId] || ''
+}
+
+function getContributeFullMarkdown() {
+  const header = `# Contribute to LNbits\n\nSource: ${window.location.href}\n\n${contributeRoles.map(r => `- **${r.title}**: ${r.tagline}`).join('\n')}`
+  const sections = contributeRoles.map(r => contributeRoleContent[r.id]).join('\n\n---\n\n')
+  return `${header}\n\n${sections}\n\n${contributeFaqContent}`
+}
 
 // ── Copy Page state ──
 const showCopyMenu = ref(false)
@@ -38,14 +280,14 @@ const suggestedQuestions = [
   'How do I set up a reverse proxy?',
 ]
 
-const intents = [
+const defaultIntents = [
   { key: 'explain', label: 'Explain this', desc: 'Break down the concepts', prompt: `<role>You are the LNbits documentation assistant - friendly, direct, and knowledgeable.</role>
 
 <documentation>` , promptSuffix: `</documentation>
 
 <additional_context>
 Full docs index: https://docs.lnbits.com/llms.txt
-LNbits SaaS (quickest start): https://saas.lnbits.com
+LNbits SaaS (quickest start): https://my.lnbits.com
 </additional_context>
 
 <instructions>
@@ -71,7 +313,7 @@ Your goal is to get me to a working implementation as fast as possible. Before w
 1. What language? (Python, JavaScript/Node, curl)
 2. What am I building? (script, web app, extension, automation)
 3. Admin key or invoice key? (explain the difference if I am unsure)
-4. Do I have a running LNbits instance? (if not, suggest saas.lnbits.com or FakeWallet)
+4. Do I have a running LNbits instance? (if not, suggest my.lnbits.com or FakeWallet)
 
 Once I answer, provide a complete, copy-paste-ready example with: all imports, real endpoint paths, error handling for auth/connection/balance failures, comments, and a production note.
 Before finishing, verify all endpoint paths and parameters match the documentation.
@@ -102,18 +344,79 @@ Before finishing, verify your diagnosis is consistent with all the symptoms I de
 
 <additional_context>
 Full docs: https://docs.lnbits.com/llms.txt
-LNbits SaaS (quickest start): https://saas.lnbits.com
+LNbits SaaS (quickest start): https://my.lnbits.com
 </additional_context>
 
 <instructions>
 Your goal is to get me from where I am now to a working result. Ask me two things first:
-1. Do I already have LNbits running? (if not, recommend saas.lnbits.com or Docker)
+1. Do I already have LNbits running? (if not, recommend my.lnbits.com or Docker)
 2. What is my end goal with this feature?
 
 Then give me a numbered step-by-step walkthrough with: exact commands, config values, UI navigation paths (e.g. Admin > Server > Notifications), a verification check after each step, and what commonly goes wrong. Do not skip steps. State prerequisites upfront. Suggest faster alternatives if they exist.
 Before finishing, verify each step is in the correct order and no prerequisites are missing.
 </instructions>` },
 ]
+
+const contributeIntents = [
+  { key: 'find-role', label: 'Help me find my role', desc: 'What can I contribute?', prompt: `<role>You are the LNbits community guide - warm, encouraging, and practical.</role>
+
+<contribute_page>` , promptSuffix: `</contribute_page>
+
+<additional_context>
+Full docs: https://docs.lnbits.com/llms.txt
+Contribute page: https://docs.lnbits.com/contribute/
+Telegram: https://t.me/lnbits
+</additional_context>
+
+<instructions>
+Help me find the right way to contribute to LNbits. Ask me (all at once, keep it casual):
+1. What is your background? (coding, design, writing, business, community building, or just curious?)
+2. How much time can you give? (10 minutes, a few hours a week, or something bigger?)
+3. Have you used LNbits before?
+
+Based on my answers, recommend one of the six roles: Developer, Tester, Writer, Designer, Entrepreneur, or Ambassador. Then give me 2-3 concrete first actions with direct links.
+</instructions>` },
+  { key: 'first-steps', label: 'Get me started', desc: 'First actions for my role', prompt: `<role>You are the LNbits community guide - practical and action-oriented.</role>
+
+<contribute_page>` , promptSuffix: `</contribute_page>
+
+<additional_context>
+Full docs: https://docs.lnbits.com/llms.txt
+Good first issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
+Docs repo: https://github.com/DoktorShift/docs_lnbits
+</additional_context>
+
+<instructions>
+Ask me: What role interests me? (Developer, Tester, Writer, Designer, Entrepreneur, Ambassador)
+Then give a step-by-step onboarding plan: what to install, a specific first task for today, where to ask for help, and what to do after my first contribution. Keep it short and actionable.
+</instructions>` },
+  { key: 'explain', label: 'What is LNbits?', desc: 'Overview for newcomers', prompt: `<role>You are the LNbits community guide - enthusiastic but honest.</role>
+
+<contribute_page>` , promptSuffix: `</contribute_page>
+
+<additional_context>
+What is LNbits: https://docs.lnbits.com/guide/what-is-lnbits
+Try it: https://my.lnbits.com
+</additional_context>
+
+<instructions>
+Explain LNbits to someone who found the contribute page but is not sure what the project is. Cover: what it is (plain language), what makes it special, who uses it, and why contribute. Then ask what sounds interesting and guide them to the right role.
+</instructions>` },
+  { key: 'faq', label: 'Common questions', desc: 'FAQ for contributors', prompt: `<role>You are the LNbits community guide - knowledgeable about the project and contribution process.</role>
+
+<contribute_page>` , promptSuffix: `</contribute_page>
+
+<additional_context>
+Contributing guide: https://docs.lnbits.com/dev/contributing
+Extension development: https://docs.lnbits.com/dev/building-extensions
+</additional_context>
+
+<instructions>
+Answer my questions about contributing to LNbits using the FAQ and contributor info from the page. If not covered, say so and point me to Telegram (https://t.me/lnbits). Keep answers concise with links.
+</instructions>` },
+]
+
+const intents = computed(() => isContributePage.value ? contributeIntents : defaultIntents)
 
 const URL_CONTENT_LIMIT = 6000
 
@@ -189,17 +492,31 @@ function htmlToMarkdown(el) {
 }
 
 function getMarkdownContent() {
+  if (isContributePage.value) return getContributeFullMarkdown()
   const el = getContentEl()
   if (!el) return ''
   return `# ${getPageTitle()}\n\nSource: ${getPageUrl()}\n\n${htmlToMarkdown(el)}`
 }
 
 function buildPromptContent(intent) {
-  const content = getMarkdownContent()
+  const content = isContributePage.value ? getContributeFullMarkdown() : getMarkdownContent()
   if (intent.promptSuffix) {
     return `${intent.prompt}\n${content}\n${intent.promptSuffix}`
   }
   return `${intent.prompt}\n\n${content}`
+}
+
+async function copyContributeRole(roleId) {
+  const role = contributeRoles.find(r => r.id === roleId)
+  await navigator.clipboard.writeText(`${getContributeRoleMarkdown(roleId)}\n\nSource: ${window.location.href}#${roleId}`)
+  notify(`Copied ${role.title} guide`)
+  showCopyMenu.value = false
+}
+
+async function copyContributeAll() {
+  await navigator.clipboard.writeText(getContributeFullMarkdown())
+  notify('Copied all roles')
+  showCopyMenu.value = false
 }
 
 function truncateForUrl(text) {
@@ -360,13 +677,19 @@ function renderMarkdown(text) {
     <div v-if="showCopyMenu && !isHomePage" class="pt-copy-menu">
       <!-- Step 1: Intent Picker -->
       <template v-if="copyStep === 'intent'">
-        <div class="pt-section-label">What do you need?</div>
+        <div class="pt-section-label">{{ isContributePage ? 'How can we help?' : 'What do you need?' }}</div>
         <button v-for="intent in intents" :key="intent.key" class="pt-intent" @click.stop="selectIntent(intent)">
           <span class="pt-intent-icon">
-            <svg v-if="intent.key === 'explain'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z"/></svg>
+            <!-- Default page icons -->
+            <svg v-if="intent.key === 'explain' && !isContributePage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z"/></svg>
             <svg v-else-if="intent.key === 'code'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
             <svg v-else-if="intent.key === 'troubleshoot'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><path d="M11 8a3 3 0 0 0-2.1.9"/></svg>
             <svg v-else-if="intent.key === 'guide'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+            <!-- Contribute page icons -->
+            <svg v-else-if="intent.key === 'find-role'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg v-else-if="intent.key === 'first-steps'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <svg v-else-if="intent.key === 'explain' && isContributePage" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 1 4 12.7V17H8v-2.3A7 7 0 0 1 12 2z"/></svg>
+            <svg v-else-if="intent.key === 'faq'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
           </span>
           <span class="pt-intent-text">
             <span class="pt-intent-label">{{ intent.label }}</span>
@@ -375,11 +698,24 @@ function renderMarkdown(text) {
           <svg class="pt-arrow" viewBox="0 0 6 10" fill="currentColor"><path d="M1 1l4 4-4 4"/></svg>
         </button>
         <div class="pt-menu-divider"></div>
-        <div class="pt-raw-links">
-          <button class="pt-raw-link" @click.stop="copyMarkdown">Copy as Markdown</button>
-          <span class="pt-raw-sep">&middot;</span>
-          <button class="pt-raw-link" @click.stop="copyPlaintext">Plain Text</button>
-        </div>
+        <!-- Contribute page: per-role copy -->
+        <template v-if="isContributePage">
+          <div class="pt-section-label">Copy by role</div>
+          <div class="pt-role-grid">
+            <button v-for="role in contributeRoles" :key="role.id" class="pt-role-btn" @click.stop="copyContributeRole(role.id)">{{ role.title }}</button>
+          </div>
+          <div class="pt-raw-links">
+            <button class="pt-raw-link" @click.stop="copyContributeAll">Copy all roles</button>
+          </div>
+        </template>
+        <!-- Default: markdown/plaintext -->
+        <template v-else>
+          <div class="pt-raw-links">
+            <button class="pt-raw-link" @click.stop="copyMarkdown">Copy as Markdown</button>
+            <span class="pt-raw-sep">&middot;</span>
+            <button class="pt-raw-link" @click.stop="copyPlaintext">Plain Text</button>
+          </div>
+        </template>
       </template>
 
       <!-- Step 2: Tool Picker -->
@@ -661,6 +997,31 @@ function renderMarkdown(text) {
 }
 
 .pt-raw-link:hover { color: var(--vp-c-brand-1); }
+
+.pt-role-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 4px;
+  padding: 4px 10px 6px;
+}
+
+.pt-role-btn {
+  border: 1px solid var(--vp-c-divider);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-size: 11px;
+  padding: 5px 4px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.pt-role-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  background: var(--vp-c-brand-soft);
+}
 
 .pt-raw-sep { color: var(--vp-c-text-3); font-size: 11px; opacity: 0.5; }
 

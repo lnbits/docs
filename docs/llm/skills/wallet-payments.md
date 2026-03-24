@@ -23,7 +23,7 @@ compatibility: LNbits 1.0+
 
 ## Prerequisites
 
-- A running LNbits instance (self-hosted or saas.lnbits.com)
+- A running LNbits instance (self-hosted or my.lnbits.com)
 - An existing wallet with admin key (needed to create additional wallets)
 - For paying invoices: sufficient wallet balance
 
