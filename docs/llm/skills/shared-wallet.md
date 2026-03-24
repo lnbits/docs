@@ -2,6 +2,8 @@
 
 > Set up an "Uncle Jim" shared wallet - one wallet, multiple users, granular permissions. For families, teams, coops, or anyone onboarding others to Lightning.
 
+<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/shared-wallet.md" />
+
 ## What this skill does
 
 Teaches an AI agent to create an "Uncle Jim" shared wallet on LNbits - you run the wallet, invite family or friends, and control exactly what each person can do. Not "everyone gets the admin key" - it is a real permission system. The classic Uncle Jim setup: onboard people to Lightning without them needing their own node or wallet backend.

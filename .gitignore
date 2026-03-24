@@ -26,3 +26,5 @@ Thumbs.db
 # Build artifacts
 .turbo/
 .parcel-cache/
+
+deploy_plan.md

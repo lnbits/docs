@@ -40,7 +40,7 @@ const columns = [
         items: [
           { name: 'Wallet Backends', desc: '20+ funding sources', link: '/guide/wallets/', icon: 'wallet' },
           { name: 'Core Features', desc: 'Payments, LNURL, labels', link: '/guide/core/', icon: 'zap' },
-          { name: 'Extensions', desc: '60+ plugins', link: '/guide/using-extensions', icon: 'puzzle' },
+          { name: 'Extensions', desc: '60+ extensions', link: '/guide/using-extensions', icon: 'puzzle' },
           { name: 'Admin Dashboard', desc: 'Server management', link: '/guide/admin-dashboard', icon: 'settings' },
           { name: 'User Management', desc: 'Roles & permissions', link: '/guide/core/user-management/', icon: 'users' },
           { name: 'FAQ', desc: '80+ common questions', link: '/guide/faq/', icon: 'help' },
@@ -121,13 +121,19 @@ const columns = [
       {
         heading: 'Extensions',
         items: [
-          { name: 'Browse Extensions', desc: '60+ plugins ready to use', link: '/extensions/', icon: 'puzzle' },
+          { name: 'Browse Extensions', desc: '60+ extensions ready to use', link: '/extensions/', icon: 'puzzle' },
         ],
       },
       {
         heading: 'Companion Apps',
         items: [
-          { name: 'TPoS Wrapper', desc: 'Android Tap to Pay', link: '/apps/tpos-wrapper', icon: 'zap' },
+          { name: 'Browse Apps', desc: 'Standalone apps for LNbits', link: '/apps/', icon: 'zap' },
+        ],
+      },
+      {
+        heading: 'eCommerce Plugins',
+        items: [
+          { name: 'Browse Plugins', desc: 'WooCommerce, Shopify and more', link: '/plugins/', icon: 'shopping-cart' },
         ],
       },
       {
@@ -196,6 +202,7 @@ const columns = [
                   <svg v-if="item.icon==='shield'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                   <svg v-if="item.icon==='plus'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   <svg v-if="item.icon==='layers'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+                  <svg v-if="item.icon==='shopping-cart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
                   <svg v-if="item.icon==='database'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                   <svg v-if="item.icon==='code'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                   <svg v-if="item.icon==='clock'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>

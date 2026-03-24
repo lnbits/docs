@@ -11,7 +11,8 @@
     "extract:endpoints": "node scripts/extract-endpoints.mjs",
     "generate:llm": "node scripts/generate-llm-files.mjs",
     "generate:extensions": "node scripts/generate-extension-pages.mjs",
-    "generate:apps": "node scripts/generate-app-pages.mjs"
+    "generate:apps": "node scripts/generate-app-pages.mjs",
+    "generate:plugins": "node scripts/generate-plugin-pages.mjs"
   },
   "devDependencies": {
     "mermaid": "^11.12.3",

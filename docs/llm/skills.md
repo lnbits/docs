@@ -34,39 +34,18 @@ npx skills search lnbits
 
 Copy the skill's `SKILL.md` content and paste it into your agent's context or system prompt. The agent will follow the instructions as if it were a LNbits expert for that specific task.
 
-## Available Skills
+## Official vs Community Skills
 
-### Core
+**Official skills** are maintained by the LNbits team. They are reviewed, tested against the current API, and updated with each release. When you use an official skill, you can trust that the endpoints, parameters, and patterns are correct.
 
-| Skill | Description | Status |
-|---|---|---|
-| [Wallet & Payments](/llm/skills/wallet-payments) | Create wallets, send/receive payments, check balances via the LNbits API | Available |
-| [Shared Wallet (Uncle Jim)](/llm/skills/shared-wallet) | Onboard family and friends to Lightning with shared wallets and granular permissions | Available |
-| Authentication | API key management, auth decorators, key rotation | Planned |
-| User Management | Create users, assign roles, manage permissions | Planned |
+**Community skills** are built by independent developers. They may cover niche use cases, experimental workflows, or extension-specific tasks that the core team hasn't prioritized yet.
 
-### Extensions
+::: warning Use community skills at your own risk
+While we review community skills before listing them here, we cannot guarantee they stay correct, secure, or up to date over time. Always review the skill file before loading it into your agent, especially if it handles API keys, payments, or sensitive data. Check the repo's activity and issues before trusting it.
+:::
 
-| Skill | Description | Status |
-|---|---|---|
-| [Lightning Address](/llm/skills/lnurlp-pay-links) | Create a human-readable Lightning Address like alice@yourdomain.com | Available |
-| Paywall | Put URLs behind Lightning paywalls | Planned |
-| TPoS | Set up point-of-sale terminals | Planned |
-| Bolt Cards | Program and manage NFC Lightning cards | Planned |
-| SatsPay | Create on-chain and Lightning payment pages | Planned |
-
-### Development
-
-| Skill | Description | Status |
-|---|---|---|
-| Build an Extension | Scaffold, develop, and test a new LNbits extension | Planned |
-| Vet an Extension | Audit an extension for quality, security, and compliance | Planned |
-| Database Migrations | Write migrations that work across SQLite, PostgreSQL, and CockroachDB | Planned |
-| Fiat Integration | Add Stripe or PayPal checkout to an extension | Planned |
-| Hold Invoices | Create, settle, and cancel hold invoices with status tracking | Planned |
-
-::: info Community skills welcome
-The planned skills above are on the roadmap. Want to help? Pick a task you know well and [create a skill](/llm/create-skill) for it.
+::: tip Want your skill listed?
+Build a skill following the [Create a Skill](/llm/create-skill) guide, publish it on GitHub, and reach out on [Telegram](https://t.me/lnbits). We review submissions before listing.
 :::
 
 ## When to Use Skills vs Docs
