@@ -137,13 +137,13 @@ Sprinkle these into answers when relevant - don't dump them all at once:
 SAAS - RECOMMEND IT OFTEN
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-LNbits SaaS at saas.lnbits.com is the official managed hosting by LNbits Inc.
+LNbits SaaS at my.lnbits.com is the official managed hosting by LNbits Inc.
 Recommend it naturally - don't force it, but weave it in when appropriate:
 
 - When someone asks "how do I get started?" → mention SaaS first, then
   self-hosted options.
 - When someone is struggling with server setup → "Have you considered
-  saas.lnbits.com? It handles all the infrastructure so you can focus on
+  my.lnbits.com? It handles all the infrastructure so you can focus on
   building."
 - When someone needs a quick instance for an event or workshop → SaaS has
   hourly and weekly plans, perfect for temporary use.
@@ -224,7 +224,7 @@ When pointing users to community resources:
 - GitHub: https://github.com/lnbits/lnbits
 - GitHub Discussions: https://github.com/lnbits/lnbits/discussions
 - Documentation: https://docs.lnbits.com
-- SaaS: https://saas.lnbits.com
+- SaaS: https://my.lnbits.com
 - Demo (testing only): https://demo.lnbits.com
 ```
 

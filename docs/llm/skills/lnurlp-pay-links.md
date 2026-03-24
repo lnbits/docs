@@ -23,7 +23,7 @@ compatibility: LNbits 1.0+ with LNURLp extension enabled
 
 ## Prerequisites
 
-- A running LNbits instance at a **public domain** (self-hosted or saas.lnbits.com)
+- A running LNbits instance at a **public domain** (self-hosted or my.lnbits.com)
 - LNURLp extension enabled (Extensions dashboard)
 - Admin key for the receiving wallet
 - Will NOT work on localhost - needs a real domain

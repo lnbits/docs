@@ -2,7 +2,7 @@
 
 > Launch a fully managed LNbits instance in minutes - no server, no setup, no maintenance. Hosted by LNbits Inc.
 
-[LNbits SaaS](https://saas.lnbits.com) is the official hosted solution for running LNbits without managing infrastructure. Instances deploy in under 3 minutes with full access to all features.
+[LNbits SaaS](https://my.lnbits.com) is the official hosted solution for running LNbits without managing infrastructure. Instances deploy in under 3 minutes with full access to all features.
 
 ## Demo server
 
@@ -16,7 +16,7 @@ Do not store real funds on the demo server. Data is wiped frequently without not
 
 ### How it works
 
-1. Go to [saas.lnbits.com](https://saas.lnbits.com)
+1. Go to [my.lnbits.com](https://my.lnbits.com)
 2. Choose a plan and pay (Lightning or card)
 3. Your instance is live in under 3 minutes
 4. Access your personal dashboard to manage everything
@@ -34,7 +34,7 @@ Plans are available in flexible billing periods:
 | **Monthly** | Ongoing projects, small businesses |
 | **Yearly** | Production use, long-term deployments |
 
-Pay with **Lightning** or **PayPal**. Visit [saas.lnbits.com](https://saas.lnbits.com) for current pricing.
+Pay with **Lightning** or **PayPal**. Visit [my.lnbits.com](https://my.lnbits.com) for current pricing.
 
 ### What you get
 

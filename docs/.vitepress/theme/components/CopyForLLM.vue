@@ -76,7 +76,7 @@ Ask me all diagnostic questions at once: what goes wrong, LNbits version, wallet
 
 <additional_context>
 Full docs: https://docs.lnbits.com/llms.txt
-LNbits SaaS: https://saas.lnbits.com
+LNbits SaaS: https://my.lnbits.com
 </additional_context>
 
 <instructions>

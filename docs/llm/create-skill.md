@@ -81,7 +81,7 @@ What must be true before the skill can work. Be explicit - agents cannot guess.
 ```markdown
 ## Prerequisites
 
-- A running LNbits instance (self-hosted or saas.lnbits.com)
+- A running LNbits instance (self-hosted or my.lnbits.com)
 - Paywall extension installed and enabled
 - Admin key for the wallet that will receive payments
 - The target URL must be accessible (the extension redirects, it does not proxy)
