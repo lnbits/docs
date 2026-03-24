@@ -15,6 +15,8 @@ import NavSwitch from './components/NavSwitch.vue'
 import NavChatIcon from './components/NavChatIcon.vue'
 import HeroImage from './components/HeroImage.vue'
 import DeploymentGrid from './components/DeploymentGrid.vue'
+import SkillCard from './components/SkillCard.vue'
+import SkillHeader from './components/SkillHeader.vue'
 
 export default {
   extends: DefaultTheme,
@@ -37,5 +39,7 @@ export default {
     app.component('ContributePage', ContributePage)
     app.component('HeroImage', HeroImage)
     app.component('DeploymentGrid', DeploymentGrid)
+    app.component('SkillCard', SkillCard)
+    app.component('SkillHeader', SkillHeader)
   },
 }

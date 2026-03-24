@@ -2,6 +2,8 @@
 
 > The foundation skill - create wallets, receive and send Lightning payments via the LNbits core API.
 
+<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/wallet-payments.md" />
+
 ## What this skill does
 
 Teaches an AI agent to work with LNbits wallets and payments: create a wallet, generate invoices, pay invoices, and check payment status. Every LNbits integration starts here.

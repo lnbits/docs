@@ -2,6 +2,8 @@
 
 > Create a human-readable Lightning Address like `alice@yourdomain.com` that anyone can send sats to.
 
+<SkillHeader repo="lnbits/lnurlp" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/lnurlp-pay-links.md" />
+
 ## What this skill does
 
 Teaches an AI agent to create Lightning Addresses on LNbits using the LNURLp extension. A Lightning Address works like an email address but for receiving Bitcoin over Lightning - share it in your bio, on a business card, or anywhere you want to get paid.

@@ -5,12 +5,14 @@ import MegaMenu from './MegaMenu.vue'
 
 const route = useRoute()
 const isIndex = computed(() => route.path === '/' || route.path === '/index.html')
+const isContribute = computed(() => route.path.startsWith('/contribute'))
 
 const sections = [
   { text: 'Guide', link: '/guide/', match: '/guide' },
   { text: 'API', link: '/api/', match: '/api' },
   { text: 'Extensions', link: '/extensions/', match: '/extensions' },
-  { text: 'Apps', link: '/apps/tpos-wrapper', match: '/apps' },
+  { text: 'Apps', link: '/apps/', match: '/apps' },
+  { text: 'Plugins', link: '/plugins/', match: '/plugins' },
   { text: 'Developers', link: '/dev/architecture', match: '/dev' },
   { text: 'LLM', link: '/llm/', match: '/llm' },
   { text: 'Contribute', link: '/contribute/', match: '/contribute' },
@@ -24,10 +26,10 @@ const activeSection = computed(() => {
 })
 
 function syncClass() {
-  document.body.classList.toggle('has-section-bar', !isIndex.value)
+  document.body.classList.toggle('has-section-bar', !isIndex.value && !isContribute.value)
 }
 
-watch(isIndex, syncClass)
+watch([isIndex, isContribute], syncClass)
 onMounted(syncClass)
 onUnmounted(() => document.body.classList.remove('has-section-bar'))
 </script>
@@ -38,7 +40,7 @@ onUnmounted(() => document.body.classList.remove('has-section-bar'))
 
   <!-- Doc pages: section bar below header -->
   <Teleport to="body">
-    <nav v-if="!isIndex" class="sb" aria-label="Section navigation">
+    <nav v-if="!isIndex && !isContribute" class="sb" aria-label="Section navigation">
       <div class="sb-inner">
         <a
           v-for="s in sections"

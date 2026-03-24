@@ -131,7 +131,8 @@ export default withMermaid(defineConfig({
         ],
       },
       { text: 'Extensions', link: '/extensions/' },
-      { text: 'Apps', link: '/apps/tpos-wrapper' },
+      { text: 'Apps', link: '/apps/' },
+      { text: 'Plugins', link: '/plugins/' },
       { text: 'Contribute', link: '/contribute/' },
       {
         text: 'Developers',
@@ -486,7 +487,7 @@ export default withMermaid(defineConfig({
           ],
         },
         {
-          text: 'Available Skills',
+          text: 'Official Skills',
           collapsed: false,
           items: [
             { text: 'Wallet & Payments', link: '/llm/skills/wallet-payments' },
@@ -494,12 +495,41 @@ export default withMermaid(defineConfig({
             { text: 'Shared Wallet (Uncle Jim)', link: '/llm/skills/shared-wallet' },
           ],
         },
+        {
+          text: 'Community Skills',
+          collapsed: false,
+          items: [
+            { text: 'Coming soon' },
+          ],
+        },
       ],
       '/apps/': [
         {
           text: 'Companion Apps',
           items: [
+            { text: 'Overview', link: '/apps/' },
+          ],
+        },
+        {
+          text: 'Apps',
+          collapsed: false,
+          items: [
             { text: 'TPoS Wrapper', link: '/apps/tpos-wrapper' },
+          ],
+        },
+      ],
+      '/plugins/': [
+        {
+          text: 'eCommerce Plugins',
+          items: [
+            { text: 'Overview', link: '/plugins/' },
+          ],
+        },
+        {
+          text: 'Plugins',
+          collapsed: false,
+          items: [
+            { text: 'WooCommerce', link: '/plugins/woocommerce' },
           ],
         },
       ],

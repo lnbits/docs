@@ -11,6 +11,7 @@ Official documentation for [LNbits](https://github.com/lnbits/lnbits), the free 
 - **Developer Guide** - Architecture, building extensions, deploying, contributing
 - **Extensions** - 62 extension pages with docs and API references
 - **LLM Integration** - Agent-ready docs, system prompts, llms.txt
+- **Skills to Built** - Create own Skill.md files or use existing ones from Core Team and Community to built awesome stuff
 
 ## Local development
 

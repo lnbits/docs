@@ -2847,6 +2847,22 @@ Use these to browse endpoints and test them directly from your browser.
 
 ---
 
+Source: https://docs.lnbits.com/apps/
+
+# Companion Apps
+
+> Standalone applications that work alongside your LNbits instance to extend its reach.
+
+Companion apps are separate projects that connect to LNbits via its API. They are not extensions - they run as their own applications and talk to your LNbits server.
+
+## Available Apps
+
+| App | Description | Platform |
+|---|---|---|
+| TPoS Wrapper | Accept credit cards, debit cards, Google Pay, and Apple Pay via Stripe alongside Lightning | Android |
+
+---
+
 Source: https://docs.lnbits.com/apps/tpos-wrapper
 
 # TPoS Wrapper
@@ -3068,6 +3084,66 @@ For the complete changelog, see the [GitHub Releases](https://github.com/lnbits/
 
 - [Installation & Updating](/guide/installation/updating): Update to the latest version
 - [Getting Started](/guide/): Quick-start guide
+
+---
+
+Source: https://docs.lnbits.com/plugins/
+
+# eCommerce Plugins
+
+> Connect popular eCommerce platforms to your LNbits server and accept Bitcoin payments in your online store.
+
+## What are plugins?
+
+Plugins are NOT LNbits extensions or companion apps. They live inside external eCommerce platforms (WooCommerce, Shopify, etc.) and connect to your LNbits server via its API. Your store handles the cart, checkout, and order management. The plugin handles the Bitcoin payment flow.
+
+## How it works
+
+1. Customer checks out in your store and selects Bitcoin
+2. The plugin calls your LNbits API to create a Lightning invoice (or on-chain address)
+3. Customer pays the invoice
+4. LNbits confirms payment, plugin marks the order as paid
+
+## Plugins vs Extensions vs Apps
+
+| | Plugins | Extensions | Apps |
+|---|---|---|---|
+| Runs inside | eCommerce platform (WordPress, Shopify) | LNbits server | Standalone |
+| Installed via | Platform's plugin store | LNbits extension manager | App store / APK |
+| Purpose | Connect your store to LNbits | Add features to LNbits | Extend LNbits to devices |
+| Examples | WooCommerce, Shopify | TPoS, Boltcards, LNURLp | TPoS Wrapper |
+
+## Available Plugins
+
+| Plugin | Platform | Features |
+|---|---|---|
+| WooCommerce | WordPress / WooCommerce | Lightning + on-chain, auto-conversion, order management |
+
+---
+
+Source: https://docs.lnbits.com/plugins/woocommerce
+
+# WooCommerce Plugin
+
+> Accept Bitcoin on-chain and Lightning payments in your WooCommerce store via LNbits.
+
+This is an eCommerce plugin, not an LNbits extension. It runs inside WordPress / WooCommerce and connects to your LNbits server via its API.
+
+The plugin uses the LNbits SatsPay Server extension to create payment pages supporting both Lightning and on-chain Bitcoin.
+
+## Links
+
+- GitHub: github.com/lnbits/lnbits-bitcoin-onchain-and-lightning-payment-gateway
+- WordPress: wordpress.org/plugins/lnbits-bitcoin-onchain-and-lightning-payment-gateway/
+- Announcement: news.lnbits.com/news/lnbits-woocommerce-plugin-for-bitcoin-payments
+
+## Setup Summary
+
+1. Open your LNbits instance, create a wallet, note the Wallet ID and Invoice/read key
+2. Enable the SatsPay Server and Watch Only extensions
+3. Import an xpub/ypub/zpub in Watch Only, note the wallet ID
+4. Install the WordPress plugin "LNbits - Bitcoin Lightning and Onchain Payment Gateway"
+5. In WooCommerce > Settings > Payments, activate LNbits and enter your LNbits URL, keys, and wallet IDs
 
 ---
 
@@ -21466,24 +21542,37 @@ Common failures and how to recover.
 Complete working examples for the most common use cases.
 ```
 
-## Available skills
+## Official vs Community Skills
 
-Skills for LNbits are being developed. This page will be updated as they are published.
+**Official skills** are maintained by the LNbits team. They are reviewed, tested against the current API, and updated with each release.
 
-<!-- Future skills will be listed here as they are created -->
+**Community skills** are built by independent developers. They may cover niche use cases or experimental workflows. Use community skills at your own risk - always review the skill file before loading it, especially if it handles API keys or payments.
+
+## Available Official Skills
+
+| Skill | Description | Status |
+|---|---|---|
+| Wallet & Payments | Create wallets, send/receive payments, check balances via core API | Available |
+| Shared Wallet (Uncle Jim) | Onboard family/friends with shared wallets and granular permissions | Available |
+| Lightning Address | Create human-readable Lightning Addresses via LNURLp extension | Available |
+| Authentication | API key management, auth decorators, key rotation | Planned |
+| User Management | Create users, assign roles, manage permissions | Planned |
+| TPoS | Set up point-of-sale terminals | Planned |
+| Bolt Cards | Program and manage NFC Lightning cards | Planned |
+| SatsPay | Create on-chain and Lightning payment pages | Planned |
+| Paywall | Put URLs behind Lightning paywalls | Planned |
+
+## Community Skills
+
+Community skills will be listed here as they are submitted and reviewed. Each community skill page shows trust indicators: author GitHub avatar, stars, and last-updated badge.
 
 ## Creating a skill file
 
-If you build integrations with LNbits and want to make them agent-ready:
-
-1. **Pick one task** - each skill should do one thing well
-2. **Include working code** - agents need copy-paste-ready examples with real endpoints
-3. **State prerequisites explicitly** - which extensions must be installed, which API keys are needed
-4. **Add constraints** - what the agent should never do (e.g., "never expose the admin key to the frontend")
-5. **Test with an agent** - load the skill into an AI agent and verify it can complete the task without extra context
+See [Create a Skill](/llm/create-skill) for the full guide.
 
 ## Related Pages
 
+- [Create a Skill](/llm/create-skill) - build your own skill file from scratch
 - [LLM Integration](/llm/) - how AI agents consume LNbits documentation
 - [API Reference](/api/) - core and admin endpoints
 - [Building Extensions](/dev/building-extensions) - extension development guide

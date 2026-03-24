@@ -88,7 +88,12 @@
 - [Extensions Overview](https://docs.lnbits.com/extensions/): Interactive grid of 60+ extensions with search and filtering
 
 ## Companion Apps
+- [Apps Overview](https://docs.lnbits.com/apps/): Standalone applications that work alongside LNbits - not extensions, they run as their own apps and connect via API
 - [TPoS Wrapper](https://docs.lnbits.com/apps/tpos-wrapper): Android Tap to Pay app - accept credit cards, debit cards, Google Pay, and Apple Pay via Stripe alongside Lightning
+
+## eCommerce Plugins
+- [Plugins Overview](https://docs.lnbits.com/plugins/): External plugins for eCommerce platforms (WooCommerce, Shopify) - not extensions or apps, they run inside the eCommerce platform and connect to LNbits via API
+- [WooCommerce](https://docs.lnbits.com/plugins/woocommerce): Accept Bitcoin on-chain and Lightning payments in WooCommerce via LNbits SatsPay - WordPress plugin with order management
 
 ## Developer Docs
 - [Architecture](https://docs.lnbits.com/dev/architecture): Internal structure and design decisions
@@ -123,5 +128,5 @@
 ## For AI Agents
 - [LLM Integration](https://docs.lnbits.com/llm/): How to use LNbits docs with AI agents and LLMs
 - [System Prompt](https://docs.lnbits.com/llm/system-prompt): Personality, knowledge, and rules for the LNbits documentation assistant - feed this as the system instruction when connecting an LLM
-- [Skills](https://docs.lnbits.com/llm/skills): Task-ready instruction files for AI agents - integrate extensions, use core features, follow LNbits standards
+- [Skills Catalog](https://docs.lnbits.com/llm/skills): Task-ready instruction files for AI agents - official skills (maintained by LNbits team) and community skills (third-party, use at own risk). Each skill page shows trust indicators (official/community badge, GitHub stars, last updated)
 - [Full Content Dump](https://docs.lnbits.com/llms-full.txt): All documentation concatenated into one file (220 pages)

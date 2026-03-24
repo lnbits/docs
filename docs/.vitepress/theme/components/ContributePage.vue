@@ -75,6 +75,12 @@ const faqOpen = ref(new Set())
 
 const roleData = {
   developer: {
+    intro: {
+      kicker: 'START BUILDING',
+      headline: 'Write code that powers Lightning for thousands',
+      sub: 'Pick a good first issue, set up FakeWallet, and ship your first PR. The codebase is Python + FastAPI on the backend, Vue 3 + Quasar on the frontend.',
+      cta: { label: 'Browse good first issues', url: 'https://github.com/lnbits/lnbits/labels/good%20first%20issue' },
+    },
     video: null,
     steps: [
       {
@@ -123,6 +129,12 @@ const roleData = {
     ],
   },
   tester: {
+    intro: {
+      kicker: 'BREAK THINGS',
+      headline: 'Every bug you catch saves a merchant',
+      sub: 'Test pull requests, try every release, and report what breaks. Use FakeWallet locally or spin up a live instance on my.lnbits.com in under 3 minutes.',
+      cta: { label: 'View open PRs to test', url: 'https://github.com/lnbits/lnbits/pulls?q=is%3Apr+is%3Aopen+label%3Aneeds-testing' },
+    },
     video: null,
     steps: [
       {
@@ -199,6 +211,12 @@ const roleData = {
     ],
   },
   writer: {
+    intro: {
+      kicker: 'TELL THE STORY',
+      headline: 'Your words bring people closer to Bitcoin',
+      sub: 'Pick an open issue in the docs or blog and start writing. No technical background needed. The best content comes from real experience.',
+      cta: { label: 'Browse docs issues', url: 'https://github.com/DoktorShift/docs_lnbits/issues' },
+    },
     video: null,
     steps: [
       {
@@ -275,6 +293,12 @@ const roleData = {
     ],
   },
   designer: {
+    intro: {
+      kicker: 'MAKE IT SHINE',
+      headline: 'Design the interface people trust',
+      sub: 'Shape the LNbits UI with Vue 3 and Quasar, create visuals for marketing, or redesign extension flows. When it looks good, people trust it.',
+      cta: { label: 'See design issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign' },
+    },
     video: null,
     steps: [
       {
@@ -344,6 +368,12 @@ const roleData = {
     ],
   },
   entrepreneur: {
+    intro: {
+      kicker: 'BUILD YOUR BUSINESS',
+      headline: 'Turn LNbits into your product',
+      sub: 'Deploy for your community, white-label it, sell extensions, or run it as a service. LNbits is the platform - you decide the business model.',
+      cta: { label: 'Launch a SaaS instance', url: 'https://my.lnbits.com' },
+    },
     video: null,
     blog: {
       title: 'How to set up your own LNbits server',
@@ -402,6 +432,12 @@ const roleData = {
     ],
   },
   ambassador: {
+    intro: {
+      kicker: 'LEAD THE CHARGE',
+      headline: 'Bring Lightning to your community',
+      sub: 'Deploy LNbits, onboard merchants, host meetups, and spread the word. You are the bridge between Bitcoin and everyday commerce.',
+      cta: { label: 'Get the install guide', url: '/guide/installation/' },
+    },
     video: { id: 'ZTjFalYeOlA', title: 'LNbits Extensions Deep-Dive' },
     steps: [
       {
@@ -788,6 +824,21 @@ onUnmounted(() => {
     <!-- ── Steps (transitions per role) ── -->
     <Transition name="cp-fade" mode="out-in">
       <div :key="activeRole" class="cp-flow">
+
+        <!-- Role intro -->
+        <section v-if="active.intro" class="cp-role-intro">
+          <div class="cp-w">
+            <div class="cp-role-intro-inner">
+              <span class="cp-role-kicker">{{ active.intro.kicker }}</span>
+              <h2 class="cp-role-headline">{{ active.intro.headline }}</h2>
+              <p class="cp-role-sub">{{ active.intro.sub }}</p>
+              <a v-if="active.intro.cta" :href="active.intro.cta.url" class="cp-role-cta" :target="active.intro.cta.url.startsWith('http') ? '_blank' : undefined" :rel="active.intro.cta.url.startsWith('http') ? 'noopener noreferrer' : undefined">
+                {{ active.intro.cta.label }}
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </section>
 
         <!-- Video -->
         <section v-if="active.video" class="cp-vid-sec">
@@ -1215,6 +1266,41 @@ onUnmounted(() => {
 .cp-featured:hover .cp-featured-arr { color: var(--vp-c-brand-1); }
 
 /* ═══ Steps ═══ */
+/* ═══ Role Intro ═══ */
+.cp-role-intro { padding: 48px 0 32px; }
+.cp-role-intro-inner {
+  max-width: 640px; margin: 0 auto; text-align: center;
+}
+.cp-role-kicker {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 12px;
+}
+.cp-role-headline {
+  font-size: 28px; font-weight: 800; line-height: 1.2;
+  color: var(--vp-c-text-1);
+  margin: 0 0 16px;
+}
+.cp-role-sub {
+  font-size: 15px; line-height: 1.65; color: var(--vp-c-text-2);
+  margin: 0 0 24px;
+}
+.cp-role-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 10px 24px;
+  font-size: 14px; font-weight: 600;
+  color: var(--vp-c-white); background: var(--vp-c-brand-1);
+  border-radius: 8px; text-decoration: none;
+  transition: background .2s ease, transform .15s ease;
+}
+.cp-role-cta:hover {
+  background: var(--vp-c-brand-2);
+  transform: translateY(-1px);
+}
+.cp-role-cta svg { transition: transform .2s ease; }
+.cp-role-cta:hover svg { transform: translateX(3px); }
+
 .cp-flow { padding-bottom: 24px; }
 .cp-step { position: relative; }
 .cp-step-line { height: 1px; background: linear-gradient(to right, transparent, var(--vp-c-divider) 15%, var(--vp-c-divider) 85%, transparent); }
@@ -1424,6 +1510,12 @@ onUnmounted(() => {
   .cp-hero { padding: 48px 0 40px; }
   .cp-title { font-size: 1.6rem; letter-spacing: -.03em; margin-bottom: 12px; }
   .cp-sub { font-size: 0.95rem; max-width: 100%; line-height: 1.7; }
+
+  /* Role intro */
+  .cp-role-intro { padding: 32px 0 24px; }
+  .cp-role-headline { font-size: 22px; }
+  .cp-role-sub { font-size: 14px; }
+  .cp-role-cta { font-size: 13px; padding: 9px 20px; }
 
   /* Contributors carousel */
   .cp-contributors { padding: 0 0 32px; }
