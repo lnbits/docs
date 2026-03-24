@@ -21580,6 +21580,136 @@ See [Create a Skill](/llm/create-skill) for the full guide.
 
 ---
 
+Source: https://docs.lnbits.com/llm/mcp-server
+
+# MCP Server
+
+> Connect AI assistants like Claude directly to your LNbits instance. Create invoices, send payments, manage wallets, and control extensions through natural conversation.
+
+The LNbits MCP Server implements the Model Context Protocol (MCP) standard, letting AI assistants call 30+ Lightning wallet operations directly. Content fetched live from github.com/lnbits/LNbits-MCP-Server at build time.
+
+## How it fits together
+
+| Layer | What it does |
+|---|---|
+| Docs (llms.txt) | Agents read about LNbits |
+| Skills (.md files) | Agents learn LNbits patterns |
+| MCP Server | Agents control LNbits directly |
+
+## Installation
+
+```bash
+pip install -e .
+# or clone: git clone https://github.com/lnbits/LNbits-MCP-Server
+```
+
+## Claude Desktop Configuration
+
+macOS: ~/Library/Application Support/Claude/claude_desktop_config.json
+Windows: %APPDATA%\Claude\claude_desktop_config.json
+
+```json
+{
+  "mcpServers": {
+    "LNbits": {
+      "command": "lnbits-mcp-server",
+      "env": {
+        "LNBITS_URL": "https://your-instance.com",
+        "LNBITS_API_KEY": "your_api_key_here",
+        "LNBITS_AUTH_METHOD": "api_key_header"
+      }
+    }
+  }
+}
+```
+
+## Environment Variables
+
+| Variable | Description | Default |
+|---|---|---|
+| LNBITS_URL | LNbits instance URL | https://demo.lnbits.com |
+| LNBITS_API_KEY | API key | (none) |
+| LNBITS_AUTH_METHOD | Auth strategy | api_key_header |
+| LNBITS_TIMEOUT | Request timeout (seconds) | 30 |
+| LNBITS_MAX_RETRIES | Retry attempts | 3 |
+| LNBITS_RATE_LIMIT_PER_MINUTE | Rate limit | 60 |
+
+## Authentication Methods
+
+| Method | How it works |
+|---|---|
+| api_key_header | X-API-KEY header (default) |
+| api_key_query | ?api_key= query param |
+| http_bearer | Authorization: Bearer token |
+| oauth2 | OAuth2 Bearer token |
+
+## Available Tools (30+)
+
+### Configuration (3 tools)
+- configure_lnbits - set connection parameters at runtime
+- get_lnbits_configuration - show current config (credentials masked)
+- test_lnbits_configuration - validate connectivity and credentials
+
+### Core Wallet (4 tools)
+- get_wallet_details - wallet info (ID, name, balance, key status)
+- get_wallet_balance - current balance in sats and millisats
+- get_payments - transaction history (limit configurable, max 100)
+- check_connection - connectivity diagnostics
+
+### Payments (4 tools)
+- pay_invoice - pay BOLT11 invoice
+- get_payment_status - check payment by hash
+- decode_invoice - parse BOLT11 without paying
+- pay_lightning_address - pay user@domain.com via LNURL-pay
+
+### Invoices (1 tool)
+- create_invoice - generate invoice with amount, memo, expiry, QR code
+
+### Extensions (10 tools)
+- create_lnurlp_link / get_lnurlp_links - LNURLp pay links
+- create_tpos / get_tpos_list - point-of-sale terminals
+- create_satspay_charge / get_satspay_charges - payment charges
+- create_watchonly_wallet / get_watchonly_wallets - address monitoring
+- list_available_extensions - discover extensions and status
+- get_extension_status - specific extension details
+
+### Admin (9 tools)
+- get_node_info - Lightning node details
+- list_users / create_user / get_user_details / delete_user - user management
+- list_wallets / create_wallet - wallet management
+- get_system_stats - instance metrics
+- backup_database - initiate backup
+- get_logs - filtered system logs
+
+## Extension Requirements
+
+Extension tools require the corresponding LNbits extension to be enabled:
+- LNURLp tools need the LNURLp extension
+- TPoS tools need the TPoS extension
+- SatsPay tools need the SatsPay extension
+- Watch-only tools need the Watch Only extension
+- Admin tools require an Admin API key
+
+## Example Usage
+
+```
+"Check my wallet balance"
+"Create an invoice for 1000 sats with memo 'Coffee payment'"
+"Pay this invoice: lnbc10u1p3..."
+"Send 500 sats to alice@lnbits.com"
+"Show me my recent payments"
+"List all available extensions"
+```
+
+## Related Pages
+
+- LLM Integration: /llm/
+- Skills Catalog: /llm/skills
+- API Reference: /api/
+- Authentication: /api/authentication
+
+---
+
 Source: https://docs.lnbits.com/llm/system-prompt
 
 # System Prompt

@@ -484,6 +484,7 @@ export default withMermaid(defineConfig({
             { text: 'System Prompt', link: '/llm/system-prompt' },
             { text: 'Skills Catalog', link: '/llm/skills' },
             { text: 'Create a Skill', link: '/llm/create-skill' },
+            { text: 'MCP Server', link: '/llm/mcp-server' },
           ],
         },
         {

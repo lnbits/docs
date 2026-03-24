@@ -265,6 +265,7 @@ const roleData = {
               { name: 'Merchant case study', desc: 'TPoS + Boltcards in action', logo: '/logos/lnbits.svg' },
               { name: 'Extension tutorial', desc: 'Step-by-step walkthrough', logo: '/logos/lnbits.svg' },
               { name: 'Event recap', desc: 'LNbits at a festival or meetup', logo: '/logos/lnbits.svg' },
+              { name: 'Media repo', desc: 'Discuss blog topics and feedback', icon: 'devicon-github-original', url: 'https://github.com/lnbits/lnbits_media' },
             ],
           },
           {
@@ -283,6 +284,7 @@ const roleData = {
         desc: 'Every guide you write, every blog you publish, and every story you share helps someone discover Lightning. Your content feeds the docs, the AI assistant, and the community.',
         items: [
           { name: 'Docs repo on GitHub', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'Contribute' },
+          { name: 'Media repo', url: 'https://github.com/lnbits/lnbits_media', badge: 'Blog topics and feedback' },
           { name: 'LNbits news and community articles', url: 'https://news.lnbits.com', badge: 'Get featured' },
           { name: 'LLM integration docs', url: '/llm/', badge: 'Your writing feeds AI' },
           { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+writing+docs+for+%40lnbits' },
@@ -337,6 +339,7 @@ const roleData = {
           {
             label: 'Creative design',
             items: [
+              { name: 'Media repo', desc: 'Existing assets, logos, and creative work', icon: 'devicon-github-original', url: 'https://github.com/lnbits/lnbits_media' },
               { name: 'Blog and news headers', desc: 'Hero images for articles', icon: 'devicon-figma-plain', url: 'https://news.lnbits.com' },
               { name: 'Illustrations for marketing', desc: 'Visuals that help us tell the LNbits story', icon: 'devicon-figma-plain', url: 'https://t.me/lnbits' },
               { name: 'Social media content', desc: 'Shareable cards, infographics, announcements', logo: '/logos/lnbits.svg', url: 'https://x.com/lnbits' },
