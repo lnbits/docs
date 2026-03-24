@@ -44,6 +44,6 @@ CLNRest is recommended over RPC for remote connections. Use RPC only when LNbits
 
 ## Related Pages
 
-- [Funding Sources](/guide/wallets/index.md)
-- [Wallet Backend Comparison](/guide/wallets/comparison.md)
-- [Configuration](/guide/core/environment.md)
+- [Funding Sources](/guide/wallets/)
+- [Wallet Backend Comparison](/guide/wallets/comparison)
+- [Configuration](/guide/core/environment)

@@ -265,6 +265,6 @@ LNBITS_THEME_OPTIONS=classic,bitcoin,mint
 
 ## Related Pages
 
-- [Core Features](/guide/core/index.md)
-- [Docker Installation](/guide/installation/docker.md)
-- [Admin Dashboard](/guide/admin-dashboard.md)
+- [Core Features](/guide/core/)
+- [Docker Installation](/guide/installation/docker)
+- [Admin Dashboard](/guide/admin-dashboard)

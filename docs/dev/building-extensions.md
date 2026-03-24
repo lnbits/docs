@@ -299,7 +299,7 @@ For full deployment details, see the [Deploying Extensions](/dev/extensions/) gu
 ## Related Pages
 
 - [Deploying Extensions](/dev/extensions/) - packaging, distribution, and installation
-- [Contributing](/dev/contributing.md)
-- [Database & Migrations](/dev/database.md)
-- [Decorators & Auth](/dev/decorators.md)
-- [Background Tasks](/dev/tasks.md)
+- [Contributing](/dev/contributing)
+- [Database & Migrations](/dev/database)
+- [Decorators & Auth](/dev/decorators)
+- [Background Tasks](/dev/tasks)

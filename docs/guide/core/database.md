@@ -46,6 +46,6 @@ Always back up before updating LNbits. Migrations cannot be reversed.
 
 ## Related Pages
 
-- [PostgreSQL Installation](/guide/installation/postgresql.md)
-- [Configuration](/guide/core/environment.md)
-- [Database (Developer Guide)](/dev/database.md)
+- [PostgreSQL Installation](/guide/installation/postgresql)
+- [Configuration](/guide/core/environment)
+- [Database (Developer Guide)](/dev/database)

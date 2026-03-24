@@ -108,6 +108,6 @@ curl https://your-lnbits.com/admin/api/v1/audit \
 
 ## Related Pages
 
-- [Authentication](/guide/authentication.md)
-- [Reverse Proxy](/guide/installation/reverse-proxy.md)
-- [Configuration](/guide/core/environment.md)
+- [Authentication](/guide/authentication)
+- [Reverse Proxy](/guide/installation/reverse-proxy)
+- [Configuration](/guide/core/environment)

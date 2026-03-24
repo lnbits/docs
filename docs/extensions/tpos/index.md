@@ -8,12 +8,12 @@
 
 ## Features
 
-- **Create invoices** - instant Lightning QR invoices
-- **Tipping** - percentages or rounding, split to a tip wallet
-- **Item management** - products, cart, JSON import/export
-- **OTC ATM** - LNURL withdraw limits and cooldown
-- **Stripe fiat payment integration** - accept tap-to-pay via Stripe
-- **Tax settings** - global/per-item, inclusive or exclusive
+- **Create invoices** — instant Lightning QR invoices
+- **Tipping** — percentages or rounding, split to a tip wallet
+- **Item management** — products, cart, JSON import/export
+- **OTC ATM** — LNURL withdraw limits and cooldown
+- **Stripe fiat payment integration** — accept tap-to-pay via Stripe
+- **Tax settings** — global/per-item, inclusive or exclusive
 
 ## Overview
 
@@ -183,8 +183,8 @@ Click **Pay** to show the invoice for the customer. To use the regular keypad TP
 
 By default, tax is included in price. Set a default tax rate (%) (e.g., 13). Items can override this with their own tax value.
 
-- **Tax Exclusive** - tax is applied on top of the unit price.
-- **Tax Inclusive** - unit price already includes tax.
+- **Tax Exclusive** — tax is applied on top of the unit price.
+- **Tax Inclusive** — unit price already includes tax.
 
 In the keypad PoS, the default tax is used and is always included in the value.
 

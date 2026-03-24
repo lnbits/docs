@@ -26,6 +26,9 @@
   "webshop": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/webshop/main/static/image/webshop.png"
   },
+  "telegramshop": {
+    "tileUrl": "https://raw.githubusercontent.com/DoktorShift/telegramshop/main/static/image/telegramshop.png"
+  },
   "watchonly": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/watchonly/main/static/bitcoin-wallet.png"
   },
@@ -89,6 +92,9 @@
   "pay2review": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/pay2review/main/static/image/p2r.png"
   },
+  "auctionhouse": {
+    "tileUrl": "https://raw.githubusercontent.com/lnbits/auction_house/main/static/image/auction_house.png"
+  },
   "coinflip": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/coinflip/main/static/image/coinflip.gif"
   },
@@ -125,8 +131,17 @@
   "copilot": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/copilot/main/static/bitcoin-streaming.png"
   },
+  "decoder": {
+    "tileUrl": "https://raw.githubusercontent.com/bitkarrot/decoder/main/static/unlock.png"
+  },
+  "devicetimer": {
+    "tileUrl": "https://raw.githubusercontent.com/DoktorShift/DeviceTimer/main/static/image/devicetimer128.png"
+  },
   "inventory": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/inventory/main/static/inventory.png"
+  },
+  "scheduler": {
+    "tileUrl": "https://raw.githubusercontent.com/bitkarrot/scheduler/main/static/image/scheduler.png"
   },
   "bleskomat": {
     "tileUrl": "https://raw.githubusercontent.com/lnbits/bleskomat/main/static/image/bleskomat.png"

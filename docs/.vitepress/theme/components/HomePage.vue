@@ -394,14 +394,14 @@ const quickLinks = [
           <PenLine :size="18" class="contrib-role-icon" />
           <div>
             <strong>Writers</strong>
-            <span>Docs, guides, blogs, translations</span>
+            <span>Docs, blogs, stories, tutorials</span>
           </div>
         </a>
         <a href="/contribute/#designer" class="contrib-role">
           <Palette :size="18" class="contrib-role-icon" />
           <div>
             <strong>Designers</strong>
-            <span>UI, UX, graphics</span>
+            <span>UI, marketing visuals, graphics</span>
           </div>
         </a>
         <a href="/contribute/#entrepreneur" class="contrib-role">

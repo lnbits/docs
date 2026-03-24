@@ -87,6 +87,9 @@
 ## Extensions
 - [Extensions Overview](https://docs.lnbits.com/extensions/): Interactive grid of 60+ extensions with search and filtering
 
+## Companion Apps
+- [TPoS Wrapper](https://docs.lnbits.com/apps/tpos-wrapper): Android Tap to Pay app - accept credit cards, debit cards, Google Pay, and Apple Pay via Stripe alongside Lightning
+
 ## Developer Docs
 - [Architecture](https://docs.lnbits.com/dev/architecture): Internal structure and design decisions
 - [Building Extensions](https://docs.lnbits.com/dev/building-extensions): Create LNbits extensions - structure, API, models, migrations
@@ -112,7 +115,7 @@
 - [Reference](https://docs.lnbits.com/dev/extensions/reference): Env vars, API endpoints, DB tables, and manifest schema
 
 ## Contribute
-- [Contribute to LNbits](https://docs.lnbits.com/contribute/): Find a task matching your skillset - developer, tester, writer, designer, entrepreneur, or ambassador. Includes FAQ and contact info
+- [Contribute to LNbits](https://docs.lnbits.com/contribute/): Role-based contribution guide for developers, testers, writers, designers, entrepreneurs, and ambassadors. Each role has tailored steps, resources, and role-specific FAQ with links to relevant docs pages
 
 ## Changelog
 - [Changelog](https://docs.lnbits.com/changelog): Latest release notes, dynamically fetched from GitHub

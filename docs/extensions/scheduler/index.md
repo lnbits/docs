@@ -3,52 +3,43 @@
   description="Schedule recurring Lightning payments."
   category="Utilities & Tools"
   icon="🗓️"
-  repo="lnbits/scheduler"
+  repo="bitkarrot/scheduler"
 />
 
-## Overview
+## Video Demo
 
-Scheduler (previously "crontabs") lets you create, edit, and monitor scheduled HTTP calls directly from the LNbits admin panel. Define a cron schedule, point it at any URL with custom headers and body, and Scheduler handles the rest via the system crontab.
+https://github.com/bitkarrot/scheduler/assets/73979971/888d9e77-4edf-4573-85ee-8fc43c710120
 
-## Features
+### Overview:
 
-- **Cron scheduling** - use standard 5-field cron expressions for flexible timing
-- **HTTP methods** - supports GET, PUT, POST, and DELETE actions
-- **Custom headers and body** - configure request payloads per job
-- **Job controls** - start, stop, test, edit, and delete from the main panel
-- **Three log levels** - individual job logs, test logs, and full extension logs
-- **Admin-only** - should be limited to admin accounts for security
+Add, Edit, Delete and Monitor your scheduled Jobs from the Main Panel.
 
-## Prerequisites
+<img width="992" alt="Screenshot 2024-01-19 at 2 39 23 PM" src="https://github.com/bitkarrot/scheduler/assets/73979971/01656f95-bdde-4015-99c5-415ce9483ddb">
 
-::: warning
-The system user running LNbits **must** have `crontab -e` permissions to read/write the crontab file.
-:::
+### Create a job Dialog Box.
 
-The `run_cron_job.py` file must be executable:
+Schedule a specific http call with a specific timed interval.
 
-```bash
-chmod +x run_cron_job.py
-```
+1. Create a new job by clicking "New Scheduled Job"
+2. Fill the options for your new SCHEDULED JOB
+   - Enter a Name for your Job
+   - Select an action (GET/PUT/POST/DEL)
+   - Enter the URL
+   - Add any headers if required
+   - Add body data if required, leave blank if there is no body (e.g. for DELETE)
+   - enter the scheduled time/day you want to run your job. You can use [crontab.guru](https://crontab.guru) to help validate your cron schedules.
+3. Save your scheduled job and return to the main page to test the job (Orange) or start the job (Green arrow)
+4. All methods for controlling your job are on the main panel [Start/Stop, Edit, Test, View Logs and Delete]
 
-## Setup
+NOTE: Jobs may not run automatically on creation depending on the release version. You will need to start and stop the jobs on the main panel [see image above]. If you are unfamiliar with how the 5 slot scheduling works, visit this resource: https://crontab.guru
 
-1. Enable the extension from the LNbits **Extensions** page
-2. Open Scheduler from the sidebar
-3. Click **New Scheduled Job** to create a job:
-   - Enter a name for your job
-   - Select an HTTP action (GET/PUT/POST/DELETE)
-   - Enter the target URL
-   - Add headers and body data if needed
-   - Set the cron schedule (use [crontab.guru](https://crontab.guru) to validate)
-4. Save the job, then start it from the main panel (green arrow)
+<img width="605" alt="imgtwo" src="https://github.com/bitkarrot/scheduler/assets/73979971/77f55660-52b6-459c-9ce2-d81e6fa7d1b5">
 
-## Use Cases
+### There are three sets of logs:
 
-- **Recurring payments** - schedule periodic API calls to send payments
-- **Data collection** - periodically fetch data from external APIs
-- **Maintenance tasks** - automate cleanup or reporting jobs
-- **Webhook triggers** - call webhooks on a schedule
+- Individual Job Logs - these are viewable by clicking on the blue info icons on the main panel.
+- Test job Logs - this is for testing the job and the result is not recorded to the database only to the test log file.
+- Complete Extension Logs - This will show all errors and all events, these are viewable by clicking on the "View all logs" button, located the top of the main panel.
 
 ## API Reference
 

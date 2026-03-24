@@ -217,7 +217,7 @@ Wallet balances are tracked internally. Switching backends doesn't affect user b
 
 ## Related Pages
 
-- [Wallet Backend Comparison](/guide/wallets/comparison.md)
-- [Core Lightning (CLNRest)](/guide/wallets/clnrest.md)
-- [LND (REST)](/guide/wallets/lnd-rest.md)
-- [Configuration](/guide/core/environment.md)
+- [Wallet Backend Comparison](/guide/wallets/comparison)
+- [Core Lightning (CLNRest)](/guide/wallets/clnrest)
+- [LND (REST)](/guide/wallets/lnd-rest)
+- [Configuration](/guide/core/environment)

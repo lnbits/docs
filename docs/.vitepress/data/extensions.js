@@ -13,7 +13,7 @@ export const EXTENSIONS = [
   { id: 'market', name: 'Market', category: 'Payments & Commerce', icon: '🛒', description: 'Online marketplace with Lightning payments.', repo: 'lnbits/market' },
   { id: 'offlineshop', name: 'Offline Shop', category: 'Payments & Commerce', icon: '🏷️', description: 'Receive payments offline with printed QR codes.', repo: 'lnbits/offlineshop' },
   { id: 'webshop', name: 'WebShop', category: 'Payments & Commerce', icon: '🛍️', description: 'Embeddable web shop with Lightning checkout.', repo: 'lnbits/webshop' },
-  { id: 'telegramshop', name: 'Telegram Shopping', category: 'Payments & Commerce', icon: '🤖', description: 'Lightning-powered storefront inside Telegram Mini App.', repo: 'lnbits/telegramshop' },
+  { id: 'telegramshop', name: 'Telegram Shopping', category: 'Payments & Commerce', icon: '🤖', description: 'Lightning-powered storefront inside Telegram Mini App.', repo: 'DoktorShift/telegramshop' },
 
   // ── Wallet Tools ──
   { id: 'watchonly', name: 'Watch Only', category: 'Wallet Tools', icon: '👁️', description: 'Monitor on-chain wallets via xpub/zpub without spending keys.', repo: 'lnbits/watchonly' },
@@ -47,7 +47,7 @@ export const EXTENSIONS = [
   { id: 'chat', name: 'Chat', category: 'Social & Nostr', icon: '💬', description: 'Live support chat with paid messages and embeddable widget.', repo: 'lnbits/chat' },
   { id: 'paidreviews', name: 'Paid Reviews', category: 'Social & Nostr', icon: '⭐', description: 'Collect reviews with Lightning-gated submission.', repo: 'lnbits/paidreviews' },
   { id: 'pay2review', name: 'Pay2Review', category: 'Social & Nostr', icon: '📝', description: 'Charge sats for reviews - anti-sock-puppet.', repo: 'lnbits/pay2review' },
-  { id: 'auctionhouse', name: 'Auction House', category: 'Social & Nostr', icon: '🔨', description: 'Run Lightning-powered auctions.', repo: 'lnbits/auctionhouse' },
+  { id: 'auctionhouse', name: 'Auction House', category: 'Social & Nostr', icon: '🔨', description: 'Run Lightning-powered auctions.', repo: 'lnbits/auction_house' },
 
   // ── Games & Gambling ──
   { id: 'coinflip', name: 'Coinflip', category: 'Games & Gambling', icon: '🪙', description: 'Bet sats on coinflips - winner takes all.', repo: 'lnbits/coinflip' },
@@ -66,10 +66,10 @@ export const EXTENSIONS = [
   { id: 'copilot', name: 'Copilot', category: 'Events & Streaming', icon: '🧑‍✈️', description: 'Streaming overlay for Lightning donations.', repo: 'lnbits/copilot' },
 
   // ── Utilities & Tools ──
-  { id: 'decoder', name: 'Decoder', category: 'Utilities & Tools', icon: '🔍', description: 'Decode BOLT11 invoices and LNURL codes.', repo: 'lnbits/decoder' },
-  { id: 'devicetimer', name: 'Device Timer', category: 'Utilities & Tools', icon: '⏱️', description: 'Control IoT devices with timed Lightning payments.', repo: 'lnbits/devicetimer' },
+  { id: 'decoder', name: 'Decoder', category: 'Utilities & Tools', icon: '🔍', description: 'Decode BOLT11 invoices and LNURL codes.', repo: 'bitkarrot/decoder' },
+  { id: 'devicetimer', name: 'Device Timer', category: 'Utilities & Tools', icon: '⏱️', description: 'Control IoT devices with timed Lightning payments.', repo: 'DoktorShift/DeviceTimer' },
   { id: 'inventory', name: 'Inventory', category: 'Utilities & Tools', icon: '📦', description: 'Stock and inventory management.', repo: 'lnbits/inventory' },
-  { id: 'scheduler', name: 'Scheduler', category: 'Utilities & Tools', icon: '🗓️', description: 'Schedule recurring Lightning payments.', repo: 'lnbits/scheduler' },
+  { id: 'scheduler', name: 'Scheduler', category: 'Utilities & Tools', icon: '🗓️', description: 'Schedule recurring Lightning payments.', repo: 'bitkarrot/scheduler' },
   { id: 'bleskomat', name: 'Bleskomat', category: 'Utilities & Tools', icon: '🏧', description: 'ATM-style Lightning vending machine interface.', repo: 'lnbits/bleskomat' },
   { id: 'smtp', name: 'SMTP', category: 'Utilities & Tools', icon: '📧', description: 'Charge sats for sending emails.', repo: 'lnbits/smtp' },
   { id: 'shipping', name: 'Shipping', category: 'Utilities & Tools', icon: '🚚', description: 'Shared shipping zones and rates for commerce extensions.', repo: 'lnbits/shipping' },

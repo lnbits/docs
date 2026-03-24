@@ -66,6 +66,6 @@ curl https://your-lnbits.com/node/public/api/v1/info
 
 ## Related Pages
 
-- [Admin Dashboard](/guide/admin-dashboard.md)
-- [Funding Sources](/guide/wallets/index.md)
-- [Security](/guide/core/security.md)
+- [Admin Dashboard](/guide/admin-dashboard)
+- [Funding Sources](/guide/wallets/)
+- [Security](/guide/core/security)

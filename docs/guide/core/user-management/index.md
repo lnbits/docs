@@ -119,6 +119,6 @@ Standard accounts created through the login flow. They can create wallets, use e
 ## Related Pages
 
 - [Super User](/guide/core/super-user) - highest-privilege account details
-- [Authentication](/guide/authentication.md)
-- [Admin Dashboard](/guide/admin-dashboard.md)
-- [Users Admin API](/api/admin/users.md)
+- [Authentication](/guide/authentication)
+- [Admin Dashboard](/guide/admin-dashboard)
+- [Users Admin API](/api/admin/users)

@@ -31,6 +31,6 @@ FakeWallet is best for development. VoidWallet is best for a first look at the i
 
 ## Related Pages
 
-- [Funding Sources](/guide/wallets/index.md)
-- [Building Extensions](/dev/building-extensions.md)
-- [Contributing](/dev/contributing.md)
+- [Funding Sources](/guide/wallets/)
+- [Building Extensions](/dev/building-extensions)
+- [Contributing](/dev/contributing)

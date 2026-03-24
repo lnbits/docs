@@ -125,6 +125,12 @@ const columns = [
         ],
       },
       {
+        heading: 'Companion Apps',
+        items: [
+          { name: 'TPoS Wrapper', desc: 'Android Tap to Pay', link: '/apps/tpos-wrapper', icon: 'zap' },
+        ],
+      },
+      {
         heading: 'LLM & AI',
         items: [
           { name: 'LLM Overview', desc: 'AI integration guides', link: '/llm/', icon: 'zap' },

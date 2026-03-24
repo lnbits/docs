@@ -159,6 +159,6 @@ Use the LNbits test suite to verify your backend works correctly with all core o
 
 ## Related Pages
 
-- [Wallet Backends Guide](/guide/wallets/index.md)
-- [Wallet Comparison](/guide/wallets/comparison.md)
-- [Architecture](/dev/architecture.md)
+- [Wallet Backends Guide](/guide/wallets/)
+- [Wallet Comparison](/guide/wallets/comparison)
+- [Architecture](/dev/architecture)

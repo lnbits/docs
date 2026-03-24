@@ -24,6 +24,7 @@ export default withMermaid(defineConfig({
   title: 'LNbits',
   description: 'Free and open-source Lightning Network wallet and accounts system',
   head: [
+    ['link', { rel: 'stylesheet', type: 'text/css', href: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css' }],
     ['link', { rel: 'icon', href: '/logos/lnbits.png' }],
     ['link', { rel: 'apple-touch-icon', sizes: '180x180', href: '/logos/lnbits.png' }],
     ['link', { rel: 'manifest', href: '/manifest.json' }],
@@ -130,6 +131,7 @@ export default withMermaid(defineConfig({
         ],
       },
       { text: 'Extensions', link: '/extensions/' },
+      { text: 'Apps', link: '/apps/tpos-wrapper' },
       { text: 'Contribute', link: '/contribute/' },
       {
         text: 'Developers',
@@ -479,7 +481,25 @@ export default withMermaid(defineConfig({
           items: [
             { text: 'Overview', link: '/llm/' },
             { text: 'System Prompt', link: '/llm/system-prompt' },
-            { text: 'Skills', link: '/llm/skills' },
+            { text: 'Skills Catalog', link: '/llm/skills' },
+            { text: 'Create a Skill', link: '/llm/create-skill' },
+          ],
+        },
+        {
+          text: 'Available Skills',
+          collapsed: false,
+          items: [
+            { text: 'Wallet & Payments', link: '/llm/skills/wallet-payments' },
+            { text: 'Lightning Address', link: '/llm/skills/lnurlp-pay-links' },
+            { text: 'Shared Wallet (Uncle Jim)', link: '/llm/skills/shared-wallet' },
+          ],
+        },
+      ],
+      '/apps/': [
+        {
+          text: 'Companion Apps',
+          items: [
+            { text: 'TPoS Wrapper', link: '/apps/tpos-wrapper' },
           ],
         },
       ],
@@ -499,7 +519,7 @@ export default withMermaid(defineConfig({
     ],
 
     footer: {
-      message: 'Released under the MIT License.',
+      message: '<a href="https://news.lnbits.com" target="_blank">News</a> · <a href="https://shop.lnbits.com" target="_blank">Shop</a> · <a href="https://my.lnbits.com" target="_blank">SaaS</a> · <a href="https://t.me/lnbits" target="_blank">Telegram</a> · Released under the MIT License.',
       copyright: 'Copyright 2018-present LNbits Contributors',
     },
 

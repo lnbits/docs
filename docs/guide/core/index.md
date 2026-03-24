@@ -61,7 +61,7 @@ LNbits can send server-level notifications through email (SMTP), Telegram, Nostr
 
 ## Related Pages
 
-- [Wallets & Accounts](/guide/core/wallets-and-accounts.md)
-- [Payments](/guide/core/payments.md)
-- [API Keys](/guide/core/api-keys.md)
+- [Wallets & Accounts](/guide/core/wallets-and-accounts)
+- [Payments](/guide/core/payments)
+- [API Keys](/guide/core/api-keys)
 - [API Reference](/api/)
