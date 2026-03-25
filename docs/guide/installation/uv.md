@@ -66,15 +66,9 @@ lnbits-cli migrate
 lnbits-cli superuser
 ```
 
-## Install script (Debian/Ubuntu)
-
-The official one-line install script handles everything: system dependencies, cloning, venv setup, and configuration.
-
-```bash
-wget https://raw.githubusercontent.com/lnbits/lnbits/main/lnbits.sh && chmod +x lnbits.sh && ./lnbits.sh
-```
-
-After installation, use `./lnbits.sh` to run, or for more control: `cd lnbits && uv run lnbits`.
+::: tip Want a one-command install?
+The [install script](/guide/installation/install-script) handles everything automatically on Debian/Ubuntu.
+:::
 
 ## Updating
 
