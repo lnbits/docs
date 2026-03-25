@@ -195,6 +195,7 @@ export default withMermaid(defineConfig({
           collapsed: false,
           items: [
             { text: 'Choose a Method', link: '/guide/installation/' },
+            { text: 'Install Script', link: '/guide/installation/install-script' },
             { text: 'uv', link: '/guide/installation/uv' },
             { text: 'Poetry', link: '/guide/installation/poetry' },
             { text: 'Docker', link: '/guide/installation/docker' },
