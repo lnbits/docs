@@ -100,7 +100,7 @@ You do not need technical knowledge. If you can use LNbits, you can document it.
 - Add a missing "Related Pages" section
 
 ## Where docs live
-- Docs repo: https://github.com/DoktorShift/docs_lnbits
+- Docs repo: https://github.com/lnbits/docs
 - Pages are Markdown files in docs/
 - Extension pages auto-generate from GitHub READMEs - improve a README, improve the docs
 
@@ -129,7 +129,7 @@ LNbits uses Vue 3 + Quasar UI for the app, VitePress for docs. You can restyle c
 
 ## The stack
 - LNbits app: https://github.com/lnbits/lnbits (Vue + Quasar)
-- Docs site: https://github.com/DoktorShift/docs_lnbits (VitePress)
+- Docs site: https://github.com/lnbits/docs (VitePress)
 - Quasar components: https://quasar.dev/vue-components
 - Try LNbits live: https://my.lnbits.com
 
@@ -383,7 +383,7 @@ Based on my answers, recommend one of the six roles: Developer, Tester, Writer, 
 <additional_context>
 Full docs: https://docs.lnbits.com/llms.txt
 Good first issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
-Docs repo: https://github.com/DoktorShift/docs_lnbits
+Docs repo: https://github.com/lnbits/docs
 </additional_context>
 
 <instructions>

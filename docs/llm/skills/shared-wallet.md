@@ -2,7 +2,7 @@
 
 > Set up an "Uncle Jim" shared wallet - one wallet, multiple users, granular permissions. For families, teams, coops, or anyone onboarding others to Lightning.
 
-<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/shared-wallet.md" />
+<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/lnbits/docs/blob/main/docs/llm/skills/shared-wallet.md" />
 
 ## What this skill does
 

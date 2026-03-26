@@ -47,11 +47,11 @@ const allFaqItems = [
 
   // ── Writer ──
   { q: 'Do I need technical knowledge to write docs?', roles: ['writer'], a: 'Not at all. Some of the best contributions are clear explanations of features, <a href="/guide/faq/">FAQ improvements</a>, and merchant stories. If you can use LNbits, you can document it.' },
-  { q: 'Where do the docs live and how do I edit them?', roles: ['writer'], a: 'Everything is in the <a href="https://github.com/DoktorShift/docs_lnbits" target="_blank">docs repo on GitHub</a>. Pages are Markdown files in <code>docs/</code>. Extension pages auto-generate from their GitHub READMEs, so improving a README improves the <a href="/extensions/">extension docs</a> too.' },
+  { q: 'Where do the docs live and how do I edit them?', roles: ['writer'], a: 'Everything is in the <a href="https://github.com/lnbits/docs" target="_blank">docs repo on GitHub</a>. Pages are Markdown files in <code>docs/</code>. Extension pages auto-generate from their GitHub READMEs, so improving a README improves the <a href="/extensions/">extension docs</a> too.' },
   { q: 'How do I get a blog post featured?', roles: ['writer'], a: 'Write about a real experience: a deployment story, a merchant case study, a tutorial. Share it on <a href="https://x.com/lnbits" target="_blank">X</a> or <a href="https://t.me/lnbits" target="_blank">Telegram</a> and the team will consider it for <a href="https://news.lnbits.com" target="_blank">news.lnbits.com</a>.' },
 
   // ── Designer ──
-  { q: 'What frontend stack does LNbits use?', roles: ['designer'], a: '<a href="/dev/architecture">Vue 3 + Quasar UI</a> for the app, <a href="https://vitepress.dev" target="_blank">VitePress</a> for docs. The Quasar component library gives you a huge toolkit. Browse the <a href="https://github.com/lnbits/lnbits" target="_blank">main repo</a> for the app or the <a href="https://github.com/DoktorShift/docs_lnbits" target="_blank">docs repo</a> for this site.' },
+  { q: 'What frontend stack does LNbits use?', roles: ['designer'], a: '<a href="/dev/architecture">Vue 3 + Quasar UI</a> for the app, <a href="https://vitepress.dev" target="_blank">VitePress</a> for docs. The Quasar component library gives you a huge toolkit. Browse the <a href="https://github.com/lnbits/lnbits" target="_blank">main repo</a> for the app or the <a href="https://github.com/lnbits/docs" target="_blank">docs repo</a> for this site.' },
   { q: 'Can I redesign existing UI without writing backend code?', roles: ['designer'], a: 'Yes. Frontend templates live in each extension\'s <code>templates/</code> folder. You can restyle components, improve layouts, and fix mobile views using only HTML, CSS, and Vue. The <a href="/dev/building-extensions">extension development guide</a> has the patterns.' },
   { q: 'What kind of design work is needed?', roles: ['designer'], a: 'UI improvements for the <a href="/guide/core/admin-dashboard">admin panel</a> and extension flows, hero images for <a href="https://news.lnbits.com" target="_blank">blog posts</a>, social media cards, infographics, and illustrations. Check <a href="https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign" target="_blank">design-tagged issues</a> for open requests.' },
 
@@ -215,7 +215,7 @@ const roleData = {
       kicker: 'TELL THE STORY',
       headline: 'Your words bring people closer to Bitcoin',
       sub: 'Pick an open issue in the docs or blog and start writing. No technical background needed. The best content comes from real experience.',
-      cta: { label: 'Browse docs issues', url: 'https://github.com/DoktorShift/docs_lnbits/issues' },
+      cta: { label: 'Browse docs issues', url: 'https://github.com/lnbits/docs/issues' },
     },
     video: null,
     steps: [
@@ -231,7 +231,7 @@ const roleData = {
         items: [
           { name: 'Find an extension with a thin page', url: '/extensions/', badge: 'Quick win' },
           { name: 'Check FAQ for unanswered questions', url: '/guide/faq/', badge: 'Quick win' },
-          { name: 'Fix a broken link or typo', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'Quick win' },
+          { name: 'Fix a broken link or typo', url: 'https://github.com/lnbits/docs', badge: 'Quick win' },
           { name: 'Add a missing "Related Pages" section', url: '/guide/', badge: 'Quick win' },
         ],
       },
@@ -245,7 +245,7 @@ const roleData = {
           'Link to docs.lnbits.com so readers can go deeper',
         ],
         items: [
-          { name: 'Edit the docs directly', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'For doc contributions' },
+          { name: 'Edit the docs directly', url: 'https://github.com/lnbits/docs', badge: 'For doc contributions' },
         ],
       },
       {
@@ -283,14 +283,14 @@ const roleData = {
         num: '04', title: 'Your words reach thousands', illust: 'ship',
         desc: 'Every guide you write, every blog you publish, and every story you share helps someone discover Lightning. Your content feeds the docs, the AI assistant, and the community.',
         items: [
-          { name: 'Docs repo on GitHub', url: 'https://github.com/DoktorShift/docs_lnbits', badge: 'Contribute' },
+          { name: 'Docs repo on GitHub', url: 'https://github.com/lnbits/docs', badge: 'Contribute' },
           { name: 'Media repo', url: 'https://github.com/lnbits/lnbits_media', badge: 'Blog topics and feedback' },
           { name: 'LNbits news and community articles', url: 'https://news.lnbits.com', badge: 'Get featured' },
           { name: 'LLM integration docs', url: '/llm/', badge: 'Your writing feeds AI' },
           { name: 'Share on X', url: 'https://x.com/intent/tweet?text=I%27m+writing+docs+for+%40lnbits' },
           { name: 'Telegram community', url: 'https://t.me/lnbits' },
         ],
-        action: { label: 'Start writing', url: 'https://github.com/DoktorShift/docs_lnbits' },
+        action: { label: 'Start writing', url: 'https://github.com/lnbits/docs' },
       },
     ],
   },
@@ -319,7 +319,7 @@ const roleData = {
             label: 'Docs site (VitePress)',
             items: [
               { name: 'Docs site', desc: 'You are looking at it', logo: '/logos/lnbits.svg', url: '/' },
-              { name: 'Docs repo', desc: 'VitePress + Vue', icon: 'devicon-github-original', url: 'https://github.com/DoktorShift/docs_lnbits' },
+              { name: 'Docs repo', desc: 'VitePress + Vue', icon: 'devicon-github-original', url: 'https://github.com/lnbits/docs' },
               { name: 'VitePress docs', desc: 'Theming reference', icon: 'devicon-vuejs-plain', url: 'https://vitepress.dev' },
             ],
           },
@@ -333,7 +333,7 @@ const roleData = {
             label: 'Product design',
             items: [
               { name: 'UI improvements', desc: 'Admin panel, extension flows, mobile views', icon: 'devicon-quasar-plain', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign' },
-              { name: 'Docs site design', desc: 'Pages, layouts, components', icon: 'devicon-vuejs-plain', url: 'https://github.com/DoktorShift/docs_lnbits' },
+              { name: 'Docs site design', desc: 'Pages, layouts, components', icon: 'devicon-vuejs-plain', url: 'https://github.com/lnbits/docs' },
             ],
           },
           {

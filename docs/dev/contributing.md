@@ -133,7 +133,7 @@ The docs site is a separate project. Extension pages are auto-generated from eac
 
 **To improve an extension page:** Edit the `README.md` in the extension's own repo (e.g., `github.com/lnbits/tpos`). Changes appear on the docs site at the next build.
 
-**To improve core docs:** Submit a PR to the [docs repository](https://github.com/DoktorShift/docs_lnbits). Pages are Markdown files in `docs/`.
+**To improve core docs:** Submit a PR to the [docs repository](https://github.com/lnbits/docs). Pages are Markdown files in `docs/`.
 
 **Not sure where to start?** The [Contribute page](/contribute/) has role-specific guides for developers, testers, writers, designers, entrepreneurs, and ambassadors.
 

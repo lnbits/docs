@@ -2,7 +2,7 @@
 
 > The foundation skill - create wallets, receive and send Lightning payments via the LNbits core API.
 
-<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/wallet-payments.md" />
+<SkillHeader repo="lnbits/lnbits" :official="true" source="https://github.com/lnbits/docs/blob/main/docs/llm/skills/wallet-payments.md" />
 
 ## What this skill does
 

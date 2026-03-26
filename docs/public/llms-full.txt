@@ -3180,7 +3180,7 @@ LNbits welcomes six types of contributors:
 ## Writer FAQ
 
 - **Do I need technical knowledge?** No. FAQ improvements, feature explanations, and merchant stories are all valuable.
-- **Where do docs live?** github.com/DoktorShift/docs_lnbits. Extension pages auto-generate from their GitHub READMEs.
+- **Where do docs live?** github.com/lnbits/docs. Extension pages auto-generate from their GitHub READMEs.
 - **How do I get a blog post featured?** Write about real experience, share on X or Telegram, team considers it for news.lnbits.com.
 
 ## Designer FAQ

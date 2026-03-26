@@ -2,7 +2,7 @@
 
 > Create a human-readable Lightning Address like `alice@yourdomain.com` that anyone can send sats to.
 
-<SkillHeader repo="lnbits/lnurlp" :official="true" source="https://github.com/DoktorShift/docs_lnbits/blob/main/docs/llm/skills/lnurlp-pay-links.md" />
+<SkillHeader repo="lnbits/lnurlp" :official="true" source="https://github.com/lnbits/docs/blob/main/docs/llm/skills/lnurlp-pay-links.md" />
 
 ## What this skill does
 
