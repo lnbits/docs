@@ -63,4 +63,4 @@ See the [Magic 8ball API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Magic 8ball API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions

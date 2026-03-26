@@ -236,4 +236,4 @@ See the [FOSSA API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [FOSSA API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions

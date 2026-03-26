@@ -176,4 +176,4 @@ LNbits empowers developers and merchants with modular, open-source tools for bui
 - [TPoS Extension](/extensions/tpos/) - the LNbits extension this app extends
 - [Stripe Setup](/guide/core/fiat-stripe) - configure Stripe as fiat provider
 - [PayPal Setup](/guide/core/fiat-paypal) - configure PayPal as fiat provider
-- [All Extensions](/extensions/) - browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com) - browse all LNbits extensions

@@ -64,4 +64,4 @@ Filter for paths starting with `/orders/` to isolate this extension's endpoints.
 - [Orders Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog

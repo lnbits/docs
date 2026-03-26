@@ -3043,7 +3043,7 @@ LNbits empowers developers and merchants with modular, open-source tools for bui
 - [TPoS Extension](/extensions/tpos/) - the LNbits extension this app extends
 - [Stripe Setup](/guide/core/fiat-stripe) - configure Stripe as fiat provider
 - [PayPal Setup](/guide/core/fiat-paypal) - configure PayPal as fiat provider
-- [All Extensions](/extensions/) - browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com) - browse all LNbits extensions
 
 ---
 
@@ -6495,7 +6495,7 @@ Filter for paths starting with `/auctionhouse/` to isolate this extension's endp
 - [Auction House Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -6542,7 +6542,7 @@ See the [Auction House API documentation](./api) for endpoint details.
 
 - [Auction House API Reference](./api): API endpoints for this extension
 - [Market](/extensions/market/): Fixed-price marketplace
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -6614,7 +6614,7 @@ Filter for paths starting with `/bitcoinswitch/` to isolate this extension's end
 - [Bitcoin Switch Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -6642,7 +6642,7 @@ See the [Bitcoin Switch API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Bitcoin Switch API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -6714,7 +6714,7 @@ Filter for paths starting with `/blackjack/` to isolate this extension's endpoin
 - [BlackJack Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -6739,7 +6739,7 @@ See the [BlackJack API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [BlackJack API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -6811,7 +6811,7 @@ Filter for paths starting with `/bleskomat/` to isolate this extension's endpoin
 - [Bleskomat Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -6848,7 +6848,7 @@ See the [Bleskomat API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Bleskomat API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -6920,7 +6920,7 @@ Filter for paths starting with `/boltcards/` to isolate this extension's endpoin
 - [Bolt Cards Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7019,7 +7019,7 @@ See the [Bolt Cards API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Bolt Cards API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7091,7 +7091,7 @@ Filter for paths starting with `/boltz/` to isolate this extension's endpoints.
 - [Boltz Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7165,7 +7165,7 @@ See the [Boltz API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Boltz API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7237,7 +7237,7 @@ Filter for paths starting with `/chaospad/` to isolate this extension's endpoint
 - [ChaosPad Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7276,7 +7276,7 @@ See the [ChaosPad API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [ChaosPad API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7348,7 +7348,7 @@ Filter for paths starting with `/chat/` to isolate this extension's endpoints.
 - [Chat Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7394,7 +7394,7 @@ See the [Chat API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Chat API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7466,7 +7466,7 @@ Filter for paths starting with `/coinflip/` to isolate this extension's endpoint
 - [Coinflip Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7494,7 +7494,7 @@ See the [Coinflip API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Coinflip API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7566,7 +7566,7 @@ Filter for paths starting with `/copilot/` to isolate this extension's endpoints
 - [Copilot Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7597,7 +7597,7 @@ See the [Copilot API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Copilot API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7669,7 +7669,7 @@ Filter for paths starting with `/decoder/` to isolate this extension's endpoints
 - [Decoder Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7716,7 +7716,7 @@ See the [Decoder API documentation](./api) for endpoint details.
 - [Decoder API Reference](./api): API endpoints for this extension
 - [LNURL](/guide/core/lnurl/overview): LNURL protocol overview
 - [Payments](/guide/core/payments): Core payment concepts
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7788,7 +7788,7 @@ Filter for paths starting with `/deezy/` to isolate this extension's endpoints.
 - [Deezy Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7824,7 +7824,7 @@ See the [Deezy API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Deezy API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -7896,7 +7896,7 @@ Filter for paths starting with `/devicetimer/` to isolate this extension's endpo
 - [Device Timer Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -7950,7 +7950,7 @@ See the [Device Timer API documentation](./api) for endpoint details.
 - [Bitcoin Switch](/extensions/bitcoinswitch/): IoT device control with Bitcoin
 - [LNURL Device](/extensions/lnurldevice/): Legacy hardware integration
 - [Hardware & Merchants FAQ](/guide/faq/hardware): Hardware setup questions
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8022,7 +8022,7 @@ Filter for paths starting with `/eightball/` to isolate this extension's endpoin
 - [Magic 8ball Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8093,7 +8093,7 @@ See the [Magic 8ball API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Magic 8ball API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8165,7 +8165,7 @@ Filter for paths starting with `/events/` to isolate this extension's endpoints.
 - [Events Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8218,7 +8218,7 @@ See the [Events API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Events API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8290,7 +8290,7 @@ Filter for paths starting with `/fossa/` to isolate this extension's endpoints.
 - [FOSSA Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8534,7 +8534,7 @@ See the [FOSSA API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [FOSSA API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8606,7 +8606,7 @@ Filter for paths starting with `/gerty/` to isolate this extension's endpoints.
 - [Gerty Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8633,7 +8633,7 @@ See the [Gerty API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Gerty API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8737,7 +8737,7 @@ Filter for paths starting with `/inventory/` to isolate this extension's endpoin
 - [Inventory Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8806,7 +8806,7 @@ See the [Inventory API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Inventory API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8878,7 +8878,7 @@ Filter for paths starting with `/invoices/` to isolate this extension's endpoint
 - [Invoices Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -8917,7 +8917,7 @@ See the [Invoices API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Invoices API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -8989,7 +8989,7 @@ Filter for paths starting with `/jukebox/` to isolate this extension's endpoints
 - [Jukebox Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9045,7 +9045,7 @@ See the [Jukebox API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Jukebox API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9117,7 +9117,7 @@ Filter for paths starting with `/livestream/` to isolate this extension's endpoi
 - [Livestream Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9178,7 +9178,7 @@ See the [Livestream API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Livestream API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9250,7 +9250,7 @@ Filter for paths starting with `/lncalendar/` to isolate this extension's endpoi
 - [LNCalendar Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9337,7 +9337,7 @@ See the [LNCalendar API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LNCalendar API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9409,7 +9409,7 @@ Filter for paths starting with `/lndhub/` to isolate this extension's endpoints.
 - [LndHub Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9442,7 +9442,7 @@ See the [LndHub API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LndHub API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9514,7 +9514,7 @@ Filter for paths starting with `/lnpos/` to isolate this extension's endpoints.
 - [LNPoS Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9568,7 +9568,7 @@ See the [LNPoS API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LNPoS API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9640,7 +9640,7 @@ Filter for paths starting with `/lnticket/` to isolate this extension's endpoint
 - [LN Ticket Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9689,7 +9689,7 @@ See the [LN Ticket API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LN Ticket API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9761,7 +9761,7 @@ Filter for paths starting with `/lnurldevice/` to isolate this extension's endpo
 - [LNURL Device Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9790,7 +9790,7 @@ See the [LNURL Device API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LNURL Device API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -9862,7 +9862,7 @@ Filter for paths starting with `/lnurlp/` to isolate this extension's endpoints.
 - [LNURLp Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -9929,7 +9929,7 @@ See the [LNURLp API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [LNURLp API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -10001,7 +10001,7 @@ Filter for paths starting with `/market/` to isolate this extension's endpoints.
 - [Market Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -10299,7 +10299,7 @@ See the [Market API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Market API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -10371,7 +10371,7 @@ Filter for paths starting with `/nostrclient/` to isolate this extension's endpo
 - [Nostr Client Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -10513,7 +10513,7 @@ See the [Nostr Client API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr Client API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -10585,7 +10585,7 @@ Filter for paths starting with `/nostrmarket/` to isolate this extension's endpo
 - [Nostr Market Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -10746,7 +10746,7 @@ See the [Nostr Market API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr Market API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -10818,7 +10818,7 @@ Filter for paths starting with `/nostrnip5/` to isolate this extension's endpoin
 - [Nostr NIP-5 Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -10896,7 +10896,7 @@ See the [Nostr NIP-5 API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr NIP-5 API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -10968,7 +10968,7 @@ Filter for paths starting with `/nostrrelay/` to isolate this extension's endpoi
 - [Nostr Relay Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11095,7 +11095,7 @@ See the [Nostr Relay API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Nostr Relay API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11167,7 +11167,7 @@ Filter for paths starting with `/numberlottery/` to isolate this extension's end
 - [Number Lottery Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11199,7 +11199,7 @@ See the [Number Lottery API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Number Lottery API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11271,7 +11271,7 @@ Filter for paths starting with `/nwcprovider/` to isolate this extension's endpo
 - [NWC Provider Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11359,7 +11359,7 @@ See the [NWC Provider API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [NWC Provider API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11431,7 +11431,7 @@ Filter for paths starting with `/offlineshop/` to isolate this extension's endpo
 - [Offline Shop Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11485,7 +11485,7 @@ See the [Offline Shop API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Offline Shop API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11557,7 +11557,7 @@ Filter for paths starting with `/orders/` to isolate this extension's endpoints.
 - [Orders Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11605,7 +11605,7 @@ See the [Orders API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Orders API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11677,7 +11677,7 @@ Filter for paths starting with `/paidreviews/` to isolate this extension's endpo
 - [Paid Reviews Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11717,7 +11717,7 @@ See the [Paid Reviews API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Paid Reviews API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11789,7 +11789,7 @@ Filter for paths starting with `/paidtasks/` to isolate this extension's endpoin
 - [PaidTasks Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11855,7 +11855,7 @@ See the [PaidTasks API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [PaidTasks API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -11927,7 +11927,7 @@ Filter for paths starting with `/pay2review/` to isolate this extension's endpoi
 - [Pay2Review Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -11954,7 +11954,7 @@ See the [Pay2Review API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Pay2Review API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12026,7 +12026,7 @@ Filter for paths starting with `/paywall/` to isolate this extension's endpoints
 - [Paywall Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12074,7 +12074,7 @@ See the [Paywall API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Paywall API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12146,7 +12146,7 @@ Filter for paths starting with `/raisenow/` to isolate this extension's endpoint
 - [RaiseNow Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12186,7 +12186,7 @@ See the [RaiseNow API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [RaiseNow API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12258,7 +12258,7 @@ Filter for paths starting with `/satsdice/` to isolate this extension's endpoint
 - [Sats Dice Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12284,7 +12284,7 @@ See the [Sats Dice API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Sats Dice API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12356,7 +12356,7 @@ Filter for paths starting with `/satspay/` to isolate this extension's endpoints
 - [SatsPay Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12403,7 +12403,7 @@ See the [SatsPay API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [SatsPay API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12475,7 +12475,7 @@ Filter for paths starting with `/satspot/` to isolate this extension's endpoints
 - [Satspot Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12503,7 +12503,7 @@ See the [Satspot API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Satspot API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12575,7 +12575,7 @@ Filter for paths starting with `/scheduler/` to isolate this extension's endpoin
 - [Scheduler Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12640,7 +12640,7 @@ See the [Scheduler API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Scheduler API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12712,7 +12712,7 @@ Filter for paths starting with `/scrub/` to isolate this extension's endpoints.
 - [Scrub Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12762,7 +12762,7 @@ See the [Scrub API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Scrub API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12834,7 +12834,7 @@ Filter for paths starting with `/scrum/` to isolate this extension's endpoints.
 - [Scrum Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12859,7 +12859,7 @@ See the [Scrum API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Scrum API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -12931,7 +12931,7 @@ Filter for paths starting with `/sellcoins/` to isolate this extension's endpoin
 - [Sell Coins Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -12956,7 +12956,7 @@ See the [Sell Coins API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Sell Coins API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13028,7 +13028,7 @@ Filter for paths starting with `/shipping/` to isolate this extension's endpoint
 - [Shipping Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13053,7 +13053,7 @@ See the [Shipping API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Shipping API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13125,7 +13125,7 @@ Filter for paths starting with `/smtp/` to isolate this extension's endpoints.
 - [SMTP Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13156,7 +13156,7 @@ See the [SMTP API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [SMTP API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13228,7 +13228,7 @@ Filter for paths starting with `/splitpayments/` to isolate this extension's end
 - [Split Payments Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13289,7 +13289,7 @@ See the [Split Payments API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Split Payments API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13361,7 +13361,7 @@ Filter for paths starting with `/streamalerts/` to isolate this extension's endp
 - [Stream Alerts Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13423,7 +13423,7 @@ See the [Stream Alerts API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Stream Alerts API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13495,7 +13495,7 @@ Filter for paths starting with `/telegramshop/` to isolate this extension's endp
 - [Telegram Shopping Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13575,7 +13575,7 @@ See the [Telegram Shopping API documentation](./api) for endpoint details.
 - [Inventory](/extensions/inventory/): Stock management (required)
 - [WebShop](/extensions/webshop/): Alternative web-based shop
 - [Market](/extensions/market/): Online marketplace
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13647,7 +13647,7 @@ Filter for paths starting with `/tipjar/` to isolate this extension's endpoints.
 - [Tip Jar Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13681,7 +13681,7 @@ See the [Tip Jar API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Tip Jar API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -13753,7 +13753,7 @@ Filter for paths starting with `/tpos/` to isolate this extension's endpoints.
 - [TPoS Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -13968,7 +13968,7 @@ See the [TPoS API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [TPoS API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14040,7 +14040,7 @@ Filter for paths starting with `/tunnel_me_out/` to isolate this extension's end
 - [TunnelMeOut Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14070,7 +14070,7 @@ See the [TunnelMeOut API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [TunnelMeOut API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14142,7 +14142,7 @@ Filter for paths starting with `/watchonly/` to isolate this extension's endpoin
 - [Watch Only Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14257,7 +14257,7 @@ See the [Watch Only API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Watch Only API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14329,7 +14329,7 @@ Filter for paths starting with `/webpages/` to isolate this extension's endpoint
 - [WebPages Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14405,7 +14405,7 @@ See the [WebPages API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [WebPages API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14477,7 +14477,7 @@ Filter for paths starting with `/webshop/` to isolate this extension's endpoints
 - [WebShop Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14556,7 +14556,7 @@ See the [WebShop API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [WebShop API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14628,7 +14628,7 @@ Filter for paths starting with `/where39/` to isolate this extension's endpoints
 - [Where39 Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14659,7 +14659,7 @@ See the [Where39 API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Where39 API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
@@ -14731,7 +14731,7 @@ Filter for paths starting with `/withdraw/` to isolate this extension's endpoint
 - [Withdraw Overview](./): Extension features and setup guide
 - [API Authentication](/api/authentication): API key types and usage
 - [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](/extensions/): Browse the full extension catalog
+- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
 
 ---
 
@@ -14799,7 +14799,7 @@ See the [Withdraw API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [Withdraw API Reference](./api): API endpoints for this extension
-- [All Extensions](/extensions/): Browse all LNbits extensions
+- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
 
 ---
 
