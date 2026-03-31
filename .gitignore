@@ -18,7 +18,8 @@ Thumbs.db
 
 # Environment
 .env
-.env.*
+.env.local
+.env.production
 
 # Claude Code local config
 .claude/
@@ -26,5 +27,6 @@ Thumbs.db
 # Build artifacts
 .turbo/
 .parcel-cache/
+docs/.vitepress/data/chunks.json
 
 deploy_plan.md

@@ -13,7 +13,8 @@
     "generate:extensions": "node scripts/generate-extension-pages.mjs",
     "generate:apps": "node scripts/generate-app-pages.mjs",
     "generate:plugins": "node scripts/generate-plugin-pages.mjs",
-    "generate:mcp": "node scripts/generate-mcp-page.mjs"
+    "generate:mcp": "node scripts/generate-mcp-page.mjs",
+    "build:chunks": "node scripts/build-doc-chunks.mjs"
   },
   "devDependencies": {
     "mermaid": "^11.12.3",

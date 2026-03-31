@@ -3,13 +3,22 @@ import { ref, computed, watch, nextTick, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vitepress'
 import { useChatBackend } from '../composables/useChatBackend.js'
 
-const { messages, isLoading, sendMessage, clearMessages } = useChatBackend()
+const {
+  messages,
+  isLoading,
+  currentModel,
+  availableModels,
+  sendMessage,
+  clearMessages,
+  setModel,
+} = useChatBackend()
 
 const isOpen = ref(false)
 const inputText = ref('')
 const messagesContainer = ref(null)
 const inputEl = ref(null)
 const isMobile = ref(false)
+const showModelPicker = ref(false)
 
 const suggestedQuestions = [
   'How do I install LNbits?',
@@ -19,18 +28,15 @@ const suggestedQuestions = [
 ]
 
 const hasMessages = computed(() => messages.value.length > 0)
+const activeModel = computed(() =>
+  availableModels.value.find((m) => m.key === currentModel.value)
+)
 
 const router = useRouter()
 
-function toggleChat() {
-  isOpen.value = !isOpen.value
-  if (isOpen.value) {
-    nextTick(() => inputEl.value?.focus())
-  }
-}
-
 function closeChat() {
   isOpen.value = false
+  showModelPicker.value = false
 }
 
 function handleSend() {
@@ -51,6 +57,11 @@ function handleSourceClick(url, event) {
   router.go(url)
 }
 
+function selectModel(key) {
+  setModel(key)
+  showModelPicker.value = false
+}
+
 function handleKeydown(e) {
   if (e.key === 'Enter' && !e.shiftKey) {
     e.preventDefault()
@@ -68,7 +79,6 @@ function checkMobile() {
   isMobile.value = window.innerWidth <= 768
 }
 
-// Auto-scroll to bottom on new messages
 watch(
   () => messages.value.length,
   () => {
@@ -80,7 +90,6 @@ watch(
   }
 )
 
-// Also scroll when loading state changes (typing indicator appears)
 watch(isLoading, () => {
   nextTick(() => {
     if (messagesContainer.value) {
@@ -110,22 +119,18 @@ onUnmounted(() => {
   window.removeEventListener('open-doc-chat', openFromNav)
 })
 
-// Simple markdown to HTML (lightweight, no external deps)
 function renderMarkdown(text) {
   if (!text) return ''
 
   let html = text
-    // Escape HTML
     .replace(/&/g, '&amp;')
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
 
-  // Code blocks (``` ... ```)
   html = html.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) => {
     return `<pre class="dc-code-block"><code class="language-${lang}">${code.trim()}</code></pre>`
   })
 
-  // Tables
   html = html.replace(
     /((?:\|.*\|[ \t]*\n){2,})/g,
     (tableBlock) => {
@@ -133,7 +138,6 @@ function renderMarkdown(text) {
       if (rows.length < 2) return tableBlock
       let table = '<table class="dc-table">'
       rows.forEach((row, i) => {
-        // Skip separator row
         if (i === 1 && /^\|[\s\-:|]+\|$/.test(row.trim())) return
         const tag = i === 0 ? 'th' : 'td'
         const cells = row
@@ -147,22 +151,14 @@ function renderMarkdown(text) {
     }
   )
 
-  // Inline code
   html = html.replace(/`([^`]+)`/g, '<code class="dc-inline-code">$1</code>')
-
-  // Bold
   html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
-
-  // Italic
   html = html.replace(/\*([^*]+)\*/g, '<em>$1</em>')
-
-  // Links
   html = html.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" class="dc-link" target="_blank" rel="noopener">$1</a>'
   )
 
-  // Ordered lists
   html = html.replace(/((?:^\d+\.\s+.*$\n?)+)/gm, (block) => {
     const items = block
       .trim()
@@ -173,7 +169,6 @@ function renderMarkdown(text) {
     return `<ol class="dc-list">${items}</ol>`
   })
 
-  // Unordered lists
   html = html.replace(/((?:^[-*]\s+.*$\n?)+)/gm, (block) => {
     const items = block
       .trim()
@@ -184,7 +179,6 @@ function renderMarkdown(text) {
     return `<ul class="dc-list">${items}</ul>`
   })
 
-  // Paragraphs (double newline)
   html = html
     .split(/\n\n+/)
     .map((block) => {
@@ -211,26 +205,7 @@ function renderMarkdown(text) {
     <div v-if="isOpen && isMobile" class="dc-backdrop" @click="closeChat"></div>
   </Transition>
 
-  <!-- Trigger Button -->
-  <button
-    class="dc-trigger"
-    :class="{ 'dc-trigger--open': isOpen }"
-    @click="toggleChat"
-    :title="isOpen ? 'Close chat' : 'Ask about LNbits'"
-    aria-label="Toggle LNbits assistant chat"
-  >
-    <!-- Chat icon -->
-    <svg v-if="!isOpen" class="dc-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-    </svg>
-    <!-- Close icon -->
-    <svg v-else class="dc-trigger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <line x1="18" y1="6" x2="6" y2="18"/>
-      <line x1="6" y1="6" x2="18" y2="18"/>
-    </svg>
-  </button>
-
-  <!-- Chat Panel -->
+  <!-- Chat Panel (opened via NavChatIcon "Ask AI" button) -->
   <Transition :name="isMobile ? 'dc-panel-mobile' : 'dc-panel'">
     <div v-if="isOpen" class="dc-panel" :class="{ 'dc-panel--mobile': isMobile }">
       <!-- Header -->
@@ -301,17 +276,14 @@ function renderMarkdown(text) {
 
         <!-- Messages -->
         <template v-for="(msg, i) in messages" :key="i">
-          <!-- User message -->
           <div v-if="msg.role === 'user'" class="dc-msg dc-msg--user">
             <div class="dc-msg-bubble dc-msg-bubble--user">
               {{ msg.content }}
             </div>
           </div>
 
-          <!-- Assistant message -->
           <div v-else class="dc-msg dc-msg--assistant">
             <div class="dc-msg-content" v-html="renderMarkdown(msg.content)"></div>
-            <!-- Source chips -->
             <div v-if="msg.sources?.length" class="dc-sources">
               <a
                 v-for="source in msg.sources"
@@ -330,12 +302,15 @@ function renderMarkdown(text) {
           </div>
         </template>
 
-        <!-- Typing indicator -->
+        <!-- Loading indicator -->
         <div v-if="isLoading" class="dc-msg dc-msg--assistant">
-          <div class="dc-typing">
-            <span class="dc-typing-dot"></span>
-            <span class="dc-typing-dot"></span>
-            <span class="dc-typing-dot"></span>
+          <div class="dc-loading">
+            <div class="dc-typing">
+              <span class="dc-typing-dot"></span>
+              <span class="dc-typing-dot"></span>
+              <span class="dc-typing-dot"></span>
+            </div>
+            <span class="dc-loading-text">Searching docs and generating answer...</span>
           </div>
         </div>
       </div>
@@ -365,8 +340,45 @@ function renderMarkdown(text) {
             </svg>
           </button>
         </div>
-        <div class="dc-input-hint">
-          Press Enter to send
+
+        <!-- Model selector + hint -->
+        <div class="dc-input-footer">
+          <div class="dc-model-selector" v-if="availableModels.length > 0">
+            <button
+              class="dc-model-btn"
+              @click="showModelPicker = !showModelPicker"
+              :title="`Using ${activeModel?.name || currentModel}`"
+            >
+              <svg class="dc-model-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2a4 4 0 0 0-4 4v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2h-2V6a4 4 0 0 0-4-4z"/>
+              </svg>
+              <span class="dc-model-name">{{ activeModel?.name || 'Select model' }}</span>
+              <svg class="dc-model-chevron" :class="{ 'dc-model-chevron--open': showModelPicker }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </button>
+
+            <!-- Model dropdown -->
+            <Transition name="dc-dropdown">
+              <div v-if="showModelPicker" class="dc-model-dropdown">
+                <button
+                  v-for="model in availableModels"
+                  :key="model.key"
+                  class="dc-model-option"
+                  :class="{ 'dc-model-option--active': model.key === currentModel }"
+                  @click="selectModel(model.key)"
+                >
+                  <div class="dc-model-option-header">
+                    <span class="dc-model-option-name">{{ model.name }}</span>
+                    <span class="dc-model-option-provider">{{ model.provider }}</span>
+                  </div>
+                  <span class="dc-model-option-desc">{{ model.description }}</span>
+                </button>
+              </div>
+            </Transition>
+          </div>
+
+          <span class="dc-input-hint">Enter to send</span>
         </div>
       </div>
     </div>
@@ -374,54 +386,6 @@ function renderMarkdown(text) {
 </template>
 
 <style scoped>
-/* ── Trigger Button ── */
-.dc-trigger {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  z-index: 210;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  border: none;
-  background: var(--vp-c-brand-1);
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease;
-}
-
-.dc-trigger:hover {
-  transform: scale(1.08);
-  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
-}
-
-.dc-trigger--open {
-  background: var(--vp-c-bg-elv);
-  color: var(--vp-c-text-2);
-  border: 1px solid var(--vp-c-divider);
-}
-
-.dc-trigger--open:hover {
-  color: var(--vp-c-text-1);
-}
-
-.dark .dc-trigger:not(.dc-trigger--open) {
-  box-shadow: 0 4px 20px rgba(149, 117, 205, 0.3);
-}
-
-.dark .dc-trigger:not(.dc-trigger--open):hover {
-  box-shadow: 0 6px 28px rgba(149, 117, 205, 0.4);
-}
-
-.dc-trigger-icon {
-  width: 24px;
-  height: 24px;
-}
-
 /* ── Backdrop ── */
 .dc-backdrop {
   position: fixed;
@@ -466,7 +430,6 @@ function renderMarkdown(text) {
   box-shadow: none;
 }
 
-/* Panel transitions - desktop slide */
 .dc-panel-enter-active {
   transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -480,7 +443,6 @@ function renderMarkdown(text) {
   transform: translateX(100%);
 }
 
-/* Panel transitions - mobile slide up */
 .dc-panel-mobile-enter-active {
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -701,7 +663,6 @@ function renderMarkdown(text) {
   word-break: break-word;
 }
 
-/* Markdown elements inside assistant messages */
 .dc-msg-content :deep(p) {
   margin: 0 0 8px;
 }
@@ -847,6 +808,18 @@ function renderMarkdown(text) {
   }
 }
 
+.dc-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dc-loading-text {
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  font-style: italic;
+}
+
 /* ── Input Bar ── */
 .dc-input-bar {
   flex-shrink: 0;
@@ -854,6 +827,7 @@ function renderMarkdown(text) {
   padding-bottom: max(12px, env(safe-area-inset-bottom));
   border-top: 1px solid var(--vp-c-divider);
   background: var(--vp-c-bg);
+  position: relative;
 }
 
 .dc-input-wrap {
@@ -917,28 +891,160 @@ function renderMarkdown(text) {
   height: 16px;
 }
 
+/* ── Input Footer (model + hint) ── */
+.dc-input-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  position: relative;
+}
+
 .dc-input-hint {
   font-size: 11px;
   color: var(--vp-c-text-3);
-  margin-top: 6px;
-  text-align: center;
   opacity: 0.6;
+  margin-left: auto;
+}
+
+/* ── Model Selector ── */
+.dc-model-selector {
+  position: relative;
+}
+
+.dc-model-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg-elv);
+  color: var(--vp-c-text-2);
+  font-size: 11px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.dc-model-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-text-1);
+}
+
+.dc-model-icon {
+  width: 12px;
+  height: 12px;
+  opacity: 0.6;
+}
+
+.dc-model-name {
+  font-weight: 500;
+}
+
+.dc-model-chevron {
+  width: 12px;
+  height: 12px;
+  opacity: 0.5;
+  transition: transform 0.15s ease;
+}
+
+.dc-model-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ── Model Dropdown ── */
+.dc-model-dropdown {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 6px;
+  min-width: 260px;
+  padding: 4px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-elv);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  z-index: 10;
+}
+
+.dark .dc-model-dropdown {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dc-model-option {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  border-radius: 7px;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background 0.12s ease;
+}
+
+.dc-model-option:hover {
+  background: var(--vp-c-bg-soft);
+}
+
+.dc-model-option--active {
+  background: var(--vp-c-brand-soft);
+}
+
+.dc-model-option-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dc-model-option-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+}
+
+.dc-model-option-provider {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 1px 5px;
+  border-radius: 4px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-3);
+}
+
+.dc-model-option--active .dc-model-option-provider {
+  background: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+.dc-model-option-desc {
+  font-size: 11px;
+  color: var(--vp-c-text-3);
+  line-height: 1.3;
+}
+
+/* Dropdown transition */
+.dc-dropdown-enter-active {
+  transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dc-dropdown-leave-active {
+  transition: all 0.1s ease-in;
+}
+.dc-dropdown-enter-from {
+  opacity: 0;
+  transform: translateY(4px);
+}
+.dc-dropdown-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
 }
 
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .dc-trigger {
-    bottom: 16px;
-    right: 16px;
-    width: 48px;
-    height: 48px;
-  }
-
-  .dc-trigger-icon {
-    width: 22px;
-    height: 22px;
-  }
-
   .dc-header {
     padding-top: max(14px, env(safe-area-inset-top));
   }

@@ -29,6 +29,18 @@ npm run docs:build
 npm run docs:preview
 ```
 
+## AI Chat (Beta)
+
+Built-in RAG chat assistant that answers visitor questions from the docs. Uses [Groq](https://groq.com) (free, 70B model) with [mlvoca](https://mlvoca.github.io/free-llm-api/) as zero-config fallback.
+
+```bash
+npm run build:chunks                        # build search index
+GROQ_API_KEY=gsk_... npm run docs:dev       # with Groq (recommended)
+npm run docs:dev                            # without key (mlvoca fallback)
+```
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for production setup, configuration, and architecture details.
+
 ## Contributing
 
 Contributions are welcome. Here are some ways to help:

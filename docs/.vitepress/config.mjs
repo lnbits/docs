@@ -1,5 +1,6 @@
 import { defineConfig } from 'vitepress'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+import { chatPlugin } from './chat-plugin.mjs'
 
 // Fetch latest LNbits release from GitHub at build time
 let latestVersion = 'v1.5.0' // fallback
@@ -580,5 +581,9 @@ export default withMermaid(defineConfig({
 
   mermaid: {
     theme: 'default',
+  },
+
+  vite: {
+    plugins: [chatPlugin()],
   },
 }))

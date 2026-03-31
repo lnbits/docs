@@ -17,6 +17,7 @@ import HeroImage from './components/HeroImage.vue'
 import DeploymentGrid from './components/DeploymentGrid.vue'
 import SkillCard from './components/SkillCard.vue'
 import SkillHeader from './components/SkillHeader.vue'
+import DocChat from './components/DocChat.vue'
 
 export default {
   extends: DefaultTheme,
@@ -24,7 +25,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'nav-bar-content-before': () => h(NavSwitch),
       'nav-bar-content-after': () => h(NavChatIcon),
-      'layout-bottom': () => h(PageToolbar),
+      'layout-bottom': () => [h(PageToolbar), h(DocChat)],
     })
   },
   enhanceApp({ app }) {
