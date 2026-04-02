@@ -3866,7 +3866,7 @@ This docs site pulls extension pages directly from each extension's GitHub repos
 2. Edit the `README.md` there
 3. Your changes will appear on the docs site at the next build
 
-For core docs (guides, API reference, developer docs), submit a PR to the [docs repository](https://github.com/lnbits/lnbits-docs).
+For core docs (guides, API reference, developer docs), submit a PR to the [docs repository](https://github.com/lnbits/docs).
 
 ### Translations - great first contribution
 

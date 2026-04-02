@@ -574,7 +574,7 @@ export default withMermaid(defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/lnbits/lnbits-docs/edit/main/docs/:path',
+      pattern: 'https://github.com/lnbits/docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
   },
