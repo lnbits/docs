@@ -202,6 +202,15 @@
   background: #4a4d66;
 }
 
+/* ── Theme-aware image variants ──
+   Used by the funding-source carousel on the home page. Each logo ships a
+   light and a dark variant; both <img> tags are rendered, and this rule
+   toggles visibility based on the `.dark` class that VitePress sets on
+   <html> before hydration. Global CSS because the trigger is global state. */
+.carousel-img--dark { display: none; }
+html.dark .carousel-img--light { display: none; }
+html.dark .carousel-img--dark { display: block; }
+
 /* ── GitHub link badge next to H1 ── */
 h1 .header-github-link {
   display: inline-flex;

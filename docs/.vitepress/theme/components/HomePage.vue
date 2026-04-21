@@ -716,12 +716,9 @@ const quickLinks = [
   object-fit: contain;
 }
 
-/* Show the variant that matches the active theme. `.dark` is set on <html>
-   by VitePress's pre-hydration script, so the correct logo is visible on
-   first paint — no JS or reactivity involved. */
-.carousel-img--dark { display: none; }
-:global(.dark) .carousel-img--light { display: none; }
-:global(.dark) .carousel-img--dark { display: block; }
+/* The show/hide toggle between .carousel-img--light and .carousel-img--dark
+   lives in custom.css because it depends on `.dark` on <html> — a global
+   state, better expressed with global CSS than scoped + :global() rules. */
 
 @keyframes scroll-carousel {
   0% { transform: translateX(0); }
