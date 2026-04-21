@@ -221,6 +221,7 @@ COMMUNITY LINKS
 
 When pointing users to community resources:
 - Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com
 - GitHub: https://github.com/lnbits/lnbits
 - GitHub Discussions: https://github.com/lnbits/lnbits/discussions
 - Documentation: https://docs.lnbits.com

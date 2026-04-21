@@ -1,6 +1,5 @@
 <script setup>
-import { ref, onMounted, computed } from 'vue'
-import { useData } from 'vitepress'
+import { ref, onMounted } from 'vue'
 import { Code, SearchCheck, PenLine, Palette, Rocket, Megaphone } from 'lucide-vue-next'
 import openaiIcon from '@lobehub/icons-static-svg/icons/openai.svg'
 import claudeIcon from '@lobehub/icons-static-svg/icons/claude-color.svg'
@@ -12,7 +11,6 @@ const mounted = ref(false)
 const toast = ref('')
 const ghStars = ref('')
 const contribVideoActive = ref(false)
-const { isDark } = useData()
 
 onMounted(() => {
   mounted.value = true
@@ -101,7 +99,10 @@ const mainCards = [
   },
 ]
 
-const backendsData = [
+// Each backend ships a light and a dark variant. Both <img> tags are rendered
+// and toggled via the `.dark` class on <html>, so the correct logo shows
+// immediately on first paint — no hydration flicker when dark mode is active.
+const backends = [
   { name: 'LND', dark: '/logos/backends/lnd.png', light: '/logos/backends/lnd.png' },
   { name: 'Core Lightning', dark: '/logos/backends/cln.png', light: '/logos/backends/clnl.png' },
   { name: 'Phoenixd', dark: '/logos/backends/phoenixd.png', light: '/logos/backends/phoenixdl.png' },
@@ -117,13 +118,6 @@ const backendsData = [
   { name: 'Blink', dark: '/logos/backends/blink_logo.png', light: '/logos/backends/blink_logol.png' },
   { name: 'RaspiBlitz', dark: '/logos/backends/blitz.png', light: '/logos/backends/blitzl.png' },
 ]
-
-const backends = computed(() =>
-  backendsData.map(b => ({
-    name: b.name,
-    img: isDark.value ? b.dark : b.light,
-  }))
-)
 
 const quickLinks = [
   { title: 'Installation', desc: 'uv, Poetry, Docker, Nix, Fly.io', link: '/guide/installation/', icon: 'download' },
@@ -176,15 +170,17 @@ const quickLinks = [
       </button>
 
       <!-- Funding Sources Carousel -->
-      <div class="carousel-wrap" :key="isDark ? 'dark' : 'light'">
+      <div class="carousel-wrap">
         <span class="carousel-label">Funding Sources</span>
         <div class="carousel">
           <div class="carousel-track">
             <div v-for="b in backends" :key="b.name + '-1'" class="carousel-item">
-              <img :src="b.img" :alt="b.name" loading="lazy" />
+              <img :src="b.light" :alt="b.name" class="carousel-img carousel-img--light" loading="lazy" />
+              <img :src="b.dark" :alt="b.name" class="carousel-img carousel-img--dark" loading="lazy" />
             </div>
             <div v-for="b in backends" :key="b.name + '-2'" class="carousel-item" aria-hidden="true">
-              <img :src="b.img" :alt="b.name" loading="lazy" />
+              <img :src="b.light" alt="" class="carousel-img carousel-img--light" loading="lazy" />
+              <img :src="b.dark" alt="" class="carousel-img carousel-img--dark" loading="lazy" />
             </div>
           </div>
         </div>
@@ -432,6 +428,13 @@ const quickLinks = [
             <span>Chat with the community</span>
           </div>
         </a>
+        <a href="https://community.lnbits.com" target="_blank" rel="noopener noreferrer" class="community-link">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          <div>
+            <strong>Community Forum</strong>
+            <span>Async, searchable discussions</span>
+          </div>
+        </a>
         <a href="https://github.com/lnbits/lnbits" target="_blank" rel="noopener noreferrer" class="community-link">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
           <div>
@@ -468,7 +471,7 @@ const quickLinks = [
    Layout
    ═══════════════════════════════════ */
 .home {
-  max-width: 840px;
+  max-width: 1152px;
   margin: 0 auto;
   padding: 0 24px 96px;
   background-image:
@@ -707,11 +710,18 @@ const quickLinks = [
   flex-shrink: 0;
 }
 
-.carousel-item img {
+.carousel-img {
   width: 72px;
   height: 72px;
   object-fit: contain;
 }
+
+/* Show the variant that matches the active theme. `.dark` is set on <html>
+   by VitePress's pre-hydration script, so the correct logo is visible on
+   first paint — no JS or reactivity involved. */
+.carousel-img--dark { display: none; }
+:global(.dark) .carousel-img--light { display: none; }
+:global(.dark) .carousel-img--dark { display: block; }
 
 @keyframes scroll-carousel {
   0% { transform: translateX(0); }
