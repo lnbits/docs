@@ -24,10 +24,35 @@ curl -X POST https://your-lnbits.com/api/v1/wallet \
 
 ## API keys
 
-Each wallet has two keys:
+Each wallet has two API keys - an **Admin key** (full access) and an **Invoice/read key** (receive-only). This is the single most-asked question, so it is worth a clear walk-through.
+
+### Finding your keys in the UI
+
+1. Log in to LNbits and select the wallet you want in the left sidebar
+2. On the wallet page, click **API info** (or the **&lt;/&gt;** / code icon near the wallet name - the exact label depends on your theme)
+3. The panel expands to show both keys. Click the eye icon next to each to reveal it, or the copy icon to copy it to your clipboard
+
+Both keys are 32-character hex strings. They belong to **this one wallet only** - a different wallet in your account has its own separate pair of keys.
+
+::: tip
+The API info panel also shows your **Wallet ID** and the **API base URL** of your LNbits instance. You will need both when integrating with extensions or external services.
+:::
+
+### When to use which key
+
+| Scenario | Key |
+| --- | --- |
+| Creating invoices for your website | Invoice/read key |
+| Automated payouts / withdrawals | Admin key |
+| Checking balance from a dashboard | Invoice/read key |
+| Managing wallet settings | Admin key |
+| Client-side JavaScript | Invoice/read key only - **never** ship the Admin key to a browser |
+
+### Fetching keys via the API
+
+If you already have a key and want to verify or inspect it programmatically:
 
 ```bash
-# Check your wallet info (shows keys)
 curl https://your-lnbits.com/api/v1/wallet \
   -H "X-Api-Key: YOUR_INVOICE_KEY"
 ```
@@ -43,15 +68,7 @@ Response:
 }
 ```
 
-### When to use which key
-
-| Scenario | Key |
-| --- | --- |
-| Creating invoices for your website | Invoice key |
-| Automated payouts / withdrawals | Admin key |
-| Checking balance from a dashboard | Invoice key |
-| Managing wallet settings | Admin key |
-| Client-side JavaScript | Invoice key only |
+For a deeper explanation of each key's scope, see the [API Keys page](/guide/core/api-keys).
 
 ## Shared wallets
 

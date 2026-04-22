@@ -47,10 +47,22 @@ Use the invoice key when you only need to receive payments - for example, in a p
 
 ## Finding your keys
 
-1. Log in to LNbits
-2. Select a wallet from the sidebar
-3. Click the **API info** section
-4. Click the eye icon to reveal each key
+Every wallet ships with its own pair of keys. Here is where to find them.
+
+1. Log in to LNbits and pick the wallet you want from the **left sidebar**. Each wallet has its own independent pair of keys.
+2. On the wallet page, click **API info panel** (right sided). A panel expands.
+3. The panel lists:
+   - **Admin key** - full access, keep secret
+   - **Invoice/read key** - receive-only, safe to share with services that only need to issue invoices or read balance
+   - **Wallet ID** - the wallet's unique identifier
+   - **API base URL** - the LNbits instance these keys belong to
+4. Click the **eye icon** next to a key to reveal it, or the **copy icon** to copy it to your clipboard.
+
+Both keys are 32-character hex strings and belong to **this one wallet only**. Creating a new wallet generates a brand-new pair.
+
+::: warning Keep the Admin key secret
+Anyone holding the Admin key can spend your balance. Never paste it into browser-side JavaScript, public GitHub repos, or screenshots you share in chats.
+:::
 
 ## Key rotation
 
