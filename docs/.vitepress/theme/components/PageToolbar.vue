@@ -53,6 +53,7 @@ LNbits is Python + FastAPI (backend) and Vue 3 + Quasar (frontend). MIT licensed
 
 ## Community
 - Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com
 - GitHub Discussions: https://github.com/lnbits/lnbits/discussions`,
 
   tester: `# Contribute as a Tester
@@ -87,7 +88,8 @@ No Lightning node needed. FakeWallet simulates payments locally.
 - Security issues: https://github.com/lnbits/lnbits/security/advisories/new
 
 ## Community
-- Telegram: https://t.me/lnbits`,
+- Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com`,
 
   writer: `# Contribute as a Writer
 
@@ -121,6 +123,7 @@ Share your writing on X (tag @lnbits) or Telegram and the team will consider it 
 
 ## Community
 - Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com
 - News site: https://news.lnbits.com`,
 
   designer: `# Contribute as a Designer
@@ -133,7 +136,7 @@ LNbits uses Vue 3 + Quasar UI for the app, VitePress for docs. You can restyle c
 - Quasar components: https://quasar.dev/vue-components
 - Try LNbits live: https://my.lnbits.com
 
-## What we need
+## Where you can help
 ### Product design
 - UI improvements for admin panel, extension flows, mobile views
 - Docs site pages, layouts, components
@@ -142,6 +145,10 @@ LNbits uses Vue 3 + Quasar UI for the app, VitePress for docs. You can restyle c
 - Blog and news header images for articles at news.lnbits.com
 - Illustrations for marketing
 - Social media cards, infographics, announcements
+
+## Brand assets
+- Media kit (logos, brand assets, press material): https://media.lnbits.com
+- Media repo (existing assets, source files): https://github.com/lnbits/lnbits_media
 
 ## How to contribute
 1. Post your mockup or concept in Telegram for quick feedback
@@ -153,7 +160,8 @@ LNbits uses Vue 3 + Quasar UI for the app, VitePress for docs. You can restyle c
 - Design-tagged issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign
 
 ## Community
-- Telegram: https://t.me/lnbits`,
+- Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com`,
 
   entrepreneur: `# Contribute as an Entrepreneur
 
@@ -180,6 +188,7 @@ LNbits is not just a wallet - it is a platform with REST API, extension system, 
 
 ## Community
 - Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com
 - GitHub Discussions: https://github.com/lnbits/lnbits/discussions`,
 
   ambassador: `# Contribute as an Ambassador
@@ -214,15 +223,17 @@ Deploy LNbits for your community and onboard merchants to Lightning.
 - X: https://x.com/lnbits (tag @lnbits)
 - YouTube tutorials: https://www.youtube.com/@lnbits
 - Reddit: https://reddit.com/r/lightningnetwork
+- Media kit (logos, brand assets, press material): https://media.lnbits.com
 
 ## Community
-- Telegram: https://t.me/lnbits`,
+- Telegram: https://t.me/lnbits
+- Community Forum: https://community.lnbits.com`,
 }
 
 const contributeFaqContent = `## Frequently Asked Questions
 
 ### General (all roles)
-- **Where do I ask for help?** Telegram group (https://t.me/lnbits). Core devs, extension builders, and users are all there.
+- **Where do I ask for help?** Telegram group (https://t.me/lnbits) for real-time chat, Community Forum (https://community.lnbits.com) for async threads. Core devs, extension builders, and users are all there.
 - **Can I get paid?** LNbits is volunteer open-source, but OpenSats and HRF fund contributors. Extension developers can monetize via pay-to-install.
 - **What license?** MIT. Use it, fork it, sell it, remix it.
 
@@ -238,7 +249,7 @@ const contributeFaqContent = `## Frequently Asked Questions
 - **No tech knowledge needed.** FAQ improvements, merchant stories, and clear explanations are valuable.
 
 ### Designer
-- **Needed:** UI improvements, blog headers, social media cards, infographics.
+- **Where you can help:** UI improvements, blog headers, social media cards, infographics.
 
 ### Entrepreneur
 - **Models:** Paid extensions, merchant solutions, white-labeling, consulting.
@@ -366,6 +377,7 @@ const contributeIntents = [
 Full docs: https://docs.lnbits.com/llms.txt
 Contribute page: https://docs.lnbits.com/contribute/
 Telegram: https://t.me/lnbits
+Community Forum: https://community.lnbits.com
 </additional_context>
 
 <instructions>
@@ -412,7 +424,7 @@ Extension development: https://docs.lnbits.com/dev/building-extensions
 </additional_context>
 
 <instructions>
-Answer my questions about contributing to LNbits using the FAQ and contributor info from the page. If not covered, say so and point me to Telegram (https://t.me/lnbits). Keep answers concise with links.
+Answer my questions about contributing to LNbits using the FAQ and contributor info from the page. If not covered, say so and point me to Telegram (https://t.me/lnbits) or the Community Forum (https://community.lnbits.com). Keep answers concise with links.
 </instructions>` },
 ]
 

@@ -551,7 +551,7 @@ export default withMermaid(defineConfig({
     ],
 
     footer: {
-      message: '<a href="https://news.lnbits.com" target="_blank">News</a> · <a href="https://shop.lnbits.com" target="_blank">Shop</a> · <a href="https://my.lnbits.com" target="_blank">SaaS</a> · <a href="https://t.me/lnbits" target="_blank">Telegram</a> · Released under the MIT License.',
+      message: '<a href="https://news.lnbits.com" target="_blank">News</a> · <a href="https://shop.lnbits.com" target="_blank">Shop</a> · <a href="https://my.lnbits.com" target="_blank">SaaS</a> · <a href="https://t.me/lnbits" target="_blank">Telegram</a> · <a href="https://community.lnbits.com" target="_blank">Forum</a> · Released under the MIT License.',
       copyright: 'Copyright 2018-present LNbits Contributors',
     },
 
@@ -573,7 +573,7 @@ export default withMermaid(defineConfig({
     },
 
     editLink: {
-      pattern: 'https://github.com/lnbits/lnbits-docs/edit/main/docs/:path',
+      pattern: 'https://github.com/lnbits/docs/edit/main/docs/:path',
       text: 'Edit this page on GitHub',
     },
   },

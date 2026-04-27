@@ -62,6 +62,7 @@ See [Hardware & Merchants FAQ](/guide/faq/hardware) for physical setup options.
 ## Where can I get help and support?
 
 - **Telegram**: [t.me/lnbits](https://t.me/lnbits) - the most active community channel
+- **Community Forum**: [community.lnbits.com](https://community.lnbits.com) - async, searchable discussions
 - **GitHub Issues**: [github.com/lnbits/lnbits/issues](https://github.com/lnbits/lnbits/issues) - for bug reports and feature requests
 - **GitHub Discussions**: [github.com/lnbits/lnbits/discussions](https://github.com/lnbits/lnbits/discussions) - for general questions
 - This documentation site - searchable with the search bar above
