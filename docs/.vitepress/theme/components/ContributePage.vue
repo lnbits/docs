@@ -218,7 +218,7 @@ const roleData = {
       sub: 'Pick an open issue in the docs or blog and start writing. No technical background needed. The best content comes from real experience.',
       cta: { label: 'Browse docs issues', url: 'https://github.com/lnbits/docs/issues' },
     },
-    video: null,
+    video: { id: 'U2W1h4lwl88', title: 'LNbits Full Merchant Stack' },
     steps: [
       {
         num: '01', title: 'Pick a quick win', illust: 'browse',
@@ -379,7 +379,7 @@ const roleData = {
       sub: 'Deploy for your community, white-label it, sell extensions, or run it as a service. LNbits is the platform - you decide the business model.',
       cta: { label: 'Launch a SaaS instance', url: 'https://my.lnbits.com' },
     },
-    video: null,
+    video: { id: 'xbviMTuM6Ks', title: 'LNbits SaaS Update' },
     blog: {
       title: 'How to set up your own LNbits server',
       desc: 'Step-by-step tutorial on PlanB Academy covering a full LNbits deployment for your business.',
