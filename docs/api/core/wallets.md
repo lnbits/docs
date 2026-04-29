@@ -8,13 +8,31 @@
 
 **Auth:** Invoice key or Admin key
 
-Get details of the wallet associated with the provided API key.
+Get details of the wallet associated with the provided API key. The response shape depends on which key you authenticate with - the Invoice key returns a minimal, public-safe view; the Admin key returns the full wallet object including both API keys.
 
 #### Parameters
 
 None - the wallet is identified by the API key.
 
-#### Response `200`
+#### Response `200` - with Invoice/read key
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `name` | string | Wallet name |
+| `balance` | integer | Balance in **millisatoshis** (divide by 1000 for sats) |
+
+```json
+{
+  "name": "My Wallet",
+  "balance": 50000
+}
+```
+
+::: warning
+The Invoice key **cannot** retrieve the Admin key or the wallet ID. To read those, authenticate with the Admin key (or use the **API info panel** in the LNbits UI).
+:::
+
+#### Response `200` - with Admin key
 
 | Field | Type | Description |
 |-------|------|-------------|

@@ -48,16 +48,31 @@ The API info panel also shows your **Wallet ID** and the **API base URL** of you
 | Managing wallet settings | Admin key |
 | Client-side JavaScript | Invoice/read key only - **never** ship the Admin key to a browser |
 
-### Fetching keys via the API
+### Inspecting your wallet via the API
 
-If you already have a key and want to verify or inspect it programmatically:
+`GET /api/v1/wallet` returns different fields depending on which key you authenticate with.
+
+**With the Invoice/read key** - minimal, public-safe view:
 
 ```bash
 curl https://your-lnbits.com/api/v1/wallet \
   -H "X-Api-Key: YOUR_INVOICE_KEY"
 ```
 
-Response:
+```json
+{
+  "name": "My Wallet",
+  "balance": 50000
+}
+```
+
+**With the Admin key** - full wallet object, including both keys:
+
+```bash
+curl https://your-lnbits.com/api/v1/wallet \
+  -H "X-Api-Key: YOUR_ADMIN_KEY"
+```
+
 ```json
 {
   "id": "wallet-uuid",
@@ -67,6 +82,10 @@ Response:
   "inkey": "invoice-key-here"
 }
 ```
+
+::: warning
+The Invoice key **cannot** retrieve the Admin key. The two keys are issued together in the LNbits UI (**API info panel**) - that is the only place to read them.
+:::
 
 For a deeper explanation of each key's scope, see the [API Keys page](/guide/core/api-keys).
 
