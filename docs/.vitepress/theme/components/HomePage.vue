@@ -123,6 +123,7 @@ const quickLinks = [
   { title: 'Installation', desc: 'uv, Poetry, Docker, Nix, Fly.io', link: '/guide/installation/', icon: 'download' },
   { title: 'Wallet Backends', desc: '20+ funding sources', link: '/guide/wallets/', icon: 'wallet' },
   { title: 'Extensions', desc: '60+ plugins ready to use', link: '/guide/using-extensions', icon: 'puzzle' },
+  { title: 'Merchant Stack', desc: 'POS, inventory, orders, WebShop', link: '/merchant-stack/', icon: 'store' },
   { title: 'Admin Dashboard', desc: 'Server config & user management', link: '/guide/admin-dashboard', icon: 'shield' },
   { title: 'Super User', desc: 'Full control & first-run setup', link: '/guide/core/super-user', icon: 'star' },
   { title: 'FAQ', desc: 'Common questions answered', link: '/guide/faq/', icon: 'help' },
@@ -267,6 +268,8 @@ const quickLinks = [
             <svg v-if="q.icon==='star'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
             <!-- Help -->
             <svg v-if="q.icon==='help'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            <!-- Store -->
+            <svg v-if="q.icon==='store'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5-5h-15L3 9Z"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M8 20v-6h8v6"/><path d="M3 9a3 3 0 0 0 6 0"/><path d="M9 9a3 3 0 0 0 6 0"/><path d="M15 9a3 3 0 0 0 6 0"/></svg>
           </div>
           <div class="qlink-text">
             <span class="qlink-title">{{ q.title }}</span>

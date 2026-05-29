@@ -41,6 +41,7 @@ const columns = [
           { name: 'Wallet Backends', desc: '20+ funding sources', link: '/guide/wallets/', icon: 'wallet' },
           { name: 'Core Features', desc: 'Payments, LNURL, labels', link: '/guide/core/', icon: 'zap' },
           { name: 'Extensions', desc: '60+ extensions', link: '/guide/using-extensions', icon: 'puzzle' },
+          { name: 'Merchant Stack', desc: 'POS, inventory, orders, WebShop', link: '/merchant-stack/', icon: 'shopping-cart' },
           { name: 'Admin Dashboard', desc: 'Server management', link: '/guide/admin-dashboard', icon: 'settings' },
           { name: 'User Management', desc: 'Roles & permissions', link: '/guide/core/user-management/', icon: 'users' },
           { name: 'FAQ', desc: '80+ common questions', link: '/guide/faq/', icon: 'help' },

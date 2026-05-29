@@ -14,6 +14,8 @@ New to LNbits? Start here:
 2. **[Installation](/guide/installation/)** - choose your setup method
 3. **[Core features](/guide/core/)** - wallets, payments, API keys
 
+Running a shop, popup, event, or merchant onboarding workflow? Start with the **[Merchant Stack](/merchant-stack/)** guide.
+
 ## Installation
 
 Pick the method that fits your environment:
