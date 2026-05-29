@@ -126,9 +126,15 @@ const columns = [
         ],
       },
       {
+        heading: 'Merchant Stack',
+        items: [
+          { name: 'Merchant Stack', desc: 'POS, inventory, orders, WebShop', link: '/merchant-stack/', icon: 'store' },
+        ],
+      },
+      {
         heading: 'Companion Apps',
         items: [
-          { name: 'Browse Apps', desc: 'Standalone apps for LNbits', link: '/apps/', icon: 'zap' },
+          { name: 'Browse Apps', desc: 'Standalone apps for LNbits', link: '/apps/', icon: 'apps' },
         ],
       },
       {
@@ -205,6 +211,8 @@ const columns = [
                   <svg v-if="item.icon==='plus'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                   <svg v-if="item.icon==='layers'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                   <svg v-if="item.icon==='shopping-cart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+                  <svg v-if="item.icon==='store'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l2-4h16l2 4"/><path d="M2 7h20v2a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0V7z"/><path d="M4 11.5V20a1 1 0 001 1h14a1 1 0 001-1v-8.5"/><path d="M9 21v-5a1 1 0 011-1h4a1 1 0 011 1v5"/></svg>
+                  <svg v-if="item.icon==='apps'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><rect x="8" y="6.5" width="3" height="3" rx="1"/><rect x="13" y="6.5" width="3" height="3" rx="1"/><rect x="8" y="11.5" width="3" height="3" rx="1"/><rect x="13" y="11.5" width="3" height="3" rx="1"/><line x1="10" y1="18.5" x2="14" y2="18.5"/></svg>
                   <svg v-if="item.icon==='database'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
                   <svg v-if="item.icon==='code'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
                   <svg v-if="item.icon==='clock'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>

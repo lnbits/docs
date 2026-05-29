@@ -11,9 +11,17 @@ const mounted = ref(false)
 const toast = ref('')
 const ghStars = ref('')
 const contribVideoActive = ref(false)
+const merchantVideoOpen = ref(false)
+
+function closeMerchantVideo() {
+  merchantVideoOpen.value = false
+}
 
 onMounted(() => {
   mounted.value = true
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeMerchantVideo()
+  })
   fetch('https://api.github.com/repos/lnbits/lnbits', { headers: { Accept: 'application/vnd.github.v3+json' } })
     .then(r => r.ok ? r.json() : null)
     .then(d => { if (d?.stargazers_count) ghStars.value = (d.stargazers_count / 1000).toFixed(1) + 'k' })
@@ -124,6 +132,8 @@ const quickLinks = [
   { title: 'Wallet Backends', desc: '20+ funding sources', link: '/guide/wallets/', icon: 'wallet' },
   { title: 'Extensions', desc: '60+ plugins ready to use', link: '/guide/using-extensions', icon: 'puzzle' },
   { title: 'Merchant Stack', desc: 'POS, inventory, orders, WebShop', link: '/merchant-stack/', icon: 'store' },
+  { title: 'Plugins', desc: 'WooCommerce, Shopify and more', link: '/plugins/', icon: 'cart' },
+  { title: 'Apps', desc: 'Standalone apps for LNbits', link: '/apps/', icon: 'apps' },
   { title: 'Admin Dashboard', desc: 'Server config & user management', link: '/guide/admin-dashboard', icon: 'shield' },
   { title: 'Super User', desc: 'Full control & first-run setup', link: '/guide/core/super-user', icon: 'star' },
   { title: 'FAQ', desc: 'Common questions answered', link: '/guide/faq/', icon: 'help' },
@@ -250,6 +260,48 @@ const quickLinks = [
       </div>
     </section>
 
+    <!-- ── Merchant Stack ── -->
+    <section class="mstack anim" style="--d:0.18s">
+      <div class="mstack-inner">
+        <div class="mstack-copy">
+          <span class="mstack-eyebrow">For Merchants &amp; Entrepreneurs</span>
+          <h2 class="mstack-title">The LNbits Merchant Stack</h2>
+          <p class="mstack-desc">
+            Everything you need to accept Lightning payments in the real world:
+            point of sale, inventory, orders, and a full web shop. Built for
+            merchants, ambassadors, and everyone bringing Bitcoin to their community.
+          </p>
+          <ul class="mstack-features">
+            <li>Point of sale &amp; card terminals</li>
+            <li>Inventory &amp; order management</li>
+            <li>Hosted WebShop</li>
+            <li>Tap-to-pay with Boltcards</li>
+            <li>Fiat payments: tap to pay with credit card</li>
+            <li>Hardware receipt printing</li>
+          </ul>
+          <div class="mstack-actions">
+            <a href="/merchant-stack/" class="mstack-btn mstack-btn--primary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l2-4h16l2 4"/><path d="M2 7h20v2a3 3 0 01-6 0 3 3 0 01-6 0 3 3 0 01-6 0V7z"/><path d="M4 11.5V20a1 1 0 001 1h14a1 1 0 001-1v-8.5"/><path d="M9 21v-5a1 1 0 011-1h4a1 1 0 011 1v5"/></svg>
+              Explore the Merchant Stack
+            </a>
+            <button type="button" class="mstack-btn" @click="merchantVideoOpen = true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+              See it in action
+            </button>
+          </div>
+        </div>
+        <div class="mstack-visual">
+          <div class="mstack-glow"></div>
+          <img
+            class="mstack-img"
+            src="/merchant_stack/lnbitsbox_small.png"
+            alt="LNbits Merchant Stack hardware: mobile wallet, point of sale tablet, card terminal, and the LNbits box"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
     <!-- ── Quick Links ── -->
     <section class="quick-links anim" style="--d:0.22s">
       <h2 class="section-heading">Explore</h2>
@@ -270,6 +322,10 @@ const quickLinks = [
             <svg v-if="q.icon==='help'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
             <!-- Store -->
             <svg v-if="q.icon==='store'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18l-1.5-5h-15L3 9Z"/><path d="M4 9v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V9"/><path d="M8 20v-6h8v6"/><path d="M3 9a3 3 0 0 0 6 0"/><path d="M9 9a3 3 0 0 0 6 0"/><path d="M15 9a3 3 0 0 0 6 0"/></svg>
+            <!-- Cart -->
+            <svg v-if="q.icon==='cart'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            <!-- Apps -->
+            <svg v-if="q.icon==='apps'" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><rect x="8" y="6.5" width="3" height="3" rx="1"/><rect x="13" y="6.5" width="3" height="3" rx="1"/><rect x="8" y="11.5" width="3" height="3" rx="1"/><rect x="13" y="11.5" width="3" height="3" rx="1"/><line x1="10" y1="18.5" x2="14" y2="18.5"/></svg>
           </div>
           <div class="qlink-text">
             <span class="qlink-title">{{ q.title }}</span>
@@ -461,6 +517,26 @@ const quickLinks = [
         </a>
       </div>
     </section>
+
+    <!-- Merchant Stack video lightbox -->
+    <Transition name="vmodal">
+      <div v-if="merchantVideoOpen" class="video-modal" @click="closeMerchantVideo">
+        <div class="video-modal-inner" @click.stop>
+          <button class="video-modal-close" aria-label="Close video" @click="closeMerchantVideo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+          <div class="video-modal-frame">
+            <iframe
+              src="https://www.youtube-nocookie.com/embed/U2W1h4lwl88?autoplay=1"
+              title="LNbits Merchant Stack"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </Transition>
 
     <!-- Toast -->
     <Transition name="toast">
@@ -814,6 +890,219 @@ const quickLinks = [
 .mcard:hover .mcard-arrow {
   opacity: 0.6;
   transform: translateX(0);
+}
+
+/* ═══════════════════════════════════
+   Merchant Stack
+   ═══════════════════════════════════ */
+.mstack {
+  margin-bottom: 56px;
+}
+
+.mstack-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 16px;
+  background: var(--vp-c-bg-elv);
+  padding: 36px 40px;
+  overflow: hidden;
+}
+
+.mstack-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mstack-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--vp-c-brand-1);
+}
+
+.mstack-title {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--vp-c-text-1);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.mstack-desc {
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+  line-height: 1.6;
+  margin: 2px 0 4px;
+}
+
+.mstack-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 6px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 18px;
+}
+
+.mstack-features li {
+  font-size: 13px;
+  color: var(--vp-c-text-2);
+  padding-left: 20px;
+  position: relative;
+}
+
+.mstack-features li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--vp-c-brand-1);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.mstack-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.mstack-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-1);
+  background: var(--vp-c-bg);
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.mstack-btn:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-1px);
+}
+
+.mstack-btn--primary {
+  background: var(--vp-c-brand-1);
+  border-color: var(--vp-c-brand-1);
+  color: #fff;
+}
+
+.mstack-btn--primary:hover {
+  opacity: 0.9;
+  border-color: var(--vp-c-brand-1);
+}
+
+.mstack-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mstack-glow {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 72%;
+  height: 72%;
+  background: radial-gradient(circle, rgba(149, 117, 205, 0.22), transparent 70%);
+  filter: blur(44px);
+  z-index: 0;
+}
+
+.mstack-img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  display: block;
+}
+
+/* ═══════════════════════════════════
+   Video Modal (lightbox)
+   ═══════════════════════════════════ */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+}
+
+.video-modal-inner {
+  position: relative;
+  width: 100%;
+  max-width: 880px;
+}
+
+.video-modal-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 14px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+}
+
+.video-modal-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -44px;
+  right: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.video-modal-close:hover {
+  background: rgba(255, 255, 255, 0.24);
+}
+
+.video-modal-close svg {
+  width: 20px;
+  height: 20px;
+}
+
+.vmodal-enter-active,
+.vmodal-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.vmodal-enter-from,
+.vmodal-leave-to {
+  opacity: 0;
 }
 
 /* ═══════════════════════════════════
@@ -1241,6 +1530,12 @@ const quickLinks = [
   .contrib-roles {
     grid-template-columns: 1fr;
   }
+
+  .video-modal-close {
+    top: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.5);
+  }
 }
 
 /* ═══════════════════════════════════
@@ -1352,6 +1647,20 @@ const quickLinks = [
   .cards-row {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+
+  .mstack-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .mstack-visual {
+    order: -1;
+  }
+
+  .mstack-img {
+    max-width: 360px;
   }
 
   .mcard {
