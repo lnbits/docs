@@ -11,6 +11,7 @@ const sections = [
   { text: 'Guide', link: '/guide/', match: '/guide' },
   { text: 'API', link: '/api/', match: '/api' },
   { text: 'Extensions', link: '/extensions/', match: '/extensions' },
+  { text: 'Merchant Stack', link: '/merchant-stack/', match: '/merchant-stack' },
   { text: 'Apps', link: '/apps/', match: '/apps' },
   { text: 'Plugins', link: '/plugins/', match: '/plugins' },
   { text: 'Developers', link: '/dev/architecture', match: '/dev' },

@@ -101,6 +101,7 @@ export default withMermaid(defineConfig({
           },
         ],
       },
+      { text: 'Merchant Stack', link: '/merchant-stack/' },
       {
         text: 'API',
         items: [
@@ -277,6 +278,24 @@ export default withMermaid(defineConfig({
             { text: 'Payments', link: '/guide/faq/payments' },
             { text: 'Networking', link: '/guide/faq/networking' },
             { text: 'Hardware & Merchants', link: '/guide/faq/hardware' },
+          ],
+        },
+      ],
+      '/merchant-stack/': [
+        {
+          text: 'Merchant Stack',
+          items: [
+            { text: 'Overview', link: '/merchant-stack/' },
+            { text: 'Quick Start with SaaS', link: '/merchant-stack/quick-start' },
+            { text: 'Set up TPoS', link: '/merchant-stack/tpos' },
+            { text: 'Set up Inventory', link: '/merchant-stack/inventory' },
+            { text: 'Capture Orders', link: '/merchant-stack/orders' },
+            { text: 'Sell Online with WebShop', link: '/merchant-stack/webshop' },
+            { text: 'Use Tabs', link: '/merchant-stack/tabs' },
+            { text: 'Hardware and Printing', link: '/merchant-stack/hardware' },
+            { text: 'Bookkeeping', link: '/merchant-stack/bookkeeping' },
+            { text: 'Merchant Advisors', link: '/merchant-stack/advisors' },
+            { text: 'Troubleshooting', link: '/merchant-stack/troubleshooting' },
           ],
         },
       ],
