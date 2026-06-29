@@ -28,7 +28,7 @@ Use LNURLp for donation pages, tip jars, checkout links, printed QR codes, Light
 
 1. **Create** a new pay link.
 
-   ![Create LNURLp](https://i.imgur.com/rhUBJFy.jpg)
+   ![Create LNURLp](/screens/lnurlp_01.png)
 
 2. Fill in the basics:
 
@@ -39,11 +39,11 @@ Use LNURLp for donation pages, tip jars, checkout links, printed QR codes, Light
 
 3. Open the link details.
 
-   ![LNURLp list](https://i.imgur.com/C8s1P0Q.jpg)
+   ![LNURLp list](/screens/lnurlp_02.png)
 
 4. Share the page, copy the LNURL, write it to NFC, or print the QR code.
 
-   ![View LNURLp](https://i.imgur.com/4n41S7T.jpg)
+   ![View LNURLp](/screens/lnurlp_03.png)
 
 ## Lightning Address
 
