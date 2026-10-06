@@ -123,7 +123,7 @@ When documenting your extension, follow the LLM-ready structure:
 4. List error codes and their meanings
 5. Add a "Related pages" section
 
-See [Building Extensions](/dev/building-extensions) for the full extension development guide.
+See [Building Extensions](/dev/extensions/) for the full extension development guide.
 
 ## System Prompt - The Assistant's Brain
 

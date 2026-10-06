@@ -32,5 +32,5 @@ FakeWallet is best for development. VoidWallet is best for a first look at the i
 ## Related Pages
 
 - [Funding Sources](/guide/wallets/)
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [Contributing](/dev/contributing)

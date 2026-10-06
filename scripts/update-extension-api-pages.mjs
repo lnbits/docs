@@ -7,6 +7,7 @@
 
 import { readdirSync, readFileSync, writeFileSync, existsSync } from 'fs'
 import { join } from 'path'
+import { EXTENSIONS } from '../docs/.vitepress/data/extensions.js'
 
 const extDir = join(import.meta.dirname, '..', 'docs', 'extensions')
 const dirs = readdirSync(extDir, { withFileTypes: true })
@@ -17,6 +18,8 @@ let updated = 0
 let skipped = 0
 
 for (const ext of dirs) {
+  // This template describes Python CRUD routes, not WASM host interfaces.
+  if (EXTENSIONS.find(item => item.id === ext)?.extensionType !== 'python') { skipped++; continue }
   const apiPath = join(extDir, ext, 'api.md')
   const indexPath = join(extDir, ext, 'index.md')
 

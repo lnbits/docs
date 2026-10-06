@@ -430,6 +430,6 @@ Both Stripe and PayPal implement the same interface:
 - [Fiat Payments Overview](/guide/core/fiat-payments) - how fiat providers work (admin perspective)
 - [Stripe Setup](/guide/core/fiat-stripe) - admin configuration for Stripe
 - [PayPal Setup](/guide/core/fiat-paypal) - admin configuration for PayPal
-- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Building Extensions](/dev/extensions/python/building) - extension development guide
 - [Deploying Extensions](/dev/extensions/) - distribution and installation
 - [Decorators & Auth](/dev/decorators) - authentication for API endpoints

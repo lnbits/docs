@@ -1,0 +1,10 @@
+{
+  "name": "lnbits-hello-wasm",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check module.js && node --check static/client.js && node --check static/app.js",
+    "build": "jco componentize module.js --disable all --enable clocks --enable random --enable stdio --wit wasm/hello.wit --world-name hello -o wasm/module.wasm"
+  },
+  "devDependencies": {"@bytecodealliance/jco": "1.15.2"}
+}

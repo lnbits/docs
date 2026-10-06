@@ -5,15 +5,15 @@ import { EXTENSIONS as ALL_EXTENSIONS } from '../../data/extensions.js'
 
 const props = defineProps({
   extensions: { type: Array, default: null },
+  extensionType: { type: String, default: '', validator: value => ['', 'wasm', 'python'].includes(value) },
 })
 
-// Use provided extensions or fall back to the shared data file
+// Filter by type before deriving category tabs or applying search.
 const extensionList = computed(() => {
-  if (props.extensions && props.extensions.length) return props.extensions
-  return ALL_EXTENSIONS.map(ext => ({
-    ...ext,
-    link: `/extensions/${ext.id}/`,
-  }))
+  const list = props.extensions ?? ALL_EXTENSIONS
+  return list
+    .filter(ext => !props.extensionType || ext.extensionType === props.extensionType)
+    .map(ext => ({ ...ext, link: ext.link || `/extensions/${ext.id}/` }))
 })
 
 const search = ref('')
@@ -45,7 +45,8 @@ const filtered = computed(() => {
   <div class="ext-grid-controls">
     <input
       v-model="search"
-      type="text"
+      type="search"
+      aria-label="Search extensions"
       placeholder="Search extensions..."
       class="ext-grid-search"
     />
@@ -54,6 +55,7 @@ const filtered = computed(() => {
         v-for="cat in categories"
         :key="cat"
         :class="['ext-grid-tab', { active: activeCategory === cat }]"
+        :aria-pressed="activeCategory === cat"
         @click="activeCategory = cat"
       >
         {{ cat }}
@@ -63,7 +65,7 @@ const filtered = computed(() => {
   <div class="ext-grid">
     <ExtensionCard
       v-for="ext in filtered"
-      :key="ext.name"
+      :key="ext.id || ext.name"
       v-bind="ext"
     />
   </div>

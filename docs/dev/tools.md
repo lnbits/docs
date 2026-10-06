@@ -65,6 +65,6 @@ The [LNbits MCP Server](https://github.com/lnbits/LNbits-MCP-Server) lets AI ass
 
 - [Extension Builder](/guide/core/extension-builder) - no-code extension creation wizard
 - [FakeWallet](/guide/wallets/fakewallet) - simulated Lightning backend for quick testing
-- [Building Extensions](/dev/building-extensions) - full extension development guide
+- [Building Extensions](/dev/extensions/) - full extension development guide
 - [Contributing](/dev/contributing) - dev setup, commands, and PR process
 - [MCP Server](/llm/mcp-server) - connect AI assistants to LNbits

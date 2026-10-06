@@ -2,26 +2,38 @@
 
 # Extensions
 
-> Browse LNbits extensions - filterable by category. Each extension adds its own API endpoints, database tables, and UI on top of LNbits core. The LNbits ecosystem has 60+ extensions available through the official registry and community manifests.
+> Find an extension, install it, and add functionality to your LNbits account.
 
-<ExtensionGrid />
+Browse by extension type, then filter by category or search for a feature.
 
-## Installing third-party extensions
+## Browse extensions
 
-LNbits supports installing extensions from external manifests:
+**[Browse WASM extensions →](/extensions/wasm/)**
 
-```bash
-LNBITS_EXTENSIONS_MANIFESTS=https://raw.githubusercontent.com/lnbits/lnbits-extensions/main/extensions.json
-```
+Sandboxed extensions with a permissioned backend and an isolated frontend.
 
-Third-party extensions appear alongside built-in ones in the extensions manager.
+**[Browse Python extensions →](/extensions/python/)**
 
-::: tip
-Want to build an extension? See the [Building Extensions](/dev/building-extensions) guide.
-:::
+Extensions that run within the LNbits application and integrate with its Python backend.
+
+## What is the difference?
+
+| | WASM extensions | Python extensions |
+| --- | --- | --- |
+| Runtime | Sandboxed WebAssembly component | Python code within LNbits |
+| Access | Host interfaces with explicit permissions | Application-level access; install from sources you trust |
+| Frontend | Sandboxed iframe | LNbits templates and frontend |
+| Compatibility | Requires the matching WASM runtime | Depends on the extension's supported LNbits versions |
+
+Both types can add payment tools, games, or other features. The type describes how an extension runs; the category describes what it does.
+
+## Getting started
+
+Follow [Using Extensions](/guide/using-extensions) to install and enable an extension. Availability depends on your server's version, configured manifests, and administrator settings.
+
+Want to create an extension? Start with [Developing Extensions](/dev/extensions/).
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions): Create your own LNbits extension
-- [Using Extensions](/guide/using-extensions): Install and manage extensions in LNbits
-- [API Overview](/api/): LNbits REST API conventions and authentication
+- [Using Extensions](/guide/using-extensions): install and enable an extension
+- [Developing Extensions](/dev/extensions/): choose a development path

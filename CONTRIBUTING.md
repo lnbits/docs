@@ -26,7 +26,9 @@ Thanks for helping improve LNbits. Every fix, tutorial, and FAQ answer makes LNb
 
 ## Extension pages
 
-Extension pages in `docs/extensions/` are auto-generated from each extension's GitHub README at build time via `npm run generate:extensions`. To improve an extension page, update the README in the extension's own repository.
+Extension pages in `docs/extensions/` are auto-generated from each extension's GitHub README at build time via `npm run generate:extensions`. To improve an extension page, update the README in the extension's own repository. Entries marked `curated: true` in `docs/.vitepress/data/extensions.js` keep their locally maintained pages so runtime compatibility notes and verified route tables survive generation. Every catalog entry must declare `extensionType` (`python` or `wasm`); WASM examples also identify `runtime` (`core` or `legacy-host`).
+
+The WASM quickstart source lives in `examples/hello-wasm/`. After changing it, run `npm run generate:wasm-example` to rebuild the downloadable source ZIP. Compiled WASM output and development dependencies are not committed. Run `npm run check:extensions` to verify catalog destinations, compatibility links, and generator preservation.
 
 ## Roles
 

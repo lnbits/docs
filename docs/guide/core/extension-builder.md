@@ -200,7 +200,7 @@ The generated extension includes:
 
 1. Configure your extension in the builder
 2. Click **Download Extension ZIP**
-3. Share the ZIP - recipients install it via the standard [local filesystem](/dev/extensions/local) or [remote manifest](/dev/extensions/manifest) methods
+3. Share the ZIP - recipients install it via the standard [local filesystem](/dev/extensions/python/local) or [remote manifest](/dev/extensions/python/manifest) methods
 4. Optionally share the **Export JSON** so others can import it into their own builder and customize
 
 ### Iterate on an existing extension
@@ -239,13 +239,13 @@ The builder exposes four internal API endpoints under `/api/v1/extension/builder
 - **Generated code is a starting point** - for complex extensions, download the ZIP and continue development manually in your editor
 
 ::: tip Going beyond the builder
-The Extension Builder is designed to give you a working foundation fast. For advanced features (custom Vue components, complex business logic, third-party integrations), download the generated extension and develop it further using the [Building Extensions](/dev/building-extensions) guide.
+The Extension Builder is designed to give you a working foundation fast. For advanced features (custom Vue components, complex business logic, third-party integrations), download the generated extension and develop it further using the [Building Extensions](/dev/extensions/python/building) guide.
 :::
 
 ## Related Pages
 
 - [Using Extensions](/guide/using-extensions) - how to install and manage extensions
-- [Building Extensions](/dev/building-extensions) - manual extension development guide
+- [Building Extensions](/dev/extensions/python/building) - manual extension development guide
 - [Deploying Extensions](/dev/extensions/) - how to distribute and install extensions
 - [Admin Dashboard](/guide/admin-dashboard) - server configuration including builder settings
 - [Super User](/guide/core/super-user) - the highest-privilege account that manages the builder

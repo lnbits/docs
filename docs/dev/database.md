@@ -149,6 +149,6 @@ This prevents naming collisions between extensions.
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [Database Guide](/guide/core/database)
 - [Models & Types](/dev/models)

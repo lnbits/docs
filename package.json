@@ -13,7 +13,9 @@
     "generate:extensions": "node scripts/generate-extension-pages.mjs",
     "generate:apps": "node scripts/generate-app-pages.mjs",
     "generate:plugins": "node scripts/generate-plugin-pages.mjs",
-    "generate:mcp": "node scripts/generate-mcp-page.mjs"
+    "generate:mcp": "node scripts/generate-mcp-page.mjs",
+    "generate:wasm-example": "python3 scripts/package-wasm-example.py",
+    "check:extensions": "node scripts/check-extension-docs.mjs"
   },
   "devDependencies": {
     "mermaid": "^11.12.3",

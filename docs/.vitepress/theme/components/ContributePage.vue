@@ -31,14 +31,14 @@ const communityLinks = [
 const allFaqItems = [
   // ── General (shown for every role) ──
   { q: 'Where do I ask for help?', roles: '*', a: 'The <a href="https://t.me/lnbits" target="_blank">Telegram group</a> is the heartbeat of the community - core devs, extension builders, and users are all there. For async, searchable threads use the <a href="https://community.lnbits.com" target="_blank">Community Forum</a>. For longer technical questions, open a <a href="https://github.com/lnbits/lnbits/discussions" target="_blank">GitHub Discussion</a>.' },
-  { q: 'Can I get paid for contributing?', roles: '*', a: 'LNbits is volunteer open-source, but there are paths. <a href="https://opensats.org" target="_blank">OpenSats</a> and <a href="https://hrf.org" target="_blank">HRF</a> fund contributors. Extension developers can <a href="/dev/extensions/monetization">monetize via pay-to-install</a> in the registry. Some community members tip contributors over Lightning directly.' },
+  { q: 'Can I get paid for contributing?', roles: '*', a: 'LNbits is volunteer open-source, but there are paths. <a href="https://opensats.org" target="_blank">OpenSats</a> and <a href="https://hrf.org" target="_blank">HRF</a> fund contributors. Extension developers can <a href="/dev/extensions/python/monetization">monetize via pay-to-install</a> in the registry. Some community members tip contributors over Lightning directly.' },
   { q: 'What license does LNbits use?', roles: '*', a: 'MIT. Use it, fork it, sell it, remix it. The only rule is keeping the license notice. See the <a href="https://github.com/lnbits/lnbits/blob/main/LICENSE" target="_blank">LICENSE file</a>.' },
 
   // ── Developer ──
   { q: 'What tech stack do I need to know?', roles: ['developer'], a: 'Backend is <strong>Python + FastAPI</strong>. Frontend is <strong>Vue 3 + Quasar</strong>. The <a href="/dev/architecture">architecture page</a> has the full picture. Not a coder yet? The <a href="/guide/core/extension-builder">Extension Builder</a> lets you create extensions through a visual wizard.' },
   { q: 'How do I set up a dev environment?', roles: ['developer'], a: 'Clone the repo, install with <a href="/guide/installation/uv">uv</a>, set <code>LNBITS_BACKEND_WALLET_CLASS=FakeWallet</code>, and run. No Lightning node needed. The <a href="/dev/contributing">contributing guide</a> has the full walkthrough.' },
   { q: 'How do I test a pull request locally?', roles: ['developer', 'tester'], a: '<code>git fetch origin pull/ID/head:pr-ID && git checkout pr-ID</code>, then <code>uv sync && lnbits</code> with <a href="/guide/wallets/fakewallet">FakeWallet</a>. Check the <a href="/dev/contributing">contributing guide</a> for the detailed steps.' },
-  { q: 'How do I build and publish an extension?', roles: ['developer'], a: 'Start with the <a href="/dev/extensions/">extension development guide</a>, use <a href="/dev/tools">Polar</a> for local Lightning testing, then <a href="/dev/extensions/registry">list it in the registry</a>. Want to charge for it? The <a href="/dev/extensions/monetization">monetization docs</a> cover pay-to-install setup.' },
+  { q: 'How do I build and publish an extension?', roles: ['developer'], a: 'Start with the <a href="/dev/extensions/">extension development guide</a>, use <a href="/dev/tools">Polar</a> for local Lightning testing, then <a href="/dev/extensions/python/registry">list it in the registry</a>. Want to charge for it? The <a href="/dev/extensions/python/monetization">monetization docs</a> cover pay-to-install setup.' },
   { q: 'Can I contribute translations?', roles: ['developer', 'writer'], a: 'Translation infrastructure is being planned. Jump into <a href="https://t.me/lnbits" target="_blank">Telegram</a> if you want to help shape it. Early volunteers get to define how it works.' },
 
   // ── Tester ──
@@ -53,13 +53,13 @@ const allFaqItems = [
 
   // ── Designer ──
   { q: 'What frontend stack does LNbits use?', roles: ['designer'], a: '<a href="/dev/architecture">Vue 3 + Quasar UI</a> for the app, <a href="https://vitepress.dev" target="_blank">VitePress</a> for docs. The Quasar component library gives you a huge toolkit. Browse the <a href="https://github.com/lnbits/lnbits" target="_blank">main repo</a> for the app or the <a href="https://github.com/lnbits/docs" target="_blank">docs repo</a> for this site.' },
-  { q: 'Can I redesign existing UI without writing backend code?', roles: ['designer'], a: 'Yes. Frontend templates live in each extension\'s <code>templates/</code> folder. You can restyle components, improve layouts, and fix mobile views using only HTML, CSS, and Vue. The <a href="/dev/building-extensions">extension development guide</a> has the patterns.' },
+  { q: 'Can I redesign existing UI without writing backend code?', roles: ['designer'], a: 'Yes. Frontend templates live in each extension\'s <code>templates/</code> folder. You can restyle components, improve layouts, and fix mobile views using only HTML, CSS, and Vue. The <a href="/dev/extensions/">extension development guide</a> has the patterns.' },
   { q: 'What kind of design work is needed?', roles: ['designer'], a: 'UI improvements for the <a href="/guide/core/admin-dashboard">admin panel</a> and extension flows, hero images for <a href="https://news.lnbits.com" target="_blank">blog posts</a>, social media cards, infographics, and illustrations. Check <a href="https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3Adesign" target="_blank">design-tagged issues</a> for open requests.' },
 
   // ── Entrepreneur ──
   { q: 'How do I deploy LNbits for my community?', roles: ['entrepreneur'], a: 'Fastest path: one-click install on a <a href="/guide/installation/">node platform</a> like Umbrel, Start9, or myNode. For full control, use <a href="/guide/installation/docker">Docker</a> on a VPS. Or skip infra entirely with <a href="https://my.lnbits.com" target="_blank">the hosted SaaS</a>.' },
   { q: 'Can I white-label or brand LNbits?', roles: ['entrepreneur'], a: 'Yes. LNbits is MIT-licensed, so you can customize the UI, add your logo, and run it under your own brand. The <a href="/guide/core/admin-dashboard">admin dashboard</a> lets you configure branding, and you can go deeper by editing the frontend templates.' },
-  { q: 'How does the extension marketplace work for business?', roles: ['entrepreneur'], a: 'You can build or commission extensions for your use case, then optionally <a href="/dev/extensions/monetization">sell them via pay-to-install</a>. Other operators pay Lightning to download. Extensions like <a href="/extensions/tpos/">TPoS</a>, <a href="/extensions/boltcards/">Boltcards</a>, and <a href="/extensions/lnticket/">LNTicket</a> already power real businesses.' },
+  { q: 'How does the extension marketplace work for business?', roles: ['entrepreneur'], a: 'You can build or commission extensions for your use case, then optionally <a href="/dev/extensions/python/monetization">sell them via pay-to-install</a>. Other operators pay Lightning to download. Extensions like <a href="/extensions/tpos/">TPoS</a>, <a href="/extensions/boltcards/">Boltcards</a>, and <a href="/extensions/lnticket/">LNTicket</a> already power real businesses.' },
 
   // ── Ambassador ──
   { q: 'What materials can I use for meetups and talks?', roles: ['ambassador'], a: 'The <a href="/">docs site</a> is your main resource. The <a href="/guide/">user guide</a> works as a walkthrough, the <a href="/extensions/">extension directory</a> shows what\'s possible, and <a href="https://news.lnbits.com" target="_blank">news.lnbits.com</a> has community stories. Demo with <a href="https://my.lnbits.com" target="_blank">my.lnbits.com</a> for live audiences.' },
@@ -100,9 +100,9 @@ const roleData = {
         items: [
           { name: 'Good first issues', url: 'https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22' },
           { name: 'Architecture overview', url: '/dev/architecture', badge: 'Read first' },
-          { name: 'Building Extensions', url: '/dev/building-extensions', badge: 'Full guide' },
+          { name: 'Building Extensions', url: '/dev/extensions/', badge: 'Full guide' },
           { name: 'Extension Builder', url: '/guide/core/extension-builder', badge: 'No-Code' },
-          { name: 'Deploy to Registry', url: '/dev/extensions/registry' },
+          { name: 'Deploy to Registry', url: '/dev/extensions/python/registry' },
         ],
       },
       {
@@ -226,7 +226,7 @@ const roleData = {
         featured: {
           name: 'Extension READMEs become docs automatically',
           desc: 'Every extension page is fetched from its GitHub README at build time. Improve the README on GitHub and the docs site updates on the next build.',
-          url: '/dev/extensions/registry',
+          url: '/dev/extensions/python/registry',
           badge: 'Good to know',
         },
         items: [
@@ -419,8 +419,8 @@ const roleData = {
         items: [
           { name: 'LNbits SaaS', url: 'https://my.lnbits.com', badge: '3 minutes' },
           { name: 'Docker install', url: '/guide/installation/docker', badge: 'Production' },
-          { name: 'Extension monetization', url: '/dev/extensions/monetization' },
-          { name: 'Custom marketplace', url: '/dev/extensions/custom-list' },
+          { name: 'Extension monetization', url: '/dev/extensions/python/monetization' },
+          { name: 'Custom marketplace', url: '/dev/extensions/python/custom-list' },
         ],
       },
       {
@@ -428,7 +428,7 @@ const roleData = {
         desc: 'Your product strengthens LNbits, and a stronger LNbits grows your market. The ecosystem scales together.',
         items: [
           { name: 'LNbits SaaS', url: 'https://my.lnbits.com', badge: 'Launch fast' },
-          { name: 'Extension monetization', url: '/dev/extensions/monetization', badge: 'Earn sats' },
+          { name: 'Extension monetization', url: '/dev/extensions/python/monetization', badge: 'Earn sats' },
           { name: 'Share your story on Telegram', url: 'https://t.me/lnbits' },
           { name: 'Community Forum', url: 'https://community.lnbits.com' },
           { name: 'GitHub Discussions', url: 'https://github.com/lnbits/lnbits/discussions' },

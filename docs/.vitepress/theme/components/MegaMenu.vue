@@ -95,8 +95,10 @@ const columns = [
       {
         heading: 'Extensions',
         items: [
-          { name: 'Building', desc: 'Python + Vue guide', link: '/dev/building-extensions', icon: 'puzzle' },
-          { name: 'Deploying', desc: 'Registry & marketplace', link: '/dev/extensions/', icon: 'upload' },
+          { name: 'Developing Extensions', desc: 'Choose an extension type', link: '/dev/extensions/', icon: 'puzzle' },
+          { name: 'WASM Extensions', desc: 'Sandboxed components', link: '/dev/extensions/wasm/', icon: 'puzzle' },
+          { name: 'Python Extensions', desc: 'Python + Vue guides', link: '/dev/extensions/python/', icon: 'puzzle' },
+
           { name: 'Wallet Backends', desc: 'Custom funding sources', link: '/dev/wallet-backends', icon: 'wallet' },
           { name: 'Fiat Integration', desc: 'Stripe & PayPal', link: '/dev/fiat-integration', icon: 'dollar' },
         ],
@@ -122,7 +124,9 @@ const columns = [
       {
         heading: 'Extensions',
         items: [
-          { name: 'Browse Extensions', desc: '60+ extensions ready to use', link: '/extensions/', icon: 'puzzle' },
+          { name: 'Browse Extensions', desc: 'Choose an extension type', link: '/extensions/', icon: 'puzzle' },
+          { name: 'WASM Extensions', desc: 'Sandboxed features', link: '/extensions/wasm/', icon: 'puzzle' },
+          { name: 'Python Extensions', desc: 'Application integrations', link: '/extensions/python/', icon: 'puzzle' },
         ],
       },
       {

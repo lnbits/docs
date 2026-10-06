@@ -1,0 +1,4 @@
+body { font: 16px system-ui, sans-serif; margin: 2rem; }
+main { max-width: 32rem; margin: auto; }
+label { display: block; margin-bottom: .5rem; }
+input, button { font: inherit; padding: .5rem; }

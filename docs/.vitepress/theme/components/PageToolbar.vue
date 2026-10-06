@@ -39,10 +39,10 @@ LNbits is Python + FastAPI (backend) and Vue 3 + Quasar (frontend). MIT licensed
 ## What to work on
 - Good first issues: https://github.com/lnbits/lnbits/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22
 - Architecture overview: https://docs.lnbits.com/dev/architecture
-- Build extensions: https://docs.lnbits.com/dev/building-extensions
+- Build extensions: https://docs.lnbits.com/dev/extensions/
 - Extension Builder (no-code): https://docs.lnbits.com/guide/core/extension-builder
-- Deploy to registry: https://docs.lnbits.com/dev/extensions/registry
-- Extension monetization (pay-to-install): https://docs.lnbits.com/dev/extensions/monetization
+- Deploy to registry: https://docs.lnbits.com/dev/extensions/python/registry
+- Extension monetization (pay-to-install): https://docs.lnbits.com/dev/extensions/python/monetization
 
 ## PR best practices
 - Include screenshots or screen recordings
@@ -183,8 +183,8 @@ LNbits is not just a wallet - it is a platform with REST API, extension system, 
 ## Launch options
 - LNbits SaaS (3 minutes): https://my.lnbits.com
 - Docker (production): https://docs.lnbits.com/guide/installation/docker
-- Extension monetization: https://docs.lnbits.com/dev/extensions/monetization
-- Custom marketplace: https://docs.lnbits.com/dev/extensions/custom-list
+- Extension monetization: https://docs.lnbits.com/dev/extensions/python/monetization
+- Custom marketplace: https://docs.lnbits.com/dev/extensions/python/custom-list
 
 ## Community
 - Telegram: https://t.me/lnbits
@@ -420,7 +420,7 @@ Explain LNbits to someone who found the contribute page but is not sure what the
 
 <additional_context>
 Contributing guide: https://docs.lnbits.com/dev/contributing
-Extension development: https://docs.lnbits.com/dev/building-extensions
+Extension development: https://docs.lnbits.com/dev/extensions/
 </additional_context>
 
 <instructions>

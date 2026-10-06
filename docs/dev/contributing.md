@@ -151,7 +151,7 @@ Translation infrastructure is being planned. If you're a native speaker of a non
 - [ ] Migrations work on SQLite and PostgreSQL
 - [ ] No secrets or credentials in the code
 - [ ] No new dependencies added (or, if necessary, tested with uv + Poetry + Nix)
-- [ ] Extension follows the [extension structure](/dev/building-extensions)
+- [ ] Extension follows the [extension structure](/dev/extensions/python/building)
 
 ## Error codes
 
@@ -176,7 +176,7 @@ LNbits admins will **never** DM you first. There is **no official LNbits support
 ## Related Pages
 
 - [Contribute to LNbits](/contribute/) - role-specific guides for all contributor types
-- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Building Extensions](/dev/extensions/python/building) - extension development guide
 - [Architecture](/dev/architecture) - internal structure and design decisions
 - [Developer Tools](/dev/tools) - Extension Builder, Polar, MCP Server, TableTown
 - [FakeWallet](/guide/wallets/fakewallet) - simulated Lightning backend for development

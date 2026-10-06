@@ -1,5 +1,40 @@
 import { defineConfig } from 'vitepress'
+import { EXTENSIONS } from './data/extensions.js'
 import { withMermaid } from 'vitepress-plugin-mermaid'
+
+const extensionDirectorySidebar = [{
+  text: 'Extensions',
+  items: [
+    { text: 'Overview', link: '/extensions/' },
+    { text: 'WASM Extensions', link: '/extensions/wasm/' },
+    { text: 'Python Extensions', link: '/extensions/python/' },
+  ],
+}]
+
+function extensionSidebar(type) {
+  const extensions = EXTENSIONS.filter(ext => ext.extensionType === type)
+  const categories = [...new Set(extensions.map(ext => ext.category))]
+  return [
+    ...extensionDirectorySidebar,
+    ...categories.map((category, index) => ({
+      text: category,
+      collapsed: index >= 4,
+      items: extensions.filter(ext => ext.category === category).map(ext => ({
+        text: ext.name + (ext.runtime === 'legacy-host' ? ' (legacy host)' : ''),
+        link: `/extensions/${ext.id}/`,
+      })),
+    })),
+  ]
+}
+
+const extensionSidebars = {
+  '/extensions/': extensionDirectorySidebar,
+  '/extensions/wasm/': extensionSidebar('wasm'),
+  '/extensions/python/': extensionSidebar('python'),
+  ...Object.fromEntries(EXTENSIONS.map(ext => [
+    `/extensions/${ext.id}/`, extensionSidebar(ext.extensionType),
+  ])),
+}
 
 // Fetch latest LNbits release from GitHub at build time
 let latestVersion = 'v1.5.0' // fallback
@@ -150,8 +185,9 @@ export default withMermaid(defineConfig({
           {
             text: 'Extensions',
             items: [
-              { text: 'Building Extensions', link: '/dev/building-extensions' },
-              { text: 'Deploying Extensions', link: '/dev/extensions/' },
+              { text: 'Developing Extensions', link: '/dev/extensions/' },
+              { text: 'WASM Extensions', link: '/dev/extensions/wasm/' },
+              { text: 'Python Extensions', link: '/dev/extensions/python/' },
               { text: 'Wallet Backends', link: '/dev/wallet-backends' },
             ],
           },
@@ -339,7 +375,7 @@ export default withMermaid(defineConfig({
           text: 'Developer Guide',
           items: [
             { text: 'Architecture', link: '/dev/architecture' },
-            { text: 'Building Extensions', link: '/dev/building-extensions' },
+            { text: 'Developing Extensions', link: '/dev/extensions/' },
             { text: 'Wallet Backends', link: '/dev/wallet-backends' },
             { text: 'Database & Migrations', link: '/dev/database' },
             { text: 'Models & Types', link: '/dev/models' },
@@ -351,151 +387,37 @@ export default withMermaid(defineConfig({
           ],
         },
         {
-          text: 'Deploying Extensions',
+          text: 'WASM Extensions',
           collapsed: false,
           items: [
-            { text: 'Overview', link: '/dev/extensions/' },
-            { text: 'Local Filesystem', link: '/dev/extensions/local' },
-            { text: 'Remote Manifest', link: '/dev/extensions/manifest' },
-            { text: 'Official Registry', link: '/dev/extensions/registry' },
-            { text: 'Custom Marketplace', link: '/dev/extensions/custom-list' },
-            { text: 'Auto-Install', link: '/dev/extensions/auto-install' },
-            { text: 'Forked Distribution', link: '/dev/extensions/forked' },
-            { text: 'Monetization', link: '/dev/extensions/monetization' },
-            { text: 'Dependencies & Upgrades', link: '/dev/extensions/upgrades' },
-            { text: 'Reference', link: '/dev/extensions/reference' },
+            { text: 'Overview', link: '/dev/extensions/wasm/' },
+            { text: 'Build your first extension', link: '/dev/extensions/wasm/building' },
+            { text: 'Permissions and payments', link: '/dev/extensions/wasm/permissions' },
+            { text: 'Storage and events', link: '/dev/extensions/wasm/storage-events' },
+            { text: 'Frontend', link: '/dev/extensions/wasm/frontend' },
+            { text: 'Deploy and publish', link: '/dev/extensions/wasm/deployment' },
+            { text: 'Reference and troubleshooting', link: '/dev/extensions/wasm/reference' },
+          ],
+        },
+        {
+          text: 'Python Extensions',
+          collapsed: false,
+          items: [
+            { text: 'Overview', link: '/dev/extensions/python/' },
+            { text: 'Building', link: '/dev/extensions/python/building' },
+            { text: 'Local Filesystem', link: '/dev/extensions/python/local' },
+            { text: 'Remote Manifest', link: '/dev/extensions/python/manifest' },
+            { text: 'Official Registry', link: '/dev/extensions/python/registry' },
+            { text: 'Custom Marketplace', link: '/dev/extensions/python/custom-list' },
+            { text: 'Auto-Install', link: '/dev/extensions/python/auto-install' },
+            { text: 'Forked Distribution', link: '/dev/extensions/python/forked' },
+            { text: 'Monetization', link: '/dev/extensions/python/monetization' },
+            { text: 'Dependencies & Upgrades', link: '/dev/extensions/python/upgrades' },
+            { text: 'Reference', link: '/dev/extensions/python/reference' },
           ],
         },
       ],
-      '/extensions/': [
-        {
-          text: 'Extensions',
-          items: [
-            { text: 'Overview', link: '/extensions/' },
-          ],
-        },
-        {
-          text: 'Payments & Commerce',
-          collapsed: false,
-          items: [
-            { text: 'LNURLp', link: '/extensions/lnurlp/' },
-            { text: 'TPoS', link: '/extensions/tpos/' },
-            { text: 'SatsPay', link: '/extensions/satspay/' },
-            { text: 'Paywall', link: '/extensions/paywall/' },
-            { text: 'Sell Coins', link: '/extensions/sellcoins/' },
-            { text: 'Invoices', link: '/extensions/invoices/' },
-            { text: 'Market', link: '/extensions/market/' },
-            { text: 'Offline Shop', link: '/extensions/offlineshop/' },
-            { text: 'WebShop', link: '/extensions/webshop/' },
-            { text: 'Telegram Shopping', link: '/extensions/telegramshop/' },
-          ],
-        },
-        {
-          text: 'Wallet Tools',
-          collapsed: false,
-          items: [
-            { text: 'Watch Only', link: '/extensions/watchonly/' },
-            { text: 'Split Payments', link: '/extensions/splitpayments/' },
-            { text: 'Scrub', link: '/extensions/scrub/' },
-            { text: 'NWC Provider', link: '/extensions/nwcprovider/' },
-            { text: 'LndHub', link: '/extensions/lndhub/' },
-          ],
-        },
-        {
-          text: 'Tips & Donations',
-          collapsed: false,
-          items: [
-            { text: 'Withdraw', link: '/extensions/withdraw/' },
-            { text: 'Tip Jar', link: '/extensions/tipjar/' },
-            { text: 'Stream Alerts', link: '/extensions/streamalerts/' },
-            { text: 'RaiseNow', link: '/extensions/raisenow/' },
-          ],
-        },
-        {
-          text: 'Hardware & Devices',
-          collapsed: false,
-          items: [
-            { text: 'Bolt Cards', link: '/extensions/boltcards/' },
-            { text: 'Bitcoin Switch', link: '/extensions/bitcoinswitch/' },
-            { text: 'FOSSA (ATM)', link: '/extensions/fossa/' },
-            { text: 'LNPoS', link: '/extensions/lnpos/' },
-            { text: 'LNURL Device', link: '/extensions/lnurldevice/' },
-          ],
-        },
-        {
-          text: 'Swaps',
-          collapsed: true,
-          items: [
-            { text: 'Boltz', link: '/extensions/boltz/' },
-            { text: 'Deezy', link: '/extensions/deezy/' },
-          ],
-        },
-        {
-          text: 'Social & Nostr',
-          collapsed: true,
-          items: [
-            { text: 'Nostr Client', link: '/extensions/nostrclient/' },
-            { text: 'Nostr Market', link: '/extensions/nostrmarket/' },
-            { text: 'Nostr NIP-5', link: '/extensions/nostrnip5/' },
-            { text: 'Nostr Relay', link: '/extensions/nostrrelay/' },
-            { text: 'Chat', link: '/extensions/chat/' },
-            { text: 'Paid Reviews', link: '/extensions/paidreviews/' },
-            { text: 'Pay2Review', link: '/extensions/pay2review/' },
-            { text: 'Auction House', link: '/extensions/auctionhouse/' },
-          ],
-        },
-        {
-          text: 'Games & Gambling',
-          collapsed: true,
-          items: [
-            { text: 'Coinflip', link: '/extensions/coinflip/' },
-            { text: 'Sats Dice', link: '/extensions/satsdice/' },
-            { text: 'Satspot', link: '/extensions/satspot/' },
-            { text: 'BlackJack', link: '/extensions/blackjack/' },
-            { text: 'Number Lottery', link: '/extensions/numberlottery/' },
-            { text: 'Magic 8ball', link: '/extensions/eightball/' },
-          ],
-        },
-        {
-          text: 'Events & Streaming',
-          collapsed: true,
-          items: [
-            { text: 'LN Ticket', link: '/extensions/lnticket/' },
-            { text: 'Events', link: '/extensions/events/' },
-            { text: 'LNCalendar', link: '/extensions/lncalendar/' },
-            { text: 'Livestream', link: '/extensions/livestream/' },
-            { text: 'Jukebox', link: '/extensions/jukebox/' },
-            { text: 'Copilot', link: '/extensions/copilot/' },
-          ],
-        },
-        {
-          text: 'Utilities & Tools',
-          collapsed: true,
-          items: [
-            { text: 'Decoder', link: '/extensions/decoder/' },
-            { text: 'Device Timer', link: '/extensions/devicetimer/' },
-            { text: 'Inventory', link: '/extensions/inventory/' },
-            { text: 'Scheduler', link: '/extensions/scheduler/' },
-            { text: 'Bleskomat', link: '/extensions/bleskomat/' },
-            { text: 'SMTP', link: '/extensions/smtp/' },
-            { text: 'Shipping', link: '/extensions/shipping/' },
-            { text: 'WebPages', link: '/extensions/webpages/' },
-            { text: 'TunnelMeOut', link: '/extensions/tunnel_me_out/' },
-            { text: 'Where39', link: '/extensions/where39/' },
-            { text: 'ChaosPad', link: '/extensions/chaospad/' },
-            { text: 'Gerty', link: '/extensions/gerty/' },
-          ],
-        },
-        {
-          text: 'Management',
-          collapsed: true,
-          items: [
-            { text: 'Scrum', link: '/extensions/scrum/' },
-            { text: 'Orders', link: '/extensions/orders/' },
-            { text: 'PaidTasks', link: '/extensions/paidtasks/' },
-          ],
-        },
-      ],
+      ...extensionSidebars,
       '/llm/': [
         {
           text: 'LLM Integration',

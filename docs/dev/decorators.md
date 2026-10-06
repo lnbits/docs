@@ -117,6 +117,6 @@ async def admin_action(
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [Authentication](/api/authentication)
 - [API Keys Guide](/guide/core/api-keys)

@@ -144,5 +144,5 @@ Used with the `@parse_filters` decorator for paginated endpoints.
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [Database & Migrations](/dev/database)

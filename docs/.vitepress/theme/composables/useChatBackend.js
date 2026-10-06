@@ -28,7 +28,7 @@ const stubResponses = [
     content:
       'To build a LNbits extension:\n\n1. **Scaffold** - use the example extension as a template\n2. **Define models** in `models.py` using Pydantic\n3. **Create migrations** in `migrations/` for database tables\n4. **Build API routes** in `views_api.py`\n5. **Add the frontend** with Vue 3 + Quasar in `templates/`\n\nKey files in every extension:\n\n```\nmy_extension/\n├── __init__.py        # Extension metadata\n├── config.json        # Name, version, description\n├── models.py          # Pydantic models\n├── crud.py            # Database operations\n├── views.py           # Page routes\n├── views_api.py       # API endpoints\n├── migrations/        # DB migrations\n└── templates/         # Vue frontend\n```\n\nStart with `make ext` to scaffold a new extension.',
     sources: [
-      { title: 'Building Extensions', url: '/dev/extensions/' },
+      { title: 'Developing Extensions', url: '/dev/extensions/' },
       { title: 'Architecture', url: '/dev/architecture' },
       { title: 'Contributing', url: '/dev/contributing' },
     ],

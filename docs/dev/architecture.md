@@ -136,6 +136,6 @@ async def on_invoice_paid(payment):
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [Database & Migrations](/dev/database)
 - [Models & Types](/dev/models)

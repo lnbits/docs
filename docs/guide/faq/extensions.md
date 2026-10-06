@@ -24,7 +24,7 @@ Third-party extensions are hosted in external manifest files. To add a custom so
 LNBITS_EXTENSIONS_MANIFESTS='["https://example.com/extensions/manifest.json"]'
 ```
 
-See [Custom Marketplace](/dev/extensions/custom-list) for details on creating and hosting your own manifest.
+See [Custom Marketplace](/dev/extensions/python/custom-list) for details on creating and hosting your own manifest.
 
 ## How do I add a custom extension source?
 
@@ -44,7 +44,7 @@ Multiple sources can be combined as a JSON array. Extensions from all configured
 
 When an update is available, a notification badge appears on the extension in the Extensions page. Click the extension and choose **Update**. Updates download the new version and run any database migrations automatically.
 
-For auto-install of specific extensions on startup, see [Auto-Install](/dev/extensions/auto-install).
+For auto-install of specific extensions on startup, see [Auto-Install](/dev/extensions/python/auto-install).
 
 ## Is extension data deleted on uninstall?
 
@@ -60,7 +60,7 @@ Yes. LNbits extensions follow a standard structure with:
 - A Vue.js frontend (Quasar components, Jinja2 templates)
 - A `manifest.json` for distribution
 
-See [Building Extensions](/dev/building-extensions) for the development guide and [Deploying Extensions](/dev/extensions/) for distribution options.
+See [Building Extensions](/dev/extensions/python/building) for the development guide and [Deploying Extensions](/dev/extensions/) for distribution options.
 
 ## What are the most popular extensions?
 
@@ -124,6 +124,6 @@ Disabled extensions are hidden from the Extensions page for all non-admin users.
 ## Related Pages
 
 - [Using Extensions](/guide/using-extensions) - install and manage extensions
-- [Building Extensions](/dev/building-extensions) - development guide
+- [Building Extensions](/dev/extensions/python/building) - development guide
 - [Deploying Extensions](/dev/extensions/) - distribution options
-- [Custom Marketplace](/dev/extensions/custom-list) - host your own extension source
+- [Custom Marketplace](/dev/extensions/python/custom-list) - host your own extension source

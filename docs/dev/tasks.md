@@ -90,5 +90,5 @@ async def process_queue():
 
 ## Related Pages
 
-- [Building Extensions](/dev/building-extensions)
+- [Building Extensions](/dev/extensions/python/building)
 - [WebSockets Guide](/guide/core/websockets)
