@@ -2,11 +2,11 @@
 
 > Compile a small greeting component, load it in LNbits, and call it from a sandboxed page.
 
-This example targets the **LNbits 1.6.2 core WASM runtime**. It creates a public greeting endpoint and a page with a name input. It requests no wallet or storage permissions.
+This example a public greeting endpoint and a page with a name input. It requests no wallet or storage permissions.
 
 ## Prerequisites
 
-- A local LNbits 1.6.2 development instance; see [Installation](/guide/installation/).
+- A local LNbits development instance; see [Installation](/guide/installation/).
 - Node.js 20 or newer and npm for building the JavaScript component.
 - The [Hello WASM starter ZIP](/examples/hello-wasm.zip).
 

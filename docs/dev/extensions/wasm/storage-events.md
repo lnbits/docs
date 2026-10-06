@@ -2,7 +2,7 @@
 
 > Add persistent records and live updates without database access from the component.
 
-The core runtime uses declared tables and host storage functions. It does not use the legacy host's KV store or Python migrations.
+The core runtime uses declared tables and host storage functions.
 
 ## Extend Hello WASM with notes
 
@@ -154,7 +154,7 @@ Channels are extension-scoped, not automatically private to a user. Use them for
 
 ## Scheduled work
 
-LNbits 1.6.2's core WASM configuration exposes invoice-paid events, not a general scheduled-task registration interface. Do not copy scheduler examples from the older host. Use bounded authenticated API calls driven by an external scheduler, or choose a Python extension when a server-side background task is required.
+LNbits' core WASM configuration exposes invoice-paid events, not a general scheduled-task registration interface. Do not copy scheduler examples from the older host. Use bounded authenticated API calls driven by an external scheduler, or choose a Python extension when a server-side background task is required.
 
 ## Related Pages
 

@@ -2,7 +2,7 @@
 
 > Connect an isolated HTML page to your extension through the LNbits bridge.
 
-WASM UI pages run inside a sandboxed iframe. They are static HTML and JavaScript, not Python/Jinja templates. LNbits renders the outer page and brokers approved actions on behalf of the frame.
+WASM UI pages run inside a sandboxed iframe. They are static HTML and JavaScript. LNbits renders the outer page and brokers approved actions on behalf of the frame.
 
 ## Pages and assets
 

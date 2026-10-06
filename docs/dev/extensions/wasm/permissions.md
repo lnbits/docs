@@ -81,9 +81,9 @@ const approval = await extensionClient.bridge({
 })
 ```
 
-`maxAmount` is in sats and limits **each payment**, not total spending or a single game record. `own_wallets_only` permits internal invoices for wallets owned by that user. `external_allowed` also permits external destinations, such as a winner's Lightning address.
+`maxAmount` is in sats and limits **each payment**, not total spending. `own_wallets_only` permits internal invoices for wallets owned by that user. `external_allowed` also permits external destinations, such as a winner's Lightning address.
 
-Cancellation or denial must stop the payout flow and leave a clear pending/unauthorized state. Do not silently request a broader grant. If a game needs a record-specific pot limit, enforce that separately in the backend; the wallet grant itself is wallet-scoped.
+Cancellation or denial must stop the payout flow and leave a clear pending/unauthorized state. Do not silently request a broader grant.
 
 Use `pay-invoice` or `pay-lnurl` from the module with the matching WIT records. The host enforces wallet ownership in a user context, or the background grant when no user context is present. A denied grant, excessive amount, or disallowed destination must not be reported as a completed payment.
 

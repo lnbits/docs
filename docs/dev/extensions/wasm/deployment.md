@@ -2,7 +2,7 @@
 
 > Package a compiled component, test it on an LNbits instance, and distribute a compatible release.
 
-WASM extensions use a separate local directory and registry from Python extensions. These instructions target LNbits 1.6.2's core runtime.
+WASM extensions use a separate local directory and registry from Python extensions.
 
 ## Local development
 

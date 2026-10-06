@@ -4,14 +4,6 @@
 
 A WASM extension runs through LNbits' core runtime. Its backend is a WebAssembly **component**: a compiled module whose imports and exports have a defined interface. You can write the backend in a language that targets the component model; the [quickstart](./building) uses JavaScript and `jco`.
 
-## Version requirements
-
-These guides and the Hello WASM starter target **LNbits 1.6.2**. The runtime and examples were checked against the [v1.6.2 source](https://github.com/lnbits/lnbits/tree/v1.6.2/lnbits/core/wasm_ext). Some published extensions support earlier versions; use their release metadata to check compatibility.
-
-::: info Core runtime
-The older `wasm` host extension uses different permission names, storage, and installation paths. Its examples are not interchangeable with this runtime. The [PaidTasks legacy page](/extensions/paidtasks/) is labeled accordingly.
-:::
-
 ## How it works
 
 ```text
@@ -31,7 +23,7 @@ The component has no direct access to host files, environment variables, funding
 
 ## Resource limits
 
-Each invocation is bounded by execution time, fuel, memory, and host-call limits. Fuel measures computational work; it is separate from elapsed time. A component cannot run a permanent background loop. An invocation that exceeds a limit fails, so report the failure and reconcile any payment or storage side effects before retrying.
+Each invocation is bounded by execution time, fuel, memory, and host-call limits. Fuel measures computational work; it is separate from elapsed time. A component cannot run a permanent background loop. An invocation that exceeds a limit will fail.
 
 See [Reference](./reference#runtime-limits) for defaults, per-extension overrides, and monitoring.
 
