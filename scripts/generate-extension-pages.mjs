@@ -30,6 +30,7 @@ const CONCURRENCY = 10
 
 function buildHeader(ext) {
   return `<ExtensionHeader
+  extension-type="${ext.extensionType}"
   name="${ext.name}"
   description="${ext.description}"
   category="${ext.category}"
@@ -47,7 +48,8 @@ See the [${ext.name} API documentation](./api) for endpoint details.
 ## Related Pages
 
 - [${ext.name} API Reference](./api): API endpoints for this extension
-- [All Extensions](https://extensions.lnbits.com): Browse all LNbits extensions
+- [${ext.extensionType === 'wasm' ? 'WASM' : 'Python'} Extensions](/extensions/${ext.extensionType}/): Browse this extension type
+- [Developing Extensions](/dev/extensions/): Build and distribute an extension
 `
 }
 
@@ -101,8 +103,10 @@ async function fetchConfig(repo) {
       if (res.ok) {
         const config = await res.json()
         if (config.tile) {
-          // tile is like "/tpos/static/image/tpos.png" - extract path after ext id
-          const tilePath = config.tile.replace(/^\/[^/]+\//, '')
+          // Python tiles use /<id>/static/...; core WASM uses /ext-assets/<id>/...
+          const tilePath = config.tile.startsWith('/ext-assets/')
+            ? config.tile.replace(/^\/ext-assets\/[^/]+\//, 'static/')
+            : config.tile.replace(/^\/[^/]+\//, '')
           return `https://raw.githubusercontent.com/${repo}/${branch}/${tilePath}`
         }
         return null
@@ -280,7 +284,9 @@ API endpoints for the ${ext.name} extension.
 
 ## Authentication
 
-All endpoints require an API key via the \`X-Api-Key\` header.
+${ext.extensionType === 'wasm'
+  ? 'Core WASM routes use `/api/v1/ext/' + ext.id + '/`. Authenticated routes require an LNbits user session or Bearer access token; public routes do not. Legacy WASM hosts use their own interfaces. Check the overview for runtime compatibility.'
+  : 'All endpoints require an API key via the `X-Api-Key` header.'}
 
 `
 
@@ -310,6 +316,12 @@ async function processExtension(ext, tagEndpoints) {
   await mkdir(dir, { recursive: true })
 
   const indexPath = join(dir, 'index.md')
+
+  // Curated pages include verified runtime and compatibility guidance.
+  if (ext.curated && await fileExists(indexPath)) {
+    const tileUrl = await fetchConfig(ext.repo)
+    return { status: 'skipped', tileUrl }
+  }
 
   // Fetch README and config in parallel
   const [readme, tileUrl] = await Promise.all([
@@ -381,6 +393,12 @@ async function main() {
   }
 
   const counts = { fetched: 0, fallback: 0, skipped: 0 }
+  let previousMeta = {}
+  try {
+    previousMeta = JSON.parse(await readFile(META_PATH, 'utf-8'))
+  } catch {
+    // No previous tile metadata on a first build.
+  }
   const extensionMeta = {}
 
   const results = await runWithConcurrency(EXTENSIONS, CONCURRENCY, async (ext) => {
@@ -393,14 +411,16 @@ async function main() {
 
   for (const { ext, status, tileUrl } of results) {
     counts[status]++
-    if (tileUrl) {
-      extensionMeta[ext.id] = { tileUrl }
+    extensionMeta[ext.id] = {
+      ...previousMeta[ext.id],
+      extensionType: ext.extensionType,
+      ...(tileUrl ? { tileUrl } : {}),
     }
   }
 
   // Write extensions metadata (tile URLs) for Vue components
   await writeFile(META_PATH, JSON.stringify(extensionMeta, null, 2) + '\n', 'utf-8')
-  console.log(`\nWrote ${Object.keys(extensionMeta).length} tile URLs to ${META_PATH}`)
+  console.log(`\nWrote metadata for ${Object.keys(extensionMeta).length} extensions to ${META_PATH}`)
 
   // API pages - only create if missing
   for (const ext of EXTENSIONS) {

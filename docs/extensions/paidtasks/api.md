@@ -1,67 +1,17 @@
 # PaidTasks API
 
-> API endpoints for the PaidTasks extension.
+> Compatibility information for the original WASM-host implementation.
 
-::: tip Live API Explorer
-If you have a running LNbits instance, the interactive API docs are the fastest way to explore and test:
-- **Swagger UI**: `https://your-lnbits.com/docs`
-- **ReDoc**: `https://your-lnbits.com/redoc`
-
-These are auto-generated from your running version and always up to date.
+::: warning Legacy WASM host
+PaidTasks uses the older `wasm` host extension. It does not use the Python CRUD API pattern or the core runtime's `/api/v1/ext/<id>/` routes.
 :::
 
-## Base URL
+Use the matching host's live `/docs` or `/openapi.json` to inspect its available interfaces. The [PaidTasks source](https://github.com/lnbits/paidtasks) and [legacy host source](https://github.com/lnbits/wasm) describe this implementation's handler and permission model.
 
-```
-https://your-lnbits.com/paidtasks/api/v1/
-```
-
-## Authentication
-
-| Key Type | Header | Access |
-|---|---|---|
-| **Admin key** | `X-Api-Key` | Full access (create, update, delete) |
-| **Invoice key** | `X-Api-Key` | Read-only access (list, get) |
-
-## Endpoints
-
-| Method | Path | Auth | Description |
-|---|---|---|---|
-| `GET` | `/paidtasks/api/v1/` | Invoice | List all items |
-| `GET` | `/paidtasks/api/v1/{id}` | Invoice | Get a specific item |
-| `POST` | `/paidtasks/api/v1/` | Admin | Create a new item |
-| `PUT` | `/paidtasks/api/v1/{id}` | Admin | Update an item |
-| `DELETE` | `/paidtasks/api/v1/{id}` | Admin | Delete an item |
-
-::: info Note
-This is the standard CRUD pattern. The actual resource names and additional endpoints may vary. Check the **Swagger UI** on your instance for the exact paths and request/response schemas.
-:::
-
-## Example
-
-```bash
-# List items
-curl https://your-lnbits.com/paidtasks/api/v1/ \
-  -H "X-Api-Key: YOUR_INVOICE_KEY"
-
-# Create item
-curl -X POST https://your-lnbits.com/paidtasks/api/v1/ \
-  -H "X-Api-Key: YOUR_ADMIN_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{"name": "example"}'
-```
-
-::: tip For AI Agents
-Fetch the full OpenAPI spec from any running instance:
-```
-GET https://your-lnbits.com/openapi.json
-```
-Filter for paths starting with `/paidtasks/` to isolate this extension's endpoints.
-:::
+For new extensions, use the [core WASM frontend and API guidance](/dev/extensions/wasm/frontend).
 
 ## Related Pages
 
-- [PaidTasks Overview](./): Extension features and setup guide
-- [API Authentication](/api/authentication): API key types and usage
-- [Quick Reference](/api/quick-reference): All core LNbits endpoints
-- [All Extensions](https://extensions.lnbits.com): Browse the full extension catalog
+- [PaidTasks Overview](./): legacy setup and permissions
+- [WASM Extensions](/extensions/wasm/): core and legacy examples
+- [Core WASM Reference](/dev/extensions/wasm/reference)

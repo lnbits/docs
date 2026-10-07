@@ -6,6 +6,8 @@ const props = defineProps({
   name: { type: String, required: true },
   description: { type: String, default: '' },
   category: { type: String, default: '' },
+  extensionType: { type: String, default: '' },
+  runtime: { type: String, default: '' },
   icon: { type: String, default: '🔌' },
   link: { type: String, default: '' },
 })
@@ -22,6 +24,8 @@ const tileUrl = (props.id && extensionMeta[props.id]?.tileUrl) || null
     <div class="ext-card-body">
       <h3 class="ext-card-title">{{ name }}</h3>
       <span v-if="category" class="ext-card-category">{{ category }}</span>
+      <span v-if="extensionType" class="ext-card-category">{{ extensionType === 'wasm' ? 'WASM' : 'Python' }}</span>
+      <span v-if="runtime === 'legacy-host'" class="ext-card-category">Legacy host</span>
       <p class="ext-card-desc">{{ description }}</p>
     </div>
   </a>

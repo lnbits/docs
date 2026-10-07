@@ -1,0 +1,5 @@
+package lnbits:extension;
+
+world hello {
+  export greet: func(request-json: string) -> string;
+}

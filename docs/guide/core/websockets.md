@@ -116,4 +116,4 @@ ws[s]://<host>/api/v1/ws/<wallet_id>
 - [Payments](/guide/core/payments)
 - [WebSockets API Reference](/api/core/websockets)
 - [Background Tasks](/dev/tasks)
-- [Building Extensions](/dev/building-extensions) - frontend template with Vue.js
+- [Building Extensions](/dev/extensions/python/building) - frontend template with Vue.js

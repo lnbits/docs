@@ -1,4 +1,5 @@
 <script setup>
+import { EXTENSIONS } from '../../data/extensions.js'
 import extensionMeta from '../../data/extensions-meta.json'
 
 const props = defineProps({
@@ -7,10 +8,12 @@ const props = defineProps({
   category: { type: String, default: '' },
   icon: { type: String, default: '🔌' },
   repo: { type: String, default: '' },
+  extensionType: { type: String, default: '' },
   features: { type: Array, default: () => [] },
   worksWell: { type: Array, default: () => [] },
 })
 
+const extensionType = props.extensionType || EXTENSIONS.find(ext => ext.repo === props.repo)?.extensionType || ''
 const repoUrl = props.repo ? `https://github.com/${props.repo}` : ''
 const starsImg = props.repo
   ? `https://img.shields.io/github/stars/${props.repo}?style=flat&color=8b5cf6&labelColor=1f2234`
@@ -38,6 +41,7 @@ const tileUrl = (extId && extensionMeta[extId]?.tileUrl) || null
         <p class="ext-header-desc">{{ description }}</p>
         <div class="ext-header-meta">
           <span class="ext-header-badge">{{ category }}</span>
+          <a v-if="extensionType" :href="`/extensions/${extensionType}/`" class="ext-header-badge">{{ extensionType === 'wasm' ? 'WASM extension' : 'Python extension' }}</a>
           <span class="ext-header-badge ext-header-badge--open-source">Open Source</span>
         </div>
       </div>

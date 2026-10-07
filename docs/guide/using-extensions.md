@@ -4,6 +4,13 @@
 
 Extensions add features to LNbits - from point-of-sale terminals to atomic swaps.
 
+## Extension types
+
+- [WASM extensions](/extensions/wasm/) run in a sandbox with explicit host permissions. These docs cover the core runtime in LNbits 1.6.2.
+- [Python extensions](/extensions/python/) run within the LNbits application. Install code from sources you trust.
+
+Both types are installed on the instance and enabled per account. Check the extension's supported LNbits versions before installing.
+
 ## Browsing extensions
 
 1. Log in to your LNbits account
@@ -19,7 +26,7 @@ Extensions add features to LNbits - from point-of-sale terminals to atomic swaps
 3. Wait for download and database setup
 4. Click **Enable** to activate it for your account
 
-### Via the API
+### Python installation via the API
 
 ```bash
 # Install
@@ -74,19 +81,20 @@ LNBITS_ADMIN_EXTENSIONS=watchonly,boltz
 LNBITS_USER_DEFAULT_EXTENSIONS=lnurlp,tpos
 ```
 
+## WASM wallet permissions
+
+A WASM extension may ask to create invoices, watch payments, or send background payouts. Review the selected wallet, per-payment maximum, and allowed destinations before approving a background grant. The maximum applies to each payment, not total spending.
+
+You can decline a request; the extension should explain which feature needs approval. See [WASM Extensions](/extensions/wasm/#wallet-permissions) for the user overview and [Permissions and payments](/dev/extensions/wasm/permissions) for the developer model.
+
 ## Extension URLs
 
-Once activated, each extension is available at:
+| Type | UI | API |
+| --- | --- | --- |
+| Python | `/<extension-id>/` | `/<extension-id>/api/v1/...` |
+| Core WASM | `/ext/<extension-id>` (or declared subroute) | `/api/v1/ext/<extension-id>/...` |
 
-```
-https://your-lnbits.com/<extension-id>/
-```
-
-Extension API endpoints are at:
-
-```
-https://your-lnbits.com/<extension-id>/api/v1/...
-```
+WASM iframe pages call APIs through the LNbits bridge. Public pages have only the public routes declared by the extension. The older WASM host uses different URLs; check legacy examples' compatibility notes.
 
 ## Uninstalling
 
@@ -99,24 +107,19 @@ curl -X DELETE https://your-lnbits.com/api/v1/extension/EXTENSION_ID \
 Uninstalling an extension removes its code and UI, but **does not delete its database tables**. Your data is preserved and will be restored if the extension is reinstalled.
 :::
 
-## Extension manifest format
+## Extension sources
 
-LNbits discovers extensions through manifest files - JSON documents that list available extensions and their download URLs. The official LNbits registry is a manifest, and you can add custom manifests.
-
-### Adding custom extension sources
+LNbits discovers releases through manifest files. Administrators configure Python and WASM sources separately in extension settings or environment variables:
 
 ```bash
-# Via environment variable
-LNBITS_EXTENSIONS_MANIFESTS='["https://example.com/my-manifest.json"]'
+# Python sources
+LNBITS_EXTENSIONS_MANIFESTS='["https://example.com/python-extensions.json"]'
+
+# Core WASM sources
+LNBITS_WASM_EXTENSIONS_MANIFESTS='["https://example.com/wasm-extensions.json"]'
 ```
 
-Or via the Admin UI under **Admin** → **Server** → **Extension Sources**.
-
-Manifests support two modes:
-- **Explicit release** - each version is listed directly with a download URL and hash
-- **GitHub repository** - LNbits auto-discovers releases from a GitHub repo
-
-See [Remote Manifest](/dev/extensions/manifest) for the full manifest format specification.
+These examples replace the source lists; retain the official source URLs if you want both official and custom releases. See [Python manifests](/dev/extensions/python/manifest) and [WASM deployment](/dev/extensions/wasm/deployment#wasm-manifests) for formats and registry links.
 
 ## Three-state activation
 
@@ -134,5 +137,6 @@ Admins control installation and instance-level enablement. Individual users cont
 
 - [Extensions Directory](/extensions/) - browse all available LNbits extensions
 - [Admin Dashboard](/guide/admin-dashboard) - manage extensions and server settings
-- [Building Extensions](/dev/building-extensions) - develop your own LNbits extensions
-- [Deploying Extensions](/dev/extensions/) - packaging, distribution, and installation methods
+- [Developing Extensions](/dev/extensions/) - choose WASM or Python and build your own
+- [WASM Extensions](/extensions/wasm/) - compatibility, permissions, and administration
+- [Python Extensions](/extensions/python/) - application-level integrations

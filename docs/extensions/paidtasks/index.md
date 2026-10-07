@@ -1,10 +1,15 @@
 <ExtensionHeader
+  extension-type="wasm"
   name="PaidTasks"
   description="Paid task lists with public payment pages."
   category="Management"
   icon="✅"
   repo="lnbits/paidtasks"
 />
+
+::: warning Legacy WASM host
+This page describes the original `wasm` host extension and its KV/permission interfaces. It is a WASM extension, but this package is **not compatible with the core WASM runtime** documented for LNbits 1.6.2. Use it only with its matching host version. For new development, start with [Core WASM Extensions](/dev/extensions/wasm/).
+:::
 
 ## Key Files
 

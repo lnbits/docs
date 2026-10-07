@@ -43,7 +43,7 @@ LNbits needs a funding source to process real payments:
 ## Extend
 
 - [Extensions overview](/extensions/)
-- [Build your own](/dev/building-extensions)
+- [Build your own](/dev/extensions/python/building)
 
 ## Contribute to LNbits
 

@@ -1,0 +1,17 @@
+{
+  "id": "hello_wasm",
+  "name": "Hello WASM",
+  "short_description": "A small greeting extension.",
+  "version": "0.1.0",
+  "min_lnbits_version": "1.6.2",
+  "extension_type": "wasm",
+  "wasm": {
+    "module": "wasm/module.wasm",
+    "wit": "wasm/hello.wit",
+    "world": "hello",
+    "exports": [{"name": "greet", "visibility": "public"}]
+  },
+  "ui_routes": [{"path": "/hello_wasm", "entrypoint": "ui/index.html", "auth": "public"}],
+  "api_routes": [{"method": "POST", "path": "/greet", "export": "greet", "auth": "public"}],
+  "permissions": []
+}

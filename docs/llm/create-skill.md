@@ -281,4 +281,4 @@ What the agent needs to know before starting.
 - [Skills Catalog](/llm/skills) - available LNbits skill files
 - [LLM Integration](/llm/) - how AI agents consume LNbits documentation
 - [API Reference](/api/) - core and admin endpoints
-- [Building Extensions](/dev/building-extensions) - extension development guide
+- [Building Extensions](/dev/extensions/) - extension development guide
