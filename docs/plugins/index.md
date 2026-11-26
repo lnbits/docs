@@ -16,6 +16,7 @@ Plugins are **not** LNbits extensions or companion apps. They live inside extern
 | Plugin | Platform | Features |
 |---|---|---|
 | [WooCommerce](/plugins/woocommerce) | WordPress / WooCommerce | Lightning + on-chain, auto-conversion, order management |
+| [OpenReceive](/plugins/openreceive) | WooCommerce, Easy Digital Downloads, PrestaShop, Odoo and more | Lightning into an LNbits wallet over a receive-only NWC connection |
 
 ## Requirements
 

@@ -551,6 +551,7 @@ export default withMermaid(defineConfig({
           collapsed: false,
           items: [
             { text: 'WooCommerce', link: '/plugins/woocommerce' },
+            { text: 'OpenReceive', link: '/plugins/openreceive' },
           ],
         },
       ],
